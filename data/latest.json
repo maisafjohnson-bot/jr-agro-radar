@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-30T14:14:33.221Z",
+ "gerado_em": "2026-10-30T15:17:25.901Z",
  "metodologia": {
   "versao": "0.3.1-experimental",
   "status": "HEURÍSTICO EXPERIMENTAL — pesos definidos por raciocínio econômico, NÃO calibrados com vendas da JR Agro. Não tem capacidade preditiva validada."
@@ -589,7 +589,7 @@
   }
  },
  "diagnostico": {
-  "data_analise": "2026-10-30T14:14:33.221Z",
+  "data_analise": "2026-10-30T15:17:25.901Z",
   "situacao": "misto",
   "recomendacao": "MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO",
   "confianca": "baixa",
@@ -1182,7 +1182,7 @@
     ]
    ],
    "historico_url": "data/observations/usd_brl.json",
-   "fonte_consultada_em": "2026-10-30T14:14:34.145Z",
+   "fonte_consultada_em": "2026-10-30T15:17:26.720Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -1485,7 +1485,7 @@
     ]
    ],
    "historico_url": "data/observations/selic_meta.json",
-   "fonte_consultada_em": "2026-10-30T14:14:34.870Z",
+   "fonte_consultada_em": "2026-10-30T15:17:26.927Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -1772,7 +1772,7 @@
     ]
    ],
    "historico_url": "data/observations/ipca_12m.json",
-   "fonte_consultada_em": "2026-10-30T14:14:35.512Z",
+   "fonte_consultada_em": "2026-10-30T15:17:27.249Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2061,7 +2061,7 @@
     ]
    ],
    "historico_url": "data/observations/icbr_agro.json",
-   "fonte_consultada_em": "2026-10-30T14:14:36.514Z",
+   "fonte_consultada_em": "2026-10-30T15:17:28.108Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2358,7 +2358,7 @@
     ]
    ],
    "historico_url": "data/observations/focus_selic_prox_ano.json",
-   "fonte_consultada_em": "2026-10-30T14:14:37.333Z",
+   "fonte_consultada_em": "2026-10-30T15:17:28.799Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2655,7 +2655,7 @@
     ]
    ],
    "historico_url": "data/observations/focus_ipca_prox_ano.json",
-   "fonte_consultada_em": "2026-10-30T14:14:38.117Z",
+   "fonte_consultada_em": "2026-10-30T15:17:29.448Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2950,7 +2950,7 @@
     ]
    ],
    "historico_url": "data/observations/soja_cepea.json",
-   "fonte_consultada_em": "2026-10-30T14:14:40.627Z",
+   "fonte_consultada_em": "2026-10-30T15:17:31.978Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -3057,7 +3057,7 @@
     ]
    ],
    "historico_url": "data/observations/milho_cepea.json",
-   "fonte_consultada_em": "2026-10-30T14:14:40.628Z",
+   "fonte_consultada_em": "2026-10-30T15:17:31.979Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -3164,7 +3164,7 @@
     ]
    ],
    "historico_url": "data/observations/boi_cepea.json",
-   "fonte_consultada_em": "2026-10-30T14:14:40.628Z",
+   "fonte_consultada_em": "2026-10-30T15:17:31.979Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -3198,7 +3198,7 @@
     ]
    ],
    "historico_url": "data/observations/algodao_cepea.json",
-   "fonte_consultada_em": "2026-10-30T14:14:40.628Z",
+   "fonte_consultada_em": "2026-10-30T15:17:31.979Z",
    "dado_novo_nesta_execucao": false
   }
  ],
@@ -3481,16 +3481,23 @@
   "indices": {
    "PICCIN": {
     "marca": "PICCIN",
-    "valor": 44,
-    "cobertura": 0.7,
+    "valor": 47,
+    "cobertura": 0.8,
     "confianca": "baixa",
-    "motivo_confianca": "cobertura 65% dos pesos; sem dado regional de área (IBGE); sem histórico comercial no CRM; pesos heurísticos, não calibrados com vendas",
+    "motivo_confianca": "cobertura 75% dos pesos; sem histórico comercial no CRM; pesos heurísticos, não calibrados com vendas",
     "faltando": [
-     "Perfil de demanda",
      "Sazonalidade de vendas",
      "Evidência de intenção de compra"
     ],
-    "positivos": [],
+    "positivos": [
+     {
+      "id": "demanda",
+      "nome": "Perfil de demanda",
+      "valor": 69,
+      "detalhe": "Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).",
+      "efeito": 19
+     }
+    ],
     "negativos": [
      {
       "id": "aderencia",
@@ -3518,8 +3525,8 @@
       "detalhe": "0 de 53 produtos em janela de decisão de compra."
      },
      "demanda": {
-      "valor": null,
-      "detalhe": "Requer IBGE PAM de dois anos (coleta regional ainda não feita)."
+      "valor": 69,
+      "detalhe": "Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM)."
      },
      "sazonalidade": {
       "valor": null,
@@ -3549,23 +3556,127 @@
       "papel": "em_uso"
      }
     ],
-    "regioes": [],
-    "regional_disponivel": false,
+    "regioes": [
+     {
+      "codigo": "5101902",
+      "nome": "Brasnorte",
+      "uf": "MT",
+      "soja_ha": 292879,
+      "milho_ha": 184877,
+      "algodao_ha": 32894,
+      "cafe_ha": null,
+      "bovinos_cab": 464919,
+      "potencial_crucianelli": 96,
+      "potencial_piccin": 93
+     },
+     {
+      "codigo": "5105101",
+      "nome": "Juara",
+      "uf": "MT",
+      "soja_ha": 140000,
+      "milho_ha": 87349,
+      "algodao_ha": 11124,
+      "cafe_ha": 400,
+      "bovinos_cab": 908664,
+      "potencial_crucianelli": 85,
+      "potencial_piccin": 90
+     },
+     {
+      "codigo": "5106307",
+      "nome": "Paranatinga",
+      "uf": "MT",
+      "soja_ha": 395000,
+      "milho_ha": 113700,
+      "algodao_ha": 13125,
+      "cafe_ha": null,
+      "bovinos_cab": 365369,
+      "potencial_crucianelli": 96,
+      "potencial_piccin": 88
+     },
+     {
+      "codigo": "5100250",
+      "nome": "Alta Floresta",
+      "uf": "MT",
+      "soja_ha": 105000,
+      "milho_ha": 55000,
+      "algodao_ha": null,
+      "cafe_ha": 200,
+      "bovinos_cab": 667629,
+      "potencial_crucianelli": 81,
+      "potencial_piccin": 87
+     },
+     {
+      "codigo": "5104609",
+      "nome": "Itiquira",
+      "uf": "MT",
+      "soja_ha": 252000,
+      "milho_ha": 121800,
+      "algodao_ha": 7889,
+      "cafe_ha": 6,
+      "bovinos_cab": 370067,
+      "potencial_crucianelli": 90,
+      "potencial_piccin": 85
+     },
+     {
+      "codigo": "1100205",
+      "nome": "Porto Velho",
+      "uf": "RO",
+      "soja_ha": 55368,
+      "milho_ha": 23015,
+      "algodao_ha": null,
+      "cafe_ha": 1120,
+      "bovinos_cab": 1678295,
+      "potencial_crucianelli": 67,
+      "potencial_piccin": 81
+     },
+     {
+      "codigo": "1100072",
+      "nome": "Corumbiara",
+      "uf": "RO",
+      "soja_ha": 56895,
+      "milho_ha": 42510,
+      "algodao_ha": null,
+      "cafe_ha": 4,
+      "bovinos_cab": 322000,
+      "potencial_crucianelli": 72,
+      "potencial_piccin": 72
+     },
+     {
+      "codigo": "1200401",
+      "nome": "Rio Branco",
+      "uf": "AC",
+      "soja_ha": 1870,
+      "milho_ha": 3000,
+      "algodao_ha": null,
+      "cafe_ha": 5,
+      "bovinos_cab": 692787,
+      "potencial_crucianelli": 30,
+      "potencial_piccin": 56
+     }
+    ],
+    "regional_disponivel": true,
     "anterior": null,
     "variacao": null
    },
    "CRUCIANELLI": {
     "marca": "CRUCIANELLI",
-    "valor": 44,
-    "cobertura": 0.7,
+    "valor": 47,
+    "cobertura": 0.8,
     "confianca": "baixa",
-    "motivo_confianca": "cobertura 65% dos pesos; sem dado regional de área (IBGE); sem histórico comercial no CRM; pesos heurísticos, não calibrados com vendas",
+    "motivo_confianca": "cobertura 75% dos pesos; sem histórico comercial no CRM; pesos heurísticos, não calibrados com vendas",
     "faltando": [
-     "Perfil de demanda",
      "Sazonalidade de vendas",
      "Evidência de intenção de compra"
     ],
-    "positivos": [],
+    "positivos": [
+     {
+      "id": "demanda",
+      "nome": "Perfil de demanda",
+      "valor": 69,
+      "detalhe": "Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).",
+      "efeito": 19
+     }
+    ],
     "negativos": [
      {
       "id": "aderencia",
@@ -3593,8 +3704,8 @@
       "detalhe": "0 de 1 produtos em janela de decisão de compra."
      },
      "demanda": {
-      "valor": null,
-      "detalhe": "Requer IBGE PAM de dois anos (coleta regional ainda não feita)."
+      "valor": 69,
+      "detalhe": "Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM)."
      },
      "sazonalidade": {
       "valor": null,
@@ -3638,8 +3749,105 @@
       "papel": "em_uso"
      }
     ],
-    "regioes": [],
-    "regional_disponivel": false,
+    "regioes": [
+     {
+      "codigo": "5107925",
+      "nome": "Sorriso",
+      "uf": "MT",
+      "soja_ha": 550000,
+      "milho_ha": 450000,
+      "algodao_ha": 59000,
+      "cafe_ha": null,
+      "bovinos_cab": 100873,
+      "potencial_crucianelli": 100,
+      "potencial_piccin": 70
+     },
+     {
+      "codigo": "5106224",
+      "nome": "Nova Mutum",
+      "uf": "MT",
+      "soja_ha": 415000,
+      "milho_ha": 311500,
+      "algodao_ha": 45000,
+      "cafe_ha": null,
+      "bovinos_cab": 144461,
+      "potencial_crucianelli": 99,
+      "potencial_piccin": 76
+     },
+     {
+      "codigo": "5107875",
+      "nome": "Sapezal",
+      "uf": "MT",
+      "soja_ha": 393550,
+      "milho_ha": 112930,
+      "algodao_ha": 246002,
+      "cafe_ha": null,
+      "bovinos_cab": 161742,
+      "potencial_crucianelli": 99,
+      "potencial_piccin": 78
+     },
+     {
+      "codigo": "5102637",
+      "nome": "Campo Novo do Parecis",
+      "uf": "MT",
+      "soja_ha": 408000,
+      "milho_ha": 164552,
+      "algodao_ha": 150075,
+      "cafe_ha": null,
+      "bovinos_cab": 172397,
+      "potencial_crucianelli": 98,
+      "potencial_piccin": 78
+     },
+     {
+      "codigo": "5103502",
+      "nome": "Diamantino",
+      "uf": "MT",
+      "soja_ha": 405175,
+      "milho_ha": 245360,
+      "algodao_ha": 72905,
+      "cafe_ha": null,
+      "bovinos_cab": 121885,
+      "potencial_crucianelli": 98,
+      "potencial_piccin": 73
+     },
+     {
+      "codigo": "1100072",
+      "nome": "Corumbiara",
+      "uf": "RO",
+      "soja_ha": 56895,
+      "milho_ha": 42510,
+      "algodao_ha": null,
+      "cafe_ha": 4,
+      "bovinos_cab": 322000,
+      "potencial_crucianelli": 72,
+      "potencial_piccin": 72
+     },
+     {
+      "codigo": "1101468",
+      "nome": "Pimenteiras do Oeste",
+      "uf": "RO",
+      "soja_ha": 51726,
+      "milho_ha": 47250,
+      "algodao_ha": null,
+      "cafe_ha": 9,
+      "bovinos_cab": 110500,
+      "potencial_crucianelli": 71,
+      "potencial_piccin": 55
+     },
+     {
+      "codigo": "1200385",
+      "nome": "Plácido de Castro",
+      "uf": "AC",
+      "soja_ha": 6190,
+      "milho_ha": 5600,
+      "algodao_ha": null,
+      "cafe_ha": 45,
+      "bovinos_cab": 327130,
+      "potencial_crucianelli": 41,
+      "potencial_piccin": 54
+     }
+    ],
+    "regional_disponivel": true,
     "anterior": null,
     "variacao": null
    }
@@ -3648,10 +3856,10 @@
    "prioridade_marca": {
     "marca": "PICCIN",
     "nome": "Piccin",
-    "porque": "Índices próximos (44 × 44); desempate pelo calendário: MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso).",
+    "porque": "Índices próximos (47 × 47); desempate pelo calendário: MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso).",
     "outra": {
      "marca": "CRUCIANELLI",
-     "valor": 44
+     "valor": 47
     }
    },
    "equipamento": {
@@ -3770,10 +3978,74 @@
     "porque": "Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja). Modelo do catálogo: MASTER DH 1 (p. 45); escolha a opção pelo trator do cliente."
    },
    "regiao": {
-    "municipios": [],
-    "texto": "MT — praças de lavoura; RO e AC — áreas de pastagem e abertura",
-    "porque": "Dados municipais do IBGE ainda não coletados: indicação pelo perfil produtivo conhecido das regiões. Priorize municípios onde você já tem clientes no CRM.",
-    "base": "perfil produtivo (sem dado municipal)"
+    "municipios": [
+     {
+      "nome": "Brasnorte",
+      "uf": "MT",
+      "potencial": 93,
+      "soja_ha": 292879,
+      "milho_ha": 184877,
+      "bovinos_cab": 464919
+     },
+     {
+      "nome": "Juara",
+      "uf": "MT",
+      "potencial": 90,
+      "soja_ha": 140000,
+      "milho_ha": 87349,
+      "bovinos_cab": 908664
+     },
+     {
+      "nome": "Paranatinga",
+      "uf": "MT",
+      "potencial": 88,
+      "soja_ha": 395000,
+      "milho_ha": 113700,
+      "bovinos_cab": 365369
+     },
+     {
+      "nome": "Alta Floresta",
+      "uf": "MT",
+      "potencial": 87,
+      "soja_ha": 105000,
+      "milho_ha": 55000,
+      "bovinos_cab": 667629
+     },
+     {
+      "nome": "Itiquira",
+      "uf": "MT",
+      "potencial": 85,
+      "soja_ha": 252000,
+      "milho_ha": 121800,
+      "bovinos_cab": 370067
+     },
+     {
+      "nome": "Porto Velho",
+      "uf": "RO",
+      "potencial": 81,
+      "soja_ha": 55368,
+      "milho_ha": 23015,
+      "bovinos_cab": 1678295
+     },
+     {
+      "nome": "Corumbiara",
+      "uf": "RO",
+      "potencial": 72,
+      "soja_ha": 56895,
+      "milho_ha": 42510,
+      "bovinos_cab": 322000
+     },
+     {
+      "nome": "Rio Branco",
+      "uf": "AC",
+      "potencial": 56,
+      "soja_ha": 1870,
+      "milho_ha": 3000,
+      "bovinos_cab": 692787
+     }
+    ],
+    "porque": "Maior potencial estrutural para Piccin segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.",
+    "base": "IBGE"
    },
    "perfil_cliente": {
     "publicos": [
@@ -3795,7 +4067,7 @@
     },
     {
      "tipo": "Ligar para uma revenda",
-     "texto": "Ligar para uma revenda de MT e levantar a procura por distribuidores Piccin.",
+     "texto": "Ligar para uma revenda de Brasnorte e levantar a procura por distribuidores Piccin.",
      "porque": "Revenda concentra a demanda de vários produtores; uma ligação valida se a oportunidade é real."
     },
     {
@@ -3816,7 +4088,8 @@
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "5 modelos no catálogo, para tratores de 50 a 100 cv"
+      "5 modelos no catálogo, para tratores de 50 a 100 cv",
+      "Brasnorte (MT) está entre os municípios de maior área de lavoura no IBGE — 292.879 ha de soja em 2025"
      ],
      "perfil_cliente": {
       "texto": "pequenos e médios produtores (tratores até ~100 cv)",
@@ -3859,7 +4132,7 @@
       "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
      ],
      "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Brasnorte e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
     },
     "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
    },
@@ -4006,7 +4279,8 @@
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "5 modelos no catálogo, para tratores de 50 a 100 cv"
+      "5 modelos no catálogo, para tratores de 50 a 100 cv",
+      "Brasnorte (MT) está entre os municípios de maior área de lavoura no IBGE — 292.879 ha de soja em 2025"
      ],
      "perfil_cliente": {
       "texto": "pequenos e médios produtores (tratores até ~100 cv)",
@@ -4064,7 +4338,8 @@
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "1 modelo no catálogo, para tratores de 140 a 140 cv"
+      "1 modelo no catálogo, para tratores de 140 a 140 cv",
+      "Brasnorte (MT) está entre os municípios de maior área de lavoura no IBGE — 292.879 ha de soja em 2025"
      ],
      "perfil_cliente": {
       "texto": "médios e grandes produtores (tratores de 100 a 250 cv)",
@@ -4126,7 +4401,8 @@
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "1 modelo no catálogo, para tratores de 200 a 200 cv"
+      "1 modelo no catálogo, para tratores de 200 a 200 cv",
+      "Brasnorte (MT) está entre os municípios de maior área de lavoura no IBGE — 292.879 ha de soja em 2025"
      ],
      "perfil_cliente": {
       "texto": "grandes propriedades e grupos agrícolas (tratores acima de 200 cv)",
@@ -4179,7 +4455,8 @@
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "3 modelos no catálogo, para tratores de 220 a 310 HP"
+      "3 modelos no catálogo, para tratores de 220 a 310 HP",
+      "Sorriso (MT) está entre os municípios de maior área de lavoura no IBGE — 550.000 ha de soja em 2025"
      ],
      "perfil_cliente": {
       "texto": "grandes propriedades e grupos agrícolas (tratores acima de 200 HP)",
@@ -4269,13 +4546,16 @@
    }
   ],
   "regional": {
-   "disponivel": false,
-   "motivo": "Dados municipais do IBGE ainda não coletados (a coleta roda no agendador da nuvem).",
-   "ano_pam": null,
-   "ano_ppm": null,
-   "fontes": [],
-   "metodo": null,
-   "aviso": null
+   "disponivel": true,
+   "motivo": null,
+   "ano_pam": 2025,
+   "ano_ppm": 2025,
+   "fontes": [
+    "IBGE — Produção Agrícola Municipal (PAM), tabela 5457",
+    "IBGE — Pesquisa da Pecuária Municipal (PPM), tabela 3939"
+   ],
+   "metodo": "Percentil entre municípios de MT, RO e AC. Crucianelli: área de soja+milho+algodão. Piccin: 60% lavouras + 40% rebanho bovino.",
+   "aviso": "Potencial estrutural (tamanho da atividade). Não indica intenção de compra nem oportunidade comprovada."
   },
   "catalogo": {
    "produtos": 60,
@@ -4286,10 +4566,10 @@
    "gerado_em": "2026-10-29"
   }
  },
- "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 30/10/2026 14:14 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 51/100 (Misto / neutro); agrícola 51; pecuário —.\n\n_[Interpretação]_ Índice geral em 51/100 (misto / neutro), confiança baixa. Pesam a favor: o índice de commodities agro do BC. Pesam contra: a inflação esperada para o próximo ano e a Selic. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Índice de Commodities Brasil (IC-Br) — Agropecuária (+3,8% (01/06/2026 → 01/09/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,04 p.p. (4,30% → 4,34%, 19/10/2026 → 23/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 44 · confiança baixa.\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra.\n- Sem dado: Perfil de demanda, Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Distribuidores** — Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja).\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 44 · confiança baixa.\n- Contra: Aderência do portfólio (0) — 0 de 1 produtos em janela de decisão de compra.\n- Sem dado: Perfil de demanda, Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 54 | 54 |\n| credito | 45 | 45 |\n| momento | 55 | 55 |\n| aderencia | 0 | 0 |\n| demanda | — | — |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **44** | **44** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- MT — praças de lavoura; RO e AC — áreas de pastagem e abertura\n\nDados municipais do IBGE ainda não coletados: indicação pelo perfil produtivo conhecido das regiões. Priorize municípios onde você já tem clientes no CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Distribuidores:** MASTER DH 1 (pequeno/médio, 50–100 cv, p. 45); MASTER 10000 BI RB (médio/grande, 140–140 cv, p. 50); MASTER 25000 HEAVY DUTY RB (grande, 200–200 cv, p. 57)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores com o equipamento em uso agora; Revendas agrícolas que atendem esse público — Pequenos e médios produtores, Médios e grandes produtores, Grandes propriedades e grupos agrícolas.\n- Distribuidores tem opções de MASTER DH 1 (50–100 cv), MASTER 10000 BI RB (140 cv), MASTER 25000 HEAVY DUTY RB (200 cv): o porte do cliente define o modelo (catálogo).\n\n## 8. Principais oportunidades identificadas\n- Agricultura: manter negociações e relacionamento (índice 51)\n- Pecuária: sem dados suficientes\n- _[Hipótese comercial]_ possível adiamento: A Selic esperada para o próximo ano caiu 0,25 p.p. Parte dos produtores pode adiar compras esperando crédito mais barato.\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Vou esperar os juros caírem mais.\" — Expectativa não é garantia. Perguntar quanto custa adiar (perda de rendimento, paradas, janela de plantio) e se a decisão pode ser preparada agora para fechar quando fizer sentido.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n- Dados municipais do IBGE ainda não coletados (a coleta roda no agendador da nuvem).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Piccin — Índices próximos (44 × 44); desempate pelo calendário: MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso).\n2. **Equipamento:** MASTER DH 1 — Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja). Modelo do catálogo: MASTER DH 1 (p. 45); escolha a opção pelo trator do cliente.\n3. **Região:** MT — praças de lavoura; RO e AC — áreas de pastagem e abertura.\n4. **Perfil:** Pequenos e médios produtores, Médios e grandes produtores, Grandes propriedades e grupos agrícolas.\n5. **Ação:** Agendar visita a produtor com distribuidores em operação para levantar gargalos e preparar a próxima compra. / Ligar para uma revenda de MT e levantar a procura por distribuidores Piccin. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Piccin MASTER DH 1):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER DH 1 da Piccin: capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,37 R$/US$ | 29/10/2026 | +2,9% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 30/10/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 454,0 índice | 01/09/2026 | +0,1% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 11,75% a.a. | 23/10/2026 | -0,25 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,34% | 23/10/2026 | +0,04 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 158,28 R$/saca 60 kg | 29/10/2026 | +4,2% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 65,59 R$/saca 60 kg | 29/10/2026 | +2,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 389,20 R$/@ | 29/10/2026 | +2,3% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 412,15 centavos de R$/lp | 29/10/2026 | — | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: não coletados.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
+ "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 30/10/2026 15:17 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 51/100 (Misto / neutro); agrícola 51; pecuário —.\n\n_[Interpretação]_ Índice geral em 51/100 (misto / neutro), confiança baixa. Pesam a favor: o índice de commodities agro do BC. Pesam contra: a inflação esperada para o próximo ano e a Selic. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Índice de Commodities Brasil (IC-Br) — Agropecuária (+3,8% (01/06/2026 → 01/09/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,04 p.p. (4,30% → 4,34%, 19/10/2026 → 23/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 47 · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra.\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Distribuidores** — Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja).\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 47 · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 1 produtos em janela de decisão de compra.\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 54 | 54 |\n| credito | 45 | 45 |\n| momento | 55 | 55 |\n| aderencia | 0 | 0 |\n| demanda | 69 | 69 |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **47** | **47** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- Brasnorte (MT) — potencial 93; soja 292.879 ha; bovinos 464.919 cab.\n- Juara (MT) — potencial 90; soja 140.000 ha; bovinos 908.664 cab.\n- Paranatinga (MT) — potencial 88; soja 395.000 ha; bovinos 365.369 cab.\n- Alta Floresta (MT) — potencial 87; soja 105.000 ha; bovinos 667.629 cab.\n- Itiquira (MT) — potencial 85; soja 252.000 ha; bovinos 370.067 cab.\n- Porto Velho (RO) — potencial 81; soja 55.368 ha; bovinos 1.678.295 cab.\n- Corumbiara (RO) — potencial 72; soja 56.895 ha; bovinos 322.000 cab.\n- Rio Branco (AC) — potencial 56; soja 1.870 ha; bovinos 692.787 cab.\n\nMaior potencial estrutural para Piccin segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Distribuidores:** MASTER DH 1 (pequeno/médio, 50–100 cv, p. 45); MASTER 10000 BI RB (médio/grande, 140–140 cv, p. 50); MASTER 25000 HEAVY DUTY RB (grande, 200–200 cv, p. 57)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores com o equipamento em uso agora; Revendas agrícolas que atendem esse público — Pequenos e médios produtores, Médios e grandes produtores, Grandes propriedades e grupos agrícolas.\n- Distribuidores tem opções de MASTER DH 1 (50–100 cv), MASTER 10000 BI RB (140 cv), MASTER 25000 HEAVY DUTY RB (200 cv): o porte do cliente define o modelo (catálogo).\n\n## 8. Principais oportunidades identificadas\n- Agricultura: manter negociações e relacionamento (índice 51)\n- Pecuária: sem dados suficientes\n- _[Hipótese comercial]_ possível adiamento: A Selic esperada para o próximo ano caiu 0,25 p.p. Parte dos produtores pode adiar compras esperando crédito mais barato.\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Vou esperar os juros caírem mais.\" — Expectativa não é garantia. Perguntar quanto custa adiar (perda de rendimento, paradas, janela de plantio) e se a decisão pode ser preparada agora para fechar quando fizer sentido.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Piccin — Índices próximos (47 × 47); desempate pelo calendário: MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso).\n2. **Equipamento:** MASTER DH 1 — Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja). Modelo do catálogo: MASTER DH 1 (p. 45); escolha a opção pelo trator do cliente.\n3. **Região:** Brasnorte, Juara, Paranatinga.\n4. **Perfil:** Pequenos e médios produtores, Médios e grandes produtores, Grandes propriedades e grupos agrícolas.\n5. **Ação:** Agendar visita a produtor com distribuidores em operação para levantar gargalos e preparar a próxima compra. / Ligar para uma revenda de Brasnorte e levantar a procura por distribuidores Piccin. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Piccin MASTER DH 1):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER DH 1 da Piccin: capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Brasnorte e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,37 R$/US$ | 29/10/2026 | +2,9% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 30/10/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 454,0 índice | 01/09/2026 | +0,1% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 11,75% a.a. | 23/10/2026 | -0,25 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,34% | 23/10/2026 | +0,04 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 158,28 R$/saca 60 kg | 29/10/2026 | +4,2% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 65,59 R$/saca 60 kg | 29/10/2026 | +2,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 389,20 R$/@ | 29/10/2026 | +2,3% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 412,15 centavos de R$/lp | 29/10/2026 | — | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: IBGE PAM 2025, PPM 2025.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
  "catalogo_alterado": false,
  "saude": {
-  "ultima_execucao": "2026-10-30T14:18:25.357Z",
+  "ultima_execucao": "2026-10-30T15:17:32.034Z",
   "ultima_execucao_ok": true,
   "modo": "coleta",
   "coletas": [
@@ -4297,7 +4577,7 @@
     "id": "usd_brl",
     "ok": true,
     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json&dataInicial=19/10/2026&dataFinal=30/10/2026",
-    "verificado_em": "2026-10-30T14:14:34.145Z",
+    "verificado_em": "2026-10-30T15:17:26.720Z",
     "recebidas": 9,
     "rejeitadas": 0,
     "suspeitas": [
@@ -4317,7 +4597,7 @@
     "id": "selic_meta",
     "ok": true,
     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=20/10/2026&dataFinal=30/10/2026",
-    "verificado_em": "2026-10-30T14:14:34.870Z",
+    "verificado_em": "2026-10-30T15:17:26.927Z",
     "recebidas": 11,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4330,7 +4610,7 @@
     "id": "ipca_12m",
     "ok": true,
     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json&dataInicial=22/08/2026&dataFinal=30/10/2026",
-    "verificado_em": "2026-10-30T14:14:35.512Z",
+    "verificado_em": "2026-10-30T15:17:27.249Z",
     "recebidas": 2,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4343,7 +4623,7 @@
     "id": "icbr_agro",
     "ok": true,
     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.27575/dados?formato=json&dataInicial=22/08/2026&dataFinal=30/10/2026",
-    "verificado_em": "2026-10-30T14:14:36.514Z",
+    "verificado_em": "2026-10-30T15:17:28.108Z",
     "recebidas": 2,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4356,7 +4636,7 @@
     "id": "focus_selic_prox_ano",
     "ok": true,
     "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'Selic'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2026-10-23'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
-    "verificado_em": "2026-10-30T14:14:37.333Z",
+    "verificado_em": "2026-10-30T15:17:28.799Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4369,7 +4649,7 @@
     "id": "focus_ipca_prox_ano",
     "ok": true,
     "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'IPCA'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2026-10-23'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
-    "verificado_em": "2026-10-30T14:14:38.117Z",
+    "verificado_em": "2026-10-30T15:17:29.448Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4382,7 +4662,7 @@
     "id": "soja_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-10-30T14:14:40.627Z",
+    "verificado_em": "2026-10-30T15:17:31.978Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4395,7 +4675,7 @@
     "id": "milho_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-10-30T14:14:40.628Z",
+    "verificado_em": "2026-10-30T15:17:31.979Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4408,7 +4688,7 @@
     "id": "boi_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-10-30T14:14:40.628Z",
+    "verificado_em": "2026-10-30T15:17:31.979Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4421,7 +4701,7 @@
     "id": "algodao_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-10-30T14:14:40.628Z",
+    "verificado_em": "2026-10-30T15:17:31.979Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4451,24 +4731,11 @@
     "total": 1
    }
   ],
-  "erros": [
-   "ibge municipios: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-   "ibge pam: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-   "ibge ppm: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-   "ibge malha RO: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-   "ibge malha AC: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-   "ibge malha MT: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))"
-  ],
+  "erros": [],
+  "avisos": [],
   "regional": {
-   "erros": [
-    "ibge municipios: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-    "ibge pam: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-    "ibge ppm: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-    "ibge malha RO: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-    "ibge malha AC: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-    "ibge malha MT: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))"
-   ],
-   "ok": []
+   "pulado": true,
+   "motivo": "dados regionais coletados em 2026-10-30; próxima coleta após 30 dias (fonte anual)"
   }
  },
  "regional_novo_ano": null,
@@ -4482,16 +4749,6 @@
    ],
    "titulo": "Dólar comercial (venda): +6,7% (semanal)",
    "detalhe": "Entre 22/10/2026 e 29/10/2026; limite configurado ±3%. Fonte: Banco Central do Brasil — SGS série 1."
-  },
-  {
-   "id": "coleta_falhou",
-   "prioridade": "alta",
-   "canais": [
-    "painel",
-    "issue"
-   ],
-   "titulo": "Falha em 6 coleta(s)",
-   "detalhe": "ibge municipios: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms)) | ibge pam: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms)) | ibge ppm: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms)) | ibge malha RO: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms)) | ibge malha AC: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))"
   },
   {
    "id": "focus_selic",
