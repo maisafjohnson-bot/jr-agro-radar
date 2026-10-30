@@ -109,7 +109,7 @@ export async function collectRegional(store, { fetchImpl, agora = new Date(), di
     return { pulado: true, motivo: `dados regionais coletados em ${meta.ultima_coleta_ok.slice(0, 10)}; próxima coleta após ${dias} dias (fonte anual)` };
   }
   const res = { erros: [], ok: [] };
-  const tenta = async (nome, fn) => { try { await fn(); res.ok.push(nome); } catch (e) { res.erros.push(`ibge ${nome}: ${e.message || e}`); } };
+  const tenta = async (nome, fn) => { try { await fn(); res.ok.push(nome); } catch (e) { res.erros.push(`ibge ${nome}: ${e.message || e}${e.cause ? ` (causa: ${e.cause.code || ''} ${e.cause.message || e.cause})` : ''}`); } };
   await tenta('municipios', async () => store.writeJSON('data/regional/municipios.json', await collectMunicipios({ fetchImpl })));
   await tenta('pam', async () => store.writeJSON('data/regional/pam.json', await collectTabela(ALVOS.pam, { fetchImpl })));
   await tenta('ppm', async () => store.writeJSON('data/regional/ppm.json', await collectTabela(ALVOS.ppm, { fetchImpl })));
