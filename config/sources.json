@@ -130,12 +130,12 @@
       "unidade": "R$/saca 60 kg",
       "frequencia": "diaria",
       "abrangencia": "MT (estadual/praça informada no CSV)",
-      "fonte": "Importação manual (ex.: Cepea/Esalq ou IMEA) — informar a fonte em cada linha",
-      "fonte_url": "https://www.cepea.org.br/br/indicador/soja.aspx",
+      "fonte": "Importação manual — preferencialmente IMEA (indicador de preço disponível MT); alternativa Cepea/Esalq",
+      "fonte_url": "https://www.imea.com.br/imea-site/indicadores",
       "coleta": {
         "tipo": "manual"
       },
-      "termos": "Cepea e IMEA não oferecem API pública aberta; reprodução exige citação e respeito aos termos de cada instituição. Por isso a entrada é manual.",
+      "termos": "IMEA publica indicadores e boletins no site; a API (portal.imea.com.br) exige login e não tem termos de redistribuição públicos. Por isso a entrada continua manual, citando a fonte e a data.",
       "curto": "a soja em MT",
       "faixa_plausivel": [
         40,
@@ -149,12 +149,12 @@
       "unidade": "R$/saca 60 kg",
       "frequencia": "diaria",
       "abrangencia": "MT",
-      "fonte": "Importação manual (Cepea/IMEA)",
-      "fonte_url": "https://www.cepea.org.br/br/indicador/milho.aspx",
+      "fonte": "Importação manual — preferencialmente IMEA (indicador de preço disponível MT); alternativa Cepea/Esalq",
+      "fonte_url": "https://www.imea.com.br/imea-site/indicadores",
       "coleta": {
         "tipo": "manual"
       },
-      "termos": "Idem soja.",
+      "termos": "IMEA publica indicadores e boletins no site; a API (portal.imea.com.br) exige login e não tem termos de redistribuição públicos. Por isso a entrada continua manual, citando a fonte e a data.",
       "curto": "o milho em MT",
       "faixa_plausivel": [
         15,
@@ -168,8 +168,8 @@
       "unidade": "R$/@",
       "frequencia": "diaria",
       "abrangencia": "Informar praça (SP, MT ou RO) no CSV",
-      "fonte": "Importação manual (Cepea/IMEA/Acrimat)",
-      "fonte_url": "https://www.cepea.org.br/br/indicador/boi-gordo.aspx",
+      "fonte": "Importação manual — preferencialmente IMEA (boi gordo MT); alternativa Cepea/B3",
+      "fonte_url": "https://www.imea.com.br/imea-site/indicadores",
       "coleta": {
         "tipo": "manual"
       },
@@ -206,7 +206,7 @@
       "unidade": "informar no CSV",
       "frequencia": "mensal",
       "abrangencia": "informar no CSV",
-      "fonte": "Importação manual (ex.: IMEA custo de produção, Conab)",
+      "fonte": "Importação manual (IMEA — custo de produção; Conab)",
       "fonte_url": "https://www.conab.gov.br/info-agro/custos-de-producao",
       "coleta": {
         "tipo": "manual"
@@ -227,6 +227,82 @@
       },
       "termos": "Publicações sem API; respeitar direitos de reprodução.",
       "curto": "as vendas de máquinas agrícolas no país"
+    },
+    {
+      "id": "algodao_mt",
+      "nome": "Algodão — preço em Mato Grosso",
+      "curto": "o algodão em MT",
+      "unidade": "R$/@",
+      "frequencia": "diaria",
+      "abrangencia": "MT",
+      "fonte": "Importação manual (IMEA)",
+      "fonte_url": "https://www.imea.com.br/imea-site/indicadores",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "contexto": true,
+      "faixa_plausivel": [
+        40,
+        400
+      ],
+      "termos": "Idem soja."
+    },
+    {
+      "id": "imea_plantio_soja",
+      "nome": "Plantio da soja em MT (% da área)",
+      "curto": "o plantio da soja em MT",
+      "unidade": "% da área",
+      "frequencia": "semanal",
+      "abrangencia": "MT",
+      "fonte": "Importação manual (IMEA — boletim de semeadura)",
+      "fonte_url": "https://www.imea.com.br/imea-site/relatorios-mercado",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "contexto": true,
+      "faixa_plausivel": [
+        0,
+        100
+      ],
+      "termos": "Dado sazonal (set–dez). Informar a macrorregião na coluna praca quando não for o total do estado."
+    },
+    {
+      "id": "imea_comerc_soja",
+      "nome": "Comercialização da soja em MT (% da safra vendida)",
+      "curto": "a comercialização da soja em MT",
+      "unidade": "% da safra",
+      "frequencia": "mensal",
+      "abrangencia": "MT",
+      "fonte": "Importação manual (IMEA — boletim de comercialização)",
+      "fonte_url": "https://www.imea.com.br/imea-site/relatorios-mercado",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "contexto": true,
+      "faixa_plausivel": [
+        0,
+        100
+      ],
+      "termos": "Informar a safra (ex.: 2026/27) na coluna observacao."
+    },
+    {
+      "id": "imea_custo_soja",
+      "nome": "Custo total de produção da soja em MT",
+      "curto": "o custo de produção da soja em MT",
+      "unidade": "R$/ha",
+      "frequencia": "mensal",
+      "abrangencia": "MT",
+      "fonte": "Importação manual (IMEA/Senar-MT — custo de produção)",
+      "fonte_url": "https://lp.imea.com.br/custo-de-producao-agropecuaria-download",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "contexto": true,
+      "faixa_plausivel": [
+        2000,
+        20000
+      ],
+      "termos": "Informar a safra na coluna observacao."
     }
   ],
   "_doc_validacao": "faixa_plausivel: valores fora da faixa são REJEITADOS e registrados (protege contra código de série errado ou erro de digitação). salto_suspeito_pct: variação entre observações consecutivas acima do limite é MANTIDA, mas marcada para conferência."

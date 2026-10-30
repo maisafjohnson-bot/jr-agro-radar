@@ -16,6 +16,10 @@ const IMPLICACAO = {
   boi_gordo: v => v > 0 ? 'Arroba em alta: pecuarista com melhor receita, momento para conversar sobre estrutura e alimentação.' : v < 0 ? 'Arroba em queda: pecuarista mais cauteloso.' : 'Arroba estável.',
   diesel_mt: v => v > 0 ? 'Diesel em alta: argumento de eficiência operacional (menos passadas, maior rendimento) ganha peso.' : v < 0 ? 'Diesel em queda: alívio de custo operacional.' : 'Diesel estável.',
   fertilizante: v => v > 0 ? 'Fertilizante em alta: margem comprimida; distribuidores com dosagem precisa ganham argumento.' : v < 0 ? 'Fertilizante em queda: melhora a margem esperada.' : 'Fertilizante estável.',
+  algodao_mt: v => v > 0 ? 'Algodão valorizado: receita melhor para quem planta algodão (perfil de grandes áreas e alto investimento em máquinas).' : v < 0 ? 'Algodão em queda: produtor de algodão tende a adiar investimento.' : 'Algodão estável.',
+  imea_plantio_soja: v => v > 0 ? 'Plantio avançando: plantadeiras em uso — momento de acompanhar o desempenho em campo e mapear quem vai renovar para a safrinha e a próxima safra.' : 'Sem avanço registrado no plantio.',
+  imea_comerc_soja: v => v > 0 ? 'Venda da safra avançando: mais produtores com preço travado e caixa previsível — conversa de investimento fica mais concreta (confirmar com cada cliente).' : 'Comercialização parada: produtor esperando preço, caixa menos previsível.',
+  imea_custo_soja: v => v > 0 ? 'Custo de produção subindo: margem por hectare apertada; argumento de eficiência operacional pesa mais que o de expansão.' : v < 0 ? 'Custo de produção caindo: alívio de margem.' : 'Custo estável.',
   maquinas_vendas: v => v > 0 ? 'Vendas do setor em alta: ciclo de investimento ativo.' : v < 0 ? 'Vendas do setor em queda: mercado retraído, priorizar oportunidades qualificadas.' : 'Vendas do setor estáveis.'
 };
 
@@ -37,7 +41,8 @@ export function buildCards(sources, series, hoje, regras) {
       valor: l.valor, data_referencia: l.data, coletado_em: l.coletado_em, tipo_dado: l.tipo, praca: l.praca || null,
       status: fr.status, idade_dias: fr.idade_dias,
       variacoes: vars, tendencia: tr,
-      interpretacao: IMPLICACAO[ind.id] ? IMPLICACAO[ind.id](sinal) : null,
+      // Sem observação anterior comparável não há movimento a interpretar (não dizer "estável").
+      interpretacao: refVar === null ? 'Só há um registro comparável até agora; a leitura de tendência aparece a partir da próxima atualização.' : IMPLICACAO[ind.id] ? IMPLICACAO[ind.id](sinal) : null,
       aviso: [
         fr.status === 'desatualizado' ? `Último dado é de ${fr.idade_dias} dias atrás — não representa hoje.` : null,
         l.tipo === 'expectativa' ? 'Expectativa de mercado (Focus), não observação.' : null,

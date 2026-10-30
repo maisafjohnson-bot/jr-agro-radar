@@ -48,6 +48,23 @@ soja_mt;28/10/2026;125,40;Cepea/Esalq;Paranaguá;
 
 O importador rejeita e reporta: indicador desconhecido, data inválida, valor vazio (não vira zero), fonte em branco e linhas duplicadas. Pode-se ir acrescentando linhas ao mesmo arquivo; o que já existe não duplica.
 
+## IMEA — Instituto Mato-grossense de Economia Agropecuária (fonte prioritária para MT)
+
+Site: https://www.imea.com.br/imea-site/ — indicadores diários (soja, milho, algodão, boi, vaca, leite), boletins semanais, custo de produção, estimativa de safra, semeadura, colheita e comercialização.
+
+| Indicador no Radar | O que lançar do IMEA | Frequência |
+|---|---|---|
+| `soja_mt`, `milho_mt`, `algodao_mt`, `boi_gordo` | Indicador de preço disponível MT ("Cotação do dia") | diária |
+| `imea_plantio_soja` | % da área semeada (boletim de semeadura) | semanal, set–dez |
+| `imea_comerc_soja` | % da safra comercializada (boletim de comercialização) | mensal |
+| `imea_custo_soja` | Custo total R$/ha (custo de produção) | quando o IMEA atualizar |
+
+**Por que manual:** a página de indicadores carrega os valores por JavaScript e a API do IMEA (portal.imea.com.br) exige usuário e senha; não há termos públicos de redistribuição (bibliotecas de terceiros classificam o IMEA como licença "zona cinza"). Se você tiver acesso ao portal e autorização do IMEA para uso automatizado, a coleta pode ser automatizada com as credenciais guardadas em *Secrets* do GitHub — nunca no código.
+
+Os indicadores de plantio, comercialização e custo entram no painel como **contexto** (aba Mercado) e ainda não pesam nos índices — isso exige alguns meses de histórico para calibrar.
+
+Dados já lançados (30/10/2026, de reportagem que cita o IMEA): plantio da soja 75,81% em 23/10/2026 (Médio-Norte 96,60%, Oeste 86,78%, Sudeste 59,04%); custo total da soja 2026/27 R$ 8.210,31/ha (atualização de outubro, +6,96%). Fonte: [Revista Cultivar, 23/10/2026](https://revistacultivar.com.br/noticias/mt-safra-2026-27-plantio-da-soja-chega-a-75-81). Substitua pelo dado direto do IMEA quando lançar a planilha.
+
 ## Regionais automáticas — IBGE (implementadas, ainda não executadas)
 
 | Dado | API | Frequência | Observação |

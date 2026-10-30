@@ -1,5 +1,9 @@
 indicador;data_referencia;valor;fonte;praca;observacao
-soja_mt;DD/MM/AAAA;0,00;Cepea/Esalq - Indicador Soja Paranaguá;Paranaguá;substitua pelos valores reais
-milho_mt;DD/MM/AAAA;0,00;IMEA - Milho MT;Sorriso;
-boi_gordo;DD/MM/AAAA;0,00;Cepea/B3 - Boi Gordo;SP;
+soja_mt;DD/MM/AAAA;0,00;IMEA - Indicador soja disponível MT;MT (média estadual);substitua pelos valores reais
+milho_mt;DD/MM/AAAA;0,00;IMEA - Indicador milho disponível MT;MT (média estadual);
+algodao_mt;DD/MM/AAAA;0,00;IMEA - Algodão MT;MT;
+boi_gordo;DD/MM/AAAA;0,00;IMEA - Boi gordo MT;MT;
+imea_plantio_soja;DD/MM/AAAA;0,00;IMEA - Boletim de semeadura;MT (total);safra 2026/27
+imea_comerc_soja;DD/MM/AAAA;0,00;IMEA - Boletim de comercialização;MT;safra 2026/27
+imea_custo_soja;DD/MM/AAAA;0,00;IMEA/Senar-MT - Custo de produção;MT;safra 2026/27 - custo total
 diesel_mt;DD/MM/AAAA;0,00;ANP - Levantamento semanal;MT;média estadual diesel S10
