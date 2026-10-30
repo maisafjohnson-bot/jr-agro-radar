@@ -24,13 +24,13 @@ export function parseSGS(json, meta) {
     .map(o => ({ ...o, fonte: meta.fonte, tipo: 'oficial', coletado_em: agora }));
 }
 
-export async function fetchWithRetry(url, { tentativas = 3, espera = 2000, fetchImpl = fetch } = {}) {
+export async function fetchWithRetry(url, { tentativas = 3, espera = 2000, fetchImpl = fetch, texto = false, ua = UA } = {}) {
   let ultimoErro;
   for (let i = 0; i < tentativas; i++) {
     try {
-      const r = await fetchImpl(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
+      const r = await fetchImpl(url, { headers: { 'User-Agent': ua, Accept: texto ? 'text/html' : 'application/json' } });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return await r.json();
+      return texto ? await r.text() : await r.json();
     } catch (e) {
       ultimoErro = e;
       if (i < tentativas - 1) await new Promise(res => setTimeout(res, espera * (i + 1)));

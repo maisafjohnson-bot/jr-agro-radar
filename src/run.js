@@ -14,6 +14,7 @@ import { analyze } from './analyze.js';
 import { evaluateAlerts } from './engine/alerts.js';
 import { validateObservations } from './lib/validate.js';
 import { collectRegional } from './collectors/ibge.js';
+import { collectCepea } from './collectors/cepea.js';
 import crypto from 'node:crypto';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -43,6 +44,24 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
         execucao.coletas.push({ id: ind.id, ok: false, erro: String(e.message || e) });
         execucao.erros.push(`${ind.id}: ${e.message || e}`);
       }
+    }
+  }
+  // Cepea: uma consulta diária ao widget público para todos os indicadores Cepea.
+  const cepeaInds = sources.filter(s => s.coleta.tipo === 'cepea_widget');
+  if (!offline && cepeaInds.length) {
+    try {
+      const r = await collectCepea(cepeaInds, { fetchImpl });
+      for (const ind of cepeaInds) {
+        const obs = r.porIndicador[ind.id];
+        if (!obs.length) { execucao.coletas.push({ id: ind.id, ok: false, erro: `produto "${ind.coleta.produto_cepea}" não veio no widget` }); execucao.erros.push(`${ind.id}: não veio no widget do Cepea`); continue; }
+        const v = validateObservations(obs, store.load(ind.id), ind);
+        const m = store.merge(ind.id, v.aceitas);
+        execucao.coletas.push({ id: ind.id, ok: v.aceitas.length > 0, url: r.url, verificado_em: new Date().toISOString(), recebidas: obs.length, rejeitadas: v.rejeitadas.length, suspeitas: v.suspeitas, ...m, ultima_ref: obs[0].data, ...(v.aceitas.length ? {} : { erro: `valor fora da faixa: ${obs[0].valor}` }) });
+        if (v.rejeitadas.length) execucao.erros.push(`${ind.id}: valor ${v.rejeitadas[0].valor} fora da faixa plausível`);
+      }
+    } catch (e) {
+      for (const ind of cepeaInds) execucao.coletas.push({ id: ind.id, ok: false, erro: String(e.message || e) });
+      execucao.erros.push(`cepea: ${e.message || e}`);
     }
   }
   // Dados regionais do IBGE (anuais): no máximo 1 coleta a cada 30 dias.

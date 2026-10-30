@@ -8,8 +8,8 @@ import { RECOMENDACOES as R } from './diagnosis.js';
 const MES = ['', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
 
 export const SEGMENTO_VARS = {
-  agricola: ['soja_mt', 'milho_mt', 'icbr_agro', 'selic_meta', 'focus_selic_prox_ano', 'diesel_mt', 'fertilizante', 'maquinas_vendas', 'ipca_12m', 'focus_ipca_prox_ano'],
-  pecuaria: ['boi_gordo', 'milho_mt', 'selic_meta', 'focus_selic_prox_ano', 'diesel_mt']
+  agricola: ['soja_mt', 'milho_mt', 'soja_cepea', 'milho_cepea', 'icbr_agro', 'selic_meta', 'focus_selic_prox_ano', 'diesel_mt', 'fertilizante', 'maquinas_vendas', 'ipca_12m', 'focus_ipca_prox_ano'],
+  pecuaria: ['boi_gordo', 'boi_cepea', 'milho_mt', 'milho_cepea', 'selic_meta', 'focus_selic_prox_ano', 'diesel_mt']
 };
 
 // Região sugerida por PERFIL PRODUTIVO (conhecimento estrutural), não por indicador regional automático.

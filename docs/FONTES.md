@@ -27,6 +27,23 @@ Se a 1ª coleta mostrar valores muito diferentes destes, o código da série est
 
 Regras do coletor: até 3 tentativas com espera crescente; recoleta os últimos 10 dias para captar revisões (valor alterado fica registrado em `revisoes`, nunca sobrescrito em silêncio); primeira carga traz 5 anos (dólar), 9 anos (Selic — o SGS limita séries diárias a 10 anos por consulta) ou 15 anos (mensais) para formar a base de percentis; 2 execuções por dia útil (bem abaixo de qualquer limite razoável). Valor vazio é descartado — nunca vira zero. Valor fora da faixa plausível (`faixa_plausivel` em `config/sources.json`) é rejeitado e registrado; salto acima de `salto_suspeito_pct` entre observações seguidas é mantido e marcado para conferência. No Focus, quando o "próximo ano" muda (ex.: 2027 → 2028), o histórico do novo ano de referência é carregado e as comparações nunca misturam anos de referência diferentes.
 
+## Cepea — preços diários automáticos (implementado em 30/10/2026)
+
+| Indicador | ID Cepea | Unidade | Referência |
+|---|---|---|---|
+| `soja_cepea` | 92 | R$/saca 60 kg | Porto de Paranaguá |
+| `milho_cepea` | 77 | R$/saca 60 kg | Indicador Esalq/BM&FBovespa (Campinas) |
+| `boi_cepea` | 2 | R$/@ | Estado de São Paulo |
+| `algodao_cepea` | 54 | centavos de R$/lp | Brasil (só contexto) |
+
+Fonte: widget público "Cotações do Cepea no seu site" (https://www.cepea.org.br/br/widget.aspx), que o Cepea oferece para incorporação. Endpoint `widgetproduto.js.php?output=html&id_indicador[]=…`, **uma consulta por execução** para os quatro. Formato conferido com a resposta real de 30/10/2026 (valores de 29/10: soja 158,28; milho 65,59; boi 389,20; algodão 412,15), guardada em `test/fixtures_reais/` e usada nos testes.
+
+**Licença:** CEPEA, CC BY-NC 4.0 — citar a fonte (o painel cita) e não usar os dados em si com fim comercial (vender ou redistribuir de forma paga). Uso interno para orientar a própria atividade é a leitura mais comum dessa licença, mas a decisão final é sua; em caso de dúvida, consulte o Cepea (cepea@usp.br).
+
+**Histórico inicial:** 15 pregões (08/10 a 29/10/2026) lidos da tabela "Mais valores" de cada indicador em 30/10/2026. Daqui em diante, a coleta diária acrescenta um valor por pregão. A variação de 30 dias usada nos índices passa a existir a partir de ~07/11/2026; o percentil histórico pleno exige alguns meses.
+
+São **referências nacionais**: entram nos mesmos blocos dos preços de MT (média dentro do bloco, sem dupla contagem), mas não contam como dado regional — a confiança só sai de "baixa" com preço de MT.
+
 ## Manuais (CSV em `data/manual/`)
 
 Sem API aberta confirmada ou com termos que exigem cuidado na redistribuição:
@@ -59,7 +76,7 @@ Site: https://www.imea.com.br/imea-site/ — indicadores diários (soja, milho, 
 | `imea_comerc_soja` | % da safra comercializada (boletim de comercialização) | mensal |
 | `imea_custo_soja` | Custo total R$/ha (custo de produção) | quando o IMEA atualizar |
 
-**Por que manual:** a página de indicadores carrega os valores por JavaScript e a API do IMEA (portal.imea.com.br) exige usuário e senha; não há termos públicos de redistribuição (bibliotecas de terceiros classificam o IMEA como licença "zona cinza"). Se você tiver acesso ao portal e autorização do IMEA para uso automatizado, a coleta pode ser automatizada com as credenciais guardadas em *Secrets* do GitHub — nunca no código.
+**Por que manual:** a página de indicadores carrega os valores por um serviço interno (em 30/10/2026 a chamada respondia 404) e a API do IMEA (portal.imea.com.br) exige usuário e senha; não há termos públicos de redistribuição (bibliotecas de terceiros classificam o IMEA como licença "zona cinza"). Se você tiver acesso ao portal e autorização do IMEA para uso automatizado, a coleta pode ser automatizada com as credenciais guardadas em *Secrets* do GitHub — nunca no código.
 
 Os indicadores de plantio, comercialização e custo entram no painel como **contexto** (aba Mercado) e ainda não pesam nos índices — isso exige alguns meses de histórico para calibrar.
 

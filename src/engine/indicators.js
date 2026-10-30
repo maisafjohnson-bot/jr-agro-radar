@@ -16,6 +16,10 @@ const IMPLICACAO = {
   boi_gordo: v => v > 0 ? 'Arroba em alta: pecuarista com melhor receita, momento para conversar sobre estrutura e alimentação.' : v < 0 ? 'Arroba em queda: pecuarista mais cauteloso.' : 'Arroba estável.',
   diesel_mt: v => v > 0 ? 'Diesel em alta: argumento de eficiência operacional (menos passadas, maior rendimento) ganha peso.' : v < 0 ? 'Diesel em queda: alívio de custo operacional.' : 'Diesel estável.',
   fertilizante: v => v > 0 ? 'Fertilizante em alta: margem comprimida; distribuidores com dosagem precisa ganham argumento.' : v < 0 ? 'Fertilizante em queda: melhora a margem esperada.' : 'Fertilizante estável.',
+  soja_cepea: v => v > 0 ? 'Soja em alta na referência nacional: costuma puxar o preço em MT (com defasagem e diferença de frete).' : v < 0 ? 'Soja em queda na referência nacional.' : 'Soja estável na referência nacional.',
+  milho_cepea: v => v > 0 ? 'Milho em alta na referência nacional: melhora a perspectiva da safrinha e encarece a ração.' : v < 0 ? 'Milho em queda na referência nacional.' : 'Milho estável na referência nacional.',
+  boi_cepea: v => v > 0 ? 'Arroba em alta na referência nacional: pecuarista mais capitalizado para investir em estrutura.' : v < 0 ? 'Arroba em queda na referência nacional.' : 'Arroba estável na referência nacional.',
+  algodao_cepea: v => v > 0 ? 'Algodão em alta na referência nacional.' : v < 0 ? 'Algodão em queda na referência nacional.' : 'Algodão estável na referência nacional.',
   algodao_mt: v => v > 0 ? 'Algodão valorizado: receita melhor para quem planta algodão (perfil de grandes áreas e alto investimento em máquinas).' : v < 0 ? 'Algodão em queda: produtor de algodão tende a adiar investimento.' : 'Algodão estável.',
   imea_plantio_soja: v => v > 0 ? 'Plantio avançando: plantadeiras em uso — momento de acompanhar o desempenho em campo e mapear quem vai renovar para a safrinha e a próxima safra.' : 'Sem avanço registrado no plantio.',
   imea_comerc_soja: v => v > 0 ? 'Venda da safra avançando: mais produtores com preço travado e caixa previsível — conversa de investimento fica mais concreta (confirmar com cada cliente).' : 'Comercialização parada: produtor esperando preço, caixa menos previsível.',
@@ -42,7 +46,7 @@ export function buildCards(sources, series, hoje, regras) {
       status: fr.status, idade_dias: fr.idade_dias,
       variacoes: vars, tendencia: tr,
       // Sem observação anterior comparável não há movimento a interpretar (não dizer "estável").
-      interpretacao: refVar === null ? 'Só há um registro comparável até agora; a leitura de tendência aparece a partir da próxima atualização.' : IMPLICACAO[ind.id] ? IMPLICACAO[ind.id](sinal) : null,
+      interpretacao: refVar === null ? 'Só há um registro comparável até agora; a leitura de tendência aparece a partir da próxima atualização.' : IMPLICACAO[ind.id] ? `${vars.mensal ? 'No mês' : vars.semanal ? 'Na semana' : 'No ano'}: ${IMPLICACAO[ind.id](sinal).charAt(0).toLowerCase()}${IMPLICACAO[ind.id](sinal).slice(1)}` : null,
       aviso: [
         fr.status === 'desatualizado' ? `Último dado é de ${fr.idade_dias} dias atrás — não representa hoje.` : null,
         l.tipo === 'expectativa' ? 'Expectativa de mercado (Focus), não observação.' : null,

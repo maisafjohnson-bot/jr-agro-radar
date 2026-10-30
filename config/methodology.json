@@ -1,5 +1,5 @@
 {
-  "versao": "0.2-experimental",
+  "versao": "0.3.1-experimental",
   "data_versao": "2026-10-29",
   "status": "HEURÍSTICO EXPERIMENTAL — pesos definidos por raciocínio econômico, NÃO calibrados com vendas da JR Agro. Não tem capacidade preditiva validada.",
   "regras_gerais": {
@@ -78,6 +78,22 @@
               "componentes": {
                 "momento": 1.0
               }
+            },
+            {
+              "id": "soja_cepea",
+              "direcao": 1,
+              "componentes": {
+                "momento": 1.0
+              },
+              "porque": "Referência nacional diária da soja (Paranaguá). Move junto com o preço em MT, mas não o substitui: frete e base regional diferem. Fica no mesmo bloco da soja MT para não contar duas vezes."
+            },
+            {
+              "id": "milho_cepea",
+              "direcao": 1,
+              "componentes": {
+                "momento": 1.0
+              },
+              "porque": "Referência nacional diária do milho. Mesmo bloco do milho MT (média, sem dupla contagem)."
             }
           ]
         },
@@ -192,6 +208,14 @@
               "componentes": {
                 "momento": 1.0
               }
+            },
+            {
+              "id": "boi_cepea",
+              "direcao": 1,
+              "componentes": {
+                "momento": 1.0
+              },
+              "porque": "Referência nacional diária da arroba (SP). Mesmo bloco do boi MT."
             }
           ]
         },
@@ -207,6 +231,14 @@
               "componentes": {
                 "momento": 1.0
               }
+            },
+            {
+              "id": "milho_cepea",
+              "direcao": -1,
+              "componentes": {
+                "momento": 1.0
+              },
+              "porque": "Milho mais caro encarece ração (referência nacional)."
             }
           ]
         },
@@ -272,6 +304,11 @@
       "versao": "0.2-experimental",
       "data": "2026-10-29",
       "mudanca": "Auditoria: taxas medidas em p.p.; componente de nível para taxas (Selic, IPCA e expectativas); histórico de variações sem sobreposição com a janela atual; Focus comparado só dentro do mesmo ano de referência; confiança rebaixada por histórico curto; análise de sensibilidade dos pesos."
+    },
+    {
+      "versao": "0.3.1-experimental",
+      "data": "2026-10-30",
+      "mudanca": "Indicadores Cepea (soja Paranaguá, milho, boi) coletados automaticamente entram nos mesmos blocos dos preços de MT (média dentro do bloco, sem dupla contagem). Algodão Cepea só como contexto."
     }
   ]
 }

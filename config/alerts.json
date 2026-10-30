@@ -135,6 +135,39 @@
         "painel",
         "issue"
       ]
+    },
+    {
+      "id": "soja_cepea_forte",
+      "tipo": "variacao",
+      "indicador": "soja_cepea",
+      "periodo": "semanal",
+      "limite_pct": 5,
+      "prioridade": "media",
+      "canais": [
+        "painel"
+      ]
+    },
+    {
+      "id": "milho_cepea_forte",
+      "tipo": "variacao",
+      "indicador": "milho_cepea",
+      "periodo": "semanal",
+      "limite_pct": 5,
+      "prioridade": "media",
+      "canais": [
+        "painel"
+      ]
+    },
+    {
+      "id": "boi_cepea_forte",
+      "tipo": "variacao",
+      "indicador": "boi_cepea",
+      "periodo": "semanal",
+      "limite_pct": 5,
+      "prioridade": "media",
+      "canais": [
+        "painel"
+      ]
     }
   ]
 }

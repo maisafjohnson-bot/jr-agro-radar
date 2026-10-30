@@ -303,6 +303,95 @@
         20000
       ],
       "termos": "Informar a safra na coluna observacao."
+    },
+    {
+      "id": "soja_cepea",
+      "nome": "Soja — Indicador Cepea Paranaguá",
+      "curto": "a soja em Paranaguá (Cepea)",
+      "unidade": "R$/saca 60 kg",
+      "frequencia": "diaria",
+      "abrangencia": "Brasil (porto de Paranaguá — referência nacional)",
+      "fonte": "Cepea/Esalq-USP — widget público de cotações (licença CC BY-NC 4.0)",
+      "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+      "coleta": {
+        "tipo": "cepea_widget",
+        "id_cepea": 92,
+        "produto_cepea": "Soja Paranaguá",
+        "praca": "Paranaguá (PR)"
+      },
+      "faixa_plausivel": [
+        40,
+        400
+      ],
+      "salto_suspeito_pct": 15,
+      "termos": "Coleta automática diária pelo widget que o próprio Cepea oferece para incorporação. Licença CC BY-NC 4.0: citar a fonte e não usar comercialmente os dados em si (revenda/redistribuição paga). Referência nacional, não preço de MT."
+    },
+    {
+      "id": "milho_cepea",
+      "nome": "Milho — Indicador Cepea (Campinas)",
+      "curto": "o milho no indicador Cepea",
+      "unidade": "R$/saca 60 kg",
+      "frequencia": "diaria",
+      "abrangencia": "Brasil (região de Campinas/SP — referência nacional)",
+      "fonte": "Cepea/Esalq-USP — widget público de cotações (licença CC BY-NC 4.0)",
+      "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+      "coleta": {
+        "tipo": "cepea_widget",
+        "id_cepea": 77,
+        "produto_cepea": "Milho",
+        "praca": "Campinas (SP)"
+      },
+      "faixa_plausivel": [
+        15,
+        200
+      ],
+      "salto_suspeito_pct": 15,
+      "termos": "Coleta automática diária pelo widget que o próprio Cepea oferece para incorporação. Licença CC BY-NC 4.0: citar a fonte e não usar comercialmente os dados em si (revenda/redistribuição paga). Referência nacional, não preço de MT."
+    },
+    {
+      "id": "boi_cepea",
+      "nome": "Boi gordo — Indicador Cepea (SP)",
+      "curto": "a arroba do boi no indicador Cepea",
+      "unidade": "R$/@",
+      "frequencia": "diaria",
+      "abrangencia": "Brasil (estado de São Paulo — referência nacional)",
+      "fonte": "Cepea/Esalq-USP — widget público de cotações (licença CC BY-NC 4.0)",
+      "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+      "coleta": {
+        "tipo": "cepea_widget",
+        "id_cepea": 2,
+        "produto_cepea": "Boi Gordo",
+        "praca": "SP"
+      },
+      "faixa_plausivel": [
+        120,
+        800
+      ],
+      "salto_suspeito_pct": 15,
+      "termos": "Coleta automática diária pelo widget que o próprio Cepea oferece para incorporação. Licença CC BY-NC 4.0: citar a fonte e não usar comercialmente os dados em si (revenda/redistribuição paga). Referência nacional, não preço de MT."
+    },
+    {
+      "id": "algodao_cepea",
+      "nome": "Algodão em pluma — Indicador Cepea",
+      "curto": "o algodão no indicador Cepea",
+      "unidade": "centavos de R$/lp",
+      "frequencia": "diaria",
+      "abrangencia": "Brasil (referência nacional)",
+      "fonte": "Cepea/Esalq-USP — widget público de cotações (licença CC BY-NC 4.0)",
+      "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+      "coleta": {
+        "tipo": "cepea_widget",
+        "id_cepea": 54,
+        "produto_cepea": "Algodão",
+        "praca": "Brasil"
+      },
+      "contexto": true,
+      "faixa_plausivel": [
+        100,
+        1500
+      ],
+      "salto_suspeito_pct": 15,
+      "termos": "Coleta automática diária pelo widget que o próprio Cepea oferece para incorporação. Licença CC BY-NC 4.0: citar a fonte e não usar comercialmente os dados em si (revenda/redistribuição paga). Referência nacional, não preço de MT."
     }
   ],
   "_doc_validacao": "faixa_plausivel: valores fora da faixa são REJEITADOS e registrados (protege contra código de série errado ou erro de digitação). salto_suspeito_pct: variação entre observações consecutivas acima do limite é MANTIDA, mas marcada para conferência."
