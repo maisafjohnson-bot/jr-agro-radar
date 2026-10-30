@@ -1,11 +1,11 @@
 {
- "ultima_tentativa": "2026-10-30T14:06:30.246Z",
+ "ultima_tentativa": "2026-10-30T14:14:33.221Z",
  "ultimos_erros": [
-  "ibge municipios: fetch failed",
-  "ibge pam: fetch failed",
-  "ibge ppm: fetch failed",
-  "ibge malha RO: fetch failed",
-  "ibge malha AC: fetch failed",
-  "ibge malha MT: fetch failed"
+  "ibge municipios: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
+  "ibge pam: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
+  "ibge ppm: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
+  "ibge malha RO: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
+  "ibge malha AC: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
+  "ibge malha MT: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))"
  ]
 }
