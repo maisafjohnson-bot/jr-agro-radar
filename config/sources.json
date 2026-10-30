@@ -1,0 +1,233 @@
+{
+  "_doc": "Catálogo de indicadores. 'auto' = coletado automaticamente; 'manual' = importado via CSV em data/manual/. Códigos marcados needs_validation devem ser confirmados no log da 1ª execução.",
+  "indicators": [
+    {
+      "id": "usd_brl",
+      "nome": "Dólar comercial (venda)",
+      "unidade": "R$/US$",
+      "frequencia": "diaria",
+      "abrangencia": "Brasil",
+      "fonte": "Banco Central do Brasil — SGS série 1",
+      "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+      "coleta": {
+        "tipo": "bcb_sgs",
+        "codigo": 1,
+        "carga_inicial_anos": 5
+      },
+      "termos": "Dados abertos do BCB (Lei de Acesso à Informação / Política de Dados Abertos). Uso livre com citação da fonte.",
+      "curto": "o dólar",
+      "faixa_plausivel": [
+        2,
+        12
+      ],
+      "salto_suspeito_pct": 8
+    },
+    {
+      "id": "selic_meta",
+      "nome": "Taxa Selic — meta Copom",
+      "unidade": "% a.a.",
+      "frequencia": "diaria",
+      "abrangencia": "Brasil",
+      "fonte": "Banco Central do Brasil — SGS série 432",
+      "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+      "coleta": {
+        "tipo": "bcb_sgs",
+        "codigo": 432,
+        "carga_inicial_anos": 9
+      },
+      "termos": "Dados abertos do BCB.",
+      "curto": "a Selic",
+      "faixa_plausivel": [
+        1,
+        40
+      ]
+    },
+    {
+      "id": "ipca_12m",
+      "nome": "IPCA acumulado em 12 meses",
+      "unidade": "%",
+      "frequencia": "mensal",
+      "abrangencia": "Brasil",
+      "fonte": "IBGE, via Banco Central do Brasil — SGS série 13522",
+      "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+      "coleta": {
+        "tipo": "bcb_sgs",
+        "codigo": 13522,
+        "carga_inicial_anos": 15
+      },
+      "termos": "Dados abertos do BCB/IBGE.",
+      "curto": "o IPCA em 12 meses",
+      "faixa_plausivel": [
+        -5,
+        30
+      ]
+    },
+    {
+      "id": "icbr_agro",
+      "nome": "Índice de Commodities Brasil (IC-Br) — Agropecuária",
+      "unidade": "índice",
+      "frequencia": "mensal",
+      "abrangencia": "Brasil",
+      "fonte": "Banco Central do Brasil — SGS série 27575",
+      "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+      "coleta": {
+        "tipo": "bcb_sgs",
+        "codigo": 27575,
+        "needs_validation": true,
+        "carga_inicial_anos": 15
+      },
+      "termos": "Dados abertos do BCB.",
+      "curto": "o índice de commodities agro do BC",
+      "faixa_plausivel": [
+        50,
+        3000
+      ],
+      "salto_suspeito_pct": 25
+    },
+    {
+      "id": "focus_selic_prox_ano",
+      "nome": "Focus — mediana Selic fim do próximo ano",
+      "unidade": "% a.a.",
+      "frequencia": "semanal",
+      "abrangencia": "Brasil",
+      "fonte": "Banco Central do Brasil — Relatório Focus (API Olinda, ExpectativasMercadoAnuais)",
+      "fonte_url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao#!/recursos",
+      "coleta": {
+        "tipo": "bcb_focus",
+        "indicador": "Selic",
+        "ano_relativo": 1
+      },
+      "termos": "Dados abertos do BCB. São EXPECTATIVAS de mercado, não observações.",
+      "curto": "a Selic esperada pelo mercado para o próximo ano",
+      "faixa_plausivel": [
+        1,
+        40
+      ]
+    },
+    {
+      "id": "focus_ipca_prox_ano",
+      "nome": "Focus — mediana IPCA do próximo ano",
+      "unidade": "%",
+      "frequencia": "semanal",
+      "abrangencia": "Brasil",
+      "fonte": "Banco Central do Brasil — Relatório Focus (API Olinda)",
+      "fonte_url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao#!/recursos",
+      "coleta": {
+        "tipo": "bcb_focus",
+        "indicador": "IPCA",
+        "ano_relativo": 1
+      },
+      "termos": "Dados abertos do BCB. Expectativa, não observação.",
+      "curto": "a inflação esperada para o próximo ano",
+      "faixa_plausivel": [
+        -5,
+        30
+      ]
+    },
+    {
+      "id": "soja_mt",
+      "nome": "Soja — preço em Mato Grosso",
+      "unidade": "R$/saca 60 kg",
+      "frequencia": "diaria",
+      "abrangencia": "MT (estadual/praça informada no CSV)",
+      "fonte": "Importação manual (ex.: Cepea/Esalq ou IMEA) — informar a fonte em cada linha",
+      "fonte_url": "https://www.cepea.org.br/br/indicador/soja.aspx",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "termos": "Cepea e IMEA não oferecem API pública aberta; reprodução exige citação e respeito aos termos de cada instituição. Por isso a entrada é manual.",
+      "curto": "a soja em MT",
+      "faixa_plausivel": [
+        40,
+        400
+      ],
+      "salto_suspeito_pct": 15
+    },
+    {
+      "id": "milho_mt",
+      "nome": "Milho — preço em Mato Grosso",
+      "unidade": "R$/saca 60 kg",
+      "frequencia": "diaria",
+      "abrangencia": "MT",
+      "fonte": "Importação manual (Cepea/IMEA)",
+      "fonte_url": "https://www.cepea.org.br/br/indicador/milho.aspx",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "termos": "Idem soja.",
+      "curto": "o milho em MT",
+      "faixa_plausivel": [
+        15,
+        200
+      ],
+      "salto_suspeito_pct": 15
+    },
+    {
+      "id": "boi_gordo",
+      "nome": "Boi gordo — indicador",
+      "unidade": "R$/@",
+      "frequencia": "diaria",
+      "abrangencia": "Informar praça (SP, MT ou RO) no CSV",
+      "fonte": "Importação manual (Cepea/IMEA/Acrimat)",
+      "fonte_url": "https://www.cepea.org.br/br/indicador/boi-gordo.aspx",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "termos": "Idem soja.",
+      "curto": "a arroba do boi",
+      "faixa_plausivel": [
+        120,
+        800
+      ],
+      "salto_suspeito_pct": 15
+    },
+    {
+      "id": "diesel_mt",
+      "nome": "Diesel S10 — preço médio de revenda MT",
+      "unidade": "R$/litro",
+      "frequencia": "semanal",
+      "abrangencia": "MT",
+      "fonte": "ANP — Levantamento de Preços de Combustíveis (planilha semanal, importação manual)",
+      "fonte_url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "termos": "Dado público da ANP; publicado como planilha, sem API estável. Coleta automática fica para a fase 2.",
+      "curto": "o diesel em MT",
+      "faixa_plausivel": [
+        2,
+        20
+      ],
+      "salto_suspeito_pct": 15
+    },
+    {
+      "id": "fertilizante",
+      "nome": "Fertilizante — preço de referência",
+      "unidade": "informar no CSV",
+      "frequencia": "mensal",
+      "abrangencia": "informar no CSV",
+      "fonte": "Importação manual (ex.: IMEA custo de produção, Conab)",
+      "fonte_url": "https://www.conab.gov.br/info-agro/custos-de-producao",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "termos": "Sem fonte aberta com API confirmada.",
+      "curto": "o fertilizante"
+    },
+    {
+      "id": "maquinas_vendas",
+      "nome": "Vendas internas de máquinas agrícolas",
+      "unidade": "unidades ou R$ (informar)",
+      "frequencia": "mensal",
+      "abrangencia": "Brasil",
+      "fonte": "Importação manual (Abimaq / Anfavea — publicações mensais)",
+      "fonte_url": "https://abimaq.org.br/",
+      "coleta": {
+        "tipo": "manual"
+      },
+      "termos": "Publicações sem API; respeitar direitos de reprodução.",
+      "curto": "as vendas de máquinas agrícolas no país"
+    }
+  ],
+  "_doc_validacao": "faixa_plausivel: valores fora da faixa são REJEITADOS e registrados (protege contra código de série errado ou erro de digitação). salto_suspeito_pct: variação entre observações consecutivas acima do limite é MANTIDA, mas marcada para conferência."
+}

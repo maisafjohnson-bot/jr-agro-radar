@@ -1,0 +1,5 @@
+indicador;data_referencia;valor;fonte;praca;observacao
+soja_mt;DD/MM/AAAA;0,00;Cepea/Esalq - Indicador Soja Paranaguá;Paranaguá;substitua pelos valores reais
+milho_mt;DD/MM/AAAA;0,00;IMEA - Milho MT;Sorriso;
+boi_gordo;DD/MM/AAAA;0,00;Cepea/B3 - Boi Gordo;SP;
+diesel_mt;DD/MM/AAAA;0,00;ANP - Levantamento semanal;MT;média estadual diesel S10

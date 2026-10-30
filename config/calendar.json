@@ -1,0 +1,27 @@
+{
+  "_doc": "Calendário de REFERÊNCIA GERAL, a validar com a Conab e com a realidade de cada região. Meses 1–12. papel: 'decisao_compra' = janela em que o cliente costuma decidir/planejar compra; 'em_uso' = equipamento em operação (bom para demonstração, observar gargalos e preparar a próxima venda).",
+  "fonte_validacao": "https://www.conab.gov.br/institucional/publicacoes/outras-publicacoes/item/25195-calendario-agricola-plantio-e-colheita",
+  "janelas": {
+    "MT": [
+      { "atividade": "Plantio da soja", "meses": [9, 10, 11, 12], "categorias": ["plantadeiras"], "papel": "em_uso" },
+      { "atividade": "Decisão de compra de plantadeiras para o milho 2ª safra", "meses": [11, 12], "categorias": ["plantadeiras"], "papel": "decisao_compra" },
+      { "atividade": "Colheita da soja", "meses": [1, 2, 3, 4], "categorias": ["transporte"], "papel": "em_uso" },
+      { "atividade": "Plantio do milho 2ª safra", "meses": [1, 2, 3], "categorias": ["plantadeiras"], "papel": "em_uso" },
+      { "atividade": "Colheita do milho 2ª safra / algodão", "meses": [6, 7, 8, 9], "categorias": ["transporte"], "papel": "em_uso" },
+      { "atividade": "Correção e preparo de solo para a próxima safra", "meses": [5, 6, 7, 8], "categorias": ["preparo_solo", "distribuicao"], "papel": "decisao_compra" },
+      { "atividade": "Planejamento e compra de máquinas para a safra seguinte", "meses": [4, 5, 6, 7, 8], "categorias": ["plantadeiras", "preparo_solo", "distribuicao"], "papel": "decisao_compra" }
+    ],
+    "RO": [
+      { "atividade": "Plantio da soja", "meses": [10, 11, 12], "categorias": ["plantadeiras"], "papel": "em_uso" },
+      { "atividade": "Colheita da soja", "meses": [1, 2, 3, 4], "categorias": ["transporte"], "papel": "em_uso" },
+      { "atividade": "Planejamento da suplementação para a seca", "meses": [2, 3, 4], "categorias": ["pecuaria_alimentacao"], "papel": "decisao_compra" },
+      { "atividade": "Período seco — suplementação do rebanho", "meses": [5, 6, 7, 8, 9], "categorias": ["pecuaria_alimentacao"], "papel": "em_uso" },
+      { "atividade": "Abertura e reforma de áreas / preparo de solo", "meses": [5, 6, 7, 8], "categorias": ["preparo_solo", "distribuicao"], "papel": "decisao_compra" }
+    ],
+    "AC": [
+      { "atividade": "Planejamento da suplementação para a seca", "meses": [2, 3, 4], "categorias": ["pecuaria_alimentacao"], "papel": "decisao_compra" },
+      { "atividade": "Período seco — suplementação do rebanho", "meses": [5, 6, 7, 8, 9], "categorias": ["pecuaria_alimentacao"], "papel": "em_uso" },
+      { "atividade": "Preparo de solo / reforma de pastagens", "meses": [5, 6, 7, 8], "categorias": ["preparo_solo", "distribuicao"], "papel": "decisao_compra" }
+    ]
+  }
+}

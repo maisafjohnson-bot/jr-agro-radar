@@ -1,0 +1,7 @@
+node_modules/
+_site/
+.DS_Store
+# Planilhas comerciais nunca vão para o repositório
+vendas*.csv
+vendas*.xlsx
+historico-comercial*

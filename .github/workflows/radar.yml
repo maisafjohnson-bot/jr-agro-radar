@@ -1,0 +1,95 @@
+name: Radar diário
+
+on:
+  schedule:
+    # Horários em UTC. 09:47 UTC = 05:47 em Cuiabá (plano pronto antes do dia começar)
+    #                  22:13 UTC = 18:13 em Cuiabá (captura o fechamento do dólar e da Selic do dia)
+    - cron: '47 9 * * 1-5'
+    - cron: '13 22 * * 1-5'
+  workflow_dispatch: {}
+  push:
+    paths: ['data/manual/**', 'config/**']
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      site: ${{ steps.site.outputs.pronto }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Testes (cálculos, dados ausentes, frescor, mensagens)
+        run: npm test
+
+      - name: Coletar e analisar
+        id: run
+        continue-on-error: true
+        run: node src/run.js
+
+      - name: Gravar histórico no repositório
+        if: always() && steps.run.outcome != 'skipped'
+        run: |
+          git config user.name "radar-bot"
+          git config user.email "radar-bot@users.noreply.github.com"
+          mkdir -p data reports
+          git add data reports
+          git diff --cached --quiet || git commit -m "Radar: dados de $(date -u +%F) $(date -u +%H:%M) UTC"
+          git push
+
+      - name: Notificar alertas (abre issue — o GitHub envia e-mail)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Uma issue por dia: se já existir, comenta nela (evita e-mail repetido a cada execução).
+          if [ -s data/alertas-notificar.md ]; then
+            TITULO="Radar JR Agro — alertas de $(date -u +%d/%m/%Y)"
+            NUM=$(gh issue list --state open --search "\"$TITULO\" in:title" --json number --jq '.[0].number' || true)
+            if [ -n "$NUM" ]; then
+              gh issue comment "$NUM" --body-file data/alertas-notificar.md || echo "Não foi possível comentar"
+            else
+              gh issue create --title "$TITULO" --body-file data/alertas-notificar.md || echo "Não foi possível abrir a issue"
+            fi
+          fi
+
+      - name: Preparar site
+        id: site
+        run: |
+          mkdir -p _site data reports
+          cp index.html _site/
+          cp -r data config reports _site/
+          rm -rf _site/data/manual
+          echo "pronto=sim" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Falhar o job se a coleta automática falhou por completo
+        if: steps.run.outcome == 'failure'
+        run: exit 1
+
+  publicar:
+    needs: coletar
+    # Publica mesmo com falha de coleta (o painel mostra a falha), mas nunca se os testes falharam.
+    if: always() && needs.coletar.outputs.site == 'sim'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

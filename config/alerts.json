@@ -1,0 +1,112 @@
+{
+  "_doc": "Regras de alerta. tipo 'variacao': dispara quando |variação| do período >= limite_pct (preços, em %) ou >= limite_pp (taxas, em pontos percentuais). tipo 'indice': quando o índice geral muda >= limite_pontos vs análise anterior. tipo 'recomendacao': quando a recomendação do dia muda. tipo 'saude': quando a coleta automática falha. Canal 'issue' abre uma issue no GitHub (o GitHub avisa por e-mail).",
+  "regras": [
+    {
+      "id": "dolar_forte",
+      "tipo": "variacao",
+      "indicador": "usd_brl",
+      "periodo": "semanal",
+      "limite_pct": 3,
+      "prioridade": "alta",
+      "canais": [
+        "painel",
+        "issue"
+      ]
+    },
+    {
+      "id": "selic_mudou",
+      "tipo": "variacao",
+      "indicador": "selic_meta",
+      "periodo": "diaria",
+      "prioridade": "alta",
+      "canais": [
+        "painel",
+        "issue"
+      ],
+      "limite_pp": 0.1
+    },
+    {
+      "id": "soja_forte",
+      "tipo": "variacao",
+      "indicador": "soja_mt",
+      "periodo": "semanal",
+      "limite_pct": 5,
+      "prioridade": "media",
+      "canais": [
+        "painel"
+      ]
+    },
+    {
+      "id": "milho_forte",
+      "tipo": "variacao",
+      "indicador": "milho_mt",
+      "periodo": "semanal",
+      "limite_pct": 5,
+      "prioridade": "media",
+      "canais": [
+        "painel"
+      ]
+    },
+    {
+      "id": "boi_forte",
+      "tipo": "variacao",
+      "indicador": "boi_gordo",
+      "periodo": "semanal",
+      "limite_pct": 5,
+      "prioridade": "media",
+      "canais": [
+        "painel"
+      ]
+    },
+    {
+      "id": "diesel_alta",
+      "tipo": "variacao",
+      "indicador": "diesel_mt",
+      "periodo": "mensal",
+      "limite_pct": 5,
+      "prioridade": "media",
+      "canais": [
+        "painel"
+      ]
+    },
+    {
+      "id": "focus_selic",
+      "tipo": "variacao",
+      "indicador": "focus_selic_prox_ano",
+      "periodo": "mensal",
+      "prioridade": "media",
+      "canais": [
+        "painel"
+      ],
+      "limite_pp": 0.25
+    },
+    {
+      "id": "indice_mudou",
+      "tipo": "indice",
+      "limite_pontos": 8,
+      "prioridade": "alta",
+      "canais": [
+        "painel",
+        "issue"
+      ]
+    },
+    {
+      "id": "recomendacao_mudou",
+      "tipo": "recomendacao",
+      "prioridade": "alta",
+      "canais": [
+        "painel",
+        "issue"
+      ]
+    },
+    {
+      "id": "coleta_falhou",
+      "tipo": "saude",
+      "prioridade": "alta",
+      "canais": [
+        "painel",
+        "issue"
+      ]
+    }
+  ]
+}

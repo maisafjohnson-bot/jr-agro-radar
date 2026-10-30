@@ -1,0 +1,14 @@
+{
+  "name": "jr-agro-radar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "JR Agro Radar Econômico & Inteligência Comercial",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "coletar": "node src/run.js",
+    "analisar": "node src/run.js --offline",
+    "servir": "node scripts/serve.js"
+  }
+}

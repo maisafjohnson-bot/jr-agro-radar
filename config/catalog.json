@@ -1,0 +1,108 @@
+{
+  "_doc": "Catálogo editável. Campos de margem NÃO ficam aqui (ficam apenas no navegador do usuário). 'ativo': false desativa sem apagar.",
+  "categorias": [
+    {
+      "id": "plantadeiras",
+      "nome": "Plantadeiras",
+      "segmento": "agricola",
+      "ativo": true,
+      "termo": "plantadeira",
+      "produto": "plantadeiras"
+    },
+    {
+      "id": "preparo_solo",
+      "nome": "Preparo de solo (grades, descompactadores)",
+      "segmento": "agricola",
+      "ativo": true,
+      "termo": "preparo de solo",
+      "produto": "grades e descompactadores"
+    },
+    {
+      "id": "distribuicao",
+      "nome": "Distribuição e aplicação (distribuidores de calcário/adubo)",
+      "segmento": "agricola",
+      "ativo": true,
+      "termo": "distribuição de calcário e adubo",
+      "produto": "distribuidores de calcário e adubo"
+    },
+    {
+      "id": "transporte",
+      "nome": "Transporte (carretas, transbordos)",
+      "segmento": "agricola",
+      "ativo": true,
+      "termo": "transporte (carretas e transbordos)",
+      "produto": "carretas e transbordos"
+    },
+    {
+      "id": "pecuaria_alimentacao",
+      "nome": "Pecuária — alimentação animal (vagões forrageiros/misturadores)",
+      "segmento": "pecuaria",
+      "ativo": true,
+      "termo": "trato e alimentação do rebanho",
+      "produto": "vagões forrageiros e misturadores"
+    }
+  ],
+  "marcas": [
+    {
+      "id": "piccin",
+      "nome": "PICCIN",
+      "categorias": [
+        "preparo_solo",
+        "plantadeiras"
+      ],
+      "ativo": true,
+      "obs": "Confirmar linhas representadas."
+    },
+    {
+      "id": "crucianelli",
+      "nome": "CRUCIANELLI",
+      "categorias": [
+        "plantadeiras"
+      ],
+      "ativo": true,
+      "obs": "Plantadeiras; fabricação no Brasil via Piccin."
+    },
+    {
+      "id": "schemaq",
+      "nome": "SCHEMAQ",
+      "categorias": [],
+      "ativo": true,
+      "obs": "Preencher categorias."
+    },
+    {
+      "id": "rubemaq",
+      "nome": "RUBEMAQ",
+      "categorias": [],
+      "ativo": true,
+      "obs": "Preencher categorias."
+    },
+    {
+      "id": "grazmec",
+      "nome": "GRAZMEC",
+      "categorias": [],
+      "ativo": true,
+      "obs": "Preencher categorias."
+    }
+  ],
+  "territorios": [
+    {
+      "id": "mt",
+      "nome": "Mato Grosso",
+      "uf": "MT",
+      "destaque": true,
+      "ativo": true
+    },
+    {
+      "id": "ro",
+      "nome": "Rondônia",
+      "uf": "RO",
+      "ativo": true
+    },
+    {
+      "id": "ac",
+      "nome": "Acre",
+      "uf": "AC",
+      "ativo": true
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "versao": "0.2-experimental",
+  "data_versao": "2026-10-29",
+  "status": "HEURÍSTICO EXPERIMENTAL — pesos definidos por raciocínio econômico, NÃO calibrados com vendas da JR Agro. Não tem capacidade preditiva validada.",
+  "regras_gerais": {
+    "frescor_max_dias": {
+      "diaria": 7,
+      "semanal": 21,
+      "mensal": 75
+    },
+    "cobertura_minima": 0.5,
+    "historico_minimo_percentil": 24,
+    "faixas": [
+      {
+        "min": 0,
+        "max": 19,
+        "rotulo": "Muito desfavorável"
+      },
+      {
+        "min": 20,
+        "max": 39,
+        "rotulo": "Desfavorável"
+      },
+      {
+        "min": 40,
+        "max": 59,
+        "rotulo": "Misto / neutro"
+      },
+      {
+        "min": 60,
+        "max": 79,
+        "rotulo": "Favorável"
+      },
+      {
+        "min": 80,
+        "max": 100,
+        "rotulo": "Muito favorável"
+      }
+    ],
+    "nivel_anos": 10,
+    "_doc_componentes": "Cada variável combina 'momento' (variação recente vs. histórico de variações da própria série) e, para taxas, 'nivel' (percentil do valor atual nos últimos 10 anos). Preços nominais não usam nível, porque a inflação inflaria o percentil ao longo do tempo."
+  },
+  "janela_variacao": {
+    "diaria": 30,
+    "semanal": 4,
+    "mensal": 3,
+    "_doc": "diária: dias corridos; semanal e mensal: nº de observações"
+  },
+  "indices": {
+    "agricola": {
+      "nome": "Índice de Oportunidade Agrícola",
+      "blocos": [
+        {
+          "id": "receita",
+          "nome": "Receita esperada do produtor",
+          "peso": 0.3,
+          "variaveis": [
+            {
+              "id": "soja_mt",
+              "direcao": 1,
+              "porque": "Preço da soja em alta tende a elevar a receita esperada do produtor de MT, o que pode favorecer decisões de investimento — desde que custos, produtividade e endividamento não piorem.",
+              "componentes": {
+                "momento": 1.0
+              }
+            },
+            {
+              "id": "milho_mt",
+              "direcao": 1,
+              "porque": "Milho valorizado melhora a receita da 2ª safra em MT.",
+              "componentes": {
+                "momento": 1.0
+              }
+            },
+            {
+              "id": "icbr_agro",
+              "direcao": 1,
+              "porque": "O IC-Br Agropecuária resume preços de commodities agro em reais; alta indica ambiente de receita mais forte, em nível nacional.",
+              "componentes": {
+                "momento": 1.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "capital",
+          "nome": "Custo do capital e crédito",
+          "peso": 0.25,
+          "variaveis": [
+            {
+              "id": "selic_meta",
+              "direcao": -1,
+              "porque": "Juros básicos mais altos encarecem financiamentos livres e reduzem o apetite por investimento; linhas equalizadas (Plano Safra/BNDES) amortecem parte do efeito.",
+              "componentes": {
+                "momento": 0.5,
+                "nivel": 0.5
+              }
+            },
+            {
+              "id": "focus_selic_prox_ano",
+              "direcao": -1,
+              "porque": "Expectativa de juros menores no próximo ano pode levar produtores a planejar compras; expectativa de alta tende a adiar decisões.",
+              "componentes": {
+                "momento": 0.5,
+                "nivel": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "custos",
+          "nome": "Custos de produção",
+          "peso": 0.2,
+          "variaveis": [
+            {
+              "id": "diesel_mt",
+              "direcao": -1,
+              "porque": "Diesel mais caro pressiona o custo operacional e a margem.",
+              "componentes": {
+                "momento": 1.0
+              }
+            },
+            {
+              "id": "fertilizante",
+              "direcao": -1,
+              "porque": "Fertilizante é um dos maiores itens do custo de soja e milho; alta comprime margem.",
+              "componentes": {
+                "momento": 1.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "macro",
+          "nome": "Inflação e expectativas",
+          "peso": 0.1,
+          "variaveis": [
+            {
+              "id": "ipca_12m",
+              "direcao": -1,
+              "porque": "Inflação alta tende a manter juros elevados e corroer margens.",
+              "componentes": {
+                "momento": 0.5,
+                "nivel": 0.5
+              }
+            },
+            {
+              "id": "focus_ipca_prox_ano",
+              "direcao": -1,
+              "porque": "Expectativa de inflação maior sinaliza juros altos por mais tempo.",
+              "componentes": {
+                "momento": 0.5,
+                "nivel": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "demanda",
+          "nome": "Demanda por máquinas",
+          "peso": 0.15,
+          "variaveis": [
+            {
+              "id": "maquinas_vendas",
+              "direcao": 1,
+              "porque": "Vendas do setor em alta indicam ciclo de investimento ativo.",
+              "componentes": {
+                "momento": 1.0
+              }
+            }
+          ]
+        }
+      ],
+      "contexto_ambiguo": [
+        {
+          "id": "usd_brl",
+          "porque": "Dólar alto eleva a receita em reais de quem exporta soja/milho/algodão, mas encarece máquinas, peças, diesel e fertilizantes. O efeito líquido depende do produtor e do momento da comercialização — por isso NÃO entra na nota, só no contexto."
+        }
+      ]
+    },
+    "pecuaria": {
+      "nome": "Índice de Oportunidade Pecuária",
+      "blocos": [
+        {
+          "id": "receita_pec",
+          "nome": "Receita do pecuarista",
+          "peso": 0.45,
+          "variaveis": [
+            {
+              "id": "boi_gordo",
+              "direcao": 1,
+              "porque": "Arroba valorizada melhora a receita e a disposição de investir em estrutura, alimentação e manejo.",
+              "componentes": {
+                "momento": 1.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "custo_racao",
+          "nome": "Custo de alimentação animal",
+          "peso": 0.2,
+          "variaveis": [
+            {
+              "id": "milho_mt",
+              "direcao": -1,
+              "porque": "Milho é base de ração e suplementação; alta encarece o confinamento e a suplementação.",
+              "componentes": {
+                "momento": 1.0
+              }
+            }
+          ]
+        },
+        {
+          "id": "capital_pec",
+          "nome": "Custo do capital",
+          "peso": 0.25,
+          "variaveis": [
+            {
+              "id": "selic_meta",
+              "direcao": -1,
+              "porque": "Juros altos encarecem o investimento.",
+              "componentes": {
+                "momento": 0.5,
+                "nivel": 0.5
+              }
+            },
+            {
+              "id": "focus_selic_prox_ano",
+              "direcao": -1,
+              "porque": "Expectativa de juros.",
+              "componentes": {
+                "momento": 0.5,
+                "nivel": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "custos_pec",
+          "nome": "Custos operacionais",
+          "peso": 0.1,
+          "variaveis": [
+            {
+              "id": "diesel_mt",
+              "direcao": -1,
+              "porque": "Diesel pesa no trato e na logística.",
+              "componentes": {
+                "momento": 1.0
+              }
+            }
+          ]
+        }
+      ],
+      "contexto_ambiguo": []
+    }
+  },
+  "geral": {
+    "nome": "Índice Geral de Oportunidade Comercial JR Agro",
+    "pesos": {
+      "agricola": 0.7,
+      "pecuaria": 0.3
+    },
+    "_doc": "Peso reflete a composição atual do portfólio (predominantemente agrícola). Ajustável em Configurações."
+  },
+  "historico_versoes": [
+    {
+      "versao": "0.1-experimental",
+      "data": "2026-10-29",
+      "mudanca": "Versão inicial heurística."
+    },
+    {
+      "versao": "0.2-experimental",
+      "data": "2026-10-29",
+      "mudanca": "Auditoria: taxas medidas em p.p.; componente de nível para taxas (Selic, IPCA e expectativas); histórico de variações sem sobreposição com a janela atual; Focus comparado só dentro do mesmo ano de referência; confiança rebaixada por histórico curto; análise de sensibilidade dos pesos."
+    }
+  ]
+}
