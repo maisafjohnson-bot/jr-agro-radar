@@ -1,0 +1,11 @@
+{
+ "ultima_tentativa": "2026-10-30T14:06:30.246Z",
+ "ultimos_erros": [
+  "ibge municipios: fetch failed",
+  "ibge pam: fetch failed",
+  "ibge ppm: fetch failed",
+  "ibge malha RO: fetch failed",
+  "ibge malha AC: fetch failed",
+  "ibge malha MT: fetch failed"
+ ]
+}

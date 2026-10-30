@@ -1,0 +1,4506 @@
+{
+ "gerado_em": "2026-10-30T14:06:30.246Z",
+ "metodologia": {
+  "versao": "0.3.1-experimental",
+  "status": "HEURÍSTICO EXPERIMENTAL — pesos definidos por raciocínio econômico, NÃO calibrados com vendas da JR Agro. Não tem capacidade preditiva validada."
+ },
+ "indices": {
+  "geral": {
+   "nome": "Índice Geral de Oportunidade Comercial JR Agro",
+   "suficiente": true,
+   "valor": 51,
+   "classificacao": "Misto / neutro",
+   "confianca": "baixa",
+   "componentes": {
+    "agricola": 51
+   },
+   "contraditorio": false,
+   "divergencia_segmentos": false,
+   "motivo_confianca": "Menor confiança entre os componentes. Calculado só com o índice agrícola (o outro não tem dados suficientes).",
+   "versao": "0.3.1-experimental"
+  },
+  "agricola": {
+   "nome": "Índice de Oportunidade Agrícola",
+   "cobertura": 0.65,
+   "blocos": [
+    {
+     "id": "receita",
+     "nome": "Receita esperada do produtor",
+     "peso": 0.3,
+     "sinal": 0.27586206896551735,
+     "disponivel": true,
+     "variaveis": [
+      {
+       "id": "soja_mt",
+       "nome": "Soja — preço em Mato Grosso",
+       "direcao": 1,
+       "porque": "Preço da soja em alta tende a elevar a receita esperada do produtor de MT, o que pode favorecer decisões de investimento — desde que custos, produtividade e endividamento não piorem.",
+       "disponivel": false,
+       "motivo": "sem dados",
+       "sinal": null
+      },
+      {
+       "id": "milho_mt",
+       "nome": "Milho — preço em Mato Grosso",
+       "direcao": 1,
+       "porque": "Milho valorizado melhora a receita da 2ª safra em MT.",
+       "disponivel": false,
+       "motivo": "sem dados",
+       "sinal": null
+      },
+      {
+       "id": "icbr_agro",
+       "nome": "Índice de Commodities Brasil (IC-Br) — Agropecuária",
+       "direcao": 1,
+       "porque": "O IC-Br Agropecuária resume preços de commodities agro em reais; alta indica ambiente de receita mais forte, em nível nacional.",
+       "disponivel": true,
+       "variacao": {
+        "de": "2026-06-01",
+        "para": "2026-09-01",
+        "pct": 3.754570383912237,
+        "pp": 16.43,
+        "valor_de": 437.6,
+        "valor_para": 454.03,
+        "valor": 3.754570383912237,
+        "medida": "pct",
+        "iStart": 176
+       },
+       "medida": "pct",
+       "percentil": 0.6379310344827587,
+       "percentil_nivel": null,
+       "componentes_usados": {
+        "momento": {
+         "percentil": 0.6379310344827587,
+         "sinal": 0.27586206896551735,
+         "qualidade": "percentil",
+         "n": 174
+        }
+       },
+       "sinal_bruto": 0.27586206896551735,
+       "qualidade": "percentil",
+       "n_historico": 174,
+       "data_referencia": "2026-09-01",
+       "sinal": 0.27586206896551735
+      },
+      {
+       "id": "soja_cepea",
+       "nome": "Soja — Indicador Cepea Paranaguá",
+       "direcao": 1,
+       "porque": "Referência nacional diária da soja (Paranaguá). Move junto com o preço em MT, mas não o substitui: frete e base regional diferem. Fica no mesmo bloco da soja MT para não contar duas vezes.",
+       "disponivel": false,
+       "motivo": "histórico insuficiente para calcular a variação",
+       "sinal": null
+      },
+      {
+       "id": "milho_cepea",
+       "nome": "Milho — Indicador Cepea (Campinas)",
+       "direcao": 1,
+       "porque": "Referência nacional diária do milho. Mesmo bloco do milho MT (média, sem dupla contagem).",
+       "disponivel": false,
+       "motivo": "histórico insuficiente para calcular a variação",
+       "sinal": null
+      }
+     ],
+     "contribuicao_pontos": 6.37
+    },
+    {
+     "id": "capital",
+     "nome": "Custo do capital e crédito",
+     "peso": 0.25,
+     "sinal": -0.10201590576155478,
+     "disponivel": true,
+     "variaveis": [
+      {
+       "id": "selic_meta",
+       "nome": "Taxa Selic — meta Copom",
+       "direcao": -1,
+       "porque": "Juros básicos mais altos encarecem financiamentos livres e reduzem o apetite por investimento; linhas equalizadas (Plano Safra/BNDES) amortecem parte do efeito.",
+       "disponivel": true,
+       "variacao": {
+        "de": "2026-09-30",
+        "para": "2026-10-30",
+        "pct": 0,
+        "pp": 0,
+        "valor_de": 13.75,
+        "valor_para": 13.75,
+        "valor": 0,
+        "medida": "pp",
+        "iStart": 3257
+       },
+       "medida": "pp",
+       "percentil": 0.5208978328173375,
+       "percentil_nivel": 0.7719805293580773,
+       "componentes_usados": {
+        "momento": {
+         "percentil": 0.5208978328173375,
+         "sinal": 0.04179566563467496,
+         "qualidade": "percentil",
+         "n": 646
+        },
+        "nivel": {
+         "percentil": 0.7719805293580773,
+         "sinal": 0.5439610587161545,
+         "n": 3287,
+         "desde": "2017-10-30"
+        }
+       },
+       "sinal_bruto": 0.29287836217541474,
+       "qualidade": "percentil",
+       "n_historico": 646,
+       "data_referencia": "2026-10-30",
+       "sinal": -0.29287836217541474
+      },
+      {
+       "id": "focus_selic_prox_ano",
+       "nome": "Focus — mediana Selic fim do próximo ano",
+       "direcao": -1,
+       "porque": "Expectativa de juros menores no próximo ano pode levar produtores a planejar compras; expectativa de alta tende a adiar decisões.",
+       "disponivel": true,
+       "variacao": {
+        "de": "2026-10-19",
+        "para": "2026-10-23",
+        "pct": -2.083333333333333,
+        "pp": -0.25,
+        "valor_de": 12,
+        "valor_para": 11.75,
+        "valor": -0.25,
+        "medida": "pp",
+        "iStart": 952
+       },
+       "medida": "pp",
+       "percentil": 0.008956796628029505,
+       "percentil_nivel": 0.9021966527196653,
+       "componentes_usados": {
+        "momento": {
+         "percentil": 0.008956796628029505,
+         "sinal": -0.982086406743941,
+         "qualidade": "percentil",
+         "n": 949
+        },
+        "nivel": {
+         "percentil": 0.9021966527196653,
+         "sinal": 0.8043933054393306,
+         "n": 956,
+         "desde": "2023-01-02"
+        }
+       },
+       "sinal_bruto": -0.08884655065230518,
+       "qualidade": "percentil",
+       "n_historico": 949,
+       "data_referencia": "2026-10-23",
+       "sinal": 0.08884655065230518
+      }
+     ],
+     "contribuicao_pontos": -1.96
+    },
+    {
+     "id": "custos",
+     "nome": "Custos de produção",
+     "peso": 0.2,
+     "sinal": null,
+     "disponivel": false,
+     "variaveis": [
+      {
+       "id": "diesel_mt",
+       "nome": "Diesel S10 — preço médio de revenda MT",
+       "direcao": -1,
+       "porque": "Diesel mais caro pressiona o custo operacional e a margem.",
+       "disponivel": false,
+       "motivo": "sem dados",
+       "sinal": null
+      },
+      {
+       "id": "fertilizante",
+       "nome": "Fertilizante — preço de referência",
+       "direcao": -1,
+       "porque": "Fertilizante é um dos maiores itens do custo de soja e milho; alta comprime margem.",
+       "disponivel": false,
+       "motivo": "sem dados",
+       "sinal": null
+      }
+     ],
+     "contribuicao_pontos": null
+    },
+    {
+     "id": "macro",
+     "nome": "Inflação e expectativas",
+     "peso": 0.1,
+     "sinal": -0.4895079361323642,
+     "disponivel": true,
+     "variaveis": [
+      {
+       "id": "ipca_12m",
+       "nome": "IPCA acumulado em 12 meses",
+       "direcao": -1,
+       "porque": "Inflação alta tende a manter juros elevados e corroer margens.",
+       "disponivel": true,
+       "variacao": {
+        "de": "2026-06-01",
+        "para": "2026-09-01",
+        "pct": -1.2931034482758537,
+        "pp": -0.06,
+        "valor_de": 4.64,
+        "valor_para": 4.58,
+        "valor": -0.06,
+        "medida": "pp",
+        "iStart": 176
+       },
+       "medida": "pp",
+       "percentil": 0.4827586206896552,
+       "percentil_nivel": 0.5588235294117647,
+       "componentes_usados": {
+        "momento": {
+         "percentil": 0.4827586206896552,
+         "sinal": -0.03448275862068961,
+         "qualidade": "percentil",
+         "n": 174
+        },
+        "nivel": {
+         "percentil": 0.5588235294117647,
+         "sinal": 0.11764705882352944,
+         "n": 119,
+         "desde": "2016-10-01"
+        }
+       },
+       "sinal_bruto": 0.04158215010141991,
+       "qualidade": "percentil",
+       "n_historico": 174,
+       "data_referencia": "2026-09-01",
+       "sinal": -0.04158215010141991
+      },
+      {
+       "id": "focus_ipca_prox_ano",
+       "nome": "Focus — mediana IPCA do próximo ano",
+       "direcao": -1,
+       "porque": "Expectativa de inflação maior sinaliza juros altos por mais tempo.",
+       "disponivel": true,
+       "variacao": {
+        "de": "2026-10-19",
+        "para": "2026-10-23",
+        "pct": 0.9332743733562919,
+        "pp": 0.0401,
+        "valor_de": 4.2967,
+        "valor_para": 4.3368,
+        "valor": 0.0401,
+        "medida": "pp",
+        "iStart": 946
+       },
+       "medida": "pp",
+       "percentil": 0.9374337221633086,
+       "percentil_nivel": 1,
+       "componentes_usados": {
+        "momento": {
+         "percentil": 0.9374337221633086,
+         "sinal": 0.8748674443266171,
+         "qualidade": "percentil",
+         "n": 943
+        },
+        "nivel": {
+         "percentil": 1,
+         "sinal": 1,
+         "n": 950,
+         "desde": "2023-01-10"
+        }
+       },
+       "sinal_bruto": 0.9374337221633086,
+       "qualidade": "percentil",
+       "n_historico": 943,
+       "data_referencia": "2026-10-23",
+       "sinal": -0.9374337221633086
+      }
+     ],
+     "contribuicao_pontos": -3.77
+    },
+    {
+     "id": "demanda",
+     "nome": "Demanda por máquinas",
+     "peso": 0.15,
+     "sinal": null,
+     "disponivel": false,
+     "variaveis": [
+      {
+       "id": "maquinas_vendas",
+       "nome": "Vendas internas de máquinas agrícolas",
+       "direcao": 1,
+       "porque": "Vendas do setor em alta indicam ciclo de investimento ativo.",
+       "disponivel": false,
+       "motivo": "sem dados",
+       "sinal": null
+      }
+     ],
+     "contribuicao_pontos": null
+    }
+   ],
+   "versao": "0.3.1-experimental",
+   "variaveis_usadas": 5,
+   "variaveis_total": 12,
+   "indisponiveis": [
+    {
+     "id": "soja_mt",
+     "nome": "Soja — preço em Mato Grosso",
+     "motivo": "sem dados"
+    },
+    {
+     "id": "milho_mt",
+     "nome": "Milho — preço em Mato Grosso",
+     "motivo": "sem dados"
+    },
+    {
+     "id": "soja_cepea",
+     "nome": "Soja — Indicador Cepea Paranaguá",
+     "motivo": "histórico insuficiente para calcular a variação"
+    },
+    {
+     "id": "milho_cepea",
+     "nome": "Milho — Indicador Cepea (Campinas)",
+     "motivo": "histórico insuficiente para calcular a variação"
+    },
+    {
+     "id": "diesel_mt",
+     "nome": "Diesel S10 — preço médio de revenda MT",
+     "motivo": "sem dados"
+    },
+    {
+     "id": "fertilizante",
+     "nome": "Fertilizante — preço de referência",
+     "motivo": "sem dados"
+    },
+    {
+     "id": "maquinas_vendas",
+     "nome": "Vendas internas de máquinas agrícolas",
+     "motivo": "sem dados"
+    }
+   ],
+   "suficiente": true,
+   "regionais_usados": [],
+   "valor": 51,
+   "valor_bruto": 50.64,
+   "classificacao": "Misto / neutro",
+   "confianca": "baixa",
+   "motivo_confianca": "cobertura 65% dos pesos; 5 variáveis com dado atual; modelo ainda não calibrado com vendas da JR Agro; nenhum indicador regional (MT/RO/AC) atual — leitura baseada só em dados nacionais",
+   "contraditorio": false,
+   "sensibilidade": {
+    "min": 49,
+    "max": 52,
+    "muda_classificacao": false
+   }
+  },
+  "pecuaria": {
+   "nome": "Índice de Oportunidade Pecuária",
+   "cobertura": 0.25,
+   "blocos": [
+    {
+     "id": "receita_pec",
+     "nome": "Receita do pecuarista",
+     "peso": 0.45,
+     "sinal": null,
+     "disponivel": false,
+     "variaveis": [
+      {
+       "id": "boi_gordo",
+       "nome": "Boi gordo — indicador",
+       "direcao": 1,
+       "porque": "Arroba valorizada melhora a receita e a disposição de investir em estrutura, alimentação e manejo.",
+       "disponivel": false,
+       "motivo": "sem dados",
+       "sinal": null
+      },
+      {
+       "id": "boi_cepea",
+       "nome": "Boi gordo — Indicador Cepea (SP)",
+       "direcao": 1,
+       "porque": "Referência nacional diária da arroba (SP). Mesmo bloco do boi MT.",
+       "disponivel": false,
+       "motivo": "histórico insuficiente para calcular a variação",
+       "sinal": null
+      }
+     ]
+    },
+    {
+     "id": "custo_racao",
+     "nome": "Custo de alimentação animal",
+     "peso": 0.2,
+     "sinal": null,
+     "disponivel": false,
+     "variaveis": [
+      {
+       "id": "milho_mt",
+       "nome": "Milho — preço em Mato Grosso",
+       "direcao": -1,
+       "porque": "Milho é base de ração e suplementação; alta encarece o confinamento e a suplementação.",
+       "disponivel": false,
+       "motivo": "sem dados",
+       "sinal": null
+      },
+      {
+       "id": "milho_cepea",
+       "nome": "Milho — Indicador Cepea (Campinas)",
+       "direcao": -1,
+       "porque": "Milho mais caro encarece ração (referência nacional).",
+       "disponivel": false,
+       "motivo": "histórico insuficiente para calcular a variação",
+       "sinal": null
+      }
+     ]
+    },
+    {
+     "id": "capital_pec",
+     "nome": "Custo do capital",
+     "peso": 0.25,
+     "sinal": -0.10201590576155478,
+     "disponivel": true,
+     "variaveis": [
+      {
+       "id": "selic_meta",
+       "nome": "Taxa Selic — meta Copom",
+       "direcao": -1,
+       "porque": "Juros altos encarecem o investimento.",
+       "disponivel": true,
+       "variacao": {
+        "de": "2026-09-30",
+        "para": "2026-10-30",
+        "pct": 0,
+        "pp": 0,
+        "valor_de": 13.75,
+        "valor_para": 13.75,
+        "valor": 0,
+        "medida": "pp",
+        "iStart": 3257
+       },
+       "medida": "pp",
+       "percentil": 0.5208978328173375,
+       "percentil_nivel": 0.7719805293580773,
+       "componentes_usados": {
+        "momento": {
+         "percentil": 0.5208978328173375,
+         "sinal": 0.04179566563467496,
+         "qualidade": "percentil",
+         "n": 646
+        },
+        "nivel": {
+         "percentil": 0.7719805293580773,
+         "sinal": 0.5439610587161545,
+         "n": 3287,
+         "desde": "2017-10-30"
+        }
+       },
+       "sinal_bruto": 0.29287836217541474,
+       "qualidade": "percentil",
+       "n_historico": 646,
+       "data_referencia": "2026-10-30",
+       "sinal": -0.29287836217541474
+      },
+      {
+       "id": "focus_selic_prox_ano",
+       "nome": "Focus — mediana Selic fim do próximo ano",
+       "direcao": -1,
+       "porque": "Expectativa de juros.",
+       "disponivel": true,
+       "variacao": {
+        "de": "2026-10-19",
+        "para": "2026-10-23",
+        "pct": -2.083333333333333,
+        "pp": -0.25,
+        "valor_de": 12,
+        "valor_para": 11.75,
+        "valor": -0.25,
+        "medida": "pp",
+        "iStart": 952
+       },
+       "medida": "pp",
+       "percentil": 0.008956796628029505,
+       "percentil_nivel": 0.9021966527196653,
+       "componentes_usados": {
+        "momento": {
+         "percentil": 0.008956796628029505,
+         "sinal": -0.982086406743941,
+         "qualidade": "percentil",
+         "n": 949
+        },
+        "nivel": {
+         "percentil": 0.9021966527196653,
+         "sinal": 0.8043933054393306,
+         "n": 956,
+         "desde": "2023-01-02"
+        }
+       },
+       "sinal_bruto": -0.08884655065230518,
+       "qualidade": "percentil",
+       "n_historico": 949,
+       "data_referencia": "2026-10-23",
+       "sinal": 0.08884655065230518
+      }
+     ]
+    },
+    {
+     "id": "custos_pec",
+     "nome": "Custos operacionais",
+     "peso": 0.1,
+     "sinal": null,
+     "disponivel": false,
+     "variaveis": [
+      {
+       "id": "diesel_mt",
+       "nome": "Diesel S10 — preço médio de revenda MT",
+       "direcao": -1,
+       "porque": "Diesel pesa no trato e na logística.",
+       "disponivel": false,
+       "motivo": "sem dados",
+       "sinal": null
+      }
+     ]
+    }
+   ],
+   "versao": "0.3.1-experimental",
+   "variaveis_usadas": 2,
+   "variaveis_total": 7,
+   "indisponiveis": [
+    {
+     "id": "boi_gordo",
+     "nome": "Boi gordo — indicador",
+     "motivo": "sem dados"
+    },
+    {
+     "id": "boi_cepea",
+     "nome": "Boi gordo — Indicador Cepea (SP)",
+     "motivo": "histórico insuficiente para calcular a variação"
+    },
+    {
+     "id": "milho_mt",
+     "nome": "Milho — preço em Mato Grosso",
+     "motivo": "sem dados"
+    },
+    {
+     "id": "milho_cepea",
+     "nome": "Milho — Indicador Cepea (Campinas)",
+     "motivo": "histórico insuficiente para calcular a variação"
+    },
+    {
+     "id": "diesel_mt",
+     "nome": "Diesel S10 — preço médio de revenda MT",
+     "motivo": "sem dados"
+    }
+   ],
+   "suficiente": false,
+   "valor": null,
+   "classificacao": "Dados insuficientes",
+   "confianca": "insuficiente",
+   "motivo_confianca": "Cobertura de 25% dos pesos (mínimo 50%). Não há base para uma classificação confiável."
+  }
+ },
+ "diagnostico": {
+  "data_analise": "2026-10-30T14:06:30.246Z",
+  "situacao": "misto",
+  "recomendacao": "MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO",
+  "confianca": "baixa",
+  "criterio_confianca": "Menor confiança entre os componentes. Calculado só com o índice agrícola (o outro não tem dados suficientes).",
+  "resumo_executivo": "Índice geral em 51/100 (misto / neutro), confiança baixa. Pesam a favor: o índice de commodities agro do BC. Pesam contra: a inflação esperada para o próximo ano e a Selic. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.",
+  "fatores_favoraveis": [
+   {
+    "id": "icbr_agro",
+    "chave": "agricola:icbr_agro",
+    "segmento": "agricola",
+    "indicador": "Índice de Commodities Brasil (IC-Br) — Agropecuária",
+    "curto": "o índice de commodities agro do BC",
+    "bloco": "Receita esperada do produtor",
+    "o_que_aconteceu": "Índice de Commodities Brasil (IC-Br) — Agropecuária: 454,0 índice (Banco Central do Brasil, ref. 01/09/2026)",
+    "variacao": "+3,8% (01/06/2026 → 01/09/2026)",
+    "periodo": "01/06/2026 a 01/09/2026",
+    "fonte": "Banco Central do Brasil — SGS série 27575",
+    "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+    "porque_importa": "O IC-Br Agropecuária resume preços de commodities agro em reais; alta indica ambiente de receita mais forte, em nível nacional.",
+    "impacto_comercial": "Produtor com receita esperada melhor tende a abrir espaço para conversar sobre renovação e ampliação.",
+    "limitacoes": [
+     "Movimento recente no percentil 64 das variações passadas desta série.",
+     "Preço maior não significa caixa disponível: depende de quanto já foi vendido antecipadamente, dos custos e do endividamento de cada produtor.",
+     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
+     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
+    ],
+    "forca": 0.27586206896551735
+   }
+  ],
+  "fatores_desfavoraveis": [
+   {
+    "id": "focus_ipca_prox_ano",
+    "chave": "agricola:focus_ipca_prox_ano",
+    "segmento": "agricola",
+    "indicador": "Focus — mediana IPCA do próximo ano",
+    "curto": "a inflação esperada para o próximo ano",
+    "bloco": "Inflação e expectativas",
+    "o_que_aconteceu": "Focus — mediana IPCA do próximo ano: 4,34% (Banco Central do Brasil, ref. 23/10/2026)",
+    "variacao": "+0,04 p.p. (4,30% → 4,34%, 19/10/2026 → 23/10/2026)",
+    "periodo": "19/10/2026 a 23/10/2026",
+    "fonte": "Banco Central do Brasil — Relatório Focus (API Olinda)",
+    "fonte_url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao#!/recursos",
+    "porque_importa": "Expectativa de inflação maior sinaliza juros altos por mais tempo.",
+    "impacto_comercial": "Inflação/expectativas piorando sustentam juros altos por mais tempo.",
+    "limitacoes": [
+     "Movimento recente no percentil 94 das variações passadas desta série.",
+     "Nível atual no percentil 100 dos últimos 10 anos (alto, mesmo que esteja caindo).",
+     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
+     "É expectativa de mercado, não fato.",
+     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
+    ],
+    "forca": 0.9374337221633086
+   },
+   {
+    "id": "selic_meta",
+    "chave": "agricola:selic_meta",
+    "segmento": "agricola",
+    "indicador": "Taxa Selic — meta Copom",
+    "curto": "a Selic",
+    "bloco": "Custo do capital e crédito",
+    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
+    "variacao": "0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)",
+    "periodo": "30/09/2026 a 30/10/2026",
+    "fonte": "Banco Central do Brasil — SGS série 432",
+    "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+    "porque_importa": "Juros básicos mais altos encarecem financiamentos livres e reduzem o apetite por investimento; linhas equalizadas (Plano Safra/BNDES) amortecem parte do efeito.",
+    "impacto_comercial": "Crédito mais caro: propostas precisam se apoiar em linhas equalizadas e em necessidade real.",
+    "limitacoes": [
+     "Movimento recente no percentil 52 das variações passadas desta série.",
+     "Nível atual no percentil 77 dos últimos 10 anos (alto, mesmo que esteja caindo).",
+     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
+     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
+    ],
+    "forca": 0.29287836217541474
+   },
+   {
+    "id": "selic_meta",
+    "chave": "pecuaria:selic_meta",
+    "segmento": "pecuaria",
+    "indicador": "Taxa Selic — meta Copom",
+    "curto": "a Selic",
+    "bloco": "Custo do capital",
+    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
+    "variacao": "0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)",
+    "periodo": "30/09/2026 a 30/10/2026",
+    "fonte": "Banco Central do Brasil — SGS série 432",
+    "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+    "porque_importa": "Juros altos encarecem o investimento.",
+    "impacto_comercial": "Crédito mais caro.",
+    "limitacoes": [
+     "Movimento recente no percentil 52 das variações passadas desta série.",
+     "Nível atual no percentil 77 dos últimos 10 anos (alto, mesmo que esteja caindo).",
+     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
+     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
+    ],
+    "forca": 0.29287836217541474
+   }
+  ],
+  "fatores_neutros": [
+   {
+    "id": "focus_selic_prox_ano",
+    "chave": "agricola:focus_selic_prox_ano",
+    "segmento": "agricola",
+    "indicador": "Focus — mediana Selic fim do próximo ano",
+    "curto": "a Selic esperada pelo mercado para o próximo ano",
+    "bloco": "Custo do capital e crédito",
+    "o_que_aconteceu": "Focus — mediana Selic fim do próximo ano: 11,75% a.a. (Banco Central do Brasil, ref. 23/10/2026)",
+    "variacao": "-0,25 p.p. (12,00% → 11,75%, 19/10/2026 → 23/10/2026)",
+    "periodo": "19/10/2026 a 23/10/2026",
+    "fonte": "Banco Central do Brasil — Relatório Focus (API Olinda, ExpectativasMercadoAnuais)",
+    "fonte_url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao#!/recursos",
+    "porque_importa": "Expectativa de juros menores no próximo ano pode levar produtores a planejar compras; expectativa de alta tende a adiar decisões.",
+    "impacto_comercial": "Crédito tendendo a ficar menos caro favorece propostas com financiamento.",
+    "limitacoes": [
+     "Movimento recente no percentil 1 das variações passadas desta série.",
+     "Nível atual no percentil 90 dos últimos 10 anos (alto, mesmo que esteja caindo).",
+     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
+     "É expectativa de mercado, não fato.",
+     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
+    ],
+    "forca": 0.08884655065230518
+   },
+   {
+    "id": "ipca_12m",
+    "chave": "agricola:ipca_12m",
+    "segmento": "agricola",
+    "indicador": "IPCA acumulado em 12 meses",
+    "curto": "o IPCA em 12 meses",
+    "bloco": "Inflação e expectativas",
+    "o_que_aconteceu": "IPCA acumulado em 12 meses: 4,58% (IBGE, via Banco Central do Brasil, ref. 01/09/2026)",
+    "variacao": "-0,06 p.p. (4,64% → 4,58%, 01/06/2026 → 01/09/2026)",
+    "periodo": "01/06/2026 a 01/09/2026",
+    "fonte": "IBGE, via Banco Central do Brasil — SGS série 13522",
+    "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+    "porque_importa": "Inflação alta tende a manter juros elevados e corroer margens.",
+    "impacto_comercial": "Inflação/expectativas piorando sustentam juros altos por mais tempo.",
+    "limitacoes": [
+     "Movimento recente no percentil 48 das variações passadas desta série.",
+     "Nível atual no percentil 56 dos últimos 10 anos.",
+     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
+     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
+    ],
+    "forca": 0.04158215010141991
+   },
+   {
+    "id": "focus_selic_prox_ano",
+    "chave": "pecuaria:focus_selic_prox_ano",
+    "segmento": "pecuaria",
+    "indicador": "Focus — mediana Selic fim do próximo ano",
+    "curto": "a Selic esperada pelo mercado para o próximo ano",
+    "bloco": "Custo do capital",
+    "o_que_aconteceu": "Focus — mediana Selic fim do próximo ano: 11,75% a.a. (Banco Central do Brasil, ref. 23/10/2026)",
+    "variacao": "-0,25 p.p. (12,00% → 11,75%, 19/10/2026 → 23/10/2026)",
+    "periodo": "19/10/2026 a 23/10/2026",
+    "fonte": "Banco Central do Brasil — Relatório Focus (API Olinda, ExpectativasMercadoAnuais)",
+    "fonte_url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao#!/recursos",
+    "porque_importa": "Expectativa de juros.",
+    "impacto_comercial": "Crédito tendendo a ficar menos caro.",
+    "limitacoes": [
+     "Movimento recente no percentil 1 das variações passadas desta série.",
+     "Nível atual no percentil 90 dos últimos 10 anos (alto, mesmo que esteja caindo).",
+     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
+     "É expectativa de mercado, não fato.",
+     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
+    ],
+    "forca": 0.08884655065230518
+   }
+  ],
+  "contexto_ambiguo": [
+   {
+    "id": "usd_brl",
+    "texto": "Dólar comercial (venda): 5,37 R$/US$ (Banco Central do Brasil, ref. 29/10/2026); Dólar comercial (venda) variou +2,9% entre 29/09/2026 e 29/10/2026 (Banco Central do Brasil).",
+    "nota": "Dólar alto eleva a receita em reais de quem exporta soja/milho/algodão, mas encarece máquinas, peças, diesel e fertilizantes. O efeito líquido depende do produtor e do momento da comercialização — por isso NÃO entra na nota, só no contexto."
+   }
+  ],
+  "sinais_contraditorios": false,
+  "mudancas_vs_anterior": [
+   "Primeira análise registrada — sem base de comparação."
+  ],
+  "fatos": {
+   "usd_brl": {
+    "id": "usd_brl",
+    "nivel": "Dólar comercial (venda): 5,37 R$/US$ (Banco Central do Brasil, ref. 29/10/2026)",
+    "variacao": "Dólar comercial (venda) variou +2,9% entre 29/09/2026 e 29/10/2026 (Banco Central do Brasil)",
+    "direcao": "alta",
+    "msg": "o dólar subiu 2,9% entre 29/09 e 29/10 (Banco Central do Brasil)",
+    "tipo": "oficial"
+   },
+   "selic_meta": {
+    "id": "selic_meta",
+    "nivel": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
+    "variacao": "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 30/09/2026 e 30/10/2026 (Banco Central do Brasil)",
+    "direcao": "estável",
+    "msg": "a Selic ficou de 13,75% para 13,75% entre 30/09 e 30/10 (Banco Central do Brasil)",
+    "tipo": "oficial"
+   },
+   "ipca_12m": {
+    "id": "ipca_12m",
+    "nivel": "IPCA acumulado em 12 meses: 4,58% (IBGE, via Banco Central do Brasil, ref. 01/09/2026)",
+    "variacao": "IPCA acumulado em 12 meses passou de 4,22% para 4,58% entre 01/08/2026 e 01/09/2026 (IBGE, via Banco Central do Brasil)",
+    "direcao": "alta",
+    "msg": "o IPCA em 12 meses subiu de 4,22% para 4,58% entre 01/08 e 01/09 (IBGE, via Banco Central do Brasil)",
+    "tipo": "oficial"
+   },
+   "icbr_agro": {
+    "id": "icbr_agro",
+    "nivel": "Índice de Commodities Brasil (IC-Br) — Agropecuária: 454,0 índice (Banco Central do Brasil, ref. 01/09/2026)",
+    "variacao": "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)",
+    "direcao": "estável",
+    "msg": "o índice de commodities agro do BC ficou estável, variando 0,1% entre 01/08 e 01/09 (Banco Central do Brasil)",
+    "tipo": "oficial"
+   },
+   "focus_selic_prox_ano": {
+    "id": "focus_selic_prox_ano",
+    "nivel": "Focus — mediana Selic fim do próximo ano: 11,75% a.a. (Banco Central do Brasil, ref. 23/10/2026)",
+    "variacao": "Focus — mediana Selic fim do próximo ano passou de 12,00% para 11,75% entre 23/09/2026 e 23/10/2026 (Banco Central do Brasil)",
+    "direcao": "queda",
+    "msg": "a Selic esperada pelo mercado para o próximo ano recuou de 12,00% para 11,75% entre 23/09 e 23/10 (Banco Central do Brasil)",
+    "tipo": "expectativa"
+   },
+   "focus_ipca_prox_ano": {
+    "id": "focus_ipca_prox_ano",
+    "nivel": "Focus — mediana IPCA do próximo ano: 4,34% (Banco Central do Brasil, ref. 23/10/2026)",
+    "variacao": "Focus — mediana IPCA do próximo ano passou de 4,30% para 4,34% entre 23/09/2026 e 23/10/2026 (Banco Central do Brasil)",
+    "direcao": "alta",
+    "msg": "a inflação esperada para o próximo ano subiu de 4,30% para 4,34% entre 23/09 e 23/10 (Banco Central do Brasil)",
+    "tipo": "expectativa"
+   },
+   "imea_plantio_soja": {
+    "id": "imea_plantio_soja",
+    "nivel": "Plantio da soja em MT (% da área): 75,81% da área (IMEA (via Revista Cultivar, 23/10/2026), ref. 23/10/2026)",
+    "variacao": null,
+    "direcao": null,
+    "msg": "o plantio da soja em MT está em 75,81% da área (IMEA (via Revista Cultivar, 23/10/2026), 23/10/2026)",
+    "tipo": "manual"
+   },
+   "imea_custo_soja": {
+    "id": "imea_custo_soja",
+    "nivel": "Custo total de produção da soja em MT: 8.210,31 R$/ha (IMEA/Senar-MT (via Revista Cultivar, 23/10/2026), ref. 01/10/2026)",
+    "variacao": null,
+    "direcao": null,
+    "msg": "o custo de produção da soja em MT está em 8.210,31 R$/ha (IMEA/Senar-MT (via Revista Cultivar, 23/10/2026), 01/10/2026)",
+    "tipo": "manual"
+   },
+   "soja_cepea": {
+    "id": "soja_cepea",
+    "nivel": "Soja — Indicador Cepea Paranaguá: 158,28 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 29/10/2026)",
+    "variacao": "Soja — Indicador Cepea Paranaguá variou +4,2% entre 22/10/2026 e 29/10/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "direcao": "alta",
+    "msg": "a soja em Paranaguá (Cepea) subiu 4,2% entre 22/10 e 29/10 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "tipo": "oficial"
+   },
+   "milho_cepea": {
+    "id": "milho_cepea",
+    "nivel": "Milho — Indicador Cepea (Campinas): 65,59 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 29/10/2026)",
+    "variacao": "Milho — Indicador Cepea (Campinas) variou +2,1% entre 22/10/2026 e 29/10/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "direcao": "alta",
+    "msg": "o milho no indicador Cepea subiu 2,1% entre 22/10 e 29/10 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "tipo": "oficial"
+   },
+   "boi_cepea": {
+    "id": "boi_cepea",
+    "nivel": "Boi gordo — Indicador Cepea (SP): 389,20 R$/@ (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 29/10/2026)",
+    "variacao": "Boi gordo — Indicador Cepea (SP) variou +2,3% entre 22/10/2026 e 29/10/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "direcao": "alta",
+    "msg": "a arroba do boi no indicador Cepea subiu 2,3% entre 22/10 e 29/10 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "tipo": "oficial"
+   },
+   "algodao_cepea": {
+    "id": "algodao_cepea",
+    "nivel": "Algodão em pluma — Indicador Cepea: 412,15 centavos de R$/lp (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 29/10/2026)",
+    "variacao": null,
+    "direcao": null,
+    "msg": "o algodão no indicador Cepea está em 412,15 centavos de R$/lp (Cepea/Esalq-USP (CC BY-NC 4.0), 29/10/2026)",
+    "tipo": "oficial"
+   }
+  },
+  "tendencia_indice": {
+   "status": "insuficiente",
+   "texto": "Tendência do índice exige 10 dias com nota; há 1.",
+   "dias": 1
+  },
+  "sinais_momento_compra": [
+   {
+    "tipo": "possível adiamento",
+    "texto": "A Selic esperada para o próximo ano caiu 0,25 p.p. Parte dos produtores pode adiar compras esperando crédito mais barato.",
+    "cuidado": "Trabalhar o custo de adiar e preparar a decisão; não contradizer a expectativa do cliente.",
+    "evidencia": "Focus — mediana Selic fim do próximo ano passou de 12,00% para 11,75% entre 23/09/2026 e 23/10/2026 (Banco Central do Brasil)"
+   }
+  ]
+ },
+ "cards": [
+  {
+   "id": "usd_brl",
+   "nome": "Dólar comercial (venda)",
+   "curto": "o dólar",
+   "unidade": "R$/US$",
+   "frequencia": "diaria",
+   "fonte": "Banco Central do Brasil — SGS série 1",
+   "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+   "abrangencia": "Brasil",
+   "coleta": "bcb_sgs",
+   "valor": 5.3744,
+   "data_referencia": "2026-10-29",
+   "coletado_em": "2026-10-30T14:06:32.963Z",
+   "tipo_dado": "oficial",
+   "praca": null,
+   "status": "atual",
+   "idade_dias": 1,
+   "variacoes": {
+    "diaria": {
+     "de": "2026-10-28",
+     "para": "2026-10-29",
+     "pct": 0.6065144140771245,
+     "pp": 0.0324,
+     "valor_de": 5.342,
+     "valor_para": 5.3744
+    },
+    "semanal": {
+     "de": "2026-10-22",
+     "para": "2026-10-29",
+     "pct": 6.670900899112799,
+     "pp": 0.3361,
+     "valor_de": 5.0383,
+     "valor_para": 5.3744
+    },
+    "mensal": {
+     "de": "2026-09-29",
+     "para": "2026-10-29",
+     "pct": 2.9499655198835324,
+     "pp": 0.154,
+     "valor_de": 5.2204,
+     "valor_para": 5.3744
+    },
+    "anual": {
+     "de": "2025-10-29",
+     "para": "2026-10-29",
+     "pct": 0.6140482252508601,
+     "pp": 0.0328,
+     "valor_de": 5.3416,
+     "valor_para": 5.3744
+    }
+   },
+   "tendencia": {
+    "rotulo": "alta",
+    "pct_periodo": 5.135730499135978
+   },
+   "interpretacao": "No mês: dólar em alta: melhora a receita em reais de quem vende grão, mas tende a encarecer máquinas, peças e insumos. Pode haver argumento para antecipar compra apenas se houver reajuste de tabela confirmado pelo fabricante.",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2026-08-05",
+     5.1154
+    ],
+    [
+     "2026-08-06",
+     5.1017
+    ],
+    [
+     "2026-08-07",
+     5.0908
+    ],
+    [
+     "2026-08-10",
+     5.0963
+    ],
+    [
+     "2026-08-11",
+     5.1285
+    ],
+    [
+     "2026-08-12",
+     5.1639
+    ],
+    [
+     "2026-08-13",
+     5.1859
+    ],
+    [
+     "2026-08-14",
+     5.2236
+    ],
+    [
+     "2026-08-17",
+     5.2014
+    ],
+    [
+     "2026-08-18",
+     5.2043
+    ],
+    [
+     "2026-08-19",
+     5.1714
+    ],
+    [
+     "2026-08-20",
+     5.1862
+    ],
+    [
+     "2026-08-21",
+     5.1625
+    ],
+    [
+     "2026-08-24",
+     5.1512
+    ],
+    [
+     "2026-08-25",
+     5.149
+    ],
+    [
+     "2026-08-26",
+     5.1604
+    ],
+    [
+     "2026-08-27",
+     5.1642
+    ],
+    [
+     "2026-08-28",
+     5.2005
+    ],
+    [
+     "2026-08-31",
+     5.1816
+    ],
+    [
+     "2026-09-01",
+     5.157
+    ],
+    [
+     "2026-09-02",
+     5.1273
+    ],
+    [
+     "2026-09-03",
+     5.0962
+    ],
+    [
+     "2026-09-04",
+     5.1253
+    ],
+    [
+     "2026-09-08",
+     5.0856
+    ],
+    [
+     "2026-09-09",
+     5.0979
+    ],
+    [
+     "2026-09-10",
+     5.1149
+    ],
+    [
+     "2026-09-11",
+     5.0918
+    ],
+    [
+     "2026-09-14",
+     5.1696
+    ],
+    [
+     "2026-09-15",
+     5.149
+    ],
+    [
+     "2026-09-16",
+     5.1527
+    ],
+    [
+     "2026-09-17",
+     5.1521
+    ],
+    [
+     "2026-09-18",
+     5.1575
+    ],
+    [
+     "2026-09-21",
+     5.1117
+    ],
+    [
+     "2026-09-22",
+     5.1161
+    ],
+    [
+     "2026-09-23",
+     5.1414
+    ],
+    [
+     "2026-09-24",
+     5.1795
+    ],
+    [
+     "2026-09-25",
+     5.1991
+    ],
+    [
+     "2026-09-28",
+     5.2132
+    ],
+    [
+     "2026-09-29",
+     5.2204
+    ],
+    [
+     "2026-09-30",
+     5.1809
+    ],
+    [
+     "2026-10-01",
+     5.2079
+    ],
+    [
+     "2026-10-02",
+     5.2238
+    ],
+    [
+     "2026-10-05",
+     4.9859
+    ],
+    [
+     "2026-10-06",
+     4.9698
+    ],
+    [
+     "2026-10-07",
+     4.9935
+    ],
+    [
+     "2026-10-08",
+     5.0119
+    ],
+    [
+     "2026-10-09",
+     4.9892
+    ],
+    [
+     "2026-10-13",
+     5.0096
+    ],
+    [
+     "2026-10-14",
+     5.0441
+    ],
+    [
+     "2026-10-15",
+     5.0521
+    ],
+    [
+     "2026-10-16",
+     5.0826
+    ],
+    [
+     "2026-10-19",
+     5.0564
+    ],
+    [
+     "2026-10-20",
+     5.014
+    ],
+    [
+     "2026-10-21",
+     5.0277
+    ],
+    [
+     "2026-10-22",
+     5.0383
+    ],
+    [
+     "2026-10-23",
+     5.0377
+    ],
+    [
+     "2026-10-26",
+     5.5007
+    ],
+    [
+     "2026-10-27",
+     5.3346
+    ],
+    [
+     "2026-10-28",
+     5.342
+    ],
+    [
+     "2026-10-29",
+     5.3744
+    ]
+   ],
+   "historico_url": "data/observations/usd_brl.json",
+   "fonte_consultada_em": "2026-10-30T14:06:32.981Z",
+   "dado_novo_nesta_execucao": true
+  },
+  {
+   "id": "selic_meta",
+   "nome": "Taxa Selic — meta Copom",
+   "curto": "a Selic",
+   "unidade": "% a.a.",
+   "frequencia": "diaria",
+   "fonte": "Banco Central do Brasil — SGS série 432",
+   "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+   "abrangencia": "Brasil",
+   "coleta": "bcb_sgs",
+   "valor": 13.75,
+   "data_referencia": "2026-10-30",
+   "coletado_em": "2026-10-30T14:07:41.785Z",
+   "tipo_dado": "oficial",
+   "praca": null,
+   "status": "atual",
+   "idade_dias": 0,
+   "variacoes": {
+    "diaria": {
+     "de": "2026-10-29",
+     "para": "2026-10-30",
+     "pct": 0,
+     "pp": 0,
+     "valor_de": 13.75,
+     "valor_para": 13.75
+    },
+    "semanal": {
+     "de": "2026-10-23",
+     "para": "2026-10-30",
+     "pct": 0,
+     "pp": 0,
+     "valor_de": 13.75,
+     "valor_para": 13.75
+    },
+    "mensal": {
+     "de": "2026-09-30",
+     "para": "2026-10-30",
+     "pct": 0,
+     "pp": 0,
+     "valor_de": 13.75,
+     "valor_para": 13.75
+    },
+    "anual": {
+     "de": "2025-10-30",
+     "para": "2026-10-30",
+     "pct": -8.333333333333332,
+     "pp": -1.25,
+     "valor_de": 15,
+     "valor_para": 13.75
+    }
+   },
+   "tendencia": {
+    "rotulo": "estável",
+    "pct_periodo": 0
+   },
+   "interpretacao": "No mês: juros estáveis: argumento de financiamento depende da linha disponível, não do movimento da Selic.",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2026-09-01",
+     14
+    ],
+    [
+     "2026-09-02",
+     14
+    ],
+    [
+     "2026-09-03",
+     14
+    ],
+    [
+     "2026-09-04",
+     14
+    ],
+    [
+     "2026-09-05",
+     14
+    ],
+    [
+     "2026-09-06",
+     14
+    ],
+    [
+     "2026-09-07",
+     14
+    ],
+    [
+     "2026-09-08",
+     14
+    ],
+    [
+     "2026-09-09",
+     14
+    ],
+    [
+     "2026-09-10",
+     14
+    ],
+    [
+     "2026-09-11",
+     14
+    ],
+    [
+     "2026-09-12",
+     14
+    ],
+    [
+     "2026-09-13",
+     14
+    ],
+    [
+     "2026-09-14",
+     14
+    ],
+    [
+     "2026-09-15",
+     14
+    ],
+    [
+     "2026-09-16",
+     14
+    ],
+    [
+     "2026-09-17",
+     13.75
+    ],
+    [
+     "2026-09-18",
+     13.75
+    ],
+    [
+     "2026-09-19",
+     13.75
+    ],
+    [
+     "2026-09-20",
+     13.75
+    ],
+    [
+     "2026-09-21",
+     13.75
+    ],
+    [
+     "2026-09-22",
+     13.75
+    ],
+    [
+     "2026-09-23",
+     13.75
+    ],
+    [
+     "2026-09-24",
+     13.75
+    ],
+    [
+     "2026-09-25",
+     13.75
+    ],
+    [
+     "2026-09-26",
+     13.75
+    ],
+    [
+     "2026-09-27",
+     13.75
+    ],
+    [
+     "2026-09-28",
+     13.75
+    ],
+    [
+     "2026-09-29",
+     13.75
+    ],
+    [
+     "2026-09-30",
+     13.75
+    ],
+    [
+     "2026-10-01",
+     13.75
+    ],
+    [
+     "2026-10-02",
+     13.75
+    ],
+    [
+     "2026-10-03",
+     13.75
+    ],
+    [
+     "2026-10-04",
+     13.75
+    ],
+    [
+     "2026-10-05",
+     13.75
+    ],
+    [
+     "2026-10-06",
+     13.75
+    ],
+    [
+     "2026-10-07",
+     13.75
+    ],
+    [
+     "2026-10-08",
+     13.75
+    ],
+    [
+     "2026-10-09",
+     13.75
+    ],
+    [
+     "2026-10-10",
+     13.75
+    ],
+    [
+     "2026-10-11",
+     13.75
+    ],
+    [
+     "2026-10-12",
+     13.75
+    ],
+    [
+     "2026-10-13",
+     13.75
+    ],
+    [
+     "2026-10-14",
+     13.75
+    ],
+    [
+     "2026-10-15",
+     13.75
+    ],
+    [
+     "2026-10-16",
+     13.75
+    ],
+    [
+     "2026-10-17",
+     13.75
+    ],
+    [
+     "2026-10-18",
+     13.75
+    ],
+    [
+     "2026-10-19",
+     13.75
+    ],
+    [
+     "2026-10-20",
+     13.75
+    ],
+    [
+     "2026-10-21",
+     13.75
+    ],
+    [
+     "2026-10-22",
+     13.75
+    ],
+    [
+     "2026-10-23",
+     13.75
+    ],
+    [
+     "2026-10-24",
+     13.75
+    ],
+    [
+     "2026-10-25",
+     13.75
+    ],
+    [
+     "2026-10-26",
+     13.75
+    ],
+    [
+     "2026-10-27",
+     13.75
+    ],
+    [
+     "2026-10-28",
+     13.75
+    ],
+    [
+     "2026-10-29",
+     13.75
+    ],
+    [
+     "2026-10-30",
+     13.75
+    ]
+   ],
+   "historico_url": "data/observations/selic_meta.json",
+   "fonte_consultada_em": "2026-10-30T14:07:41.794Z",
+   "dado_novo_nesta_execucao": true
+  },
+  {
+   "id": "ipca_12m",
+   "nome": "IPCA acumulado em 12 meses",
+   "curto": "o IPCA em 12 meses",
+   "unidade": "%",
+   "frequencia": "mensal",
+   "fonte": "IBGE, via Banco Central do Brasil — SGS série 13522",
+   "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+   "abrangencia": "Brasil",
+   "coleta": "bcb_sgs",
+   "valor": 4.58,
+   "data_referencia": "2026-09-01",
+   "coletado_em": "2026-10-30T14:07:42.983Z",
+   "tipo_dado": "oficial",
+   "praca": null,
+   "status": "atual",
+   "idade_dias": 59,
+   "variacoes": {
+    "mensal": {
+     "de": "2026-08-01",
+     "para": "2026-09-01",
+     "pct": 8.530805687203799,
+     "pp": 0.36,
+     "valor_de": 4.22,
+     "valor_para": 4.58
+    },
+    "anual": {
+     "de": "2025-09-01",
+     "para": "2026-09-01",
+     "pct": -11.41199226305609,
+     "pp": -0.59,
+     "valor_de": 5.17,
+     "valor_para": 4.58
+    }
+   },
+   "tendencia": {
+    "rotulo": "alta",
+    "pct_periodo": 11.181072314443814
+   },
+   "interpretacao": "No mês: inflação subindo: pressão sobre custos e sobre juros.",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2021-10-01",
+     10.67
+    ],
+    [
+     "2021-11-01",
+     10.74
+    ],
+    [
+     "2021-12-01",
+     10.06
+    ],
+    [
+     "2022-01-01",
+     10.38
+    ],
+    [
+     "2022-02-01",
+     10.54
+    ],
+    [
+     "2022-03-01",
+     11.3
+    ],
+    [
+     "2022-04-01",
+     12.13
+    ],
+    [
+     "2022-05-01",
+     11.73
+    ],
+    [
+     "2022-06-01",
+     11.89
+    ],
+    [
+     "2022-07-01",
+     10.07
+    ],
+    [
+     "2022-08-01",
+     8.73
+    ],
+    [
+     "2022-09-01",
+     7.17
+    ],
+    [
+     "2022-10-01",
+     6.47
+    ],
+    [
+     "2022-11-01",
+     5.9
+    ],
+    [
+     "2022-12-01",
+     5.79
+    ],
+    [
+     "2023-01-01",
+     5.77
+    ],
+    [
+     "2023-02-01",
+     5.6
+    ],
+    [
+     "2023-03-01",
+     4.65
+    ],
+    [
+     "2023-04-01",
+     4.18
+    ],
+    [
+     "2023-05-01",
+     3.94
+    ],
+    [
+     "2023-06-01",
+     3.16
+    ],
+    [
+     "2023-07-01",
+     3.99
+    ],
+    [
+     "2023-08-01",
+     4.61
+    ],
+    [
+     "2023-09-01",
+     5.19
+    ],
+    [
+     "2023-10-01",
+     4.82
+    ],
+    [
+     "2023-11-01",
+     4.68
+    ],
+    [
+     "2023-12-01",
+     4.62
+    ],
+    [
+     "2024-01-01",
+     4.51
+    ],
+    [
+     "2024-02-01",
+     4.5
+    ],
+    [
+     "2024-03-01",
+     3.93
+    ],
+    [
+     "2024-04-01",
+     3.69
+    ],
+    [
+     "2024-05-01",
+     3.93
+    ],
+    [
+     "2024-06-01",
+     4.23
+    ],
+    [
+     "2024-07-01",
+     4.5
+    ],
+    [
+     "2024-08-01",
+     4.24
+    ],
+    [
+     "2024-09-01",
+     4.42
+    ],
+    [
+     "2024-10-01",
+     4.76
+    ],
+    [
+     "2024-11-01",
+     4.87
+    ],
+    [
+     "2024-12-01",
+     4.83
+    ],
+    [
+     "2025-01-01",
+     4.56
+    ],
+    [
+     "2025-02-01",
+     5.06
+    ],
+    [
+     "2025-03-01",
+     5.48
+    ],
+    [
+     "2025-04-01",
+     5.53
+    ],
+    [
+     "2025-05-01",
+     5.32
+    ],
+    [
+     "2025-06-01",
+     5.35
+    ],
+    [
+     "2025-07-01",
+     5.23
+    ],
+    [
+     "2025-08-01",
+     5.13
+    ],
+    [
+     "2025-09-01",
+     5.17
+    ],
+    [
+     "2025-10-01",
+     4.68
+    ],
+    [
+     "2025-11-01",
+     4.46
+    ],
+    [
+     "2025-12-01",
+     4.26
+    ],
+    [
+     "2026-01-01",
+     4.44
+    ],
+    [
+     "2026-02-01",
+     3.81
+    ],
+    [
+     "2026-03-01",
+     4.14
+    ],
+    [
+     "2026-04-01",
+     4.39
+    ],
+    [
+     "2026-05-01",
+     4.72
+    ],
+    [
+     "2026-06-01",
+     4.64
+    ],
+    [
+     "2026-07-01",
+     4.44
+    ],
+    [
+     "2026-08-01",
+     4.22
+    ],
+    [
+     "2026-09-01",
+     4.58
+    ]
+   ],
+   "historico_url": "data/observations/ipca_12m.json",
+   "fonte_consultada_em": "2026-10-30T14:07:42.984Z",
+   "dado_novo_nesta_execucao": true
+  },
+  {
+   "id": "icbr_agro",
+   "nome": "Índice de Commodities Brasil (IC-Br) — Agropecuária",
+   "curto": "o índice de commodities agro do BC",
+   "unidade": "índice",
+   "frequencia": "mensal",
+   "fonte": "Banco Central do Brasil — SGS série 27575",
+   "fonte_url": "https://www3.bcb.gov.br/sgspub/",
+   "abrangencia": "Brasil",
+   "coleta": "bcb_sgs",
+   "valor": 454.03,
+   "data_referencia": "2026-09-01",
+   "coletado_em": "2026-10-30T14:07:43.595Z",
+   "tipo_dado": "oficial",
+   "praca": null,
+   "status": "atual",
+   "idade_dias": 59,
+   "variacoes": {
+    "mensal": {
+     "de": "2026-08-01",
+     "para": "2026-09-01",
+     "pct": 0.11466119820951728,
+     "pp": 0.52,
+     "valor_de": 453.51,
+     "valor_para": 454.03
+    },
+    "anual": {
+     "de": "2025-09-01",
+     "para": "2026-09-01",
+     "pct": -3.531286518644429,
+     "pp": -16.62,
+     "valor_de": 470.65,
+     "valor_para": 454.03
+    }
+   },
+   "tendencia": {
+    "rotulo": "alta",
+    "pct_periodo": 6.470133472793833
+   },
+   "interpretacao": "No mês: commodities estáveis.",
+   "aviso": [
+    "Código da série a confirmar no log da primeira coleta."
+   ],
+   "sparkline": [
+    [
+     "2021-10-01",
+     390.44
+    ],
+    [
+     "2021-11-01",
+     407.22
+    ],
+    [
+     "2021-12-01",
+     409.88
+    ],
+    [
+     "2022-01-01",
+     415.9
+    ],
+    [
+     "2022-02-01",
+     406.76
+    ],
+    [
+     "2022-03-01",
+     398.94
+    ],
+    [
+     "2022-04-01",
+     398
+    ],
+    [
+     "2022-05-01",
+     414.86
+    ],
+    [
+     "2022-06-01",
+     405.45
+    ],
+    [
+     "2022-07-01",
+     393.98
+    ],
+    [
+     "2022-08-01",
+     393.51
+    ],
+    [
+     "2022-09-01",
+     404.05
+    ],
+    [
+     "2022-10-01",
+     395.65
+    ],
+    [
+     "2022-11-01",
+     403.66
+    ],
+    [
+     "2022-12-01",
+     395.23
+    ],
+    [
+     "2023-01-01",
+     396.44
+    ],
+    [
+     "2023-02-01",
+     404.27
+    ],
+    [
+     "2023-03-01",
+     393.72
+    ],
+    [
+     "2023-04-01",
+     391.43
+    ],
+    [
+     "2023-05-01",
+     378.53
+    ],
+    [
+     "2023-06-01",
+     378.28
+    ],
+    [
+     "2023-07-01",
+     384.11
+    ],
+    [
+     "2023-08-01",
+     393
+    ],
+    [
+     "2023-09-01",
+     405.16
+    ],
+    [
+     "2023-10-01",
+     408.6
+    ],
+    [
+     "2023-11-01",
+     390.71
+    ],
+    [
+     "2023-12-01",
+     375.94
+    ],
+    [
+     "2024-01-01",
+     379.88
+    ],
+    [
+     "2024-02-01",
+     403.95
+    ],
+    [
+     "2024-03-01",
+     408.65
+    ],
+    [
+     "2024-04-01",
+     422.94
+    ],
+    [
+     "2024-05-01",
+     414.36
+    ],
+    [
+     "2024-06-01",
+     440.44
+    ],
+    [
+     "2024-07-01",
+     447.54
+    ],
+    [
+     "2024-08-01",
+     435.97
+    ],
+    [
+     "2024-09-01",
+     448.98
+    ],
+    [
+     "2024-10-01",
+     465.39
+    ],
+    [
+     "2024-11-01",
+     490.78
+    ],
+    [
+     "2024-12-01",
+     531.59
+    ],
+    [
+     "2025-01-01",
+     537.72
+    ],
+    [
+     "2025-02-01",
+     510.22
+    ],
+    [
+     "2025-03-01",
+     484.87
+    ],
+    [
+     "2025-04-01",
+     494.59
+    ],
+    [
+     "2025-05-01",
+     491.25
+    ],
+    [
+     "2025-06-01",
+     476.21
+    ],
+    [
+     "2025-07-01",
+     470.99
+    ],
+    [
+     "2025-08-01",
+     474.36
+    ],
+    [
+     "2025-09-01",
+     470.65
+    ],
+    [
+     "2025-10-01",
+     460.31
+    ],
+    [
+     "2025-11-01",
+     435.32
+    ],
+    [
+     "2025-12-01",
+     450.68
+    ],
+    [
+     "2026-01-01",
+     447.12
+    ],
+    [
+     "2026-02-01",
+     424.21
+    ],
+    [
+     "2026-03-01",
+     433.17
+    ],
+    [
+     "2026-04-01",
+     433.83
+    ],
+    [
+     "2026-05-01",
+     437.75
+    ],
+    [
+     "2026-06-01",
+     437.6
+    ],
+    [
+     "2026-07-01",
+     444.22
+    ],
+    [
+     "2026-08-01",
+     453.51
+    ],
+    [
+     "2026-09-01",
+     454.03
+    ]
+   ],
+   "historico_url": "data/observations/icbr_agro.json",
+   "fonte_consultada_em": "2026-10-30T14:07:43.596Z",
+   "dado_novo_nesta_execucao": true
+  },
+  {
+   "id": "focus_selic_prox_ano",
+   "nome": "Focus — mediana Selic fim do próximo ano",
+   "curto": "a Selic esperada pelo mercado para o próximo ano",
+   "unidade": "% a.a.",
+   "frequencia": "semanal",
+   "fonte": "Banco Central do Brasil — Relatório Focus (API Olinda, ExpectativasMercadoAnuais)",
+   "fonte_url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao#!/recursos",
+   "abrangencia": "Brasil",
+   "coleta": "bcb_focus",
+   "valor": 11.75,
+   "data_referencia": "2026-10-23",
+   "coletado_em": "2026-10-30T14:07:44.997Z",
+   "tipo_dado": "expectativa",
+   "praca": null,
+   "status": "atual",
+   "idade_dias": 7,
+   "variacoes": {
+    "semanal": {
+     "de": "2026-10-22",
+     "para": "2026-10-23",
+     "pct": -2.083333333333333,
+     "pp": -0.25,
+     "valor_de": 12,
+     "valor_para": 11.75
+    },
+    "mensal": {
+     "de": "2026-09-23",
+     "para": "2026-10-23",
+     "pct": -2.083333333333333,
+     "pp": -0.25,
+     "valor_de": 12,
+     "valor_para": 11.75
+    },
+    "anual": {
+     "de": "2025-10-23",
+     "para": "2026-10-23",
+     "pct": 11.904761904761903,
+     "pp": 1.25,
+     "valor_de": 10.5,
+     "valor_para": 11.75
+    }
+   },
+   "tendencia": {
+    "rotulo": "queda",
+    "pct_periodo": -1.2184508268059182
+   },
+   "interpretacao": "No mês: mercado passou a esperar juros menores: produtores podem estar adiando compras à espera de crédito mais barato, ou planejando para o próximo ciclo.",
+   "aviso": [
+    "Expectativa de mercado (Focus), não observação."
+   ],
+   "sparkline": [
+    [
+     "2026-07-30",
+     12
+    ],
+    [
+     "2026-07-31",
+     12
+    ],
+    [
+     "2026-08-03",
+     12
+    ],
+    [
+     "2026-08-04",
+     12
+    ],
+    [
+     "2026-08-05",
+     12
+    ],
+    [
+     "2026-08-06",
+     12
+    ],
+    [
+     "2026-08-07",
+     12
+    ],
+    [
+     "2026-08-10",
+     12
+    ],
+    [
+     "2026-08-11",
+     12
+    ],
+    [
+     "2026-08-12",
+     12
+    ],
+    [
+     "2026-08-13",
+     12
+    ],
+    [
+     "2026-08-14",
+     12
+    ],
+    [
+     "2026-08-17",
+     12
+    ],
+    [
+     "2026-08-18",
+     12
+    ],
+    [
+     "2026-08-19",
+     12
+    ],
+    [
+     "2026-08-20",
+     12
+    ],
+    [
+     "2026-08-21",
+     12
+    ],
+    [
+     "2026-08-24",
+     12
+    ],
+    [
+     "2026-08-25",
+     12
+    ],
+    [
+     "2026-08-26",
+     12
+    ],
+    [
+     "2026-08-27",
+     12
+    ],
+    [
+     "2026-08-28",
+     12
+    ],
+    [
+     "2026-08-31",
+     12
+    ],
+    [
+     "2026-09-01",
+     12
+    ],
+    [
+     "2026-09-02",
+     12
+    ],
+    [
+     "2026-09-03",
+     12
+    ],
+    [
+     "2026-09-04",
+     12
+    ],
+    [
+     "2026-09-08",
+     12
+    ],
+    [
+     "2026-09-09",
+     12
+    ],
+    [
+     "2026-09-10",
+     12
+    ],
+    [
+     "2026-09-11",
+     12
+    ],
+    [
+     "2026-09-14",
+     12
+    ],
+    [
+     "2026-09-15",
+     12
+    ],
+    [
+     "2026-09-16",
+     12
+    ],
+    [
+     "2026-09-17",
+     12
+    ],
+    [
+     "2026-09-18",
+     12
+    ],
+    [
+     "2026-09-21",
+     12
+    ],
+    [
+     "2026-09-22",
+     12
+    ],
+    [
+     "2026-09-23",
+     12
+    ],
+    [
+     "2026-09-24",
+     12
+    ],
+    [
+     "2026-09-25",
+     12
+    ],
+    [
+     "2026-09-28",
+     12
+    ],
+    [
+     "2026-09-29",
+     12
+    ],
+    [
+     "2026-09-30",
+     12
+    ],
+    [
+     "2026-10-01",
+     12
+    ],
+    [
+     "2026-10-02",
+     12
+    ],
+    [
+     "2026-10-05",
+     12
+    ],
+    [
+     "2026-10-06",
+     12
+    ],
+    [
+     "2026-10-07",
+     12
+    ],
+    [
+     "2026-10-08",
+     12
+    ],
+    [
+     "2026-10-09",
+     12
+    ],
+    [
+     "2026-10-13",
+     12
+    ],
+    [
+     "2026-10-14",
+     12
+    ],
+    [
+     "2026-10-15",
+     12
+    ],
+    [
+     "2026-10-16",
+     12
+    ],
+    [
+     "2026-10-19",
+     12
+    ],
+    [
+     "2026-10-20",
+     12
+    ],
+    [
+     "2026-10-21",
+     12
+    ],
+    [
+     "2026-10-22",
+     12
+    ],
+    [
+     "2026-10-23",
+     11.75
+    ]
+   ],
+   "historico_url": "data/observations/focus_selic_prox_ano.json",
+   "fonte_consultada_em": "2026-10-30T14:07:45.000Z",
+   "dado_novo_nesta_execucao": true
+  },
+  {
+   "id": "focus_ipca_prox_ano",
+   "nome": "Focus — mediana IPCA do próximo ano",
+   "curto": "a inflação esperada para o próximo ano",
+   "unidade": "%",
+   "frequencia": "semanal",
+   "fonte": "Banco Central do Brasil — Relatório Focus (API Olinda)",
+   "fonte_url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/aplicacao#!/recursos",
+   "abrangencia": "Brasil",
+   "coleta": "bcb_focus",
+   "valor": 4.3368,
+   "data_referencia": "2026-10-23",
+   "coletado_em": "2026-10-30T14:07:46.227Z",
+   "tipo_dado": "expectativa",
+   "praca": null,
+   "status": "atual",
+   "idade_dias": 7,
+   "variacoes": {
+    "semanal": {
+     "de": "2026-10-22",
+     "para": "2026-10-23",
+     "pct": 0.8933556672250188,
+     "pp": 0.0384,
+     "valor_de": 4.2984,
+     "valor_para": 4.3368
+    },
+    "mensal": {
+     "de": "2026-09-23",
+     "para": "2026-10-23",
+     "pct": 0.8253318764094544,
+     "pp": 0.0355,
+     "valor_de": 4.3013,
+     "valor_para": 4.3368
+    },
+    "anual": {
+     "de": "2025-10-23",
+     "para": "2026-10-23",
+     "pct": 13.087694594383164,
+     "pp": 0.5019,
+     "valor_de": 3.8349,
+     "valor_para": 4.3368
+    }
+   },
+   "tendencia": {
+    "rotulo": "estável",
+    "pct_periodo": 0.3410307179257979
+   },
+   "interpretacao": "No mês: expectativa de inflação subindo: juros altos por mais tempo.",
+   "aviso": [
+    "Expectativa de mercado (Focus), não observação."
+   ],
+   "sparkline": [
+    [
+     "2026-07-30",
+     4.2107
+    ],
+    [
+     "2026-07-31",
+     4.2194
+    ],
+    [
+     "2026-08-03",
+     4.222
+    ],
+    [
+     "2026-08-04",
+     4.222
+    ],
+    [
+     "2026-08-05",
+     4.222
+    ],
+    [
+     "2026-08-06",
+     4.222
+    ],
+    [
+     "2026-08-07",
+     4.2227
+    ],
+    [
+     "2026-08-10",
+     4.2227
+    ],
+    [
+     "2026-08-11",
+     4.2227
+    ],
+    [
+     "2026-08-12",
+     4.24
+    ],
+    [
+     "2026-08-13",
+     4.24
+    ],
+    [
+     "2026-08-14",
+     4.2402
+    ],
+    [
+     "2026-08-17",
+     4.2403
+    ],
+    [
+     "2026-08-18",
+     4.2403
+    ],
+    [
+     "2026-08-19",
+     4.2403
+    ],
+    [
+     "2026-08-20",
+     4.2403
+    ],
+    [
+     "2026-08-21",
+     4.2549
+    ],
+    [
+     "2026-08-24",
+     4.2502
+    ],
+    [
+     "2026-08-25",
+     4.2799
+    ],
+    [
+     "2026-08-26",
+     4.2799
+    ],
+    [
+     "2026-08-27",
+     4.2799
+    ],
+    [
+     "2026-08-28",
+     4.28
+    ],
+    [
+     "2026-08-31",
+     4.2799
+    ],
+    [
+     "2026-09-01",
+     4.2799
+    ],
+    [
+     "2026-09-02",
+     4.2799
+    ],
+    [
+     "2026-09-03",
+     4.2839
+    ],
+    [
+     "2026-09-04",
+     4.288
+    ],
+    [
+     "2026-09-08",
+     4.2891
+    ],
+    [
+     "2026-09-09",
+     4.2894
+    ],
+    [
+     "2026-09-10",
+     4.288
+    ],
+    [
+     "2026-09-11",
+     4.3
+    ],
+    [
+     "2026-09-14",
+     4.3
+    ],
+    [
+     "2026-09-15",
+     4.3
+    ],
+    [
+     "2026-09-16",
+     4.3
+    ],
+    [
+     "2026-09-17",
+     4.3
+    ],
+    [
+     "2026-09-18",
+     4.3
+    ],
+    [
+     "2026-09-21",
+     4.3
+    ],
+    [
+     "2026-09-22",
+     4.3013
+    ],
+    [
+     "2026-09-23",
+     4.3013
+    ],
+    [
+     "2026-09-24",
+     4.312
+    ],
+    [
+     "2026-09-25",
+     4.3118
+    ],
+    [
+     "2026-09-28",
+     4.3013
+    ],
+    [
+     "2026-09-29",
+     4.3007
+    ],
+    [
+     "2026-09-30",
+     4.3007
+    ],
+    [
+     "2026-10-01",
+     4.3007
+    ],
+    [
+     "2026-10-02",
+     4.3007
+    ],
+    [
+     "2026-10-05",
+     4.3118
+    ],
+    [
+     "2026-10-06",
+     4.3118
+    ],
+    [
+     "2026-10-07",
+     4.3064
+    ],
+    [
+     "2026-10-08",
+     4.3007
+    ],
+    [
+     "2026-10-09",
+     4.3
+    ],
+    [
+     "2026-10-13",
+     4.3
+    ],
+    [
+     "2026-10-14",
+     4.3
+    ],
+    [
+     "2026-10-15",
+     4.3
+    ],
+    [
+     "2026-10-16",
+     4.3206
+    ],
+    [
+     "2026-10-19",
+     4.2967
+    ],
+    [
+     "2026-10-20",
+     4.2956
+    ],
+    [
+     "2026-10-21",
+     4.2965
+    ],
+    [
+     "2026-10-22",
+     4.2984
+    ],
+    [
+     "2026-10-23",
+     4.3368
+    ]
+   ],
+   "historico_url": "data/observations/focus_ipca_prox_ano.json",
+   "fonte_consultada_em": "2026-10-30T14:07:46.229Z",
+   "dado_novo_nesta_execucao": true
+  },
+  {
+   "id": "soja_mt",
+   "nome": "Soja — preço em Mato Grosso",
+   "unidade": "R$/saca 60 kg",
+   "frequencia": "diaria",
+   "fonte": "Importação manual — preferencialmente IMEA (indicador de preço disponível MT); alternativa Cepea/Esalq",
+   "fonte_url": "https://www.imea.com.br/imea-site/indicadores",
+   "abrangencia": "MT (estadual/praça informada no CSV)",
+   "coleta": "manual",
+   "status": "ausente",
+   "valor": null,
+   "nota": "Sem dados importados. Importe um CSV em data/manual/ (ver docs/FONTES.md).",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "milho_mt",
+   "nome": "Milho — preço em Mato Grosso",
+   "unidade": "R$/saca 60 kg",
+   "frequencia": "diaria",
+   "fonte": "Importação manual — preferencialmente IMEA (indicador de preço disponível MT); alternativa Cepea/Esalq",
+   "fonte_url": "https://www.imea.com.br/imea-site/indicadores",
+   "abrangencia": "MT",
+   "coleta": "manual",
+   "status": "ausente",
+   "valor": null,
+   "nota": "Sem dados importados. Importe um CSV em data/manual/ (ver docs/FONTES.md).",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "boi_gordo",
+   "nome": "Boi gordo — indicador",
+   "unidade": "R$/@",
+   "frequencia": "diaria",
+   "fonte": "Importação manual — preferencialmente IMEA (boi gordo MT); alternativa Cepea/B3",
+   "fonte_url": "https://www.imea.com.br/imea-site/indicadores",
+   "abrangencia": "Informar praça (SP, MT ou RO) no CSV",
+   "coleta": "manual",
+   "status": "ausente",
+   "valor": null,
+   "nota": "Sem dados importados. Importe um CSV em data/manual/ (ver docs/FONTES.md).",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "diesel_mt",
+   "nome": "Diesel S10 — preço médio de revenda MT",
+   "unidade": "R$/litro",
+   "frequencia": "semanal",
+   "fonte": "ANP — Levantamento de Preços de Combustíveis (planilha semanal, importação manual)",
+   "fonte_url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/levantamento-de-precos-de-combustiveis-ultimas-semanas-pesquisadas",
+   "abrangencia": "MT",
+   "coleta": "manual",
+   "status": "ausente",
+   "valor": null,
+   "nota": "Sem dados importados. Importe um CSV em data/manual/ (ver docs/FONTES.md).",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "fertilizante",
+   "nome": "Fertilizante — preço de referência",
+   "unidade": "informar no CSV",
+   "frequencia": "mensal",
+   "fonte": "Importação manual (IMEA — custo de produção; Conab)",
+   "fonte_url": "https://www.conab.gov.br/info-agro/custos-de-producao",
+   "abrangencia": "informar no CSV",
+   "coleta": "manual",
+   "status": "ausente",
+   "valor": null,
+   "nota": "Sem dados importados. Importe um CSV em data/manual/ (ver docs/FONTES.md).",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "maquinas_vendas",
+   "nome": "Vendas internas de máquinas agrícolas",
+   "unidade": "unidades ou R$ (informar)",
+   "frequencia": "mensal",
+   "fonte": "Importação manual (Abimaq / Anfavea — publicações mensais)",
+   "fonte_url": "https://abimaq.org.br/",
+   "abrangencia": "Brasil",
+   "coleta": "manual",
+   "status": "ausente",
+   "valor": null,
+   "nota": "Sem dados importados. Importe um CSV em data/manual/ (ver docs/FONTES.md).",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "algodao_mt",
+   "nome": "Algodão — preço em Mato Grosso",
+   "unidade": "R$/@",
+   "frequencia": "diaria",
+   "fonte": "Importação manual (IMEA)",
+   "fonte_url": "https://www.imea.com.br/imea-site/indicadores",
+   "abrangencia": "MT",
+   "coleta": "manual",
+   "status": "ausente",
+   "valor": null,
+   "nota": "Sem dados importados. Importe um CSV em data/manual/ (ver docs/FONTES.md).",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "imea_plantio_soja",
+   "nome": "Plantio da soja em MT (% da área)",
+   "curto": "o plantio da soja em MT",
+   "unidade": "% da área",
+   "frequencia": "semanal",
+   "fonte": "IMEA (via Revista Cultivar, 23/10/2026)",
+   "fonte_url": "https://www.imea.com.br/imea-site/relatorios-mercado",
+   "abrangencia": "MT",
+   "coleta": "manual",
+   "valor": 75.81,
+   "data_referencia": "2026-10-23",
+   "coletado_em": "2026-10-30T14:11:33.363Z",
+   "tipo_dado": "manual",
+   "praca": "MT (total)",
+   "status": "atual",
+   "idade_dias": 7,
+   "variacoes": {},
+   "tendencia": {
+    "rotulo": "indefinida",
+    "motivo": "histórico curto"
+   },
+   "interpretacao": "Só há um registro comparável até agora; a leitura de tendência aparece a partir da próxima atualização.",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2026-10-23",
+     75.81
+    ]
+   ],
+   "historico_url": "data/observations/imea_plantio_soja.json",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "imea_comerc_soja",
+   "nome": "Comercialização da soja em MT (% da safra vendida)",
+   "unidade": "% da safra",
+   "frequencia": "mensal",
+   "fonte": "Importação manual (IMEA — boletim de comercialização)",
+   "fonte_url": "https://www.imea.com.br/imea-site/relatorios-mercado",
+   "abrangencia": "MT",
+   "coleta": "manual",
+   "status": "ausente",
+   "valor": null,
+   "nota": "Sem dados importados. Importe um CSV em data/manual/ (ver docs/FONTES.md).",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "imea_custo_soja",
+   "nome": "Custo total de produção da soja em MT",
+   "curto": "o custo de produção da soja em MT",
+   "unidade": "R$/ha",
+   "frequencia": "mensal",
+   "fonte": "IMEA/Senar-MT (via Revista Cultivar, 23/10/2026)",
+   "fonte_url": "https://lp.imea.com.br/custo-de-producao-agropecuaria-download",
+   "abrangencia": "MT",
+   "coleta": "manual",
+   "valor": 8210.31,
+   "data_referencia": "2026-10-01",
+   "coletado_em": "2026-10-30T14:11:33.363Z",
+   "tipo_dado": "manual",
+   "praca": "MT",
+   "status": "atual",
+   "idade_dias": 29,
+   "variacoes": {},
+   "tendencia": {
+    "rotulo": "indefinida",
+    "motivo": "histórico curto"
+   },
+   "interpretacao": "Só há um registro comparável até agora; a leitura de tendência aparece a partir da próxima atualização.",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2026-10-01",
+     8210.31
+    ]
+   ],
+   "historico_url": "data/observations/imea_custo_soja.json",
+   "fonte_consultada_em": null,
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "soja_cepea",
+   "nome": "Soja — Indicador Cepea Paranaguá",
+   "curto": "a soja em Paranaguá (Cepea)",
+   "unidade": "R$/saca 60 kg",
+   "frequencia": "diaria",
+   "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
+   "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+   "abrangencia": "Brasil (porto de Paranaguá — referência nacional)",
+   "coleta": "cepea_widget",
+   "valor": 158.28,
+   "data_referencia": "2026-10-29",
+   "coletado_em": "2026-10-30T12:50:00.000Z",
+   "tipo_dado": "oficial",
+   "praca": "Paranaguá (PR)",
+   "status": "atual",
+   "idade_dias": 1,
+   "variacoes": {
+    "diaria": {
+     "de": "2026-10-28",
+     "para": "2026-10-29",
+     "pct": 0.5463092364375642,
+     "pp": 0.86,
+     "valor_de": 157.42,
+     "valor_para": 158.28
+    },
+    "semanal": {
+     "de": "2026-10-22",
+     "para": "2026-10-29",
+     "pct": 4.186413902053722,
+     "pp": 6.36,
+     "valor_de": 151.92,
+     "valor_para": 158.28
+    }
+   },
+   "tendencia": {
+    "rotulo": "alta",
+    "pct_periodo": 1.506031885594588
+   },
+   "interpretacao": "Na semana: soja em alta na referência nacional: costuma puxar o preço em MT (com defasagem e diferença de frete).",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2026-10-08",
+     154.91
+    ],
+    [
+     "2026-10-09",
+     154.75
+    ],
+    [
+     "2026-10-13",
+     154.15
+    ],
+    [
+     "2026-10-14",
+     154.29
+    ],
+    [
+     "2026-10-15",
+     154.7
+    ],
+    [
+     "2026-10-16",
+     154.61
+    ],
+    [
+     "2026-10-19",
+     154.24
+    ],
+    [
+     "2026-10-20",
+     153.4
+    ],
+    [
+     "2026-10-21",
+     152.13
+    ],
+    [
+     "2026-10-22",
+     151.92
+    ],
+    [
+     "2026-10-23",
+     152.41
+    ],
+    [
+     "2026-10-26",
+     155.55
+    ],
+    [
+     "2026-10-27",
+     157.41
+    ],
+    [
+     "2026-10-28",
+     157.42
+    ],
+    [
+     "2026-10-29",
+     158.28
+    ]
+   ],
+   "historico_url": "data/observations/soja_cepea.json",
+   "fonte_consultada_em": "2026-10-30T14:07:48.764Z",
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "milho_cepea",
+   "nome": "Milho — Indicador Cepea (Campinas)",
+   "curto": "o milho no indicador Cepea",
+   "unidade": "R$/saca 60 kg",
+   "frequencia": "diaria",
+   "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
+   "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+   "abrangencia": "Brasil (região de Campinas/SP — referência nacional)",
+   "coleta": "cepea_widget",
+   "valor": 65.59,
+   "data_referencia": "2026-10-29",
+   "coletado_em": "2026-10-30T12:50:00.000Z",
+   "tipo_dado": "oficial",
+   "praca": "Campinas (SP)",
+   "status": "atual",
+   "idade_dias": 1,
+   "variacoes": {
+    "diaria": {
+     "de": "2026-10-28",
+     "para": "2026-10-29",
+     "pct": 1.328595705237138,
+     "pp": 0.86,
+     "valor_de": 64.73,
+     "valor_para": 65.59
+    },
+    "semanal": {
+     "de": "2026-10-22",
+     "para": "2026-10-29",
+     "pct": 2.1014943960149575,
+     "pp": 1.35,
+     "valor_de": 64.24,
+     "valor_para": 65.59
+    }
+   },
+   "tendencia": {
+    "rotulo": "queda",
+    "pct_periodo": -2.9561303800190486
+   },
+   "interpretacao": "Na semana: milho em alta na referência nacional: melhora a perspectiva da safrinha e encarece a ração.",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2026-10-08",
+     67.18
+    ],
+    [
+     "2026-10-09",
+     67.35
+    ],
+    [
+     "2026-10-13",
+     65.59
+    ],
+    [
+     "2026-10-14",
+     65.43
+    ],
+    [
+     "2026-10-15",
+     64.81
+    ],
+    [
+     "2026-10-16",
+     64.85
+    ],
+    [
+     "2026-10-19",
+     64.74
+    ],
+    [
+     "2026-10-20",
+     64.34
+    ],
+    [
+     "2026-10-21",
+     64.3
+    ],
+    [
+     "2026-10-22",
+     64.24
+    ],
+    [
+     "2026-10-23",
+     64.27
+    ],
+    [
+     "2026-10-26",
+     64.24
+    ],
+    [
+     "2026-10-27",
+     64.87
+    ],
+    [
+     "2026-10-28",
+     64.73
+    ],
+    [
+     "2026-10-29",
+     65.59
+    ]
+   ],
+   "historico_url": "data/observations/milho_cepea.json",
+   "fonte_consultada_em": "2026-10-30T14:07:48.764Z",
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "boi_cepea",
+   "nome": "Boi gordo — Indicador Cepea (SP)",
+   "curto": "a arroba do boi no indicador Cepea",
+   "unidade": "R$/@",
+   "frequencia": "diaria",
+   "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
+   "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+   "abrangencia": "Brasil (estado de São Paulo — referência nacional)",
+   "coleta": "cepea_widget",
+   "valor": 389.2,
+   "data_referencia": "2026-10-29",
+   "coletado_em": "2026-10-30T12:50:00.000Z",
+   "tipo_dado": "oficial",
+   "praca": "SP",
+   "status": "atual",
+   "idade_dias": 1,
+   "variacoes": {
+    "diaria": {
+     "de": "2026-10-28",
+     "para": "2026-10-29",
+     "pct": 0.03855545559696112,
+     "pp": 0.15,
+     "valor_de": 389.05,
+     "valor_para": 389.2
+    },
+    "semanal": {
+     "de": "2026-10-22",
+     "para": "2026-10-29",
+     "pct": 2.2730258835895354,
+     "pp": 8.65,
+     "valor_de": 380.55,
+     "valor_para": 389.2
+    }
+   },
+   "tendencia": {
+    "rotulo": "alta",
+    "pct_periodo": 2.7565385321181073
+   },
+   "interpretacao": "Na semana: arroba em alta na referência nacional: pecuarista mais capitalizado para investir em estrutura.",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2026-10-08",
+     376.3
+    ],
+    [
+     "2026-10-09",
+     377.8
+    ],
+    [
+     "2026-10-13",
+     378
+    ],
+    [
+     "2026-10-14",
+     379.4
+    ],
+    [
+     "2026-10-15",
+     380.2
+    ],
+    [
+     "2026-10-16",
+     380.7
+    ],
+    [
+     "2026-10-19",
+     380.7
+    ],
+    [
+     "2026-10-20",
+     380.45
+    ],
+    [
+     "2026-10-21",
+     380.4
+    ],
+    [
+     "2026-10-22",
+     380.55
+    ],
+    [
+     "2026-10-23",
+     381.4
+    ],
+    [
+     "2026-10-26",
+     381.4
+    ],
+    [
+     "2026-10-27",
+     386.3
+    ],
+    [
+     "2026-10-28",
+     389.05
+    ],
+    [
+     "2026-10-29",
+     389.2
+    ]
+   ],
+   "historico_url": "data/observations/boi_cepea.json",
+   "fonte_consultada_em": "2026-10-30T14:07:48.765Z",
+   "dado_novo_nesta_execucao": false
+  },
+  {
+   "id": "algodao_cepea",
+   "nome": "Algodão em pluma — Indicador Cepea",
+   "curto": "o algodão no indicador Cepea",
+   "unidade": "centavos de R$/lp",
+   "frequencia": "diaria",
+   "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
+   "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+   "abrangencia": "Brasil (referência nacional)",
+   "coleta": "cepea_widget",
+   "valor": 412.15,
+   "data_referencia": "2026-10-29",
+   "coletado_em": "2026-10-30T14:07:48.763Z",
+   "tipo_dado": "oficial",
+   "praca": "Brasil",
+   "status": "atual",
+   "idade_dias": 1,
+   "variacoes": {},
+   "tendencia": {
+    "rotulo": "indefinida",
+    "motivo": "histórico curto"
+   },
+   "interpretacao": "Só há um registro comparável até agora; a leitura de tendência aparece a partir da próxima atualização.",
+   "aviso": [],
+   "sparkline": [
+    [
+     "2026-10-29",
+     412.15
+    ]
+   ],
+   "historico_url": "data/observations/algodao_cepea.json",
+   "fonte_consultada_em": "2026-10-30T14:07:48.765Z",
+   "dado_novo_nesta_execucao": true
+  }
+ ],
+ "categorias": [
+  {
+   "id": "plantadeiras",
+   "nome": "Plantadeiras",
+   "termo": "plantadeira",
+   "produto": "plantadeiras",
+   "segmento": "agricola",
+   "pontos": 1.64,
+   "motivos": [
+    "MT: Plantio da soja (equipamento em uso — bom para demonstração e levantar gargalos)",
+    "RO: Plantio da soja (equipamento em uso — bom para demonstração e levantar gargalos)",
+    "Índice agrícola: 51/100"
+   ],
+   "marcas": [
+    "CRUCIANELLI"
+   ],
+   "janela_compra": false,
+   "natureza": "Hipótese comercial a validar — a relação entre calendário/indicadores e demanda ainda não foi testada com vendas da JR Agro."
+  },
+  {
+   "id": "distribuicao",
+   "nome": "Distribuição e aplicação (distribuidores de calcário/adubo)",
+   "termo": "distribuição de calcário e adubo",
+   "produto": "distribuidores de calcário e adubo",
+   "segmento": "agricola",
+   "pontos": 1.04,
+   "motivos": [
+    "MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso — bom para demonstração e levantar gargalos)",
+    "Índice agrícola: 51/100"
+   ],
+   "marcas": [
+    "PICCIN"
+   ],
+   "janela_compra": false,
+   "natureza": "Hipótese comercial a validar — a relação entre calendário/indicadores e demanda ainda não foi testada com vendas da JR Agro."
+  },
+  {
+   "id": "preparo_solo",
+   "nome": "Preparo de solo (grades, descompactadores)",
+   "termo": "preparo de solo",
+   "produto": "grades e descompactadores",
+   "segmento": "agricola",
+   "pontos": 0.04,
+   "motivos": [
+    "Sem janela de calendário relevante em outubro",
+    "Índice agrícola: 51/100"
+   ],
+   "marcas": [
+    "PICCIN"
+   ],
+   "janela_compra": false,
+   "natureza": "Hipótese comercial a validar — a relação entre calendário/indicadores e demanda ainda não foi testada com vendas da JR Agro."
+  },
+  {
+   "id": "transporte",
+   "nome": "Transporte (carretas, transbordos)",
+   "termo": "transporte (carretas e transbordos)",
+   "produto": "carretas e transbordos",
+   "segmento": "agricola",
+   "pontos": 0.04,
+   "motivos": [
+    "Sem janela de calendário relevante em outubro",
+    "Índice agrícola: 51/100"
+   ],
+   "marcas": [],
+   "janela_compra": false,
+   "natureza": "Hipótese comercial a validar — a relação entre calendário/indicadores e demanda ainda não foi testada com vendas da JR Agro."
+  },
+  {
+   "id": "pecuaria_alimentacao",
+   "nome": "Pecuária — alimentação animal (vagões forrageiros/misturadores)",
+   "termo": "trato e alimentação do rebanho",
+   "produto": "vagões forrageiros e misturadores",
+   "segmento": "pecuaria",
+   "pontos": 0,
+   "motivos": [
+    "Sem janela de calendário relevante em outubro",
+    "Índice pecuário sem dados suficientes — prioridade só pelo calendário"
+   ],
+   "marcas": [],
+   "janela_compra": false,
+   "natureza": "Hipótese comercial a validar — a relação entre calendário/indicadores e demanda ainda não foi testada com vendas da JR Agro."
+  }
+ ],
+ "oportunidades": [
+  {
+   "segmento": "agricola",
+   "status": "manutenção",
+   "indice": 51,
+   "confianca": "baixa",
+   "titulo": "Agricultura: manter negociações e relacionamento",
+   "categoria": "Plantadeiras",
+   "categoria_id": "plantadeiras",
+   "marcas": [
+    "CRUCIANELLI"
+   ],
+   "publico": "Revendas de implementos e produtores de grãos com renovação ou ampliação prevista",
+   "regiao": "MT — praças de soja e milho (Médio-Norte, Norte e Oeste); RO — Cone Sul",
+   "base_regiao": "perfil produtivo conhecido das regiões; ainda não há indicador regional automático",
+   "evidencias": [
+    "Focus — mediana IPCA do próximo ano passou de 4,30% para 4,34% entre 23/09/2026 e 23/10/2026 (Banco Central do Brasil)",
+    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 30/09/2026 e 30/10/2026 (Banco Central do Brasil)"
+   ],
+   "argumento_central": "Atender quem já tem necessidade definida; manter presença com informação útil.",
+   "objecoes": [
+    {
+     "objecao": "Os juros estão altos demais para financiar agora.",
+     "base": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
+     "resposta": "Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro."
+    },
+    {
+     "objecao": "Vou esperar os juros caírem mais.",
+     "base": "Focus — mediana Selic fim do próximo ano passou de 12,00% para 11,75% entre 23/09/2026 e 23/10/2026 (Banco Central do Brasil)",
+     "resposta": "Expectativa não é garantia. Perguntar quanto custa adiar (perda de rendimento, paradas, janela de plantio) e se a decisão pode ser preparada agora para fechar quando fizer sentido."
+    },
+    {
+     "objecao": "Ainda não vendi a safra / meu caixa está comprometido.",
+     "base": "Preço em alta não significa caixa disponível.",
+     "resposta": "Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento."
+    },
+    {
+     "objecao": "Meu equipamento ainda aguenta mais uma safra.",
+     "base": null,
+     "resposta": "Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo."
+    }
+   ]
+  },
+  {
+   "segmento": "pecuaria",
+   "status": "sem dados",
+   "titulo": "Pecuária: sem dados suficientes",
+   "categoria": "Pecuária — alimentação animal (vagões forrageiros/misturadores)"
+  }
+ ],
+ "plano": [
+  {
+   "prioridade": 1,
+   "confianca": "baixa",
+   "indicadores_monitorar": [
+    "Índice de Commodities Brasil (IC-Br) — Agropecuária",
+    "Focus — mediana IPCA do próximo ano",
+    "Taxa Selic — meta Copom"
+   ],
+   "titulo": "Retomar negociações qualificadas",
+   "execucao": "imediata",
+   "motivo": "Negociações em andamento têm a maior chance de conversão em qualquer cenário; o contexto do dia serve para atualizar a conversa, não para pressionar.",
+   "segmento": "Revendas e produtores com proposta aberta",
+   "regiao": "Onde houver proposta aberta (MT primeiro)",
+   "categoria": "Plantadeiras",
+   "evidencias": [
+    "Focus — mediana IPCA do próximo ano passou de 4,30% para 4,34% entre 23/09/2026 e 23/10/2026 (Banco Central do Brasil)",
+    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 30/09/2026 e 30/10/2026 (Banco Central do Brasil)"
+   ],
+   "argumento": "Atualizar a necessidade do cliente e verificar se a proposta precisa de revisão ou de simulação de pagamento.",
+   "pergunta": "O que falta para essa decisão andar — prazo, forma de pagamento ou validação técnica?",
+   "proximo_passo": "Atualizar etapa e data prevista de decisão no histórico comercial."
+  },
+  {
+   "prioridade": 2,
+   "confianca": "baixa",
+   "indicadores_monitorar": [
+    "Índice de Commodities Brasil (IC-Br) — Agropecuária",
+    "Focus — mediana IPCA do próximo ano",
+    "Taxa Selic — meta Copom"
+   ],
+   "titulo": "Mapear necessidades urgentes e objeções",
+   "execucao": "imediata",
+   "motivo": "Cenário sem base para ampliar esforço: priorizar necessidade concreta e entender o que trava as decisões.",
+   "segmento": "Produtores com equipamento em uso na safra atual",
+   "regiao": "MT — praças de soja e milho (Médio-Norte, Norte e Oeste); RO — Cone Sul",
+   "categoria": "Plantadeiras",
+   "evidencias": [
+    "Focus — mediana IPCA do próximo ano: 4,34% (Banco Central do Brasil, ref. 23/10/2026)",
+    "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)"
+   ],
+   "argumento": "Escuta: problemas em campo, gargalos, planos de renovação.",
+   "pergunta": "Tem algum equipamento limitando a operação agora?",
+   "proximo_passo": "Separar quem tem necessidade imediata e montar proposta só para esses."
+  },
+  {
+   "prioridade": 3,
+   "confianca": "baixa",
+   "indicadores_monitorar": [
+    "Índice de Commodities Brasil (IC-Br) — Agropecuária",
+    "Focus — mediana IPCA do próximo ano",
+    "Taxa Selic — meta Copom"
+   ],
+   "titulo": "Levantar alternativas de pagamento",
+   "execucao": "depende de validação comercial",
+   "motivo": "Quando o ambiente não é claramente favorável, a forma de pagamento costuma decidir a venda.",
+   "segmento": "Clientes com proposta aberta",
+   "regiao": "MT, RO, AC",
+   "categoria": "—",
+   "evidencias": [
+    "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
+    "Focus — mediana Selic fim do próximo ano: 11,75% a.a. (Banco Central do Brasil, ref. 23/10/2026)"
+   ],
+   "argumento": "Comparar linhas disponíveis (banco, cooperativa de crédito, BNDES/Plano Safra) — confirmar as condições vigentes antes de citar qualquer taxa.",
+   "pergunta": "Como pretende pagar: recurso próprio, financiamento ou barter?",
+   "proximo_passo": "Pedir simulação ao banco ou cooperativa do cliente."
+  },
+  {
+   "prioridade": 4,
+   "confianca": "baixa",
+   "indicadores_monitorar": [
+    "Índice de Commodities Brasil (IC-Br) — Agropecuária",
+    "Focus — mediana IPCA do próximo ano",
+    "Taxa Selic — meta Copom"
+   ],
+   "titulo": "Manter relacionamento com revendas",
+   "execucao": "imediata",
+   "motivo": "Relacionamento constante sustenta a geração de oportunidades em qualquer cenário.",
+   "segmento": "Revendas",
+   "regiao": "MT, RO, AC",
+   "categoria": "—",
+   "evidencias": [
+    "Ação de rotina."
+   ],
+   "argumento": "Contato curto, útil e com informação de mercado verificada.",
+   "pergunta": "O que os produtores estão perguntando mais esta semana?",
+   "proximo_passo": "Anotar os sinais de demanda relatados."
+  }
+ ],
+ "mensagens": {
+  "segmento": "agricola",
+  "status": "manutenção",
+  "revenda": "Bom dia! Aqui é o Johnson, da JR Agro. Queria retomar com vocês as negociações em aberto de plantadeiras — tem alguma proposta que precise de revisão ou de uma simulação de pagamento? Qual delas está mais perto de fechar?",
+  "produtor": "Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em andamento, estou passando para saber como está a operação. Algum equipamento de plantadeira dando trabalho ou limitando o ritmo? Se tiver, vale a gente olhar junto as alternativas.",
+  "abertura_ligacao": "Aqui é o Johnson, da JR Agro. Estou ligando para entender como está a sua operação com plantio da soja em andamento. Tem dois minutos?",
+  "roteiro_ligacao": [
+   "Abertura: apresentar-se e pedir dois minutos.",
+   "Contexto: perguntar como está a operação nesta época.",
+   "Diagnóstico: qual operação mais limita o rendimento e como está a frota.",
+   "Capacidade: forma de pagamento pretendida (recurso próprio, financiamento, barter) e prazo de decisão.",
+   "Fechamento: propor visita/demonstração só se houver necessidade confirmada; senão, registrar data para retomar."
+  ],
+  "perguntas_diagnostico": [
+   "Hoje, qual operação mais limita seu ritmo ou rendimento?",
+   "Existe plano de renovar ou ampliar algum equipamento nesta safra ou na próxima?",
+   "Se fosse investir, seria com recurso próprio, financiamento ou barter?"
+  ],
+  "pergunta_diagnostico": "Hoje, qual operação mais limita seu ritmo ou rendimento — e já existe plano para resolver isso nesta safra ou na próxima?",
+  "proximo_passo": "Registrar a resposta (necessidade, prazo, forma de pagamento). Proposta só para quem confirmou necessidade; os demais ficam em acompanhamento.",
+  "fatos_usados": [
+   "icbr_agro"
+  ],
+  "por_segmento": [
+   {
+    "segmento": "agricola",
+    "status": "manutenção",
+    "revenda": "Bom dia! Aqui é o Johnson, da JR Agro. Queria retomar com vocês as negociações em aberto de plantadeiras — tem alguma proposta que precise de revisão ou de uma simulação de pagamento? Qual delas está mais perto de fechar?",
+    "produtor": "Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em andamento, estou passando para saber como está a operação. Algum equipamento de plantadeira dando trabalho ou limitando o ritmo? Se tiver, vale a gente olhar junto as alternativas.",
+    "abertura_ligacao": "Aqui é o Johnson, da JR Agro. Estou ligando para entender como está a sua operação com plantio da soja em andamento. Tem dois minutos?",
+    "roteiro_ligacao": [
+     "Abertura: apresentar-se e pedir dois minutos.",
+     "Contexto: perguntar como está a operação nesta época.",
+     "Diagnóstico: qual operação mais limita o rendimento e como está a frota.",
+     "Capacidade: forma de pagamento pretendida (recurso próprio, financiamento, barter) e prazo de decisão.",
+     "Fechamento: propor visita/demonstração só se houver necessidade confirmada; senão, registrar data para retomar."
+    ],
+    "perguntas_diagnostico": [
+     "Hoje, qual operação mais limita seu ritmo ou rendimento?",
+     "Existe plano de renovar ou ampliar algum equipamento nesta safra ou na próxima?",
+     "Se fosse investir, seria com recurso próprio, financiamento ou barter?"
+    ],
+    "pergunta_diagnostico": "Hoje, qual operação mais limita seu ritmo ou rendimento — e já existe plano para resolver isso nesta safra ou na próxima?",
+    "proximo_passo": "Registrar a resposta (necessidade, prazo, forma de pagamento). Proposta só para quem confirmou necessidade; os demais ficam em acompanhamento.",
+    "fatos_usados": [
+     "icbr_agro"
+    ]
+   }
+  ],
+  "aviso": "Revise antes de enviar. As mensagens citam apenas dados coletados, com fonte e data; não prometem preço, prazo ou condição de financiamento."
+ },
+ "anterior": null,
+ "marcas": {
+  "indices": {
+   "PICCIN": {
+    "marca": "PICCIN",
+    "valor": 44,
+    "cobertura": 0.7,
+    "confianca": "baixa",
+    "motivo_confianca": "cobertura 65% dos pesos; sem dado regional de área (IBGE); sem histórico comercial no CRM; pesos heurísticos, não calibrados com vendas",
+    "faltando": [
+     "Perfil de demanda",
+     "Sazonalidade de vendas",
+     "Evidência de intenção de compra"
+    ],
+    "positivos": [],
+    "negativos": [
+     {
+      "id": "aderencia",
+      "nome": "Aderência do portfólio",
+      "valor": 0,
+      "detalhe": "0 de 53 produtos em janela de decisão de compra.",
+      "efeito": -50
+     }
+    ],
+    "componentes": {
+     "economia": {
+      "valor": 54,
+      "detalhe": "70% economia agrícola (índice 51) + 30% pecuária (sem dados) — portfólio também atende pastagem."
+     },
+     "credito": {
+      "valor": 45,
+      "detalhe": "Selic e expectativa Focus (nível e movimento)."
+     },
+     "momento": {
+      "valor": 55,
+      "detalhe": "MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso)."
+     },
+     "aderencia": {
+      "valor": 0,
+      "detalhe": "0 de 53 produtos em janela de decisão de compra."
+     },
+     "demanda": {
+      "valor": null,
+      "detalhe": "Requer IBGE PAM de dois anos (coleta regional ainda não feita)."
+     },
+     "sazonalidade": {
+      "valor": null,
+      "detalhe": "Calculado no painel a partir do histórico de vendas registrado no CRM (este aparelho)."
+     },
+     "crm": {
+      "valor": null,
+      "detalhe": "Calculado no painel a partir das oportunidades abertas no CRM (este aparelho)."
+     },
+     "regional": {
+      "valor": null,
+      "detalhe": "Constante no curto prazo: usado para escolher a região (Prioridade 3), não para pontuar o dia"
+     }
+    },
+    "janelas": [
+     {
+      "uf": "MT",
+      "atividade": "Adubação a lanço (potássio) antes e durante o plantio da soja",
+      "meses": [
+       8,
+       9,
+       10
+      ],
+      "categorias": [
+       "distribuicao"
+      ],
+      "papel": "em_uso"
+     }
+    ],
+    "regioes": [],
+    "regional_disponivel": false,
+    "anterior": null,
+    "variacao": null
+   },
+   "CRUCIANELLI": {
+    "marca": "CRUCIANELLI",
+    "valor": 44,
+    "cobertura": 0.7,
+    "confianca": "baixa",
+    "motivo_confianca": "cobertura 65% dos pesos; sem dado regional de área (IBGE); sem histórico comercial no CRM; pesos heurísticos, não calibrados com vendas",
+    "faltando": [
+     "Perfil de demanda",
+     "Sazonalidade de vendas",
+     "Evidência de intenção de compra"
+    ],
+    "positivos": [],
+    "negativos": [
+     {
+      "id": "aderencia",
+      "nome": "Aderência do portfólio",
+      "valor": 0,
+      "detalhe": "0 de 1 produtos em janela de decisão de compra.",
+      "efeito": -50
+     }
+    ],
+    "componentes": {
+     "economia": {
+      "valor": 54,
+      "detalhe": "Economia agrícola (receita, custos, inflação, demanda); índice agrícola 51/100."
+     },
+     "credito": {
+      "valor": 45,
+      "detalhe": "Selic e expectativa Focus (nível e movimento)."
+     },
+     "momento": {
+      "valor": 55,
+      "detalhe": "MT: Plantio da soja (equipamento em uso)."
+     },
+     "aderencia": {
+      "valor": 0,
+      "detalhe": "0 de 1 produtos em janela de decisão de compra."
+     },
+     "demanda": {
+      "valor": null,
+      "detalhe": "Requer IBGE PAM de dois anos (coleta regional ainda não feita)."
+     },
+     "sazonalidade": {
+      "valor": null,
+      "detalhe": "Calculado no painel a partir do histórico de vendas registrado no CRM (este aparelho)."
+     },
+     "crm": {
+      "valor": null,
+      "detalhe": "Calculado no painel a partir das oportunidades abertas no CRM (este aparelho)."
+     },
+     "regional": {
+      "valor": null,
+      "detalhe": "Constante no curto prazo: usado para escolher a região (Prioridade 3), não para pontuar o dia"
+     }
+    },
+    "janelas": [
+     {
+      "uf": "MT",
+      "atividade": "Plantio da soja",
+      "meses": [
+       9,
+       10,
+       11,
+       12
+      ],
+      "categorias": [
+       "plantadeiras"
+      ],
+      "papel": "em_uso"
+     },
+     {
+      "uf": "RO",
+      "atividade": "Plantio da soja",
+      "meses": [
+       10,
+       11,
+       12
+      ],
+      "categorias": [
+       "plantadeiras"
+      ],
+      "papel": "em_uso"
+     }
+    ],
+    "regioes": [],
+    "regional_disponivel": false,
+    "anterior": null,
+    "variacao": null
+   }
+  },
+  "plano": {
+   "prioridade_marca": {
+    "marca": "PICCIN",
+    "nome": "Piccin",
+    "porque": "Índices próximos (44 × 44); desempate pelo calendário: MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso).",
+    "outra": {
+     "marca": "CRUCIANELLI",
+     "valor": 44
+    }
+   },
+   "equipamento": {
+    "categoria": "Distribuidores",
+    "forca_calendario": 55,
+    "janelas": [
+     "MT: Adubação a lanço (potássio) antes e durante o plantio da soja"
+    ],
+    "motivo": "Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja).",
+    "opcoes": [
+     {
+      "porte": "pequeno/médio",
+      "id": "piccin-master-dh1",
+      "modelo": "MASTER DH 1",
+      "nome": "Distribuidor Master DH1 (semi-hidráulico)",
+      "potencia_cv": {
+       "min": 50,
+       "max": 100
+      },
+      "paginas": [
+       45
+      ],
+      "status": "confirmada",
+      "variantes": 5,
+      "outros_no_porte": [
+       "MASTER",
+       "MASTER CAFEEIRA",
+       "MASTER D",
+       "MASTER TP RB",
+       "MASTER DH EI",
+       "MASTER 6000 RB",
+       "MASTER 8000 BI RB",
+       "MASTER DH S",
+       "MASTER DH S INOX",
+       "MASTER DH BI S",
+       "MASTER DH BI S INOX"
+      ]
+     },
+     {
+      "porte": "médio/grande",
+      "id": "piccin-master-10000-bi-rb",
+      "modelo": "MASTER 10000 BI RB",
+      "nome": "Distribuidor Master 10000 BI RB",
+      "potencia_cv": {
+       "min": 140,
+       "max": 140
+      },
+      "paginas": [
+       50
+      ],
+      "status": "confirmada",
+      "variantes": 1,
+      "outros_no_porte": [
+       "MASTER 15000 BI RB",
+       "MASTER 17000 PRECISION TECH"
+      ]
+     },
+     {
+      "porte": "grande",
+      "id": "piccin-master-25000-hd-rb",
+      "modelo": "MASTER 25000 HEAVY DUTY RB",
+      "nome": "Distribuidor Master 25000 Heavy Duty RB",
+      "potencia_cv": {
+       "min": 200,
+       "max": 200
+      },
+      "paginas": [
+       57
+      ],
+      "status": "confirmada",
+      "variantes": 1,
+      "outros_no_porte": [
+       "MASTER 30000 HEAVY DUTY",
+       "MASTER 30000 HEAVY DUTY INOX"
+      ]
+     }
+    ],
+    "outras_categorias": [
+     {
+      "categoria": "Grades",
+      "forca_calendario": 0
+     },
+     {
+      "categoria": "Descompactadores",
+      "forca_calendario": 0
+     }
+    ],
+    "recomendado": {
+     "porte": "pequeno/médio",
+     "id": "piccin-master-dh1",
+     "modelo": "MASTER DH 1",
+     "nome": "Distribuidor Master DH1 (semi-hidráulico)",
+     "potencia_cv": {
+      "min": 50,
+      "max": 100
+     },
+     "paginas": [
+      45
+     ],
+     "status": "confirmada",
+     "variantes": 5,
+     "outros_no_porte": [
+      "MASTER",
+      "MASTER CAFEEIRA",
+      "MASTER D",
+      "MASTER TP RB",
+      "MASTER DH EI",
+      "MASTER 6000 RB",
+      "MASTER 8000 BI RB",
+      "MASTER DH S",
+      "MASTER DH S INOX",
+      "MASTER DH BI S",
+      "MASTER DH BI S INOX"
+     ]
+    },
+    "porque": "Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja). Modelo do catálogo: MASTER DH 1 (p. 45); escolha a opção pelo trator do cliente."
+   },
+   "regiao": {
+    "municipios": [],
+    "texto": "MT — praças de lavoura; RO e AC — áreas de pastagem e abertura",
+    "porque": "Dados municipais do IBGE ainda não coletados: indicação pelo perfil produtivo conhecido das regiões. Priorize municípios onde você já tem clientes no CRM.",
+    "base": "perfil produtivo (sem dado municipal)"
+   },
+   "perfil_cliente": {
+    "publicos": [
+     "Produtores com o equipamento em uso agora",
+     "Revendas agrícolas que atendem esse público"
+    ],
+    "portes": [
+     "Pequenos e médios produtores",
+     "Médios e grandes produtores",
+     "Grandes propriedades e grupos agrícolas"
+    ],
+    "porque": "Distribuidores tem opções de MASTER DH 1 (50–100 cv), MASTER 10000 BI RB (140 cv), MASTER 25000 HEAVY DUTY RB (200 cv): o porte do cliente define o modelo (catálogo)."
+   },
+   "acoes": [
+    {
+     "tipo": "Agendar visita",
+     "texto": "Agendar visita a produtor com distribuidores em operação para levantar gargalos e preparar a próxima compra.",
+     "porque": "MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso)."
+    },
+    {
+     "tipo": "Ligar para uma revenda",
+     "texto": "Ligar para uma revenda de MT e levantar a procura por distribuidores Piccin.",
+     "porque": "Revenda concentra a demanda de vários produtores; uma ligação valida se a oportunidade é real."
+    },
+    {
+     "tipo": "Retomar uma negociação",
+     "texto": "Retomar a negociação mais antiga sem contato (ver CRM).",
+     "porque": "Negociação parada perde força; o CRM do aparelho mostra quais estão sem atualização.",
+     "depende_crm": true
+    }
+   ],
+   "argumentos": {
+    "produto": "piccin-master-dh1",
+    "modelo": "MASTER DH 1",
+    "nome": "Distribuidor Master DH1 (semi-hidráulico)",
+    "fabricante": "PICCIN",
+    "revenda": {
+     "oportunidade_mercado": [
+      "Com adubação a lanço (potássio) antes e durante o plantio da soja em MT",
+      "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
+     ],
+     "potencial_comercializacao": [
+      "5 modelos no catálogo, para tratores de 50 a 100 cv"
+     ],
+     "perfil_cliente": {
+      "texto": "pequenos e médios produtores (tratores até ~100 cv)",
+      "base": "Derivado da potência requerida no catálogo (50 a 100 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+     },
+     "beneficios_revenda": [
+      "Faixa de 5 modelos permite atender clientes de portes diferentes com a mesma linha",
+      "Ficha técnica completa no catálogo oficial (páginas citadas) para apoiar a venda técnica"
+     ],
+     "argumentos_tecnicos": [
+      {
+       "texto": "Capacidade de carga de 3.000 a 12.000 kg",
+       "fonte": "p. 45"
+      },
+      {
+       "texto": "Faixa de distribuição de 7 a 20 m",
+       "fonte": "p. 45"
+      },
+      {
+       "texto": "Potência no motor de 50 a 100 cv, conforme o modelo",
+       "fonte": "p. 45"
+      },
+      {
+       "texto": "Opcionais: Kit direcionador; Bica central; Abafador",
+       "fonte": "p. 45"
+      }
+     ],
+     "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER DH 1 da Piccin: capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
+    },
+    "produtor": {
+     "necessidade": "Aplicar calcário, gesso e fertilizantes a lanço, com faixa e vazão documentadas.",
+     "beneficios_tecnicos": [],
+     "aplicacao": "Aplicação de calcário (faixa em L/ha informada no catálogo) e fertilizantes. (catálogo (linha \"Aplicação de Calcário\"))",
+     "caracteristicas_perfil": "Exige trator de 50 a 100 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "perguntas": [
+      "Quantos hectares recebem calcário ou adubo a lanço por ano?",
+      "Hoje a aplicação é própria ou terceirizada?",
+      "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
+     ],
+     "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+    },
+    "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
+   },
+   "por_marca": {
+    "PICCIN": {
+     "equipamento": {
+      "categoria": "Distribuidores",
+      "forca_calendario": 55,
+      "janelas": [
+       "MT: Adubação a lanço (potássio) antes e durante o plantio da soja"
+      ],
+      "motivo": "Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja).",
+      "opcoes": [
+       {
+        "porte": "pequeno/médio",
+        "id": "piccin-master-dh1",
+        "modelo": "MASTER DH 1",
+        "nome": "Distribuidor Master DH1 (semi-hidráulico)",
+        "potencia_cv": {
+         "min": 50,
+         "max": 100
+        },
+        "paginas": [
+         45
+        ],
+        "status": "confirmada",
+        "variantes": 5,
+        "outros_no_porte": [
+         "MASTER",
+         "MASTER CAFEEIRA",
+         "MASTER D",
+         "MASTER TP RB",
+         "MASTER DH EI",
+         "MASTER 6000 RB",
+         "MASTER 8000 BI RB",
+         "MASTER DH S",
+         "MASTER DH S INOX",
+         "MASTER DH BI S",
+         "MASTER DH BI S INOX"
+        ]
+       },
+       {
+        "porte": "médio/grande",
+        "id": "piccin-master-10000-bi-rb",
+        "modelo": "MASTER 10000 BI RB",
+        "nome": "Distribuidor Master 10000 BI RB",
+        "potencia_cv": {
+         "min": 140,
+         "max": 140
+        },
+        "paginas": [
+         50
+        ],
+        "status": "confirmada",
+        "variantes": 1,
+        "outros_no_porte": [
+         "MASTER 15000 BI RB",
+         "MASTER 17000 PRECISION TECH"
+        ]
+       },
+       {
+        "porte": "grande",
+        "id": "piccin-master-25000-hd-rb",
+        "modelo": "MASTER 25000 HEAVY DUTY RB",
+        "nome": "Distribuidor Master 25000 Heavy Duty RB",
+        "potencia_cv": {
+         "min": 200,
+         "max": 200
+        },
+        "paginas": [
+         57
+        ],
+        "status": "confirmada",
+        "variantes": 1,
+        "outros_no_porte": [
+         "MASTER 30000 HEAVY DUTY",
+         "MASTER 30000 HEAVY DUTY INOX"
+        ]
+       }
+      ],
+      "outras_categorias": [
+       {
+        "categoria": "Grades",
+        "forca_calendario": 0
+       },
+       {
+        "categoria": "Descompactadores",
+        "forca_calendario": 0
+       }
+      ]
+     }
+    },
+    "CRUCIANELLI": {
+     "equipamento": {
+      "categoria": "Plantadeiras",
+      "forca_calendario": 55,
+      "janelas": [
+       "MT: Plantio da soja",
+       "RO: Plantio da soja"
+      ],
+      "motivo": "Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).",
+      "opcoes": [
+       {
+        "porte": "grande",
+        "id": "crucianelli-plantor",
+        "modelo": "PLANTOR",
+        "nome": "Plantor — plantadeira com caixa central",
+        "potencia_cv": {
+         "min": 220,
+         "max": 310
+        },
+        "paginas": [
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8,
+         9,
+         10,
+         11,
+         12
+        ],
+        "status": "confirmada",
+        "variantes": 3,
+        "outros_no_porte": []
+       }
+      ],
+      "outras_categorias": []
+     }
+    }
+   }
+  },
+  "argumentos": [
+   {
+    "produto": "piccin-master-dh1",
+    "modelo": "MASTER DH 1",
+    "nome": "Distribuidor Master DH1 (semi-hidráulico)",
+    "fabricante": "PICCIN",
+    "revenda": {
+     "oportunidade_mercado": [
+      "Com adubação a lanço (potássio) antes e durante o plantio da soja em MT",
+      "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
+     ],
+     "potencial_comercializacao": [
+      "5 modelos no catálogo, para tratores de 50 a 100 cv"
+     ],
+     "perfil_cliente": {
+      "texto": "pequenos e médios produtores (tratores até ~100 cv)",
+      "base": "Derivado da potência requerida no catálogo (50 a 100 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+     },
+     "beneficios_revenda": [
+      "Faixa de 5 modelos permite atender clientes de portes diferentes com a mesma linha",
+      "Ficha técnica completa no catálogo oficial (páginas citadas) para apoiar a venda técnica"
+     ],
+     "argumentos_tecnicos": [
+      {
+       "texto": "Capacidade de carga de 3.000 a 12.000 kg",
+       "fonte": "p. 45"
+      },
+      {
+       "texto": "Faixa de distribuição de 7 a 20 m",
+       "fonte": "p. 45"
+      },
+      {
+       "texto": "Potência no motor de 50 a 100 cv, conforme o modelo",
+       "fonte": "p. 45"
+      },
+      {
+       "texto": "Opcionais: Kit direcionador; Bica central; Abafador",
+       "fonte": "p. 45"
+      }
+     ],
+     "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER DH 1 da Piccin: capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
+    },
+    "produtor": {
+     "necessidade": "Aplicar calcário, gesso e fertilizantes a lanço, com faixa e vazão documentadas.",
+     "beneficios_tecnicos": [],
+     "aplicacao": "Aplicação de calcário (faixa em L/ha informada no catálogo) e fertilizantes. (catálogo (linha \"Aplicação de Calcário\"))",
+     "caracteristicas_perfil": "Exige trator de 50 a 100 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "perguntas": [
+      "Quantos hectares recebem calcário ou adubo a lanço por ano?",
+      "Hoje a aplicação é própria ou terceirizada?",
+      "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
+     ],
+     "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+    },
+    "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
+   },
+   {
+    "produto": "piccin-master-10000-bi-rb",
+    "modelo": "MASTER 10000 BI RB",
+    "nome": "Distribuidor Master 10000 BI RB",
+    "fabricante": "PICCIN",
+    "revenda": {
+     "oportunidade_mercado": [
+      "Com adubação a lanço (potássio) antes e durante o plantio da soja em MT",
+      "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
+     ],
+     "potencial_comercializacao": [
+      "1 modelo no catálogo, para tratores de 140 a 140 cv"
+     ],
+     "perfil_cliente": {
+      "texto": "médios e grandes produtores (tratores de 100 a 250 cv)",
+      "base": "Derivado da potência requerida no catálogo (140 a 140 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+     },
+     "beneficios_revenda": [
+      "Faixa de 1 modelo permite atender clientes de portes diferentes com a mesma linha"
+     ],
+     "argumentos_tecnicos": [
+      {
+       "texto": "Capacidade de carga de 10.000 kg",
+       "fonte": "p. 50"
+      },
+      {
+       "texto": "Faixa de distribuição de 10 a 36 m",
+       "fonte": "p. 50"
+      },
+      {
+       "texto": "Potência no motor de 140 cv, conforme o modelo",
+       "fonte": "p. 50"
+      },
+      {
+       "texto": "Dual Control: vazão de 1 a 8000 kg/ha",
+       "fonte": "p. 50"
+      }
+     ],
+     "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER 10000 BI RB da Piccin: capacidade de carga de 10.000 kg; faixa de distribuição de 10 a 36 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
+    },
+    "produtor": {
+     "necessidade": "Aplicar calcário, gesso e fertilizantes a lanço, com faixa e vazão documentadas.",
+     "beneficios_tecnicos": [
+      {
+       "texto": "Dual Control: vazão de 1 a 8000 kg/ha",
+       "fonte": "p. 50"
+      }
+     ],
+     "aplicacao": "Aplicação de calcário (faixa em L/ha informada no catálogo) e fertilizantes. (catálogo (linha \"Aplicação de Calcário\"))",
+     "caracteristicas_perfil": "Exige trator de 140 a 140 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "perguntas": [
+      "Quantos hectares recebem calcário ou adubo a lanço por ano?",
+      "Hoje a aplicação é própria ou terceirizada?",
+      "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
+     ],
+     "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER 10000 BI RB da Piccin (capacidade de carga de 10.000 kg; faixa de distribuição de 10 a 36 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+    },
+    "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
+   },
+   {
+    "produto": "piccin-master-25000-hd-rb",
+    "modelo": "MASTER 25000 HEAVY DUTY RB",
+    "nome": "Distribuidor Master 25000 Heavy Duty RB",
+    "fabricante": "PICCIN",
+    "revenda": {
+     "oportunidade_mercado": [
+      "Com adubação a lanço (potássio) antes e durante o plantio da soja em MT",
+      "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
+     ],
+     "potencial_comercializacao": [
+      "1 modelo no catálogo, para tratores de 200 a 200 cv"
+     ],
+     "perfil_cliente": {
+      "texto": "grandes propriedades e grupos agrícolas (tratores acima de 200 cv)",
+      "base": "Derivado da potência requerida no catálogo (200 a 200 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+     },
+     "beneficios_revenda": [
+      "Faixa de 1 modelo permite atender clientes de portes diferentes com a mesma linha"
+     ],
+     "argumentos_tecnicos": [
+      {
+       "texto": "Capacidade de carga de 25.000 kg",
+       "fonte": "p. 57"
+      },
+      {
+       "texto": "Faixa de distribuição de 7 a 36 m",
+       "fonte": "p. 57"
+      },
+      {
+       "texto": "Potência no motor de 200 cv, conforme o modelo",
+       "fonte": "p. 57"
+      }
+     ],
+     "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER 25000 HEAVY DUTY RB da Piccin: capacidade de carga de 25.000 kg; faixa de distribuição de 7 a 36 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
+    },
+    "produtor": {
+     "necessidade": "Aplicar calcário, gesso e fertilizantes a lanço, com faixa e vazão documentadas.",
+     "beneficios_tecnicos": [],
+     "aplicacao": "Aplicação de calcário (faixa em L/ha informada no catálogo) e fertilizantes. (catálogo (linha \"Aplicação de Calcário\"))",
+     "caracteristicas_perfil": "Exige trator de 200 a 200 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "perguntas": [
+      "Quantos hectares recebem calcário ou adubo a lanço por ano?",
+      "Hoje a aplicação é própria ou terceirizada?",
+      "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
+     ],
+     "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER 25000 HEAVY DUTY RB da Piccin (capacidade de carga de 25.000 kg; faixa de distribuição de 7 a 36 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+    },
+    "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
+   },
+   {
+    "produto": "crucianelli-plantor",
+    "modelo": "PLANTOR",
+    "nome": "Plantor — plantadeira com caixa central",
+    "fabricante": "CRUCIANELLI",
+    "revenda": {
+     "oportunidade_mercado": [
+      "Com plantio da soja em MT",
+      "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
+     ],
+     "potencial_comercializacao": [
+      "3 modelos no catálogo, para tratores de 220 a 310 HP"
+     ],
+     "perfil_cliente": {
+      "texto": "grandes propriedades e grupos agrícolas (tratores acima de 200 HP)",
+      "base": "Derivado da potência requerida no catálogo (220 a 310 HP): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+     },
+     "beneficios_revenda": [
+      "Faixa de 3 modelos permite atender clientes de portes diferentes com a mesma linha",
+      "Ficha técnica completa no catálogo oficial (páginas citadas) para apoiar a venda técnica"
+     ],
+     "argumentos_tecnicos": [
+      {
+       "texto": "Modelos de 12 m, 15 m, 18 m de largura",
+       "fonte": "p. 5"
+      },
+      {
+       "texto": "3 caixas centrais de 2.400 litros, cada uma para semente ou adubo",
+       "fonte": "p. 2 e 6"
+      },
+      {
+       "texto": "Largura de transporte de 3,9 m",
+       "fonte": "p. 5"
+      },
+      {
+       "texto": "Potência mínima de 220 a 310 HP (linhas a 50 cm), conforme o modelo",
+       "fonte": "p. 5"
+      },
+      {
+       "texto": "Transporte → trabalho em menos de 3 minutos, com um operador",
+       "fonte": "p. 3"
+      },
+      {
+       "texto": "Sistema de transporte patenteado, comandado da cabine: 18 m de trabalho em menos de 4 m de largura de transporte (tabela: 3,9 m)",
+       "fonte": "p. 4"
+      },
+      {
+       "texto": "6 pneus (2 pares balancim + 2 articulados giratórios) distribuem o peso sem sobrecarregar o engate do trator",
+       "fonte": "p. 4"
+      },
+      {
+       "texto": "Opcionais: Kit varredura (limpa a palhada à frente do disco duplo); Kit central hidráulica independente (TDP 540 rpm; não usa a saída 3 do trator); Disco duplo fertilizador",
+       "fonte": "p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
+      }
+     ],
+     "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em MT, queria conversar sobre a Plantor da Crucianelli: modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo. Como está a procura dos seus clientes por plantadeiras? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
+    },
+    "produtor": {
+     "necessidade": "Plantar grandes áreas com autonomia de abastecimento e troca rápida entre transporte e trabalho.",
+     "beneficios_tecnicos": [
+      {
+       "texto": "Transporte → trabalho em menos de 3 minutos, com um operador",
+       "fonte": "p. 3"
+      },
+      {
+       "texto": "Sistema de transporte patenteado, comandado da cabine: 18 m de trabalho em menos de 4 m de largura de transporte (tabela: 3,9 m)",
+       "fonte": "p. 4"
+      },
+      {
+       "texto": "6 pneus (2 pares balancim + 2 articulados giratórios) distribuem o peso sem sobrecarregar o engate do trator",
+       "fonte": "p. 4"
+      },
+      {
+       "texto": "Sistema dual de dosagem e abastecimento (patenteado e premiado): as 3 caixas servem para semente ou adubo; conversão sem ferramentas",
+       "fonte": "p. 8"
+      },
+      {
+       "texto": "Abastecimento de sementes sob demanda até os dosadores monogrão; dosador de fertilizante por roda dentada tipo Chevron com motor hidráulico",
+       "fonte": "p. 9"
+      },
+      {
+       "texto": "Nível Precision Planting: vDrive, monitor 20/20 SeedSense, vApply e Delta Force",
+       "fonte": "p. 10"
+      }
+     ],
+     "aplicacao": "Plantio de grãos com dosagem monogrão; fertilização na linha ou fora de linha. (catálogo, p. 7, 9 e 12)",
+     "caracteristicas_perfil": "Exige trator de 220 a 310 HP conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "perguntas": [
+      "Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?",
+      "Qual trator puxaria a plantadeira (potência)?",
+      "Qual espaçamento entre linhas o senhor usa em cada cultura?"
+     ],
+     "argumento": "Autonomia de abastecimento e mudança rápida entre transporte e trabalho, com especificações documentadas no catálogo — o rendimento por hectare depende da operação e não é informado pelo fabricante.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a Plantor da Crucianelli (modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo). Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?"
+    },
+    "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
+   }
+  ],
+  "regional": {
+   "disponivel": false,
+   "motivo": "Dados municipais do IBGE ainda não coletados (a coleta roda no agendador da nuvem).",
+   "ano_pam": null,
+   "ano_ppm": null,
+   "fontes": [],
+   "metodo": null,
+   "aviso": null
+  },
+  "catalogo": {
+   "produtos": 60,
+   "por_fabricante": {
+    "PICCIN": 58,
+    "CRUCIANELLI": 2
+   },
+   "gerado_em": "2026-10-29"
+  }
+ },
+ "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 30/10/2026 14:06 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 51/100 (Misto / neutro); agrícola 51; pecuário —.\n\n_[Interpretação]_ Índice geral em 51/100 (misto / neutro), confiança baixa. Pesam a favor: o índice de commodities agro do BC. Pesam contra: a inflação esperada para o próximo ano e a Selic. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Índice de Commodities Brasil (IC-Br) — Agropecuária (+3,8% (01/06/2026 → 01/09/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,04 p.p. (4,30% → 4,34%, 19/10/2026 → 23/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 44 · confiança baixa.\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra.\n- Sem dado: Perfil de demanda, Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Distribuidores** — Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja).\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 44 · confiança baixa.\n- Contra: Aderência do portfólio (0) — 0 de 1 produtos em janela de decisão de compra.\n- Sem dado: Perfil de demanda, Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 54 | 54 |\n| credito | 45 | 45 |\n| momento | 55 | 55 |\n| aderencia | 0 | 0 |\n| demanda | — | — |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **44** | **44** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- MT — praças de lavoura; RO e AC — áreas de pastagem e abertura\n\nDados municipais do IBGE ainda não coletados: indicação pelo perfil produtivo conhecido das regiões. Priorize municípios onde você já tem clientes no CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Distribuidores:** MASTER DH 1 (pequeno/médio, 50–100 cv, p. 45); MASTER 10000 BI RB (médio/grande, 140–140 cv, p. 50); MASTER 25000 HEAVY DUTY RB (grande, 200–200 cv, p. 57)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores com o equipamento em uso agora; Revendas agrícolas que atendem esse público — Pequenos e médios produtores, Médios e grandes produtores, Grandes propriedades e grupos agrícolas.\n- Distribuidores tem opções de MASTER DH 1 (50–100 cv), MASTER 10000 BI RB (140 cv), MASTER 25000 HEAVY DUTY RB (200 cv): o porte do cliente define o modelo (catálogo).\n\n## 8. Principais oportunidades identificadas\n- Agricultura: manter negociações e relacionamento (índice 51)\n- Pecuária: sem dados suficientes\n- _[Hipótese comercial]_ possível adiamento: A Selic esperada para o próximo ano caiu 0,25 p.p. Parte dos produtores pode adiar compras esperando crédito mais barato.\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Vou esperar os juros caírem mais.\" — Expectativa não é garantia. Perguntar quanto custa adiar (perda de rendimento, paradas, janela de plantio) e se a decisão pode ser preparada agora para fechar quando fizer sentido.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n- Dados municipais do IBGE ainda não coletados (a coleta roda no agendador da nuvem).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Piccin — Índices próximos (44 × 44); desempate pelo calendário: MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso).\n2. **Equipamento:** MASTER DH 1 — Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja). Modelo do catálogo: MASTER DH 1 (p. 45); escolha a opção pelo trator do cliente.\n3. **Região:** MT — praças de lavoura; RO e AC — áreas de pastagem e abertura.\n4. **Perfil:** Pequenos e médios produtores, Médios e grandes produtores, Grandes propriedades e grupos agrícolas.\n5. **Ação:** Agendar visita a produtor com distribuidores em operação para levantar gargalos e preparar a próxima compra. / Ligar para uma revenda de MT e levantar a procura por distribuidores Piccin. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Piccin MASTER DH 1):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER DH 1 da Piccin: capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,37 R$/US$ | 29/10/2026 | +2,9% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 30/10/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 454,0 índice | 01/09/2026 | +0,1% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 11,75% a.a. | 23/10/2026 | -0,25 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,34% | 23/10/2026 | +0,04 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 158,28 R$/saca 60 kg | 29/10/2026 | +4,2% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 65,59 R$/saca 60 kg | 29/10/2026 | +2,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 389,20 R$/@ | 29/10/2026 | +2,3% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 412,15 centavos de R$/lp | 29/10/2026 | — | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: não coletados.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
+ "catalogo_alterado": false,
+ "saude": {
+  "ultima_execucao": "2026-10-30T14:11:33.410Z",
+  "ultima_execucao_ok": true,
+  "modo": "coleta",
+  "coletas": [
+   {
+    "id": "usd_brl",
+    "ok": true,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json&dataInicial=30/10/2021&dataFinal=30/10/2026",
+    "verificado_em": "2026-10-30T14:06:32.981Z",
+    "recebidas": 1255,
+    "rejeitadas": 0,
+    "suspeitas": [
+     {
+      "data": "2026-10-26",
+      "valor": 5.5007,
+      "anterior": 5.0377,
+      "variacao_pct": 9.19
+     }
+    ],
+    "novas": 1255,
+    "alteradas": 0,
+    "total": 1255,
+    "ultima_ref": "2026-10-29"
+   },
+   {
+    "id": "selic_meta",
+    "ok": true,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=30/10/2017&dataFinal=30/10/2026",
+    "verificado_em": "2026-10-30T14:07:41.794Z",
+    "recebidas": 3288,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 3288,
+    "alteradas": 0,
+    "total": 3288,
+    "ultima_ref": "2026-10-30"
+   },
+   {
+    "id": "ipca_12m",
+    "ok": true,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json&dataInicial=30/10/2011&dataFinal=30/10/2026",
+    "verificado_em": "2026-10-30T14:07:42.984Z",
+    "recebidas": 180,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 180,
+    "alteradas": 0,
+    "total": 180,
+    "ultima_ref": "2026-09-01"
+   },
+   {
+    "id": "icbr_agro",
+    "ok": true,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.27575/dados?formato=json&dataInicial=30/10/2011&dataFinal=30/10/2026",
+    "verificado_em": "2026-10-30T14:07:43.596Z",
+    "recebidas": 180,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 180,
+    "alteradas": 0,
+    "total": 180,
+    "ultima_ref": "2026-09-01"
+   },
+   {
+    "id": "focus_selic_prox_ano",
+    "ok": true,
+    "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'Selic'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2023-01-01'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
+    "verificado_em": "2026-10-30T14:07:45.000Z",
+    "recebidas": 957,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 957,
+    "alteradas": 0,
+    "total": 957,
+    "ultima_ref": "2026-10-23"
+   },
+   {
+    "id": "focus_ipca_prox_ano",
+    "ok": true,
+    "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'IPCA'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2023-01-01'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
+    "verificado_em": "2026-10-30T14:07:46.229Z",
+    "recebidas": 951,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 951,
+    "alteradas": 0,
+    "total": 951,
+    "ultima_ref": "2026-10-23"
+   },
+   {
+    "id": "soja_cepea",
+    "ok": true,
+    "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
+    "verificado_em": "2026-10-30T14:07:48.764Z",
+    "recebidas": 1,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 0,
+    "alteradas": 0,
+    "total": 15,
+    "ultima_ref": "2026-10-29"
+   },
+   {
+    "id": "milho_cepea",
+    "ok": true,
+    "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
+    "verificado_em": "2026-10-30T14:07:48.764Z",
+    "recebidas": 1,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 0,
+    "alteradas": 0,
+    "total": 15,
+    "ultima_ref": "2026-10-29"
+   },
+   {
+    "id": "boi_cepea",
+    "ok": true,
+    "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
+    "verificado_em": "2026-10-30T14:07:48.765Z",
+    "recebidas": 1,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 0,
+    "alteradas": 0,
+    "total": 15,
+    "ultima_ref": "2026-10-29"
+   },
+   {
+    "id": "algodao_cepea",
+    "ok": true,
+    "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
+    "verificado_em": "2026-10-30T14:07:48.765Z",
+    "recebidas": 1,
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 1,
+    "alteradas": 0,
+    "total": 1,
+    "ultima_ref": "2026-10-29"
+   },
+   {
+    "id": "imea_plantio_soja",
+    "ok": true,
+    "origem": "manual",
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 1,
+    "alteradas": 0,
+    "total": 1
+   },
+   {
+    "id": "imea_custo_soja",
+    "ok": true,
+    "origem": "manual",
+    "rejeitadas": 0,
+    "suspeitas": [],
+    "novas": 1,
+    "alteradas": 0,
+    "total": 1
+   }
+  ],
+  "erros": [
+   "ibge municipios: fetch failed",
+   "ibge pam: fetch failed",
+   "ibge ppm: fetch failed",
+   "ibge malha RO: fetch failed",
+   "ibge malha AC: fetch failed",
+   "ibge malha MT: fetch failed"
+  ],
+  "regional": {
+   "erros": [
+    "ibge municipios: fetch failed",
+    "ibge pam: fetch failed",
+    "ibge ppm: fetch failed",
+    "ibge malha RO: fetch failed",
+    "ibge malha AC: fetch failed",
+    "ibge malha MT: fetch failed"
+   ],
+   "ok": []
+  }
+ },
+ "regional_novo_ano": null,
+ "alertas": [
+  {
+   "id": "dolar_forte",
+   "prioridade": "alta",
+   "canais": [
+    "painel",
+    "issue"
+   ],
+   "titulo": "Dólar comercial (venda): +6,7% (semanal)",
+   "detalhe": "Entre 22/10/2026 e 29/10/2026; limite configurado ±3%. Fonte: Banco Central do Brasil — SGS série 1."
+  },
+  {
+   "id": "coleta_falhou",
+   "prioridade": "alta",
+   "canais": [
+    "painel",
+    "issue"
+   ],
+   "titulo": "Falha em 6 coleta(s)",
+   "detalhe": "ibge municipios: fetch failed | ibge pam: fetch failed | ibge ppm: fetch failed | ibge malha RO: fetch failed | ibge malha AC: fetch failed"
+  },
+  {
+   "id": "focus_selic",
+   "prioridade": "media",
+   "canais": [
+    "painel"
+   ],
+   "titulo": "Focus — mediana Selic fim do próximo ano: -0,25 p.p. (12,00% → 11,75%) (mensal)",
+   "detalhe": "Entre 23/09/2026 e 23/10/2026; limite configurado ±0.25 p.p.. Fonte: Banco Central do Brasil — Relatório Focus (API Olinda, ExpectativasMercadoAnuais)."
+  }
+ ]
+}
