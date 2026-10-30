@@ -15,6 +15,7 @@ import { evaluateAlerts } from './engine/alerts.js';
 import { validateObservations } from './lib/validate.js';
 import { collectRegional } from './collectors/ibge.js';
 import { collectCepea } from './collectors/cepea.js';
+import { fetchRefUSDBRL, conferirMovimento } from './collectors/conferencia.js';
 import crypto from 'node:crypto';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -123,6 +124,17 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
     const col = execucao.coletas.find(x => x.id === c.id && x.ok && x.verificado_em);
     c.fonte_consultada_em = col ? col.verificado_em : null;
     c.dado_novo_nesta_execucao = col ? col.novas > 0 : false;
+  }
+  // Conferência do dólar com fonte independente (BCE). Falha aqui vira aviso, nunca bloqueia.
+  const cUsd = resultado.cards.find(c => c.id === 'usd_brl');
+  if (!offline && cUsd?.valor != null && cUsd.variacoes?.semanal) {
+    try {
+      const v = cUsd.variacoes.semanal;
+      const { taxas } = await fetchRefUSDBRL(v.de, cUsd.data_referencia, { fetchImpl });
+      cUsd.conferencia = conferirMovimento(v, cUsd.valor, cUsd.data_referencia, taxas);
+    } catch (e) { cUsd.conferencia = { status: 'indisponivel', texto: `Conferência com o BCE indisponível hoje (${e.message || e}).` }; }
+    (cUsd.aviso ||= []).push(cUsd.conferencia.texto);
+    if (cUsd.conferencia.status === 'divergente') execucao.erros.push(`usd_brl: ${cUsd.conferencia.texto}`);
   }
   const anoPamDepois = store.readJSON('data/regional/pam.json')?.ano_referencia ?? null;
   resultado.regional_novo_ano = anoPamDepois != null && anoPamDepois !== anoPamAntes ? anoPamDepois : null;

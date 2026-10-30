@@ -15,7 +15,7 @@ export function evaluateAlerts({ regras, cards, indices, diagnostico, anterior, 
       const txt = emPP ? `${x > 0 ? '+' : ''}${num(x, 2)} p.p. (${num(v.valor_de, 2)}% → ${num(v.valor_para, 2)}%)` : pct(x);
       out.push({ id: r.id, prioridade: r.prioridade, canais: r.canais,
         titulo: `${c.nome}: ${txt} (${r.periodo})`,
-        detalhe: `Entre ${dataBR(v.de)} e ${dataBR(v.para)}; limite configurado ±${emPP ? r.limite_pp + ' p.p.' : r.limite_pct + '%'}. Fonte: ${c.fonte}.` });
+        detalhe: `Entre ${dataBR(v.de)} e ${dataBR(v.para)}; limite configurado ±${emPP ? r.limite_pp + ' p.p.' : r.limite_pct + '%'}. Fonte: ${c.fonte}.${c.conferencia?.texto ? ' ' + c.conferencia.texto : ''}` });
     } else if (r.tipo === 'indice') {
       const atual = indices.geral.valor, ant = anterior?.geral_valor;
       if (atual == null || ant == null || Math.abs(atual - ant) < r.limite_pontos) continue;

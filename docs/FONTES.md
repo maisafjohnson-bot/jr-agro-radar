@@ -27,6 +27,10 @@ Se a 1ª coleta mostrar valores muito diferentes destes, o código da série est
 
 Regras do coletor: até 3 tentativas com espera crescente; recoleta os últimos 10 dias para captar revisões (valor alterado fica registrado em `revisoes`, nunca sobrescrito em silêncio); primeira carga traz 5 anos (dólar), 9 anos (Selic — o SGS limita séries diárias a 10 anos por consulta) ou 15 anos (mensais) para formar a base de percentis; 2 execuções por dia útil (bem abaixo de qualquer limite razoável). Valor vazio é descartado — nunca vira zero. Valor fora da faixa plausível (`faixa_plausivel` em `config/sources.json`) é rejeitado e registrado; salto acima de `salto_suspeito_pct` entre observações seguidas é mantido e marcado para conferência. No Focus, quando o "próximo ano" muda (ex.: 2027 → 2028), o histórico do novo ano de referência é carregado e as comparações nunca misturam anos de referência diferentes.
 
+## Conferência diária do dólar (2ª fonte independente — desde 30/10/2026)
+
+Toda execução compara a variação semanal do dólar do BCB com a taxa de referência do **Banco Central Europeu**, obtida pela API aberta [Frankfurter](https://api.frankfurter.dev) (código aberto, sem chave). O BCE publica às 14h10 de Frankfurt e a PTAX é do fim do dia, então os níveis diferem um pouco; o que se confere é o **movimento**: mesmo sentido e diferença de até 2 p.p. = "confirmado por 2 fontes"; fora disso = "divergente" (vira erro e alerta). Resultado aparece no card do dólar e no texto do alerta. Primeira conferência (30/10/2026): BCB +6,7% e BCE +6,0% entre 22/10 e 29/10 — salto de 26/10 confirmado (BCE 5,0465 → 5,5884).
+
 ## Cepea — preços diários automáticos (implementado em 30/10/2026)
 
 | Indicador | ID Cepea | Unidade | Referência |
