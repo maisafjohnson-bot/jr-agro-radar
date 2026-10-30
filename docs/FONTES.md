@@ -82,7 +82,7 @@ Os indicadores de plantio, comercialização e custo entram no painel como **con
 
 Dados já lançados (30/10/2026, de reportagem que cita o IMEA): plantio da soja 75,81% em 23/10/2026 (Médio-Norte 96,60%, Oeste 86,78%, Sudeste 59,04%); custo total da soja 2026/27 R$ 8.210,31/ha (atualização de outubro, +6,96%). Fonte: [Revista Cultivar, 23/10/2026](https://revistacultivar.com.br/noticias/mt-safra-2026-27-plantio-da-soja-chega-a-75-81). Substitua pelo dado direto do IMEA quando lançar a planilha.
 
-## Regionais automáticas — IBGE (implementadas, ainda não executadas)
+## Regionais — IBGE (carregadas em 30/10/2026: PAM 2025, PPM 2025, 216 municípios)
 
 | Dado | API | Frequência | Observação |
 |---|---|---|---|
@@ -91,7 +91,9 @@ Dados já lançados (30/10/2026, de reportagem que cita o IMEA): plantio da soja
 | Rebanho bovino | Agregados v3, tabela 3939 (PPM) | anual | Idem |
 | Malha municipal | `api/v3/malhas/estados/{uf}` (GeoJSON, qualidade mínima) | rara | Precisão reduzida a 3 casas |
 
-Coleta no máximo uma vez a cada 30 dias. O formato das respostas foi implementado conforme a documentação pública, mas **só será confirmado na primeira execução real**.
+Coleta no máximo uma vez a cada 30 dias. **O IBGE não responde aos servidores do GitHub Actions** (conexão expira — confirmado em 30/10/2026; os servidores ficam fora do Brasil). Por isso a carga foi feita pelo navegador do computador do usuário, no Brasil: as respostas da API foram resumidas em texto, conferidas por SHA-256 contra o navegador e processadas pelo mesmo coletor (`scripts/ibge_carga_local.mjs`). Ids confirmados: PAM variável 8331, classificação 782 (soja 40124, milho 40122, algodão 40099, café 40139); PPM variável 105, classificação 79 (bovino 2670).
+
+Com os dados já carregados, a falha da atualização automática vira **aviso** (não alerta). Refazer a carga quando o IBGE publicar o próximo ano (PAM/PPM 2026, previsto para ~set–out/2027). A malha municipal (mapa) ainda não foi carregada — o painel mostra a lista no lugar do mapa.
 
 ## Catálogos técnicos (base local)
 

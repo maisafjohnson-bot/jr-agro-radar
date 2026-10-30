@@ -1,11 +1,6 @@
 {
  "ultima_tentativa": "2026-10-30T14:14:33.221Z",
- "ultimos_erros": [
-  "ibge municipios: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-  "ibge pam: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-  "ibge ppm: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-  "ibge malha RO: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-  "ibge malha AC: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))",
-  "ibge malha MT: fetch failed (causa: UND_ERR_CONNECT_TIMEOUT Connect Timeout Error (attempted address: servicodados.ibge.gov.br:443, timeout: 10000ms))"
- ]
+ "ultimos_erros": [],
+ "ultima_coleta_ok": "2026-10-30T15:15:44.458Z",
+ "carga_local": "carga local pelo navegador do usuário (servicodados.ibge.gov.br), 2026-10-30"
 }

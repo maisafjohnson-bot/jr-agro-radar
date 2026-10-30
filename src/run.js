@@ -70,7 +70,12 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
     try {
       const r = await collectRegional(store, { fetchImpl, agora });
       execucao.regional = r;
-      if (r.erros?.length) execucao.erros.push(...r.erros);
+      // Com dados regionais já carregados, falha na atualização anual vira aviso (o IBGE costuma
+      // não responder aos servidores do GitHub, fora do Brasil; a carga é feita por scripts/ibge_carga_local.mjs).
+      if (r.erros?.length) {
+        if (anoPamAntes != null) (execucao.avisos ||= []).push(...r.erros.map(e => `${e} — mantidos os dados do IBGE já carregados (ano ${anoPamAntes})`));
+        else execucao.erros.push(...r.erros);
+      }
     } catch (e) { execucao.erros.push(`ibge: ${e.message || e}`); }
   }
   // Importação manual (sempre)
@@ -109,7 +114,7 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
     ultima_execucao: execucao.fim,
     ultima_execucao_ok: offline ? null : okAuto === totalAuto,
     modo: offline ? 'offline (sem coleta)' : 'coleta',
-    coletas: execucao.coletas, erros: execucao.erros,
+    coletas: execucao.coletas, erros: execucao.erros, avisos: execucao.avisos || [],
     regional: execucao.regional || (offline ? { pulado: true, motivo: 'modo offline' } : null)
   };
 

@@ -1,0 +1,866 @@
+{
+ "1100015": {
+  "nome": "Alta Floresta D'Oeste",
+  "uf": "RO"
+ },
+ "1100023": {
+  "nome": "Ariquemes",
+  "uf": "RO"
+ },
+ "1100031": {
+  "nome": "Cabixi",
+  "uf": "RO"
+ },
+ "1100049": {
+  "nome": "Cacoal",
+  "uf": "RO"
+ },
+ "1100056": {
+  "nome": "Cerejeiras",
+  "uf": "RO"
+ },
+ "1100064": {
+  "nome": "Colorado do Oeste",
+  "uf": "RO"
+ },
+ "1100072": {
+  "nome": "Corumbiara",
+  "uf": "RO"
+ },
+ "1100080": {
+  "nome": "Costa Marques",
+  "uf": "RO"
+ },
+ "1100098": {
+  "nome": "Espigão D'Oeste",
+  "uf": "RO"
+ },
+ "1100106": {
+  "nome": "Guajará-Mirim",
+  "uf": "RO"
+ },
+ "1100114": {
+  "nome": "Jaru",
+  "uf": "RO"
+ },
+ "1100122": {
+  "nome": "Ji-Paraná",
+  "uf": "RO"
+ },
+ "1100130": {
+  "nome": "Machadinho D'Oeste",
+  "uf": "RO"
+ },
+ "1100148": {
+  "nome": "Nova Brasilândia D'Oeste",
+  "uf": "RO"
+ },
+ "1100155": {
+  "nome": "Ouro Preto do Oeste",
+  "uf": "RO"
+ },
+ "1100189": {
+  "nome": "Pimenta Bueno",
+  "uf": "RO"
+ },
+ "1100205": {
+  "nome": "Porto Velho",
+  "uf": "RO"
+ },
+ "1100254": {
+  "nome": "Presidente Médici",
+  "uf": "RO"
+ },
+ "1100262": {
+  "nome": "Rio Crespo",
+  "uf": "RO"
+ },
+ "1100288": {
+  "nome": "Rolim de Moura",
+  "uf": "RO"
+ },
+ "1100296": {
+  "nome": "Santa Luzia D'Oeste",
+  "uf": "RO"
+ },
+ "1100304": {
+  "nome": "Vilhena",
+  "uf": "RO"
+ },
+ "1100320": {
+  "nome": "São Miguel do Guaporé",
+  "uf": "RO"
+ },
+ "1100338": {
+  "nome": "Nova Mamoré",
+  "uf": "RO"
+ },
+ "1100346": {
+  "nome": "Alvorada D'Oeste",
+  "uf": "RO"
+ },
+ "1100379": {
+  "nome": "Alto Alegre dos Parecis",
+  "uf": "RO"
+ },
+ "1100403": {
+  "nome": "Alto Paraíso",
+  "uf": "RO"
+ },
+ "1100452": {
+  "nome": "Buritis",
+  "uf": "RO"
+ },
+ "1100502": {
+  "nome": "Novo Horizonte do Oeste",
+  "uf": "RO"
+ },
+ "1100601": {
+  "nome": "Cacaulândia",
+  "uf": "RO"
+ },
+ "1100700": {
+  "nome": "Campo Novo de Rondônia",
+  "uf": "RO"
+ },
+ "1100809": {
+  "nome": "Candeias do Jamari",
+  "uf": "RO"
+ },
+ "1100908": {
+  "nome": "Castanheiras",
+  "uf": "RO"
+ },
+ "1100924": {
+  "nome": "Chupinguaia",
+  "uf": "RO"
+ },
+ "1100940": {
+  "nome": "Cujubim",
+  "uf": "RO"
+ },
+ "1101005": {
+  "nome": "Governador Jorge Teixeira",
+  "uf": "RO"
+ },
+ "1101104": {
+  "nome": "Itapuã do Oeste",
+  "uf": "RO"
+ },
+ "1101203": {
+  "nome": "Ministro Andreazza",
+  "uf": "RO"
+ },
+ "1101302": {
+  "nome": "Mirante da Serra",
+  "uf": "RO"
+ },
+ "1101401": {
+  "nome": "Monte Negro",
+  "uf": "RO"
+ },
+ "1101435": {
+  "nome": "Nova União",
+  "uf": "RO"
+ },
+ "1101450": {
+  "nome": "Parecis",
+  "uf": "RO"
+ },
+ "1101468": {
+  "nome": "Pimenteiras do Oeste",
+  "uf": "RO"
+ },
+ "1101476": {
+  "nome": "Primavera de Rondônia",
+  "uf": "RO"
+ },
+ "1101484": {
+  "nome": "São Felipe D'Oeste",
+  "uf": "RO"
+ },
+ "1101492": {
+  "nome": "São Francisco do Guaporé",
+  "uf": "RO"
+ },
+ "1101500": {
+  "nome": "Seringueiras",
+  "uf": "RO"
+ },
+ "1101559": {
+  "nome": "Teixeirópolis",
+  "uf": "RO"
+ },
+ "1101609": {
+  "nome": "Theobroma",
+  "uf": "RO"
+ },
+ "1101708": {
+  "nome": "Urupá",
+  "uf": "RO"
+ },
+ "1101757": {
+  "nome": "Vale do Anari",
+  "uf": "RO"
+ },
+ "1101807": {
+  "nome": "Vale do Paraíso",
+  "uf": "RO"
+ },
+ "1200013": {
+  "nome": "Acrelândia",
+  "uf": "AC"
+ },
+ "1200054": {
+  "nome": "Assis Brasil",
+  "uf": "AC"
+ },
+ "1200104": {
+  "nome": "Brasiléia",
+  "uf": "AC"
+ },
+ "1200138": {
+  "nome": "Bujari",
+  "uf": "AC"
+ },
+ "1200179": {
+  "nome": "Capixaba",
+  "uf": "AC"
+ },
+ "1200203": {
+  "nome": "Cruzeiro do Sul",
+  "uf": "AC"
+ },
+ "1200252": {
+  "nome": "Epitaciolândia",
+  "uf": "AC"
+ },
+ "1200302": {
+  "nome": "Feijó",
+  "uf": "AC"
+ },
+ "1200328": {
+  "nome": "Jordão",
+  "uf": "AC"
+ },
+ "1200336": {
+  "nome": "Mâncio Lima",
+  "uf": "AC"
+ },
+ "1200344": {
+  "nome": "Manoel Urbano",
+  "uf": "AC"
+ },
+ "1200351": {
+  "nome": "Marechal Thaumaturgo",
+  "uf": "AC"
+ },
+ "1200385": {
+  "nome": "Plácido de Castro",
+  "uf": "AC"
+ },
+ "1200393": {
+  "nome": "Porto Walter",
+  "uf": "AC"
+ },
+ "1200401": {
+  "nome": "Rio Branco",
+  "uf": "AC"
+ },
+ "1200427": {
+  "nome": "Rodrigues Alves",
+  "uf": "AC"
+ },
+ "1200435": {
+  "nome": "Santa Rosa do Purus",
+  "uf": "AC"
+ },
+ "1200450": {
+  "nome": "Senador Guiomard",
+  "uf": "AC"
+ },
+ "1200500": {
+  "nome": "Sena Madureira",
+  "uf": "AC"
+ },
+ "1200609": {
+  "nome": "Tarauacá",
+  "uf": "AC"
+ },
+ "1200708": {
+  "nome": "Xapuri",
+  "uf": "AC"
+ },
+ "1200807": {
+  "nome": "Porto Acre",
+  "uf": "AC"
+ },
+ "5100102": {
+  "nome": "Acorizal",
+  "uf": "MT"
+ },
+ "5100201": {
+  "nome": "Água Boa",
+  "uf": "MT"
+ },
+ "5100250": {
+  "nome": "Alta Floresta",
+  "uf": "MT"
+ },
+ "5100300": {
+  "nome": "Alto Araguaia",
+  "uf": "MT"
+ },
+ "5100359": {
+  "nome": "Alto Boa Vista",
+  "uf": "MT"
+ },
+ "5100409": {
+  "nome": "Alto Garças",
+  "uf": "MT"
+ },
+ "5100508": {
+  "nome": "Alto Paraguai",
+  "uf": "MT"
+ },
+ "5100607": {
+  "nome": "Alto Taquari",
+  "uf": "MT"
+ },
+ "5100805": {
+  "nome": "Apiacás",
+  "uf": "MT"
+ },
+ "5101001": {
+  "nome": "Araguaiana",
+  "uf": "MT"
+ },
+ "5101209": {
+  "nome": "Araguainha",
+  "uf": "MT"
+ },
+ "5101258": {
+  "nome": "Araputanga",
+  "uf": "MT"
+ },
+ "5101308": {
+  "nome": "Arenápolis",
+  "uf": "MT"
+ },
+ "5101407": {
+  "nome": "Aripuanã",
+  "uf": "MT"
+ },
+ "5101605": {
+  "nome": "Barão de Melgaço",
+  "uf": "MT"
+ },
+ "5101704": {
+  "nome": "Barra do Bugres",
+  "uf": "MT"
+ },
+ "5101803": {
+  "nome": "Barra do Garças",
+  "uf": "MT"
+ },
+ "5101837": {
+  "nome": "Boa Esperança do Norte",
+  "uf": "MT"
+ },
+ "5101852": {
+  "nome": "Bom Jesus do Araguaia",
+  "uf": "MT"
+ },
+ "5101902": {
+  "nome": "Brasnorte",
+  "uf": "MT"
+ },
+ "5102504": {
+  "nome": "Cáceres",
+  "uf": "MT"
+ },
+ "5102603": {
+  "nome": "Campinápolis",
+  "uf": "MT"
+ },
+ "5102637": {
+  "nome": "Campo Novo do Parecis",
+  "uf": "MT"
+ },
+ "5102678": {
+  "nome": "Campo Verde",
+  "uf": "MT"
+ },
+ "5102686": {
+  "nome": "Campos de Júlio",
+  "uf": "MT"
+ },
+ "5102694": {
+  "nome": "Canabrava do Norte",
+  "uf": "MT"
+ },
+ "5102702": {
+  "nome": "Canarana",
+  "uf": "MT"
+ },
+ "5102793": {
+  "nome": "Carlinda",
+  "uf": "MT"
+ },
+ "5102850": {
+  "nome": "Castanheira",
+  "uf": "MT"
+ },
+ "5103007": {
+  "nome": "Chapada dos Guimarães",
+  "uf": "MT"
+ },
+ "5103056": {
+  "nome": "Cláudia",
+  "uf": "MT"
+ },
+ "5103106": {
+  "nome": "Cocalinho",
+  "uf": "MT"
+ },
+ "5103205": {
+  "nome": "Colíder",
+  "uf": "MT"
+ },
+ "5103254": {
+  "nome": "Colniza",
+  "uf": "MT"
+ },
+ "5103304": {
+  "nome": "Comodoro",
+  "uf": "MT"
+ },
+ "5103353": {
+  "nome": "Confresa",
+  "uf": "MT"
+ },
+ "5103361": {
+  "nome": "Conquista D'Oeste",
+  "uf": "MT"
+ },
+ "5103379": {
+  "nome": "Cotriguaçu",
+  "uf": "MT"
+ },
+ "5103403": {
+  "nome": "Cuiabá",
+  "uf": "MT"
+ },
+ "5103437": {
+  "nome": "Curvelândia",
+  "uf": "MT"
+ },
+ "5103452": {
+  "nome": "Denise",
+  "uf": "MT"
+ },
+ "5103502": {
+  "nome": "Diamantino",
+  "uf": "MT"
+ },
+ "5103601": {
+  "nome": "Dom Aquino",
+  "uf": "MT"
+ },
+ "5103700": {
+  "nome": "Feliz Natal",
+  "uf": "MT"
+ },
+ "5103809": {
+  "nome": "Figueirópolis D'Oeste",
+  "uf": "MT"
+ },
+ "5103858": {
+  "nome": "Gaúcha do Norte",
+  "uf": "MT"
+ },
+ "5103908": {
+  "nome": "General Carneiro",
+  "uf": "MT"
+ },
+ "5103957": {
+  "nome": "Glória D'Oeste",
+  "uf": "MT"
+ },
+ "5104104": {
+  "nome": "Guarantã do Norte",
+  "uf": "MT"
+ },
+ "5104203": {
+  "nome": "Guiratinga",
+  "uf": "MT"
+ },
+ "5104500": {
+  "nome": "Indiavaí",
+  "uf": "MT"
+ },
+ "5104526": {
+  "nome": "Ipiranga do Norte",
+  "uf": "MT"
+ },
+ "5104542": {
+  "nome": "Itanhangá",
+  "uf": "MT"
+ },
+ "5104559": {
+  "nome": "Itaúba",
+  "uf": "MT"
+ },
+ "5104609": {
+  "nome": "Itiquira",
+  "uf": "MT"
+ },
+ "5104807": {
+  "nome": "Jaciara",
+  "uf": "MT"
+ },
+ "5104906": {
+  "nome": "Jangada",
+  "uf": "MT"
+ },
+ "5105002": {
+  "nome": "Jauru",
+  "uf": "MT"
+ },
+ "5105101": {
+  "nome": "Juara",
+  "uf": "MT"
+ },
+ "5105150": {
+  "nome": "Juína",
+  "uf": "MT"
+ },
+ "5105176": {
+  "nome": "Juruena",
+  "uf": "MT"
+ },
+ "5105200": {
+  "nome": "Juscimeira",
+  "uf": "MT"
+ },
+ "5105234": {
+  "nome": "Lambari D'Oeste",
+  "uf": "MT"
+ },
+ "5105259": {
+  "nome": "Lucas do Rio Verde",
+  "uf": "MT"
+ },
+ "5105309": {
+  "nome": "Luciara",
+  "uf": "MT"
+ },
+ "5105507": {
+  "nome": "Vila Bela da Santíssima Trindade",
+  "uf": "MT"
+ },
+ "5105580": {
+  "nome": "Marcelândia",
+  "uf": "MT"
+ },
+ "5105606": {
+  "nome": "Matupá",
+  "uf": "MT"
+ },
+ "5105622": {
+  "nome": "Mirassol d'Oeste",
+  "uf": "MT"
+ },
+ "5105903": {
+  "nome": "Nobres",
+  "uf": "MT"
+ },
+ "5106000": {
+  "nome": "Nortelândia",
+  "uf": "MT"
+ },
+ "5106109": {
+  "nome": "Nossa Senhora do Livramento",
+  "uf": "MT"
+ },
+ "5106158": {
+  "nome": "Nova Bandeirantes",
+  "uf": "MT"
+ },
+ "5106174": {
+  "nome": "Nova Nazaré",
+  "uf": "MT"
+ },
+ "5106182": {
+  "nome": "Nova Lacerda",
+  "uf": "MT"
+ },
+ "5106190": {
+  "nome": "Nova Santa Helena",
+  "uf": "MT"
+ },
+ "5106208": {
+  "nome": "Nova Brasilândia",
+  "uf": "MT"
+ },
+ "5106216": {
+  "nome": "Nova Canaã do Norte",
+  "uf": "MT"
+ },
+ "5106224": {
+  "nome": "Nova Mutum",
+  "uf": "MT"
+ },
+ "5106232": {
+  "nome": "Nova Olímpia",
+  "uf": "MT"
+ },
+ "5106240": {
+  "nome": "Nova Ubiratã",
+  "uf": "MT"
+ },
+ "5106257": {
+  "nome": "Nova Xavantina",
+  "uf": "MT"
+ },
+ "5106265": {
+  "nome": "Novo Mundo",
+  "uf": "MT"
+ },
+ "5106273": {
+  "nome": "Novo Horizonte do Norte",
+  "uf": "MT"
+ },
+ "5106281": {
+  "nome": "Novo São Joaquim",
+  "uf": "MT"
+ },
+ "5106299": {
+  "nome": "Paranaíta",
+  "uf": "MT"
+ },
+ "5106307": {
+  "nome": "Paranatinga",
+  "uf": "MT"
+ },
+ "5106315": {
+  "nome": "Novo Santo Antônio",
+  "uf": "MT"
+ },
+ "5106372": {
+  "nome": "Pedra Preta",
+  "uf": "MT"
+ },
+ "5106422": {
+  "nome": "Peixoto de Azevedo",
+  "uf": "MT"
+ },
+ "5106455": {
+  "nome": "Planalto da Serra",
+  "uf": "MT"
+ },
+ "5106505": {
+  "nome": "Poconé",
+  "uf": "MT"
+ },
+ "5106653": {
+  "nome": "Pontal do Araguaia",
+  "uf": "MT"
+ },
+ "5106703": {
+  "nome": "Ponte Branca",
+  "uf": "MT"
+ },
+ "5106752": {
+  "nome": "Pontes e Lacerda",
+  "uf": "MT"
+ },
+ "5106778": {
+  "nome": "Porto Alegre do Norte",
+  "uf": "MT"
+ },
+ "5106802": {
+  "nome": "Porto dos Gaúchos",
+  "uf": "MT"
+ },
+ "5106828": {
+  "nome": "Porto Esperidião",
+  "uf": "MT"
+ },
+ "5106851": {
+  "nome": "Porto Estrela",
+  "uf": "MT"
+ },
+ "5107008": {
+  "nome": "Poxoréu",
+  "uf": "MT"
+ },
+ "5107040": {
+  "nome": "Primavera do Leste",
+  "uf": "MT"
+ },
+ "5107065": {
+  "nome": "Querência",
+  "uf": "MT"
+ },
+ "5107107": {
+  "nome": "São José dos Quatro Marcos",
+  "uf": "MT"
+ },
+ "5107156": {
+  "nome": "Reserva do Cabaçal",
+  "uf": "MT"
+ },
+ "5107180": {
+  "nome": "Ribeirão Cascalheira",
+  "uf": "MT"
+ },
+ "5107198": {
+  "nome": "Ribeirãozinho",
+  "uf": "MT"
+ },
+ "5107206": {
+  "nome": "Rio Branco",
+  "uf": "MT"
+ },
+ "5107248": {
+  "nome": "Santa Carmem",
+  "uf": "MT"
+ },
+ "5107263": {
+  "nome": "Santo Afonso",
+  "uf": "MT"
+ },
+ "5107297": {
+  "nome": "São José do Povo",
+  "uf": "MT"
+ },
+ "5107305": {
+  "nome": "São José do Rio Claro",
+  "uf": "MT"
+ },
+ "5107354": {
+  "nome": "São José do Xingu",
+  "uf": "MT"
+ },
+ "5107404": {
+  "nome": "São Pedro da Cipa",
+  "uf": "MT"
+ },
+ "5107578": {
+  "nome": "Rondolândia",
+  "uf": "MT"
+ },
+ "5107602": {
+  "nome": "Rondonópolis",
+  "uf": "MT"
+ },
+ "5107701": {
+  "nome": "Rosário Oeste",
+  "uf": "MT"
+ },
+ "5107743": {
+  "nome": "Santa Cruz do Xingu",
+  "uf": "MT"
+ },
+ "5107750": {
+  "nome": "Salto do Céu",
+  "uf": "MT"
+ },
+ "5107768": {
+  "nome": "Santa Rita do Trivelato",
+  "uf": "MT"
+ },
+ "5107776": {
+  "nome": "Santa Terezinha",
+  "uf": "MT"
+ },
+ "5107792": {
+  "nome": "Santo Antônio do Leste",
+  "uf": "MT"
+ },
+ "5107800": {
+  "nome": "Santo Antônio de Leverger",
+  "uf": "MT"
+ },
+ "5107859": {
+  "nome": "São Félix do Araguaia",
+  "uf": "MT"
+ },
+ "5107875": {
+  "nome": "Sapezal",
+  "uf": "MT"
+ },
+ "5107883": {
+  "nome": "Serra Nova Dourada",
+  "uf": "MT"
+ },
+ "5107909": {
+  "nome": "Sinop",
+  "uf": "MT"
+ },
+ "5107925": {
+  "nome": "Sorriso",
+  "uf": "MT"
+ },
+ "5107941": {
+  "nome": "Tabaporã",
+  "uf": "MT"
+ },
+ "5107958": {
+  "nome": "Tangará da Serra",
+  "uf": "MT"
+ },
+ "5108006": {
+  "nome": "Tapurah",
+  "uf": "MT"
+ },
+ "5108055": {
+  "nome": "Terra Nova do Norte",
+  "uf": "MT"
+ },
+ "5108105": {
+  "nome": "Tesouro",
+  "uf": "MT"
+ },
+ "5108204": {
+  "nome": "Torixoréu",
+  "uf": "MT"
+ },
+ "5108303": {
+  "nome": "União do Sul",
+  "uf": "MT"
+ },
+ "5108352": {
+  "nome": "Vale de São Domingos",
+  "uf": "MT"
+ },
+ "5108402": {
+  "nome": "Várzea Grande",
+  "uf": "MT"
+ },
+ "5108501": {
+  "nome": "Vera",
+  "uf": "MT"
+ },
+ "5108600": {
+  "nome": "Vila Rica",
+  "uf": "MT"
+ },
+ "5108808": {
+  "nome": "Nova Guarita",
+  "uf": "MT"
+ },
+ "5108857": {
+  "nome": "Nova Marilândia",
+  "uf": "MT"
+ },
+ "5108907": {
+  "nome": "Nova Maringá",
+  "uf": "MT"
+ },
+ "5108956": {
+  "nome": "Nova Monte Verde",
+  "uf": "MT"
+ }
+}
