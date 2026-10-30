@@ -1,5 +1,5 @@
 {
-  "_doc": "Catálogo editável. Campos de margem NÃO ficam aqui (ficam apenas no navegador do usuário). 'ativo': false desativa sem apagar.",
+  "_doc": "Categorias de calendário e marcas ativas. O portfólio técnico detalhado está em data/catalogo/produtos.json (gerado a partir dos catálogos oficiais).",
   "categorias": [
     {
       "id": "plantadeiras",
@@ -48,10 +48,10 @@
       "nome": "PICCIN",
       "categorias": [
         "preparo_solo",
-        "plantadeiras"
+        "distribuicao"
       ],
       "ativo": true,
-      "obs": "Confirmar linhas representadas."
+      "obs": "Portfólio completo no Catálogo Técnico (data/catalogo/produtos.json)."
     },
     {
       "id": "crucianelli",
@@ -60,28 +60,28 @@
         "plantadeiras"
       ],
       "ativo": true,
-      "obs": "Plantadeiras; fabricação no Brasil via Piccin."
+      "obs": "Somente plantadeiras (Plantor). Catálogo Técnico em data/catalogo/produtos.json."
     },
     {
       "id": "schemaq",
       "nome": "SCHEMAQ",
       "categorias": [],
-      "ativo": true,
-      "obs": "Preencher categorias."
+      "ativo": false,
+      "obs": "Fora do escopo desta etapa (foco exclusivo em Piccin e Crucianelli). Reative mudando \"ativo\" para true."
     },
     {
       "id": "rubemaq",
       "nome": "RUBEMAQ",
       "categorias": [],
-      "ativo": true,
-      "obs": "Preencher categorias."
+      "ativo": false,
+      "obs": "Fora do escopo desta etapa (foco exclusivo em Piccin e Crucianelli). Reative mudando \"ativo\" para true."
     },
     {
       "id": "grazmec",
       "nome": "GRAZMEC",
       "categorias": [],
-      "ativo": true,
-      "obs": "Preencher categorias."
+      "ativo": false,
+      "obs": "Fora do escopo desta etapa (foco exclusivo em Piccin e Crucianelli). Reative mudando \"ativo\" para true."
     }
   ],
   "territorios": [

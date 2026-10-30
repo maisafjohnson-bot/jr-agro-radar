@@ -1,4 +1,8 @@
-# Testes — situação após a auditoria de 29/10/2026
+# Testes — situação após a etapa 3 (29/10/2026)
+
+**Atual:** `npm test` → 61/61 aprovados; `npm run e2e` → 16/16 aprovados (Chrome real, inclusive reinício do navegador). Novos arquivos: `test/catalogo.test.js` (10), `test/crm_marcas.test.js` (11), `test/e2e/painel.e2e.mjs` (16 verificações). Detalhes em docs/ETAPA3.md.
+
+## Histórico da auditoria (etapa 2)
 
 `npm test` → **40 de 40 aprovados**. Arquivos:
 

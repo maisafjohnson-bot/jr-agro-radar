@@ -37,17 +37,18 @@ Nada depende do seu computador ou de uma sessão do Claude aberta. Não há depe
 
 ## Uso diário
 
-- **Hoje**: recomendação, índice, motivos (a favor / contra, com fonte), 3 primeiras ações e mensagens com botão Copiar.
-- **Mercado**: indicadores agrícolas, pecuários, economia/crédito e a decomposição dos índices.
-- **Plano**: as 3–7 ações do dia e as categorias com mais aderência.
-- **Histórico**: gráficos 30/90/180/365 dias/máximo, comparação base 100 entre indicadores, diagnósticos anteriores.
-- **Mais**: boletim completo, produtos, importação do histórico de vendas (fica só no aparelho), saúde das fontes e configurações.
+- **Hoje**: Plano comercial do dia (marca, equipamento, região, perfil de cliente, ação), negociações paradas e o cenário econômico.
+- **Marcas**: Piccin e Crucianelli separadas — índice com componentes, regiões, equipamentos recomendados, argumentos para revenda e produtor com WhatsApp pronto, funil do CRM.
+- **Catálogo**: 60 produtos com especificações, página de origem, divergências, comparação e seletor de modelo pela potência do trator.
+- **CRM**: oportunidades, contatos, visitas, propostas e vendas; importação de planilha; backup e restauração. Fica só no aparelho.
+- **Mais**: economia e indicadores, plano por segmento, mapa regional, histórico, relatório, fontes e configurações.
 
 ## Manutenção
 
 | O que mudar | Onde |
 |---|---|
-| Marcas, categorias, territórios | `config/catalog.json` |
+| Marcas ativas e categorias de calendário | `config/catalog.json` |
+| Catálogo técnico (novo PDF da fábrica) | `scripts/catalogo_build.py` → `npm run catalogo` → `npm test` (confere os números com o PDF) |
 | Preços sem API (soja, milho, boi, diesel, fertilizante, vendas do setor) | CSV em `data/manual/` (modelo em `MODELO-precos.csv.exemplo`) |
 | Limites e canais de alerta | `config/alerts.json` |
 | Pesos e variáveis dos índices | `config/methodology.json` (registrar em `historico_versoes`) |
@@ -55,6 +56,6 @@ Nada depende do seu computador ou de uma sessão do Claude aberta. Não há depe
 
 Editar qualquer um desses arquivos pelo site do GitHub dispara uma nova análise automaticamente.
 
-Rodar localmente: `npm test`, `npm run coletar`, `npm run servir` (abre em http://localhost:8080).
+Rodar localmente: `npm test`, `npm run coletar`, `npm run servir` (abre em http://localhost:8080), `npm run e2e` (teste no Chrome com o painel servido).
 
-Documentação: [Metodologia](docs/METODOLOGIA.md) · [Fontes](docs/FONTES.md) · [Testes](docs/TESTES.md) · [Auditoria](docs/AUDITORIA.md)
+Documentação: [Metodologia](docs/METODOLOGIA.md) · [Fontes](docs/FONTES.md) · [Testes](docs/TESTES.md) · [Auditoria](docs/AUDITORIA.md) · [Etapa 3](docs/ETAPA3.md)

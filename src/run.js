@@ -13,6 +13,8 @@ import { importManualDir } from './collectors/manual.js';
 import { analyze } from './analyze.js';
 import { evaluateAlerts } from './engine/alerts.js';
 import { validateObservations } from './lib/validate.js';
+import { collectRegional } from './collectors/ibge.js';
+import crypto from 'node:crypto';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = process.env.ROOT || path.resolve(here, '..');
@@ -43,6 +45,15 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
       }
     }
   }
+  // Dados regionais do IBGE (anuais): no máximo 1 coleta a cada 30 dias.
+  const anoPamAntes = store.readJSON('data/regional/pam.json')?.ano_referencia ?? null;
+  if (!offline) {
+    try {
+      const r = await collectRegional(store, { fetchImpl, agora });
+      execucao.regional = r;
+      if (r.erros?.length) execucao.erros.push(...r.erros);
+    } catch (e) { execucao.erros.push(`ibge: ${e.message || e}`); }
+  }
   // Importação manual (sempre)
   const ids = new Set(sources.map(s => s.id));
   const man = importManualDir(path.join(ROOT, 'data', 'manual'), ids);
@@ -60,10 +71,18 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
   const series = store.loadAll(sources.map(s => s.id));
   const anteriores = store.readLines('data/history/diagnosticos.jsonl');
   const anterior = [...anteriores].reverse().find(a => a.data !== hoje) || null;
-  const resultado = analyze({
+  const catalogoBase = store.readJSON('data/catalogo/produtos.json');
+  const regionalData = { municipios: store.readJSON('data/regional/municipios.json'), pam: store.readJSON('data/regional/pam.json'), ppm: store.readJSON('data/regional/ppm.json') };
+  const resultado = analyze({ catalogoBase, regionalData,
     sources, series, metodo: cfg('methodology.json'), catalog: cfg('catalog.json'), calendar: cfg('calendar.json'),
     agora: agora.toISOString(), anterior, historico: anteriores
   });
+  // Catálogo alterado desde a última execução? (alerta de "nova informação das fabricantes")
+  const hashCat = catalogoBase ? crypto.createHash('sha256').update(JSON.stringify(catalogoBase.produtos)).digest('hex').slice(0, 16) : null;
+  const metaCat = store.readJSON('data/catalogo/meta.json') || {};
+  resultado.catalogo_alterado = !!(hashCat && metaCat.hash && metaCat.hash !== hashCat);
+  if (hashCat && metaCat.hash !== hashCat) store.writeJSON('data/catalogo/meta.json', { hash: hashCat, desde: new Date().toISOString() });
+  if (resultado._regional_completo) { store.writeJSON('data/regional/potencial.json', resultado._regional_completo); delete resultado._regional_completo; }
   execucao.fim = new Date().toISOString();
   const okAuto = execucao.coletas.filter(c => c.ok && !c.origem).length;
   const totalAuto = sources.filter(s => s.coleta.tipo !== 'manual').length;
@@ -71,7 +90,8 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
     ultima_execucao: execucao.fim,
     ultima_execucao_ok: offline ? null : okAuto === totalAuto,
     modo: offline ? 'offline (sem coleta)' : 'coleta',
-    coletas: execucao.coletas, erros: execucao.erros
+    coletas: execucao.coletas, erros: execucao.erros,
+    regional: execucao.regional || (offline ? { pulado: true, motivo: 'modo offline' } : null)
   };
 
   // Distingue "a fonte foi consultada agora" de "o dado é novo": a data de referência continua a do dado.
@@ -80,7 +100,9 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
     c.fonte_consultada_em = col ? col.verificado_em : null;
     c.dado_novo_nesta_execucao = col ? col.novas > 0 : false;
   }
-  resultado.alertas = evaluateAlerts({ regras: cfg('alerts.json').regras, cards: resultado.cards, indices: resultado.indices, diagnostico: resultado.diagnostico, anterior, saude: resultado.saude });
+  const anoPamDepois = store.readJSON('data/regional/pam.json')?.ano_referencia ?? null;
+  resultado.regional_novo_ano = anoPamDepois != null && anoPamDepois !== anoPamAntes ? anoPamDepois : null;
+  resultado.alertas = evaluateAlerts({ regras: cfg('alerts.json').regras, cards: resultado.cards, indices: resultado.indices, diagnostico: resultado.diagnostico, anterior, saude: resultado.saude, resultado });
   const paraIssue = resultado.alertas.filter(a => a.canais.includes('issue'));
   // Arquivo lido pelo agendador (GitHub Actions) para abrir uma issue = notificação por e-mail.
   store.writeText('data/alertas-notificar.md', paraIssue.length
@@ -94,6 +116,7 @@ export async function run({ offline = false, agora = new Date(), fetchImpl } = {
     data: hoje, analisado_em: resultado.diagnostico.data_analise, recomendacao: resultado.diagnostico.recomendacao,
     situacao: resultado.diagnostico.situacao, confianca: resultado.diagnostico.confianca,
     geral_valor: resultado.indices.geral.valor, agricola_valor: resultado.indices.agricola.valor, pecuaria_valor: resultado.indices.pecuaria.valor,
+    marcas: resultado.marcas ? { PICCIN: resultado.marcas.indices.PICCIN.valor, CRUCIANELLI: resultado.marcas.indices.CRUCIANELLI.valor } : null,
     versao: resultado.indices.agricola.versao
   });
   store.writeText(`reports/${hoje}.md`, resultado.boletim_md);

@@ -71,7 +71,8 @@ jobs:
           mkdir -p _site data reports
           cp index.html _site/
           cp -r data config reports _site/
-          rm -rf _site/data/manual
+          mkdir -p _site/src && cp -r src/lib src/engine _site/src/
+          rm -rf _site/data/manual _site/data/catalogo/fontes
           echo "pronto=sim" >> "$GITHUB_OUTPUT"
 
       - uses: actions/upload-pages-artifact@v3

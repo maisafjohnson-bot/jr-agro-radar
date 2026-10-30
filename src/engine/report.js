@@ -1,24 +1,96 @@
-// Boletim diário em Markdown, separando Fato / Cálculo / Interpretação / Hipótese / Recomendação.
+// JR AGRO RADAR — RELATÓRIO DIÁRIO (Markdown). Curto na abertura, rastreável no anexo.
+// Rótulos: [Fato observado] [Cálculo] [Interpretação] [Hipótese comercial] [Recomendação].
 import { num, pct, dataBR, casasPara } from './format.js';
 
+const NOME = { PICCIN: 'Piccin', CRUCIANELLI: 'Crucianelli' };
+
 export function buildReport(r) {
-  const { diagnostico: d, indices: ix, cards, categorias, plano, mensagens } = r;
-  const L = [];
-  const p = s => L.push(s);
-  p(`# JR AGRO — BOLETIM ECONÔMICO E COMERCIAL`);
-  p(`**Análise:** ${dataBR(d.data_analise)} ${d.data_analise.slice(11, 16)} UTC · Metodologia ${ix.geral.versao || ix.agricola.versao} (experimental)\n`);
-  p(`## 1. Resumo executivo`);
-  p(`**${d.recomendacao}** · Situação: ${d.situacao} · Confiança: ${d.confianca}`);
-  p(`\n_[Interpretação]_ ${d.resumo_executivo}\n`);
-  p(`## 2–3. Índices de oportunidade _[Cálculo]_`);
-  for (const k of ['geral', 'agricola', 'pecuaria']) {
-    const i = ix[k];
-    p(`- **${i.nome}:** ${i.suficiente ? `${i.valor}/100 — ${i.classificacao}` : 'sem nota (dados insuficientes)'} · confiança ${i.confianca}${i.cobertura !== undefined ? ` · cobertura ${(i.cobertura * 100).toFixed(0)}%` : ''}`);
+  const { diagnostico: d, indices: ix, cards } = r;
+  const M = r.marcas;
+  const L = [], p = s => L.push(s);
+  p('# JR AGRO RADAR — RELATÓRIO DIÁRIO');
+  p(`**Análise:** ${dataBR(d.data_analise)} ${d.data_analise.slice(11, 16)} UTC · Metodologia ${ix.agricola.versao} (experimental)\n`);
+
+  p('## 1. Cenário econômico e agrícola');
+  p(`**${d.recomendacao}** · situação ${d.situacao} · confiança ${d.confianca}`);
+  p(`_[Cálculo]_ Índice geral ${ix.geral.suficiente ? `${ix.geral.valor}/100 (${ix.geral.classificacao})` : 'sem nota (dados insuficientes)'}; agrícola ${ix.agricola.valor ?? '—'}; pecuário ${ix.pecuaria.valor ?? '—'}.`);
+  p(`\n_[Interpretação]_ ${d.resumo_executivo}`);
+  const fav = d.fatores_favoraveis.slice(0, 3), con = d.fatores_desfavoraveis.slice(0, 3);
+  if (fav.length) p(`\n**A favor:** ${fav.map(f => `${f.indicador} (${f.variacao})`).join('; ')}.`);
+  if (con.length) p(`**Contra:** ${con.map(f => `${f.indicador} (${f.variacao})`).join('; ')}.`);
+
+  if (M) {
+    for (const [i, m] of [[2, 'PICCIN'], [3, 'CRUCIANELLI']]) {
+      const I = M.indices[m];
+      p(`\n## ${i}. Situação comercial da ${NOME[m]}`);
+      p(`_[Cálculo]_ Índice ${NOME[m]}: ${I.valor ?? 'sem nota'}${I.variacao != null ? ` (${I.variacao >= 0 ? '+' : ''}${I.variacao} vs. ${dataBR(I.anterior.data)})` : ''} · confiança ${I.confianca}.`);
+      if (I.positivos?.length) p(`- A favor: ${I.positivos.map(f => `${f.nome} (${f.valor}) — ${f.detalhe}`).join(' ')}`);
+      if (I.negativos?.length) p(`- Contra: ${I.negativos.map(f => `${f.nome} (${f.valor}) — ${f.detalhe}`).join(' ')}`);
+      if (I.faltando?.length) p(`- Sem dado: ${I.faltando.join(', ')}.`);
+      const eq = M.plano.por_marca[m].equipamento;
+      if (eq) p(`- _[Hipótese comercial]_ Categoria com mais aderência agora: **${eq.categoria}** — ${eq.motivo}`);
+    }
+    p('\n## 4. Índice de oportunidade por fabricante _[Cálculo]_');
+    p('| Componente | Piccin | Crucianelli |');
+    p('|---|---|---|');
+    for (const k of Object.keys(M.indices.PICCIN.componentes)) {
+      p(`| ${k}${k === 'regional' ? ' (peso 0: usado na região)' : ''} | ${M.indices.PICCIN.componentes[k].valor ?? '—'} | ${M.indices.CRUCIANELLI.componentes[k].valor ?? '—'} |`);
+    }
+    p(`| **Índice** | **${M.indices.PICCIN.valor ?? '—'}** | **${M.indices.CRUCIANELLI.valor ?? '—'}** |`);
+    p('\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.');
+
+    const pl = M.plano;
+    p('\n## 5. Regiões prioritárias');
+    if (pl.regiao.municipios.length) p(pl.regiao.municipios.map(x => `- ${x.nome} (${x.uf}) — potencial ${x.potencial}${x.soja_ha ? `; soja ${num(x.soja_ha, 0)} ha` : ''}${x.bovinos_cab ? `; bovinos ${num(x.bovinos_cab, 0)} cab.` : ''}`).join('\n'));
+    else p(`- ${pl.regiao.texto}`);
+    p(`\n${pl.regiao.porque}`);
+
+    p('\n## 6. Equipamentos recomendados _[Hipótese comercial]_');
+    for (const m of ['PICCIN', 'CRUCIANELLI']) {
+      const eq = pl.por_marca[m].equipamento;
+      if (eq) p(`- **${NOME[m]} — ${eq.categoria}:** ${eq.opcoes.map(o => `${o.modelo} (${o.porte}, ${o.potencia_cv.min}–${o.potencia_cv.max} ${m === 'CRUCIANELLI' ? 'HP' : 'cv'}, p. ${o.paginas.join(', ')})`).join('; ')}`);
+    }
+
+    p('\n## 7. Perfil de clientes a prospectar');
+    p(`- ${pl.perfil_cliente.publicos.join('; ')} — ${pl.perfil_cliente.portes.join(', ')}.`);
+    p(`- ${pl.perfil_cliente.porque}`);
   }
-  p(`\nCritério de confiança: ${d.criterio_confianca}\n`);
-  p(`## 4. Indicadores _[Fato observado]_`);
-  p(`| Indicador | Valor | Ref. | Variação | Fonte | Status |`);
-  p(`|---|---|---|---|---|---|`);
+
+  p(`\n## ${M ? 8 : 2}. Principais oportunidades identificadas`);
+  for (const o of r.oportunidades || []) p(`- ${o.titulo}${o.indice != null ? ` (índice ${o.indice})` : ''}`);
+  for (const s of d.sinais_momento_compra || []) p(`- _[Hipótese comercial]_ ${s.tipo}: ${s.texto}`);
+
+  p(`\n## ${M ? 9 : 3}. Riscos e pontos de atenção`);
+  const obs = (r.oportunidades || []).find(o => o.objecoes)?.objecoes || [];
+  for (const o of obs.slice(0, 4)) p(`- "${o.objecao}" — ${o.resposta}`);
+  const aus = cards.filter(c => c.valor === null).map(c => c.nome);
+  if (aus.length) p(`- Sem dados: ${aus.join(', ')}.`);
+  if (M && !M.regional.disponivel) p(`- ${M.regional.motivo}`);
+
+  p(`\n## ${M ? 10 : 4}. Plano de ação comercial _[Recomendação]_`);
+  if (M) {
+    const pl = M.plano;
+    p(`1. **Marca:** ${pl.prioridade_marca.nome} — ${pl.prioridade_marca.porque}`);
+    if (pl.equipamento) p(`2. **Equipamento:** ${pl.equipamento.recomendado?.modelo || pl.equipamento.categoria} — ${pl.equipamento.porque}`);
+    p(`3. **Região:** ${pl.regiao.municipios.slice(0, 3).map(x => x.nome).join(', ') || pl.regiao.texto}.`);
+    p(`4. **Perfil:** ${pl.perfil_cliente.portes.join(', ')}.`);
+    p(`5. **Ação:** ${pl.acoes.map(a => a.texto).join(' / ')}`);
+  } else {
+    for (const a of r.plano) p(`${a.prioridade}. **${a.titulo}** — ${a.proximo_passo}`);
+  }
+
+  p(`\n## ${M ? 11 : 5}. Mensagens comerciais sugeridas`);
+  const arg = M?.plano?.argumentos;
+  if (arg) {
+    p(`**Revenda (${arg.fabricante === 'PICCIN' ? 'Piccin' : 'Crucianelli'} ${arg.modelo}):**\n> ${arg.revenda.whatsapp}`);
+    p(`\n**Produtor:**\n> ${arg.produtor.whatsapp}`);
+  } else {
+    p(`**Revenda:**\n> ${r.mensagens.revenda}\n\n**Produtor:**\n> ${r.mensagens.produtor}`);
+  }
+
+  p('\n## Anexo — indicadores, fontes e limitações _[Fato observado]_');
+  p('| Indicador | Valor | Ref. | Variação | Fonte | Status |');
+  p('|---|---|---|---|---|---|');
   for (const c of cards) {
     const v = c.variacoes?.mensal || c.variacoes?.semanal || c.variacoes?.anual;
     const taxa = /%/.test(c.unidade);
@@ -26,37 +98,7 @@ export function buildReport(r) {
     const varTxt = !v ? '—' : taxa ? `${v.pp > 0 ? '+' : ''}${num(v.pp, 2)} p.p.` : pct(v.pct);
     p(`| ${c.nome} | ${valTxt} | ${dataBR(c.data_referencia)} | ${varTxt} | ${c.fonte.split(' — ')[0]} | ${c.status} |`);
   }
-  p(`\n## 5. Fatores favoráveis`);
-  if (!d.fatores_favoraveis.length) p('_Nenhum fator favorável forte nos dados disponíveis._');
-  for (const f of d.fatores_favoraveis) p(`- **${f.indicador}** — ${f.o_que_aconteceu}; variação ${f.variacao}. _[Interpretação]_ ${f.porque_importa} _Limitações:_ ${f.limitacoes.join(' ')}`);
-  p(`\n## 6. Fatores desfavoráveis`);
-  if (!d.fatores_desfavoraveis.length) p('_Nenhum fator desfavorável forte nos dados disponíveis._');
-  for (const f of d.fatores_desfavoraveis) p(`- **${f.indicador}** — ${f.o_que_aconteceu}; variação ${f.variacao}. _[Interpretação]_ ${f.porque_importa} _Limitações:_ ${f.limitacoes.join(' ')}`);
-  if (d.contexto_ambiguo.length) { p(`\n**Contexto (efeito ambíguo, fora da nota):**`); for (const c of d.contexto_ambiguo) p(`- ${c.texto} ${c.nota}`); }
-  p(`\n## 7. Mudanças em relação à análise anterior`);
-  for (const m of d.mudancas_vs_anterior) p(`- ${m}`);
-  if (d.tendencia_indice) p(`- ${d.tendencia_indice.texto}`);
-  if (d.sinais_momento_compra?.length) { p(`\n**Sinais de momento de compra _[Hipótese comercial]_:**`); for (const s of d.sinais_momento_compra) p(`- ${s.tipo}: ${s.texto} Cuidado: ${s.cuidado}`); }
-  p(`\n## 10–11. Oportunidades por segmento _[Hipótese comercial]_`);
-  for (const o of r.oportunidades || []) {
-    if (o.status === 'sem dados') { p(`- **${o.titulo}**`); continue; }
-    p(`- **${o.titulo}** (índice ${o.indice}, ${o.status}) — público: ${o.publico}; região: ${o.regiao} (${o.base_regiao}). Argumento: ${o.argumento_central}${o.evidencias.length ? ' Base: ' + o.evidencias.join('; ') + '.' : ''}`);
-  }
-  p(`\n**Categorias por aderência:**`);
-  for (const c of categorias.slice(0, 3)) p(`- **${c.nome}** (${c.pontos} pts${c.marcas.length ? ' · ' + c.marcas.join(', ') : ''}): ${c.motivos.join('; ')}`);
-  p(`\n## 12. Plano comercial de hoje _[Recomendação]_`);
-  for (const a of plano) p(`${a.prioridade}. **${a.titulo}** (${a.execucao}) — ${a.motivo} Próximo passo: ${a.proximo_passo}`);
-  p(`\n## 13. Mensagens sugeridas`);
-  p(`**Revenda:**\n> ${mensagens.revenda}\n\n**Produtor:**\n> ${mensagens.produtor}\n\n**Abertura de ligação:** ${mensagens.abertura_ligacao}\n\n**Pergunta de diagnóstico:** ${mensagens.pergunta_diagnostico}\n\n**Próximo passo:** ${mensagens.proximo_passo}`);
-  p(`\n## 14. Riscos e objeções previsíveis`);
-  const obs = (r.oportunidades || []).find(o => o.objecoes)?.objecoes || [];
-  for (const o of obs) p(`- "${o.objecao}" — ${o.resposta}${o.base ? ` _(base: ${o.base})_` : ''}`);
-  p(`\n## 15. Acompanhar`);
-  p([...d.fatores_favoraveis, ...d.fatores_desfavoraveis].map(f => `- ${f.indicador}`).join('\n') || '- Completar indicadores manuais.');
-  p(`\n## 16. Fontes e limitações`);
-  for (const c of cards.filter(c => c.valor !== null)) p(`- ${c.nome}: ${c.fonte} (${c.fonte_url}) — ref. ${dataBR(c.data_referencia)}${c.aviso?.length ? ' — ' + c.aviso.join(' ') : ''}`);
-  const aus = cards.filter(c => c.valor === null).map(c => c.nome);
-  if (aus.length) p(`- **Sem dados:** ${aus.join(', ')}.`);
-  p(`- O índice é heurístico (v. ${ix.agricola.versao}) e não representa probabilidade de venda nem recomendação financeira.`);
+  if (M) p(`\nCatálogo técnico: ${M.catalogo.produtos} produtos (Piccin ${M.catalogo.por_fabricante.PICCIN}, Crucianelli ${M.catalogo.por_fabricante.CRUCIANELLI}). Dados regionais: ${M.regional.disponivel ? `IBGE PAM ${M.regional.ano_pam}, PPM ${M.regional.ano_ppm}` : 'não coletados'}.`);
+  p(`O índice é heurístico (v. ${ix.agricola.versao}) e não representa probabilidade de venda nem recomendação financeira.`);
   return L.join('\n');
 }

@@ -139,23 +139,28 @@ nav.abas button[aria-current="page"]{color:var(--musgo);font-weight:700}
 
 <nav class="abas" aria-label="Seções">
   <button data-tela="hoje" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Hoje</button>
-  <button data-tela="mercado"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Mercado</button>
-  <button data-tela="plano"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg>Plano</button>
-  <button data-tela="historico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 5-6"/></svg>Histórico</button>
+  <button data-tela="marcas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Marcas</button>
+  <button data-tela="catalogo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>Catálogo</button>
+  <button data-tela="crm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.6.9 2.6 2.6 3 5.2"/></svg>CRM</button>
   <button data-tela="mais"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>Mais</button>
 </nav>
 
 <main>
   <section class="tela ativa" id="hoje" aria-live="polite"></section>
+  <section class="tela" id="marcas"></section>
+  <section class="tela" id="catalogo"></section>
+  <section class="tela" id="crm"></section>
+  <section class="tela" id="mais"></section>
   <section class="tela" id="mercado"></section>
   <section class="tela" id="plano"></section>
   <section class="tela" id="historico"></section>
-  <section class="tela" id="mais"></section>
+  <section class="tela" id="regional"></section>
 </main>
 
-<script>
-(() => {
-'use strict';
+<script type="module">
+import { search, duplicates, outdated, compareProducts, compareVariants, fitByPower, mergeOverrides, norm } from './src/lib/catalogo.js';
+import { createCRM, staleNegotiations, crmEvidence, salesSeasonality, pipeline, ETAPAS, ABERTAS, PERFIS, CAMPOS_CSV } from './src/lib/crm.js';
+import { combine, COMPONENTES } from './src/engine/brands.js';
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const num = (v, c = 2) => (v == null || !isFinite(v)) ? '—' : v.toLocaleString('pt-BR', {minimumFractionDigits: c, maximumFractionDigits: c});
@@ -174,32 +179,45 @@ async function getJSON(p) { const r = await fetch(url(p), {cache:'no-cache'}); i
 async function getText(p) { const r = await fetch(url(p), {cache:'no-cache'}); if (!r.ok) throw new Error(`${p}: HTTP ${r.status}`); return r.text(); }
 
 let D = null, CAT = null, ALERTS_CFG = null, HIST = [];
+let CATBASE = null, PRODUTOS = [], POT = null, GEO = [], crm = null;
+const lsAdapter = { getItem: k => { try { return localStorage.getItem(k); } catch { return null; } }, setItem: (k, v) => { localStorage.setItem(k, v); } };
+const SECAO_MAIS = ['mercado', 'plano', 'historico', 'regional'];
 
 // ---------- navegação ----------
 document.querySelectorAll('nav.abas button').forEach(b => b.addEventListener('click', () => ir(b.dataset.tela)));
+// Links e atalhos com #tela (ex.: favoritos no celular) também trocam de tela.
+window.addEventListener('hashchange', () => { const t = location.hash.slice(1); if (t && document.getElementById(t)?.classList.contains('tela') && !document.getElementById(t).classList.contains('ativa')) ir(t); });
 function ir(t) {
   document.querySelectorAll('section.tela').forEach(s => s.classList.toggle('ativa', s.id === t));
-  document.querySelectorAll('nav.abas button').forEach(b => b.dataset.tela === t ? b.setAttribute('aria-current', 'page') : b.removeAttribute('aria-current'));
+  const nav = SECAO_MAIS.includes(t) ? 'mais' : t;
+  document.querySelectorAll('nav.abas button').forEach(b => b.dataset.tela === nav ? b.setAttribute('aria-current', 'page') : b.removeAttribute('aria-current'));
   try { history.replaceState(null, '', '#' + t); } catch {}
   window.scrollTo(0, 0);
   if (t === 'historico') renderHistorico();
+  if (t === 'regional') renderRegional();
 }
 
 // ---------- carregamento ----------
 async function carregar() {
-  try { D = await getJSON('data/latest.json'); }
-  catch (e) { return semDados(e); }
+  // Catálogo e CRM funcionam mesmo sem análise publicada.
+  try { CATBASE = await getJSON('data/catalogo/produtos.json'); } catch { CATBASE = null; }
+  PRODUTOS = CATBASE ? mergeOverrides(CATBASE.produtos, store.get('catalogo.overrides', {})) : [];
+  crm = createCRM(lsAdapter, { catalogo: PRODUTOS });
+  renderCatalogo(); renderCRM();
   try { CAT = await getJSON('config/catalog.json'); } catch {}
   try { ALERTS_CFG = await getJSON('config/alerts.json'); } catch {}
+  try { D = await getJSON('data/latest.json'); }
+  catch (e) { semDados(e); const h0 = location.hash.slice(1); if (h0 && document.getElementById(h0)) ir(h0); return; }
   try { HIST = (await getText('data/history/diagnosticos.jsonl')).split('\n').filter(Boolean).map(l => JSON.parse(l)); } catch { HIST = []; }
-  renderFrescor(); renderHoje(); renderMercado(); renderPlano(); renderMais();
+  renderFrescor(); renderHoje(); renderMarcas(); renderMercado(); renderPlano(); renderMais();
   const h = location.hash.slice(1); if (h && document.getElementById(h)) ir(h);
 }
 function semDados(e) {
   $('#frescor').innerHTML = '<span class="ponto falha"></span><span>Sem análise</span>';
-  $('#hoje').innerHTML = `<div class="vazio-geral"><h2>Ainda não há análise publicada</h2>
-  <p>O painel lê o arquivo <code>data/latest.json</code>, que é gerado pela rotina diária de coleta. Depois que a primeira execução terminar, recarregue esta página.</p>
+  const vazio = `<div class="vazio-geral"><h2>Ainda não há análise publicada</h2>
+  <p>O painel lê o arquivo <code>data/latest.json</code>, gerado pela rotina diária de coleta. Depois da primeira execução, recarregue esta página. O Catálogo Técnico e o CRM já funcionam.</p>
   <p class="mudo">Detalhe técnico: ${esc(e.message)}</p></div>`;
+  $('#hoje').innerHTML = vazio; $('#marcas').innerHTML = vazio;
   renderMais();
 }
 
@@ -221,7 +239,7 @@ function renderHoje() {
   const d = D.diagnostico, g = D.indices.geral;
   const ant = D.anterior;
   const delta = g.valor != null && ant?.geral_valor != null ? g.valor - ant.geral_valor : null;
-  let h = `<div class="veredito">
+  let h = planoDoDiaHTML() + alertasCRMHTML() + `<h2>Cenário econômico</h2><div class="veredito">
     <div class="linha1">Diagnóstico de ${dataHora(d.data_analise)} · confiança ${esc(d.confianca)}</div>
     <div class="rec">${esc(cap(d.recomendacao))}</div>
     ${termometro(g)}
@@ -248,9 +266,10 @@ function renderHoje() {
   if (d.sinais_momento_compra?.length) h += `<h3>Sinais de momento de compra (hipótese)</h3>` + d.sinais_momento_compra.map(x => `<div class="fator" style="margin-bottom:8px"><b>${esc(cap(x.tipo))}.</b> ${esc(x.texto)}<p class="mudo" style="margin:4px 0 0">${esc(x.cuidado)}</p></div>`).join('');
   const fb = store.get('feedback', []).find(x => x.data === D.gerado_em.slice(0, 10));
   h += `<h2>A recomendação de hoje foi útil?</h2><div class="filtros">${['sim', 'em parte', 'não'].map(v => `<button class="chip" data-fb="${v}" aria-pressed="${fb?.util === v}">${v.charAt(0).toUpperCase() + v.slice(1)}</button>`).join('')}</div>
-    <p class="mudo">Fica só neste aparelho e ajuda a avaliar, com o tempo, se as recomendações servem na prática. Para registrar contatos e resultados, use Mais → Abordagens.</p>`;
+    <p class="mudo">Fica só neste aparelho e ajuda a avaliar, com o tempo, se as recomendações servem na prática. Para registrar contatos e resultados, use o CRM.</p>`;
   h += `<p class="mudo" style="margin:24px 0">${esc(D.metodologia.status)} Critério de confiança: ${esc(d.criterio_confianca)}</p>`;
   $('#hoje').innerHTML = h;
+  ligarProdLinks($('#hoje'));
   $('#hoje').querySelectorAll('[data-fb]').forEach(b => b.addEventListener('click', () => {
     const l = store.get('feedback', []).filter(x => x.data !== D.gerado_em.slice(0, 10));
     l.push({ data: D.gerado_em.slice(0, 10), recomendacao: d.recomendacao, indice: g.valor, versao: D.metodologia.versao, util: b.dataset.fb });
@@ -458,10 +477,13 @@ function linha(s1, s2, c1, c2) {
 // ---------- MAIS: relatório, produtos, vendas, fontes, configurações ----------
 let maisAtual = 'Relatório';
 function renderMais() {
-  const subs = ['Relatório','Abordagens','Vendas','Produtos','Fontes','Configurações'];
-  $('#mais').innerHTML = `<div class="sub">${subs.map(s => `<button class="chip" data-s="${s}" aria-pressed="${s === maisAtual}">${s}</button>`).join('')}</div><div id="mais-c"></div>`;
+  const links = [['mercado', 'Economia e indicadores'], ['plano', 'Plano econômico (segmentos)'], ['regional', 'Inteligência regional e mapa'], ['historico', 'Histórico e gráficos']];
+  const subs = ['Relatório', 'Fontes', 'Configurações'];
+  $('#mais').innerHTML = `<h2>Mais</h2><div class="filtros">${links.map(([t, n]) => `<button class="chip" data-ir="${t}">${n}</button>`).join('')}</div>
+    <div class="sub">${subs.map(s => `<button class="chip" data-s="${s}" aria-pressed="${s === maisAtual}">${s}</button>`).join('')}</div><div id="mais-c"></div>`;
   $('#mais').querySelectorAll('[data-s]').forEach(b => b.onclick = () => { maisAtual = b.dataset.s; renderMais(); });
-  ({ 'Relatório': maisRelatorio, 'Abordagens': maisAbordagens, 'Produtos': maisProdutos, 'Vendas': maisVendas, 'Fontes': maisFontes, 'Configurações': maisConfig })[maisAtual]();
+  $('#mais').querySelectorAll('[data-ir]').forEach(b => b.onclick = () => ir(b.dataset.ir));
+  ({ 'Relatório': maisRelatorio, 'Fontes': maisFontes, 'Configurações': maisConfig })[maisAtual]();
 }
 function md(t) {
   const L = t.split('\n'); let h = '', lista = false, tab = [];
@@ -486,129 +508,6 @@ function maisRelatorio() {
   $('#b-copia-rel').onclick = async () => { try { await navigator.clipboard.writeText(D.boletim_md); $('#b-copia-rel').textContent = 'Copiado'; } catch {} };
   $('#b-print').onclick = () => window.print();
 }
-function maisProdutos() {
-  if (!CAT) { $('#mais-c').innerHTML = '<p class="mudo">Catálogo não encontrado (config/catalog.json).</p>'; return; }
-  $('#mais-c').innerHTML = `<h2>Marcas</h2><div class="rolagem"><table><tr><th>Marca</th><th>Categorias</th><th>Situação</th><th>Obs.</th></tr>
-    ${CAT.marcas.map(m => `<tr><td>${esc(m.nome)}</td><td>${m.categorias.map(id => esc(CAT.categorias.find(c => c.id === id)?.nome || id)).join(', ') || '<span class="mudo">a preencher</span>'}</td><td>${m.ativo ? 'ativa' : 'inativa'}</td><td>${esc(m.obs || '')}</td></tr>`).join('')}</table></div>
-    <h2>Categorias</h2><ul>${CAT.categorias.map(c => `<li>${esc(c.nome)} — ${c.segmento === 'pecuaria' ? 'pecuária' : 'agrícola'}${c.ativo ? '' : ' (inativa)'}</li>`).join('')}</ul>
-    <h2>Territórios</h2><ul>${CAT.territorios.map(t => `<li>${esc(t.nome)}${t.destaque ? ' (destaque)' : ''}</li>`).join('')}</ul>
-    <p class="mudo">Para cadastrar, editar ou desativar marcas, categorias e territórios, edite <code>config/catalog.json</code> (pelo próprio site do GitHub, no celular). A próxima execução diária já usa o novo cadastro, sem reconstruir nada. Margens não ficam no catálogo publicado.</p>`;
-}
-
-// Vendas: processadas SÓ neste navegador. Nada é enviado a servidor.
-const CAMPOS = ['data_contato','cliente','segmento','municipio','uf','marca','categoria','valor_proposta','etapa','data_prevista_decisao','resultado','motivo_perda','condicao_pagamento','financiamento','origem'];
-function maisVendas() {
-  const v = store.get('vendas', { registros: [], importacoes: [] });
-  const resumo = resumoVendas(v.registros);
-  $('#mais-c').innerHTML = `<h2>Histórico comercial</h2>
-    <p>Importe sua planilha de propostas e vendas (CSV ou Excel). Os dados ficam <b>apenas neste aparelho</b> — não vão para o servidor nem para nenhuma IA.</p>
-    <p class="mudo">Colunas reconhecidas: ${CAMPOS.join(', ')}. Obrigatórias: data_contato, cliente, categoria, etapa.</p>
-    <input type="file" id="f-vendas" accept=".csv,.xlsx,.xls">
-    <div id="v-msg" style="margin-top:10px"></div>
-    ${v.importacoes.length ? `<h3>Importações</h3><ul>${v.importacoes.map(i => `<li>${dataHora(i.em)} — ${esc(i.arquivo)}: ${i.n} registros</li>`).join('')}</ul>
-      <p><button class="btn" id="b-desfaz">Desfazer última importação</button> <button class="btn" id="b-exp">Exportar CSV</button> <button class="btn" id="b-apaga">Apagar tudo</button></p>` : ''}
-    ${resumo}`;
-  $('#f-vendas').onchange = e => importarVendas(e.target.files[0]);
-  if (v.importacoes.length) {
-    $('#b-desfaz').onclick = () => { const ult = v.importacoes.pop(); v.registros = v.registros.filter(r => r._imp !== ult.id); store.set('vendas', v); maisVendas(); };
-    $('#b-apaga').onclick = () => { if (confirm('Apagar todo o histórico comercial deste aparelho?')) { store.set('vendas', { registros: [], importacoes: [] }); maisVendas(); } };
-    $('#b-exp').onclick = () => { const csv = [CAMPOS.join(';'), ...v.registros.map(r => CAMPOS.map(c => String(r[c] ?? '').replace(/;/g, ',')).join(';'))].join('\n'); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + csv], {type: 'text/csv'})); a.download = 'historico-comercial.csv'; a.click(); };
-  }
-}
-function normCab(s) { return String(s).trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, '_'); }
-async function lerArquivo(f) {
-  if (/\.xlsx?$/i.test(f.name)) {
-    if (!window.XLSX) await new Promise((ok, err) => { const s = document.createElement('script'); /* 0.18.5 (cdnjs) tem vulnerabilidades conhecidas; usa a versão oficial 0.20.3 */ s.src = 'https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js'; s.onload = ok; s.onerror = () => err(new Error('não foi possível carregar o leitor de Excel')); document.head.appendChild(s); });
-    const wb = XLSX.read(await f.arrayBuffer(), { cellDates: true });
-    return XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]], { defval: '', raw: false, dateNF: 'yyyy-mm-dd' });
-  }
-  const t = (await f.text()).replace(/^﻿/, ''); const ls = t.split(/\r?\n/).filter(x => x.trim());
-  const sep = ls[0].includes(';') ? ';' : ','; const cab = ls[0].split(sep);
-  return ls.slice(1).map(l => { const c = l.split(sep); return Object.fromEntries(cab.map((h, i) => [h, (c[i] ?? '').trim()])); });
-}
-function dataISO(s) { s = String(s).trim(); if (/^\d{2}\/\d{2}\/\d{4}$/.test(s)) { const [d, m, y] = s.split('/'); s = `${y}-${m}-${d}`; } return /^\d{4}-\d{2}-\d{2}/.test(s) ? s.slice(0, 10) : null; }
-async function importarVendas(f) {
-  if (!f) return;
-  const out = $('#v-msg');
-  try {
-    const linhas = await lerArquivo(f);
-    const v = store.get('vendas', { registros: [], importacoes: [] });
-    const chaves = new Set(v.registros.map(r => [r.data_contato, r.cliente, r.categoria, r.valor_proposta].join('|')));
-    const id = Date.now().toString(36), ok = [], erros = [];
-    linhas.forEach((l, i) => {
-      const r = {}; for (const [k, val] of Object.entries(l)) { const n = normCab(k); if (CAMPOS.includes(n)) r[n] = val; }
-      const n = i + 2;
-      if (!r.cliente || !r.categoria || !r.etapa) return erros.push(`linha ${n}: faltam cliente, categoria ou etapa`);
-      r.data_contato = dataISO(r.data_contato); if (!r.data_contato) return erros.push(`linha ${n}: data_contato inválida`);
-      if (r.data_prevista_decisao) r.data_prevista_decisao = dataISO(r.data_prevista_decisao);
-      if (r.valor_proposta !== undefined && r.valor_proposta !== '') { const x = Number(String(r.valor_proposta).replace(/[R$\s]/g, '').replace(/\.(?=\d{3})/g, '').replace(',', '.')); if (!isFinite(x)) return erros.push(`linha ${n}: valor_proposta inválido`); r.valor_proposta = x; } else r.valor_proposta = null;
-      const k = [r.data_contato, r.cliente, r.categoria, r.valor_proposta].join('|');
-      if (chaves.has(k)) return erros.push(`linha ${n}: duplicada (já importada)`);
-      chaves.add(k); r._imp = id; ok.push(r);
-    });
-    if (ok.length) { v.registros.push(...ok); v.importacoes.push({ id, arquivo: f.name, n: ok.length, em: new Date().toISOString() }); if (!store.set('vendas', v)) throw new Error('não foi possível salvar neste navegador (modo privado?)'); }
-    maisVendas();
-    $('#v-msg').innerHTML = `<div class="alerta"><b>${ok.length} registro(s) importado(s), ${erros.length} ignorado(s).</b>${erros.slice(0, 12).map(esc).join('<br>')}${erros.length > 12 ? '<br>…' : ''}</div>`;
-  } catch (e) { out.innerHTML = `<div class="alerta"><b>Importação não concluída</b>${esc(e.message)}</div>`; }
-}
-function resumoVendas(rs) {
-  if (!rs.length) return '<p class="mudo" style="margin-top:14px">Sem histórico importado. Enquanto não houver dados reais, o índice continua heurístico e sem validação.</p>';
-  const ganho = r => /ganh|vend|fech/i.test(r.resultado || r.etapa || '');
-  const perdido = r => /perd|cancel/i.test(r.resultado || r.etapa || '');
-  const porCat = {}; rs.forEach(r => { const c = (porCat[r.categoria] ||= { n: 0, g: 0, p: 0, v: 0 }); c.n++; if (ganho(r)) { c.g++; c.v += r.valor_proposta || 0; } if (perdido(r)) c.p++; });
-  // cruza mês do contato com o índice geral registrado naquele dia (quando existir)
-  const idx = new Map(HIST.map(h => [h.data, h.geral_valor]));
-  const comIdx = rs.filter(r => idx.get(r.data_contato) != null);
-  const motivos = {}; rs.filter(perdido).forEach(r => { const m = r.motivo_perda || 'não informado'; motivos[m] = (motivos[m] || 0) + 1; });
-  return `<h3>Resumo (dados observados)</h3><div class="rolagem"><table><tr><th>Categoria</th><th>Oportunidades</th><th>Ganhas</th><th>Perdidas</th><th>Valor ganho</th></tr>
-    ${Object.entries(porCat).map(([c, x]) => `<tr><td>${esc(c)}</td><td>${x.n}</td><td>${x.g}</td><td>${x.p}</td><td>R$ ${num(x.v, 0)}</td></tr>`).join('')}</table></div>
-    ${Object.keys(motivos).length ? `<h3>Motivos de perda</h3><ul>${Object.entries(motivos).sort((a, b) => b[1] - a[1]).map(([m, n]) => `<li>${esc(m)}: ${n}</li>`).join('')}</ul>` : ''}
-    <p class="mudo">${comIdx.length} oportunidade(s) têm índice registrado na data do contato. A relação entre índice e resultado só será testada quando houver volume suficiente (sugestão: 60+ oportunidades encerradas, separando período de ajuste e de teste). Até lá, nenhuma capacidade preditiva é afirmada.</p>`;
-}
-// Registro de abordagens: base para aprender quais abordagens geram retorno. Só neste aparelho.
-const RESULTADOS = ['sem resposta', 'respondeu', 'visita/demonstração agendada', 'proposta enviada', 'venda', 'perdida'];
-function maisAbordagens() {
-  const l = store.get('abordagens', []);
-  const hoje = new Date().toISOString().slice(0, 10);
-  const op = (arr) => arr.map(x => `<option>${esc(x)}</option>`).join('');
-  $('#mais-c').innerHTML = `<h2>Registrar abordagem</h2>
-    <p class="mudo">Anote cada contato feito a partir do painel. O diagnóstico do dia é guardado junto, para comparar depois quais cenários e abordagens deram retorno. Fica só neste aparelho.</p>
-    <div style="display:grid;gap:8px;max-width:520px">
-      <label>Data<br><input type="date" id="a-data" value="${hoje}"></label>
-      <label>Cliente (apelido ou código, sem dados pessoais)<br><input id="a-cli" maxlength="60"></label>
-      <label>Público<br><select id="a-pub">${op(['revenda', 'produtor', 'pecuarista'])}</select></label>
-      <label>Canal<br><select id="a-canal">${op(['WhatsApp', 'ligação', 'visita'])}</select></label>
-      <label>Mensagem<br><select id="a-msg">${op(['sugerida pelo painel', 'sugerida, adaptada', 'própria'])}</select></label>
-      <label>Resultado até agora<br><select id="a-res">${op(RESULTADOS)}</select></label>
-      <button class="btn cheio" id="a-salvar">Salvar abordagem</button>
-    </div><div id="a-msg-out"></div>
-    ${resumoAbordagens(l)}
-    ${l.length ? `<h3>Últimos registros</h3><div class="rolagem"><table><tr><th>Data</th><th>Cliente</th><th>Público</th><th>Recomendação do dia</th><th>Resultado</th><th></th></tr>${l.slice(-30).reverse().map(x => `<tr><td>${dataBR(x.data)}</td><td>${esc(x.cliente)}</td><td>${esc(x.publico)}</td><td>${esc(cap(x.recomendacao || '—'))}</td><td><select data-res="${x.id}">${RESULTADOS.map(r => `<option ${r === x.resultado ? 'selected' : ''}>${esc(r)}</option>`).join('')}</select></td><td><button class="btn" data-del="${x.id}">Excluir</button></td></tr>`).join('')}</table></div>
-      <p><button class="btn" id="a-exp">Exportar CSV</button></p>` : ''}`;
-  for (const el of document.querySelectorAll('#mais-c input, #mais-c select')) el.style.cssText = 'width:100%;font:inherit;padding:6px;border:1px solid var(--linha);border-radius:8px;background:var(--papel);color:var(--tinta)';
-  $('#a-salvar').onclick = () => {
-    const cli = $('#a-cli').value.trim();
-    if (!cli) { $('#a-msg-out').innerHTML = '<div class="alerta"><b>Informe o cliente.</b>Use um apelido ou código.</div>'; return; }
-    const reg = { id: Date.now().toString(36), data: $('#a-data').value, cliente: cli, publico: $('#a-pub').value, canal: $('#a-canal').value, mensagem: $('#a-msg').value, resultado: $('#a-res').value,
-      recomendacao: D?.diagnostico.recomendacao || null, indice_geral: D?.indices.geral.valor ?? null, versao: D?.metodologia.versao || null };
-    const ls = store.get('abordagens', []); ls.push(reg);
-    if (!store.set('abordagens', ls)) { $('#a-msg-out').innerHTML = '<div class="alerta"><b>Não foi possível salvar.</b>O navegador bloqueou o armazenamento (modo privado?).</div>'; return; }
-    maisAbordagens(); $('#a-msg-out').innerHTML = '<div class="alerta" style="border-color:var(--bom)"><b>Abordagem salva.</b></div>';
-  };
-  document.querySelectorAll('[data-res]').forEach(el => el.onchange = () => { const ls = store.get('abordagens', []); const x = ls.find(r => r.id === el.dataset.res); if (x) { x.resultado = el.value; x.atualizado = new Date().toISOString(); store.set('abordagens', ls); } });
-  document.querySelectorAll('[data-del]').forEach(b => b.onclick = () => { store.set('abordagens', store.get('abordagens', []).filter(r => r.id !== b.dataset.del)); maisAbordagens(); });
-  const ex = $('#a-exp'); if (ex) ex.onclick = () => { const cols = ['data', 'cliente', 'publico', 'canal', 'mensagem', 'resultado', 'recomendacao', 'indice_geral', 'versao']; const csv = [cols.join(';'), ...store.get('abordagens', []).map(r => cols.map(c => String(r[c] ?? '').replace(/;/g, ',')).join(';'))].join('\n'); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv' })); a.download = 'abordagens.csv'; a.click(); };
-}
-function resumoAbordagens(l) {
-  const fb = store.get('feedback', []);
-  const MIN = 20;
-  const pos = r => ['visita/demonstração agendada', 'proposta enviada', 'venda'].includes(r.resultado);
-  const grupos = {}; l.forEach(r => { const k = `${r.publico} · ${r.mensagem}`; (grupos[k] ||= []).push(r); });
-  const linhas = Object.entries(grupos).map(([k, rs]) => `<tr><td>${esc(k)}</td><td>${rs.length}</td><td>${rs.length >= MIN ? Math.round(rs.filter(pos).length / rs.length * 100) + '%' : `<span class="mudo">base pequena</span>`}</td></tr>`).join('');
-  return `<h2>O que está dando retorno</h2>
-    ${l.length ? `<div class="rolagem"><table><tr><th>Público · mensagem</th><th>Contatos</th><th>Avançaram*</th></tr>${linhas}</table></div><p class="mudo">*Visita, proposta ou venda. Percentual só aparece com ${MIN}+ contatos no grupo, para não tirar conclusão de poucos casos.</p>` : '<p class="mudo">Nenhuma abordagem registrada ainda.</p>'}
-    <p class="mudo">Avaliações de utilidade das recomendações: ${fb.length} dia(s)${fb.length ? ` — sim ${fb.filter(x => x.util === 'sim').length}, em parte ${fb.filter(x => x.util === 'em parte').length}, não ${fb.filter(x => x.util === 'não').length}` : ''}.</p>`;
-}
 function maisFontes() {
   if (!D) { $('#mais-c').innerHTML = '<p class="mudo">Sem dados.</p>'; return; }
   const s = D.saude || {};
@@ -618,21 +517,418 @@ function maisFontes() {
     ${D.cards.map(c => { const col = (s.coletas || []).find(x => x.id === c.id); return `<tr><td>${esc(c.nome)}</td><td>${c.coleta === 'manual' ? 'manual' : 'automática'}</td><td><span class="etq ${c.status}">${c.status}</span></td><td>${dataBR(c.data_referencia)}</td><td>${col ? (col.ok ? `ok · ${col.novas ?? 0} novas` : esc(col.erro)) : (c.coleta === 'manual' ? 'aguardando CSV' : '—')}</td></tr>`; }).join('')}</table></div>
     ${(s.erros || []).length ? `<h3>Erros</h3><ul>${s.erros.map(e => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
     <h2>Fontes</h2><ul>${D.cards.map(c => `<li><b>${esc(c.nome)}</b> — <a href="${esc(c.fonte_url)}" target="_blank" rel="noopener">${esc(c.fonte)}</a> · ${esc(c.frequencia)} · ${esc(c.abrangencia)}</li>`).join('')}</ul>
-    <p class="mudo">Dados oficiais, expectativas (Focus) e importações manuais são identificados em cada indicador. Nenhum valor ausente é preenchido.</p>`;
+    <p class="mudo">Dados oficiais, expectativas (Focus) e importações manuais são identificados em cada indicador. Nenhum valor ausente é preenchido.</p>
+    <h2>Dados regionais (IBGE)</h2>
+    <p>${s.regional ? (s.regional.pulado ? esc(s.regional.motivo) : `Coletados nesta execução: ${(s.regional.ok || []).map(esc).join(', ') || 'nada'}${s.regional.erros?.length ? '. Falhas: ' + s.regional.erros.map(esc).join('; ') : ''}.`) : 'Sem informação de coleta regional.'}
+    ${D.marcas ? (D.marcas.regional.disponivel ? ` Base em uso: IBGE PAM ${D.marcas.regional.ano_pam}, PPM ${D.marcas.regional.ano_ppm ?? '—'} (dados anuais; referência, não do dia).` : ' ' + esc(D.marcas.regional.motivo)) : ''}</p>
+    <h2>Catálogo técnico</h2>
+    ${CATBASE ? `<ul>${CATBASE.fontes.map(f => `<li>${esc(f.fabricante)}: ${esc(f.arquivo)} — ${f.paginas} páginas, ${esc(f.revisao)}, criado em ${dataBR(f.criado_em)}</li>`).join('')}</ul>
+      <p class="mudo">Sites oficiais: ${CATBASE.sites_oficiais.map(x => `${esc(x.url)} — ${x.consultado ? 'consultado' : 'não consultado (' + esc(x.motivo) + ')'}`).join('; ')}.</p>` : '<p class="mudo">Catálogo não carregado.</p>'}
+    ${D.catalogo_alterado ? '<div class="alerta"><b>Catálogo alterado</b>A base técnica mudou desde a análise anterior.</div>' : ''}`;
 }
 function maisConfig() {
   const tema = document.documentElement.dataset.theme || 'auto';
   $('#mais-c').innerHTML = `<h2>Aparência</h2><div class="filtros">${['auto','light','dark'].map(t => `<button class="chip" data-tema="${t}" aria-pressed="${t === tema}">${{auto:'Automático',light:'Claro',dark:'Escuro'}[t]}</button>`).join('')}</div>
     <h2>Alertas configurados</h2>
-    ${ALERTS_CFG ? `<div class="rolagem"><table><tr><th>Alerta</th><th>Critério</th><th>Prioridade</th><th>Canais</th></tr>${ALERTS_CFG.regras.map(r => `<tr><td>${esc(r.id)}</td><td>${r.tipo === 'variacao' ? `${esc(r.indicador)}: variação ${esc(r.periodo)} ≥ ±${r.limite_pct}%` : r.tipo === 'indice' ? `índice geral muda ≥ ${r.limite_pontos} pts` : r.tipo === 'recomendacao' ? 'recomendação muda' : 'falha de coleta'}</td><td>${esc(r.prioridade)}</td><td>${r.canais.map(c => c === 'issue' ? 'e-mail (GitHub)' : c).join(', ')}</td></tr>`).join('')}</table></div>` : '<p class="mudo">config/alerts.json não encontrado.</p>'}
-    <p class="mudo">Limites, prioridades e canais são editados em <code>config/alerts.json</code>; pesos dos índices em <code>config/methodology.json</code> (registre a mudança em historico_versoes).</p>
+    ${ALERTS_CFG ? `<div class="rolagem"><table><tr><th>Alerta</th><th>Critério</th><th>Prioridade</th><th>Canais</th></tr>${ALERTS_CFG.regras.map(r => `<tr><td>${esc(r.id)}</td><td>${({ variacao: `${esc(r.indicador)}: variação ${esc(r.periodo)} ≥ ±${r.limite_pp != null ? r.limite_pp + ' p.p.' : r.limite_pct + '%'}`, indice: `índice geral muda ≥ ${r.limite_pontos} pts`, recomendacao: 'recomendação muda', marca: `índice Piccin/Crucianelli muda ≥ ${r.limite_pontos} pts`, catalogo: 'catálogo técnico alterado', regional: 'novo ano de dados do IBGE', saude: 'falha de coleta' })[r.tipo] || esc(r.tipo)}</td><td>${esc(r.prioridade)}</td><td>${r.canais.map(c => c === 'issue' ? 'e-mail (GitHub)' : c).join(', ')}</td></tr>`).join('')}</table></div>` : '<p class="mudo">config/alerts.json não encontrado.</p>'}
+    <p class="mudo">Negociações paradas há mais de 10 dias aparecem no Hoje e no CRM. Limites, prioridades e canais são editados em <code>config/alerts.json</code>; pesos dos índices em <code>config/methodology.json</code> (registre a mudança em historico_versoes).</p>
     <h2>Origem dos dados</h2><p class="mudo">Os dados são lidos do mesmo endereço deste painel.</p>`;
   $('#mais-c').querySelectorAll('[data-tema]').forEach(b => b.onclick = () => { const t = b.dataset.tema; if (t === 'auto') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t; store.set('tema', t); maisConfig(); });
 }
+// ================== INTELIGÊNCIA POR MARCA (com CRM do aparelho) ==================
+const NOMEM = { PICCIN: 'Piccin', CRUCIANELLI: 'Crucianelli' };
+const faixaPot = p => p.min === p.max ? `${p.min}` : `${p.min}–${p.max}`;
+const hojeISO = () => new Date().toISOString().slice(0, 10);
+function crmRegs() { try { return crm ? crm.list() : []; } catch { return []; } }
+
+/** Índices das marcas recalculados com os componentes que dependem do CRM (só existem neste aparelho). */
+function indicesComCRM() {
+  if (!D?.marcas) return null;
+  const regs = crmRegs(), mes = Number((D.gerado_em || hojeISO()).slice(5, 7));
+  const out = {};
+  for (const m of ['PICCIN', 'CRUCIANELLI']) {
+    const base = D.marcas.indices[m];
+    const comp = JSON.parse(JSON.stringify(base.componentes));
+    comp.crm = crmEvidence(regs, m, hojeISO());
+    comp.sazonalidade = salesSeasonality(regs, m, mes);
+    out[m] = { ...base, ...combine(comp, { regras_gerais: { cobertura_minima: 0.5 } }), componentes: comp };
+  }
+  return out;
+}
+
+function planoDoDia() {
+  const P = D.marcas.plano, I = indicesComCRM(), regs = crmRegs();
+  // Prioridade 1 recalculada com o CRM
+  let marca = P.prioridade_marca.marca, porque = P.prioridade_marca.porque;
+  const vp = I.PICCIN.valor, vc = I.CRUCIANELLI.valor;
+  if (vp != null && vc != null && Math.abs(vp - vc) >= 5) {
+    const nova = vp > vc ? 'PICCIN' : 'CRUCIANELLI';
+    if (nova !== marca || I[nova].componentes.crm.valor != null) { marca = nova; porque = `Índice ${NOMEM[marca]} ${I[marca].valor} × ${NOMEM[marca === 'PICCIN' ? 'CRUCIANELLI' : 'PICCIN']} ${I[marca === 'PICCIN' ? 'CRUCIANELLI' : 'PICCIN'].valor}${I[marca].componentes.crm.valor != null ? ', já considerando as oportunidades do seu CRM' : ''}.`; }
+  }
+  const eq = P.por_marca[marca].equipamento;
+  // Negociação parada da marca do dia primeiro; se não houver, a da outra marca (negociação parada perde força em qualquer marca).
+  const paradosTodos = staleNegotiations(regs, hojeISO(), 10);
+  const parados = [...paradosTodos.filter(r => r.marca === marca), ...paradosTodos.filter(r => r.marca !== marca)];
+  const vencendo = regs.filter(r => r.marca === marca && ABERTAS.includes(r.etapa) && r.proximo_acompanhamento && r.proximo_acompanhamento <= hojeISO());
+  const acoes = [];
+  if (parados.length) acoes.push({ tipo: 'Retomar uma negociação', texto: `Retomar ${parados[0].cliente}${parados[0].marca !== marca ? ` (${NOMEM[parados[0].marca]})` : ''}${parados[0].equipamento ? ` (${parados[0].equipamento})` : ''} — ${parados[0].dias_sem_contato != null ? parados[0].dias_sem_contato + ' dias sem contato' : 'sem data de contato'}${parados[0].acompanhamento_vencido ? ', acompanhamento vencido' : ''}.`, porque: `Etapa "${parados[0].etapa}" parada: negociação sem contato perde força.` });
+  else if (vencendo.length) acoes.push({ tipo: 'Realizar acompanhamento', texto: `Acompanhamento de hoje: ${vencendo.map(r => r.cliente).slice(0, 3).join(', ')}.`, porque: 'Data de próximo acompanhamento registrada no CRM.' });
+  for (const a of P.acoes) if (!(a.depende_crm && acoes.some(x => x.tipo === a.tipo))) acoes.push(a.depende_crm && !regs.length ? { ...a, texto: 'Cadastre suas negociações no CRM para o painel indicar qual retomar.' } : a);
+  // Região: destaca municípios onde já há clientes no CRM
+  const regiao = P.regiao;
+  const clientesEm = nome => regs.filter(r => r.marca === marca && norm(r.municipio) === norm(nome)).length;
+  return { marca, porque, eq, regiao, clientesEm, perfil: P.perfil_cliente, acoes: acoes.slice(0, 4), arg: P.argumentos, I };
+}
+
+function planoDoDiaHTML() {
+  if (!D?.marcas) return '<p class="mudo">Plano por marca indisponível: catálogo técnico não carregado na análise.</p>';
+  const x = planoDoDia(), I = x.I[x.marca];
+  const card = (n, titulo, corpo) => `<div class="acao"><h3>${n}. ${titulo}</h3>${corpo}</div>`;
+  const opc = x.eq ? x.eq.opcoes.map(o => `<li><b>${esc(o.modelo)}</b> — ${esc(o.porte)}, ${faixaPot(o.potencia_cv)} ${x.marca === 'CRUCIANELLI' ? 'HP' : 'cv'} · <a href="#catalogo" data-prod="${esc(o.id)}">ficha (p. ${o.paginas.join(', ')})</a>${o.outros_no_porte?.length ? `<span class="mudo"> · também: ${o.outros_no_porte.slice(0, 3).map(esc).join(', ')}${o.outros_no_porte.length > 3 ? '…' : ''}</span>` : ''}</li>`).join('') : '';
+  const regs = x.regiao.municipios.length
+    ? `<ul style="margin:4px 0">${x.regiao.municipios.slice(0, 5).map(m => `<li>${esc(m.nome)} (${m.uf}) — potencial ${m.potencial}${m.soja_ha ? `, soja ${num(m.soja_ha, 0)} ha` : ''}${x.clientesEm(m.nome) ? ` · <b>${x.clientesEm(m.nome)} cliente(s) no CRM</b>` : ''}</li>`).join('')}</ul>`
+    : `<p style="margin:4px 0">${esc(x.regiao.texto)}</p>`;
+  return `<h2>Plano comercial do dia</h2>
+  ${card(1, `Marca: ${NOMEM[x.marca]}`, `<div class="meta">Índice ${I.valor ?? 'sem nota'} · confiança ${esc(I.confianca)}</div><div>${esc(x.porque)}</div>`)}
+  ${card(2, `Equipamento: ${esc(x.eq?.categoria || '—')}`, `<div>${esc(x.eq?.motivo || '')}</div><ul style="margin:6px 0 0;padding-left:18px">${opc}</ul><p class="mudo" style="margin:4px 0 0">Escolha o modelo pela potência do trator do cliente. Disponibilidade e preço: confirmar com a fábrica.</p>`)}
+  ${card(3, 'Região', `${regs}<p class="mudo" style="margin:0">${esc(x.regiao.porque)}</p>`)}
+  ${card(4, 'Perfil de cliente', `<div>${x.perfil.publicos.map(esc).join(' · ')}</div><div><b>${x.perfil.portes.map(esc).join(', ')}</b></div><p class="mudo" style="margin:4px 0 0">${esc(x.perfil.porque)}</p>`)}
+  ${card(5, 'Ação', `<ol style="margin:4px 0 0;padding-left:20px">${x.acoes.map(a => `<li><b>${esc(a.tipo)}:</b> ${esc(a.texto)}<br><span class="mudo">${esc(a.porque)}</span></li>`).join('')}</ol>`)}
+  ${x.arg ? `<p><button class="btn" data-ir="marcas">Argumentos e mensagens para ${esc(x.arg.modelo)}</button></p>` : ''}`;
+}
+
+function alertasCRMHTML() {
+  const regs = crmRegs(); if (!regs.length) return '';
+  const st = staleNegotiations(regs, hojeISO(), 10);
+  if (!st.length) return '';
+  return `<div class="alerta"><b>${st.length} negociação(ões) sem atualização há mais de 10 dias ou com acompanhamento vencido</b>${st.slice(0, 4).map(r => `${esc(r.cliente)} — ${NOMEM[r.marca]} — ${esc(r.etapa)}${r.dias_sem_contato != null ? `, ${r.dias_sem_contato} dias` : ''}`).join('<br>')}</div>`;
+}
+
+// ================== MARCAS ==================
+let marcaAtual = 'PICCIN', publicoArg = 'revenda';
+function renderMarcas() {
+  if (!D) return;
+  if (!D.marcas) { $('#marcas').innerHTML = '<p class="mudo" style="margin-top:20px">Análise por marca indisponível (catálogo técnico não carregado).</p>'; return; }
+  const I = indicesComCRM(), m = marcaAtual, X = I[m], regs = crmRegs();
+  const chips = ['PICCIN', 'CRUCIANELLI'].map(k => `<button class="chip" data-marca="${k}" aria-pressed="${k === m}">${NOMEM[k]} · ${I[k].valor ?? '—'}</button>`).join('');
+  const linhaComp = Object.entries(COMPONENTES).map(([k, d]) => {
+    const c = X.componentes[k]; const v = c?.valor;
+    const w = v == null ? 0 : Math.abs(v - 50);
+    const bar = v == null ? '' : `<i style="${v >= 50 ? 'left:50%' : `left:${50 - w}%`};width:${w}%;background:${v >= 50 ? 'var(--bom)' : 'var(--ruim)'}"></i>`;
+    return `<div class="barra-bloco"><span>${esc(d.nome)} <span class="mudo">(${Math.round(d.peso * 100)}%)</span></span><div class="trilho"><span class="meio"></span>${bar}</div><span style="text-align:right">${v ?? '<span class="mudo">s/ dado</span>'}</span></div>
+      <div class="mudo" style="font-size:13px;margin:-2px 0 4px">${esc(c?.detalhe || d.origem)}</div>`;
+  }).join('');
+  const eq = D.marcas.plano.por_marca[m].equipamento;
+  const args = (D.marcas.argumentos || []).filter(a => a.fabricante === m);
+  const funil = pipeline(regs, m);
+  let h = `<h2>Oportunidades por fabricante</h2><div class="filtros">${chips}</div>
+  <div class="ind"><div class="top"><div class="nome">Índice de Oportunidade ${NOMEM[m]}</div><span class="etq">${esc(X.confianca)}</span></div>
+    <div class="val">${X.valor ?? '<span class="un">Sem nota — dados insuficientes</span>'}${X.valor != null ? ' <span class="un">/100</span>' : ''}</div>
+    <p class="mudo">${X.variacao != null ? `Variação: ${X.variacao >= 0 ? '+' : ''}${X.variacao} vs. ${dataBR(X.anterior.data)} (sem CRM). ` : ''}${esc(X.motivo_confianca)}</p>
+    ${linhaComp}
+    <p class="mudo">Oportunidade de mercado não é intenção de compra confirmada. Componentes de CRM usam só os registros deste aparelho.</p></div>`;
+  if (X.positivos?.length || X.negativos?.length) h += `<div class="fatores"><div><h3>A favor</h3>${(X.positivos || []).map(f => `<div class="fator" style="margin-bottom:8px"><b>${esc(f.nome)} (${f.valor})</b><div style="font-size:14px">${esc(f.detalhe)}</div></div>`).join('') || '<p class="mudo">Nenhum componente forte a favor.</p>'}</div>
+    <div><h3>Contra</h3>${(X.negativos || []).map(f => `<div class="fator" style="margin-bottom:8px"><b>${esc(f.nome)} (${f.valor})</b><div style="font-size:14px">${esc(f.detalhe)}</div></div>`).join('') || '<p class="mudo">Nenhum componente forte contra.</p>'}</div></div>`;
+  h += `<h2>Regiões com maior potencial</h2>${X.regioes?.length ? `<div class="rolagem"><table><tr><th>Município</th><th>Potencial</th><th>Soja (ha)</th><th>Milho (ha)</th><th>Bovinos</th><th>CRM</th></tr>${X.regioes.map(r => `<tr><td>${esc(r.nome)} (${r.uf})</td><td>${m === 'CRUCIANELLI' ? r.potencial_crucianelli : r.potencial_piccin}</td><td>${r.soja_ha != null ? num(r.soja_ha, 0) : '—'}</td><td>${r.milho_ha != null ? num(r.milho_ha, 0) : '—'}</td><td>${r.bovinos_cab != null ? num(r.bovinos_cab, 0) : '—'}</td><td>${regs.filter(x => x.marca === m && norm(x.municipio) === norm(r.nome)).length || '—'}</td></tr>`).join('')}</table></div><p class="mudo">${esc(D.marcas.regional.aviso || '')} Fonte: ${esc((D.marcas.regional.fontes || []).join('; '))}.</p>` : `<p class="mudo">${esc(D.marcas.regional.motivo || 'Sem dados municipais.')}</p>`}
+    <p><button class="btn" data-ir="regional">Abrir mapa regional</button></p>`;
+  if (eq) h += `<h2>Equipamentos com mais aderência agora</h2><p>${esc(eq.categoria)} — ${esc(eq.motivo)}</p>
+    <ul>${eq.opcoes.map(o => `<li><b>${esc(o.modelo)}</b> (${esc(o.porte)}; ${faixaPot(o.potencia_cv)} ${m === 'CRUCIANELLI' ? 'HP' : 'cv'}; ${o.variantes} modelo(s); <a href="#catalogo" data-prod="${esc(o.id)}">ficha p. ${o.paginas.join(', ')}</a>)</li>`).join('')}</ul>
+    ${eq.outras_categorias?.length ? `<p class="mudo">Outras categorias: ${eq.outras_categorias.map(c => `${esc(c.categoria)} (calendário ${c.forca_calendario})`).join(', ')}.</p>` : ''}`;
+  h += `<h2>Argumentos de venda</h2><div class="filtros">${['revenda', 'produtor'].map(k => `<button class="chip" data-pub="${k}" aria-pressed="${k === publicoArg}">Para ${k}</button>`).join('')}</div>`;
+  h += args.map((a, i) => argumentoHTML(a, i)).join('') || '<p class="mudo">Sem argumentos gerados.</p>';
+  h += `<h2>Funil no CRM — ${NOMEM[m]}</h2><div class="rolagem"><table><tr><th>Etapa</th><th>Qtde</th><th>Valor estimado</th></tr>${ETAPAS.map(e => `<tr><td>${esc(e)}</td><td>${funil[e].quantidade}</td><td>${funil[e].valor ? 'R$ ' + num(funil[e].valor, 0) : '—'}</td></tr>`).join('')}</table></div>`;
+  $('#marcas').innerHTML = h;
+  $('#marcas').querySelectorAll('[data-marca]').forEach(b => b.onclick = () => { marcaAtual = b.dataset.marca; renderMarcas(); });
+  $('#marcas').querySelectorAll('[data-pub]').forEach(b => b.onclick = () => { publicoArg = b.dataset.pub; renderMarcas(); });
+  ligarBotoes($('#marcas')); ligarProdLinks($('#marcas'));
+}
+function argumentoHTML(a, i) {
+  const id = k => `arg-${i}-${k}`;
+  const copiar = (titulo, txt, k) => `<div class="msg-cab"><h3 style="margin:0">${titulo}</h3><button class="btn" data-copiar="${id(k)}">Copiar</button></div><div class="msg" id="${id(k)}">${esc(txt)}</div>`;
+  if (publicoArg === 'revenda') {
+    const r = a.revenda;
+    return `<div class="ind"><div class="top"><div class="nome">${esc(a.nome)} (${esc(a.modelo)})</div><a href="#catalogo" data-prod="${esc(a.produto)}" class="etq">ficha</a></div>
+      ${r.oportunidade_mercado.length ? `<p><b>Oportunidade de mercado:</b> ${r.oportunidade_mercado.map(esc).join('; ')}.</p>` : ''}
+      <p><b>Potencial de comercialização:</b> ${r.potencial_comercializacao.map(esc).join('; ')}.</p>
+      <p><b>Perfil de cliente:</b> ${esc(r.perfil_cliente.texto)} <span class="mudo">(${esc(r.perfil_cliente.base)})</span></p>
+      <p><b>Para a revenda:</b> ${r.beneficios_revenda.map(esc).join('; ')}.</p>
+      <b>Argumentos técnicos</b><ul>${r.argumentos_tecnicos.map(t => `<li>${esc(t.texto)} <span class="mudo">(${esc(t.fonte)})</span></li>`).join('')}</ul>
+      <p><b>Abordagem:</b> ${esc(r.abordagem)}</p>
+      ${copiar('WhatsApp para revenda', r.whatsapp, 'rev')}
+      <p><b>Próxima ação:</b> ${esc(r.proxima_acao)}</p></div>`;
+  }
+  const p = a.produtor;
+  return `<div class="ind"><div class="top"><div class="nome">${esc(a.nome)} (${esc(a.modelo)})</div><a href="#catalogo" data-prod="${esc(a.produto)}" class="etq">ficha</a></div>
+    <p><b>Necessidade atendida:</b> ${esc(p.necessidade)}</p>
+    <b>Características documentadas</b><ul>${p.beneficios_tecnicos.map(t => `<li>${esc(t.texto)} <span class="mudo">(${esc(t.fonte)})</span></li>`).join('') || '<li class="mudo">Sem diferenciais descritos no catálogo.</li>'}</ul>
+    <p><b>Aplicação:</b> ${esc(p.aplicacao)}</p>
+    <p><b>Perfil:</b> ${esc(p.caracteristicas_perfil)}</p>
+    <b>Perguntas para identificar a necessidade</b><ol>${p.perguntas.map(q => `<li>${esc(q)}</li>`).join('')}</ol>
+    <p><b>Argumento:</b> ${esc(p.argumento)}</p>
+    ${copiar('WhatsApp para produtor', p.whatsapp, 'prod')}</div>`;
+}
+
+// ================== CATÁLOGO TÉCNICO ==================
+let catFiltro = { fabricante: '', categoria: '', q: '', aplicacao: '' }, catProduto = null, catComparar = [];
+function ligarProdLinks(root) {
+  root.querySelectorAll('[data-prod]').forEach(a => a.addEventListener('click', ev => { ev.preventDefault(); catProduto = a.dataset.prod; renderCatalogo(); ir('catalogo'); }));
+}
+const ROTULOS = { requisitos_eletricos_vdrive: 'requisitos elétricos (vDrive)', requisitos_hidraulicos: 'requisitos hidráulicos', saidas_hidraulicas: 'saídas hidráulicas', unidade_plantio: 'unidade de plantio', discos_corte: 'discos de corte', disco_duplo_fertilizador: 'disco duplo fertilizador', capacidade_sementes_2_tolvas: 'capacidade de sementes (2 caixas)', capacidade_adubo_1_tolva: 'capacidade de adubo (1 caixa)', afastamento_solo_transporte_m: 'afastamento do solo no transporte (m)', diametro_eixo_pol: 'diâmetro do eixo (pol.)', espacamento_discos_mm: 'espaçamento entre discos (mm)', discos_opcoes: 'discos (opções)', profundidade_corte_mm: 'profundidade de corte (mm)', disco_corte_pol: 'disco de corte (pol.)', distancia_hastes_mm: 'distância entre hastes (mm)', linhas_espacamento_cm: 'linhas / espaçamento (cm)', obs_potencia: 'observação sobre potência' };
+const ROT = k => ROTULOS[k] || k.replace(/_/g, ' ').replace(/\bmm\b/, '(mm)').replace(/\bkg\b/, '(kg)').replace(/\bcv\b/, '(cv)').replace(/\bm3\b/, '(m³)').replace(/\bpol\b/, '(pol.)').replace(/\bl ha\b/, '(L/ha)').replace(/\bl min\b/, '(L/min)').replace(/\bkg ha\b/, '(kg/ha)');
+function renderCatalogo() {
+  if (!CATBASE) { $('#catalogo').innerHTML = '<p class="mudo" style="margin-top:20px">Catálogo técnico não encontrado (data/catalogo/produtos.json).</p>'; return; }
+  if (catProduto) return renderProduto(PRODUTOS.find(p => p.id === catProduto));
+  const lista = search(PRODUTOS, catFiltro);
+  const cats = [...new Set(PRODUTOS.filter(p => !catFiltro.fabricante || p.fabricante === catFiltro.fabricante).map(p => p.categoria))];
+  const dups = duplicates(PRODUTOS), velhos = outdated(CATBASE, hojeISO()).filter(f => f.desatualizado);
+  const sel = (id, opts, val, rot) => `<label class="mudo">${rot}<br><select id="${id}"><option value="">Todos</option>${opts.map(o => `<option ${o === val ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>`;
+  $('#catalogo').innerHTML = `<h2>Catálogo técnico</h2>
+    <p class="mudo">${PRODUTOS.length} produtos (${PRODUTOS.filter(p => p.fabricante === 'PICCIN').length} Piccin, ${PRODUTOS.filter(p => p.fabricante === 'CRUCIANELLI').length} Crucianelli — só plantadeiras), ${PRODUTOS.reduce((a, p) => a + (p.variantes?.length || 0), 0)} modelos/configurações. Fonte: ${CATBASE.fontes.map(f => `${esc(f.arquivo)} (${esc(f.revisao)})`).join('; ')}.</p>
+    ${velhos.map(f => `<div class="alerta"><b>Fonte possivelmente desatualizada</b>${esc(f.arquivo)} tem ${f.idade_meses} meses. Peça à fábrica a versão atual.</div>`).join('')}
+    ${dups.length ? `<div class="alerta"><b>Possíveis duplicados</b>${dups.slice(0, 5).map(d => `${esc(d.chave)}: ${d.produtos.map(esc).join(' × ')}`).join('<br>')}</div>` : ''}
+    <div style="display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));max-width:720px">
+      ${sel('c-fab', ['PICCIN', 'CRUCIANELLI'], catFiltro.fabricante, 'Fabricante')}
+      ${sel('c-cat', cats, catFiltro.categoria, 'Categoria')}
+      <label class="mudo">Modelo ou nome<br><input id="c-q" value="${esc(catFiltro.q)}" placeholder="ex.: SPCR, Plantor, taxa variável"></label>
+      <label class="mudo">Aplicação/cultura<br><input id="c-ap" value="${esc(catFiltro.aplicacao)}" placeholder="ex.: calcário, café"></label>
+    </div>
+    <p class="mudo" style="margin-top:8px">${lista.length} resultado(s). ${catComparar.length ? `Comparar: ${catComparar.map(esc).join(' × ')} <button class="btn" id="c-comp">Comparar</button> <button class="btn" id="c-limpa">Limpar</button>` : 'Marque dois produtos da mesma categoria para comparar.'}</p>
+    <div id="c-comp-out"></div>
+    ${lista.map(p => `<div class="ind"><div class="top"><div><div class="nome">${esc(p.modelo)} — ${esc(p.nome)}</div><div class="mudo" style="font-size:13px">${esc(p.fabricante)} · ${esc(p.categoria)}${p.subcategoria ? ' · ' + esc(p.subcategoria) : ''} · p. ${p.pagina.join(', ')}</div></div><span class="etq ${p.status === 'confirmada' ? 'atual' : 'desatualizado'}">${esc(p.status)}</span></div>
+      <div style="font-size:14px;margin-top:4px">${p.variantes.length} modelo(s)${p.potencia_requerida_cv ? ` · ${faixaPot(p.potencia_requerida_cv)} ${p.fabricante === 'CRUCIANELLI' ? 'HP' : 'cv'}` : ''}${p.largura_trabalho_mm ? ` · largura ${num(p.largura_trabalho_mm.min, 0)}–${num(p.largura_trabalho_mm.max, 0)} mm` : ''}${p._editado_localmente ? ' · <b>editado neste aparelho</b>' : ''}${p._cadastro_local ? ' · <b>cadastro local</b>' : ''}</div>
+      <p style="margin:8px 0 0"><button class="btn" data-ver="${esc(p.id)}">Ver ficha</button> <label class="mudo"><input type="checkbox" data-comp="${esc(p.id)}" ${catComparar.includes(p.id) ? 'checked' : ''}> comparar</label></p></div>`).join('')}
+    <h2>Cadastro e atualização</h2>
+    <p class="mudo">Edições e novos equipamentos ficam salvos neste aparelho e aparecem marcados. Para torná-los permanentes para todos os aparelhos, exporte e grave em <code>data/catalogo/</code> no repositório. Para um catálogo novo da fábrica, atualize <code>scripts/catalogo_build.py</code> e rode os testes de conferência com o PDF.</p>
+    <p><button class="btn" id="c-novo">Cadastrar equipamento</button> <button class="btn" id="c-exp">Exportar alterações locais</button></p><div id="c-form"></div>`;
+  const re = () => renderCatalogo();
+  $('#c-fab').onchange = e => { catFiltro.fabricante = e.target.value; catFiltro.categoria = ''; re(); };
+  $('#c-cat').onchange = e => { catFiltro.categoria = e.target.value; re(); };
+  $('#c-q').onchange = e => { catFiltro.q = e.target.value; re(); };
+  $('#c-ap').onchange = e => { catFiltro.aplicacao = e.target.value; re(); };
+  $('#catalogo').querySelectorAll('[data-ver]').forEach(b => b.onclick = () => { catProduto = b.dataset.ver; renderCatalogo(); window.scrollTo(0, 0); });
+  $('#catalogo').querySelectorAll('[data-comp]').forEach(c => c.onchange = () => { catComparar = c.checked ? [...catComparar.filter(x => x !== c.dataset.comp), c.dataset.comp].slice(-2) : catComparar.filter(x => x !== c.dataset.comp); re(); });
+  if ($('#c-limpa')) $('#c-limpa').onclick = () => { catComparar = []; re(); };
+  if ($('#c-comp')) $('#c-comp').onclick = () => {
+    if (catComparar.length !== 2) { $('#c-comp-out').innerHTML = '<div class="alerta"><b>Selecione dois produtos.</b></div>'; return; }
+    const [a, b] = catComparar.map(id => PRODUTOS.find(p => p.id === id));
+    const c = compareProducts(a, b);
+    $('#c-comp-out').innerHTML = !c.comparavel ? `<div class="alerta"><b>Comparação não aplicável</b>${esc(c.motivo)}</div>`
+      : `<div class="rolagem"><table><tr><th></th>${c.linhas.map(l => `<th>${esc(l.produto)}</th>`).join('')}</tr>${Object.keys(c.linhas[0]).filter(k => k !== 'produto').map(k => `<tr><td>${esc(ROT(k))}</td>${c.linhas.map(l => `<td>${l[k] == null ? '<span class="mudo">não informado</span>' : esc(l[k])}</td>`).join('')}</tr>`).join('')}</table></div><p class="mudo">${esc(c.aviso)}</p>`;
+  };
+  $('#c-novo').onclick = () => formProduto(null);
+  $('#c-exp').onclick = () => { const o = store.get('catalogo.overrides', {}); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(o, null, 1)], { type: 'application/json' })); a.download = 'catalogo-alteracoes-locais.json'; a.click(); };
+}
+function renderProduto(p) {
+  if (!p) { catProduto = null; return renderCatalogo(); }
+  const cv = compareVariants(p);
+  const temPot = p.variantes.some(v => v.potencia_cv);
+  $('#catalogo').innerHTML = `<p style="margin-top:16px"><button class="btn" id="p-volta">← Voltar ao catálogo</button></p>
+    <h2>${esc(p.modelo)} — ${esc(p.nome)}</h2>
+    <p class="mudo">${esc(p.fabricante)} · ${esc(p.categoria)}${p.subcategoria ? ' · ' + esc(p.subcategoria) : ''} · <span class="etq ${p.status === 'confirmada' ? 'atual' : 'desatualizado'}">${esc(p.status)}</span></p>
+    <p><b>Operação:</b> ${esc(p.operacao)}<br><b>Aplicação:</b> ${esc(p.aplicacao?.texto)} <span class="mudo">(${esc(p.aplicacao?.origem)})</span><br><b>Culturas:</b> ${p.culturas?.lista?.length ? p.culturas.lista.map(esc).join(', ') : '—'} <span class="mudo">(${esc(p.culturas?.origem)})</span></p>
+    <p><b>Perfil de cliente:</b> ${esc(p.perfil_cliente?.texto)} <span class="mudo">(${esc(p.perfil_cliente?.base)})</span></p>
+    <p><b>Disponibilidade:</b> ${esc(p.disponibilidade)}</p>
+    ${Object.keys(p.especificacoes_comuns || {}).length ? `<h3>Especificações comuns</h3><div class="rolagem"><table>${Object.entries(p.especificacoes_comuns).map(([k, v]) => `<tr><td>${esc(ROT(k))}</td><td>${esc(v)}</td></tr>`).join('')}</table></div>` : ''}
+    ${p.variantes.length ? `<h3>Modelos e configurações</h3>
+      <label class="mudo">Potência do trator do cliente (${p.fabricante === 'CRUCIANELLI' ? 'HP' : 'cv'}) <input id="p-cv" type="number" inputmode="numeric" style="width:90px" ${temPot ? '' : 'disabled'}></label> <span id="p-fit" class="mudo"></span>
+      <div class="rolagem"><table><tr>${cv.colunas.map(c => `<th>${esc(ROT(c))}</th>`).join('')}</tr>${cv.linhas.map(l => `<tr data-mod="${esc(l.modelo)}">${cv.colunas.map(c => `<td>${l[c] == null ? '—' : esc(Array.isArray(l[c]) ? l[c].join('; ') : l[c])}</td>`).join('')}</tr>`).join('')}</table></div>` : ''}
+    ${p.configuracoes?.length ? `<h3>Configurações</h3><ul>${p.configuracoes.map(c => `<li><b>${esc(c.nome)}</b> — ${esc(c.detalhe)} <span class="mudo">(p. ${c.pagina})</span></li>`).join('')}</ul>` : ''}
+    ${p.diferenciais?.length ? `<h3>Diferenciais (catálogo)</h3><ul>${p.diferenciais.map(d => `<li>${esc(d.texto)} <span class="mudo">(p. ${d.pagina})</span></li>`).join('')}</ul>` : ''}
+    ${p.opcionais?.length ? `<h3>Opcionais</h3><ul>${p.opcionais.map(o => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
+    <h3>Benefícios para o produtor</h3><ul>${(p.beneficios || []).map(b => `<li>${esc(b.texto)} <span class="mudo">(${esc(b.base)})</span></li>`).join('')}</ul>
+    ${p.pendencias?.length ? `<div class="alerta"><b>Informações não localizadas no catálogo</b>${p.pendencias.map(esc).join('<br>')}</div>` : ''}
+    ${p.divergencias?.length ? `<div class="alerta"><b>Divergências a validar com a fábrica</b>${p.divergencias.map(d => `${esc(d.texto)}${d.pagina ? ` (p. ${d.pagina})` : ''}`).join('<br>')}</div>` : ''}
+    <h3>Origem</h3><p class="mudo">Arquivo ${esc(p.arquivo)}, página(s) ${p.pagina.join(', ')}. Processado em ${dataBR(p.data_processamento)}.${p.conferido_em_imagem ? ' Tabela conferida na imagem da página (sem texto extraível).' : ' Números conferidos automaticamente com o texto da página.'}${p._editado_localmente ? ' <b>Editado neste aparelho.</b>' : ''}</p>
+    <p><button class="btn" id="p-edit">Editar / complementar</button></p><div id="c-form"></div>`;
+  $('#p-volta').onclick = () => { catProduto = null; renderCatalogo(); };
+  $('#p-edit').onclick = () => formProduto(p);
+  const inp = $('#p-cv');
+  if (inp) inp.oninput = () => {
+    const f = fitByPower(p, Number(inp.value));
+    document.querySelectorAll('tr[data-mod]').forEach(tr => tr.style.background = f[0] && tr.dataset.mod === f[0].modelo ? 'var(--laranja-fundo)' : '');
+    $('#p-fit').textContent = !inp.value ? '' : f.length ? `Maior modelo que cabe: ${f[0].modelo} (mínimo ${f[0].potencia_cv.min}). Confirme com o cliente e a fábrica.` : 'Nenhum modelo com potência mínima até esse valor.';
+  };
+}
+function formProduto(p) {
+  const novo = !p;
+  const v = p || { id: '', fabricante: 'PICCIN', modelo: '', nome: '', categoria: '', subcategoria: '', operacao: '' };
+  const campo = (k, rot, val) => `<label class="mudo">${rot}<br><input id="f-${k}" value="${esc(val ?? '')}" style="width:100%"></label>`;
+  $('#c-form').innerHTML = `<div class="ind"><h3 style="margin-top:0">${novo ? 'Cadastrar equipamento' : 'Editar ' + esc(p.modelo)}</h3>
+    <div style="display:grid;gap:8px;max-width:560px">
+      <label class="mudo">Fabricante<br><select id="f-fabricante" ${novo ? '' : 'disabled'}>${['PICCIN', 'CRUCIANELLI'].map(f => `<option ${f === v.fabricante ? 'selected' : ''}>${f}</option>`).join('')}</select></label>
+      ${campo('modelo', 'Modelo', v.modelo)}${campo('nome', 'Nome do equipamento', v.nome)}${campo('categoria', 'Categoria', v.categoria)}${campo('subcategoria', 'Subcategoria', v.subcategoria)}${campo('operacao', 'Operação agrícola', v.operacao)}
+      ${campo('aplicacao', 'Aplicação', v.aplicacao?.texto)}${campo('fonte', 'Fonte da informação (obrigatória: catálogo/site/fábrica e data)', v._fonte_local)}
+      <label class="mudo">Observação<br><textarea id="f-obs" rows="3" style="width:100%;font:inherit">${esc(v._obs_local || '')}</textarea></label>
+      <button class="btn cheio" id="f-salva">Salvar neste aparelho</button></div><div id="f-msg"></div></div>`;
+  $('#f-salva').onclick = () => {
+    const g = k => $('#f-' + k).value.trim();
+    if (!g('modelo') || !g('categoria') || !g('fonte')) { $('#f-msg').innerHTML = '<div class="alerta"><b>Preencha modelo, categoria e fonte.</b>Sem fonte, a informação não entra no catálogo.</div>'; return; }
+    const o = store.get('catalogo.overrides', { editados: {}, novos: [] });
+    o.editados ||= {}; o.novos ||= [];
+    const dados = { modelo: g('modelo'), nome: g('nome'), categoria: g('categoria'), subcategoria: g('subcategoria'), operacao: g('operacao'),
+      aplicacao: { texto: g('aplicacao'), origem: g('fonte') }, _fonte_local: g('fonte'), _obs_local: $('#f-obs').value.trim(), _alterado_em: new Date().toISOString() };
+    if (novo) {
+      const fab = $('#f-fabricante').value;
+      o.novos.push({ id: `local-${Date.now().toString(36)}`, fabricante: fab, ...dados, variantes: [], pagina: [], arquivo: 'cadastro manual', data_processamento: hojeISO(), status: 'pendente de validação',
+        especificacoes_comuns: {}, diferenciais: [], opcionais: [], pendencias: ['Cadastro manual — especificações não conferidas com catálogo oficial.'], divergencias: [], culturas: { lista: [], origem: 'não informado' },
+        disponibilidade: 'não confirmada', perfil_cliente: { texto: 'Não determinado.', base: 'cadastro manual' }, beneficios: [] });
+    } else o.editados[p.id] = { ...(o.editados[p.id] || {}), ...dados };
+    if (!store.set('catalogo.overrides', o)) { $('#f-msg').innerHTML = '<div class="alerta"><b>Não foi possível salvar neste navegador.</b></div>'; return; }
+    PRODUTOS = mergeOverrides(CATBASE.produtos, o); crm = createCRM(lsAdapter, { catalogo: PRODUTOS });
+    catProduto = novo ? null : p.id; renderCatalogo();
+  };
+}
+
+// ================== CRM ==================
+let crmFiltro = { marca: '', etapa: '' }, crmEdit = null;
+function renderCRM() {
+  if (!crm) return;
+  const regs = crm.list(crmFiltro).sort((a, b) => (a.proximo_acompanhamento || '9') .localeCompare(b.proximo_acompanhamento || '9'));
+  const st = staleNegotiations(crm.list(), hojeISO(), 10);
+  const imps = crm.raw().importacoes || [];
+  $('#crm').innerHTML = `<h2>CRM e clientes</h2>
+    <p class="mudo">Oportunidades Piccin e Crucianelli. Os dados ficam <b>só neste aparelho</b> (nada vai para o servidor). Faça backup com "Exportar" e restaure em outro aparelho com "Restaurar backup".</p>
+    ${st.length ? `<div class="alerta"><b>${st.length} negociação(ões) paradas</b>${st.slice(0, 5).map(r => `${esc(r.cliente)} — ${NOMEM[r.marca]} — ${esc(r.etapa)}${r.dias_sem_contato != null ? `, ${r.dias_sem_contato} dias` : ''}${r.acompanhamento_vencido ? ', acompanhamento vencido' : ''}`).join('<br>')}</div>` : ''}
+    <div class="filtros">${['', 'PICCIN', 'CRUCIANELLI'].map(m => `<button class="chip" data-fm="${m}" aria-pressed="${crmFiltro.marca === m}">${m ? NOMEM[m] : 'Todas'}</button>`).join('')}
+      <select id="crm-etapa"><option value="">Todas as etapas</option>${ETAPAS.map(e => `<option ${crmFiltro.etapa === e ? 'selected' : ''}>${e}</option>`).join('')}</select></div>
+    <p><button class="btn cheio" id="crm-novo">Nova oportunidade</button> <button class="btn" id="crm-exp">Exportar backup</button> <label class="btn" style="display:inline-block">Restaurar backup<input type="file" id="crm-rest" accept=".json" hidden></label> <label class="btn" style="display:inline-block">Importar planilha<input type="file" id="crm-imp" accept=".csv,.xlsx,.xls" hidden></label></p>
+    <div id="crm-msg"></div><div id="crm-form"></div>
+    ${regs.length ? regs.map(r => `<div class="ind"><div class="top"><div><div class="nome">${esc(r.cliente)}${r.revenda ? ` <span class="mudo">· revenda ${esc(r.revenda)}</span>` : ''}</div>
+        <div class="mudo" style="font-size:13px">${NOMEM[r.marca]}${r.equipamento ? ' · ' + esc(r.equipamento) : ''}${r.municipio ? ' · ' + esc(r.municipio) + (r.uf ? '/' + esc(r.uf) : '') : ''}${r.perfil ? ' · ' + esc(r.perfil) : ''}</div></div><span class="etq">${esc(r.etapa)}</span></div>
+      <div style="font-size:14px;margin-top:4px">${r.valor_estimado ? `R$ ${num(r.valor_estimado, 0)} · ` : ''}Último contato: ${dataBR(r.data_ultimo_contato)} · Próximo: ${dataBR(r.proximo_acompanhamento)}${r.probabilidade != null ? ` · Prob. ${r.probabilidade}% (${esc(r.probabilidade_justificativa)})` : ''}</div>
+      ${r.observacoes ? `<p class="mudo" style="margin:4px 0 0">${esc(r.observacoes)}</p>` : ''}
+      ${(r.historico.length || r.propostas.length || r.vendas.length) ? `<details><summary class="mudo">Histórico (${r.historico.length} contato/visita, ${r.propostas.length} proposta, ${r.vendas.length} venda)</summary><ul>${[...r.historico, ...r.propostas.map(x => ({ ...x, tipo: 'proposta' })), ...r.vendas.map(x => ({ ...x, tipo: 'venda' }))].sort((a, b) => b.data.localeCompare(a.data)).map(x => `<li>${dataBR(x.data)} — ${esc(x.tipo)}${x.valor ? ` R$ ${num(x.valor, 0)}` : ''}${x.nota ? ': ' + esc(x.nota) : ''}</li>`).join('')}</ul></details>` : ''}
+      <p style="margin:8px 0 0"><button class="btn" data-ed="${r.id}">Editar</button> <button class="btn" data-int="${r.id}">Registrar contato/visita/proposta</button> <button class="btn" data-venda="${r.id}">Registrar venda</button></p></div>`).join('')
+      : `<p class="mudo">Nenhuma oportunidade ${crmFiltro.marca || crmFiltro.etapa ? 'com esse filtro' : 'cadastrada'}. Cadastre manualmente ou importe uma planilha com as colunas: ${CAMPOS_CSV.join(', ')}.</p>`}
+    ${imps.length ? `<h3>Importações</h3><ul>${imps.map(i => `<li>${dataHora(i.em)} — ${esc(i.arquivo)}: ${i.importados} importado(s), ${i.erros} erro(s) <button class="btn" data-undo="${esc(i.id)}">Desfazer</button></li>`).join('')}</ul>` : ''}`;
+  $('#crm').querySelectorAll('[data-fm]').forEach(b => b.onclick = () => { crmFiltro.marca = b.dataset.fm; renderCRM(); });
+  $('#crm-etapa').onchange = e => { crmFiltro.etapa = e.target.value; renderCRM(); };
+  $('#crm-novo').onclick = () => formCRM(null);
+  $('#crm-exp').onclick = () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([crm.exportJSON()], { type: 'application/json' })); a.download = `crm-jr-agro-${hojeISO()}.json`; a.click(); };
+  $('#crm-rest').onchange = async e => { const f = e.target.files[0]; if (!f) return; const r = crm.importJSON(await f.text()); msgCRM(r.ok ? `Backup restaurado: ${r.novos} novo(s), ${r.atualizados} atualizado(s).` : r.erros.join('; '), r.ok); };
+  $('#crm-imp').onchange = async e => {
+    const f = e.target.files[0]; if (!f) return;
+    try { const txt = await planilhaParaCSV(f); const r = crm.importCSV(txt, f.name); msgCRM(`${r.importados} importado(s), ${r.erros.length} com erro.${r.erros.length ? '<br>' + r.erros.slice(0, 8).map(esc).join('<br>') : ''}${r.avisos?.length ? '<br>Avisos: ' + r.avisos.slice(0, 5).map(esc).join('<br>') : ''}`, r.ok, true); }
+    catch (err) { msgCRM(`Importação não concluída: ${esc(err.message)}`, false, true); }
+  };
+  $('#crm').querySelectorAll('[data-undo]').forEach(b => b.onclick = () => { const n = crm.undoImport(b.dataset.undo); msgCRM(`${n} registro(s) removido(s).`, true); });
+  $('#crm').querySelectorAll('[data-ed]').forEach(b => b.onclick = () => formCRM(crm.get(b.dataset.ed)));
+  $('#crm').querySelectorAll('[data-int]').forEach(b => b.onclick = () => formInteracao(b.dataset.int, false));
+  $('#crm').querySelectorAll('[data-venda]').forEach(b => b.onclick = () => formInteracao(b.dataset.venda, true));
+}
+function msgCRM(html, ok, jaEscapado = false) { renderCRM(); if (D) { renderMarcas(); renderHoje(); } $('#crm-msg').innerHTML = `<div class="alerta" ${ok ? 'style="border-color:var(--bom)"' : ''}><b>${ok ? 'Feito.' : 'Atenção.'}</b>${jaEscapado ? html : esc(html)}</div>`; }
+async function planilhaParaCSV(f) {
+  if (/\.xlsx?$/i.test(f.name)) {
+    if (!window.XLSX) await new Promise((ok, err) => { const s = document.createElement('script'); s.src = 'https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js'; s.onload = ok; s.onerror = () => err(new Error('não foi possível carregar o leitor de Excel (sem internet?) — salve a planilha como CSV')); document.head.appendChild(s); });
+    const wb = XLSX.read(await f.arrayBuffer(), { cellDates: true });
+    return XLSX.utils.sheet_to_csv(wb.Sheets[wb.SheetNames[0]], { FS: ';', dateNF: 'yyyy-mm-dd' });
+  }
+  return f.text();
+}
+function formCRM(r) {
+  const v = r || { marca: crmFiltro.marca || 'PICCIN', etapa: 'prospecção', uf: 'MT' };
+  const ops = (lista, val) => lista.map(o => `<option ${o === val ? 'selected' : ''}>${esc(o)}</option>`).join('');
+  const eqs = m => PRODUTOS.filter(p => p.fabricante === m).flatMap(p => [p.modelo, ...p.variantes.map(x => x.modelo)]);
+  const c = (k, rot, tipo = 'text') => `<label class="mudo">${rot}<br><input id="r-${k}" type="${tipo}" value="${esc(v[k] ?? '')}" style="width:100%"></label>`;
+  $('#crm-form').innerHTML = `<div class="ind"><h3 style="margin-top:0">${r ? 'Editar oportunidade' : 'Nova oportunidade'}</h3><div style="display:grid;gap:8px;max-width:560px">
+    ${c('cliente', 'Cliente (nome ou apelido)')}${c('revenda', 'Revenda')}
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">${c('municipio', 'Município')}<label class="mudo">UF<br><select id="r-uf">${ops(['MT', 'RO', 'AC', 'outra'], v.uf)}</select></label></div>
+    <label class="mudo">Marca<br><select id="r-marca">${ops(['PICCIN', 'CRUCIANELLI'], v.marca)}</select></label>
+    <label class="mudo">Equipamento de interesse (do catálogo)<br><input id="r-equipamento" list="r-eqs" value="${esc(v.equipamento ?? '')}" style="width:100%"><datalist id="r-eqs">${eqs(v.marca).map(m => `<option value="${esc(m)}">`).join('')}</datalist></label>
+    <label class="mudo">Perfil<br><select id="r-perfil"><option value="">—</option>${ops(PERFIS, v.perfil)}</select></label>
+    <label class="mudo">Etapa<br><select id="r-etapa">${ops(ETAPAS, v.etapa)}</select></label>
+    ${c('valor_estimado', 'Valor estimado (R$), se informado')}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${c('data_ultimo_contato', 'Último contato', 'date')}${c('proximo_acompanhamento', 'Próximo acompanhamento', 'date')}</div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px">${c('probabilidade', 'Probabilidade (%)', 'number')}${c('probabilidade_justificativa', 'Justificativa (obrigatória se houver %)')}</div>
+    <label class="mudo">Observações comerciais<br><textarea id="r-observacoes" rows="3" style="width:100%;font:inherit">${esc(v.observacoes ?? '')}</textarea></label>
+    <p><button class="btn cheio" id="r-salva">Salvar</button> ${r ? `<button class="btn" id="r-del">Excluir</button>` : ''}</p></div><div id="r-msg"></div></div>`;
+  $('#r-marca').onchange = e => { $('#r-eqs').innerHTML = eqs(e.target.value).map(m => `<option value="${esc(m)}">`).join(''); };
+  $('#r-salva').onclick = () => {
+    const g = k => $('#r-' + k).value;
+    const dados = Object.fromEntries(['cliente', 'revenda', 'municipio', 'uf', 'marca', 'equipamento', 'perfil', 'etapa', 'valor_estimado', 'data_ultimo_contato', 'proximo_acompanhamento', 'probabilidade', 'probabilidade_justificativa', 'observacoes'].map(k => [k, g(k)]));
+    if (dados.uf === 'outra') dados.uf = '';
+    const res = r ? crm.update(r.id, dados) : crm.add(dados);
+    if (!res.ok) { $('#r-msg').innerHTML = `<div class="alerta"><b>Não salvo</b>${res.erros.map(esc).join('<br>')}</div>`; return; }
+    msgCRM(`Oportunidade salva.${res.avisos?.length ? ' ' + res.avisos.join(' ') : ''}`, true);
+  };
+  if (r) $('#r-del').onclick = () => { if (confirm(`Excluir a oportunidade de ${r.cliente}?`)) { crm.remove(r.id); msgCRM('Oportunidade excluída.', true); } };
+  $('#crm-form').scrollIntoView({ block: 'start' });
+}
+function formInteracao(id, venda) {
+  const r = crm.get(id);
+  $('#crm-form').innerHTML = `<div class="ind"><h3 style="margin-top:0">${venda ? 'Registrar venda' : 'Registrar contato, visita ou proposta'} — ${esc(r.cliente)}</h3><div style="display:grid;gap:8px;max-width:420px">
+    ${venda ? '' : `<label class="mudo">Tipo<br><select id="i-tipo"><option>contato</option><option>visita</option><option>proposta</option></select></label>`}
+    <label class="mudo">Data<br><input id="i-data" type="date" value="${hojeISO()}"></label>
+    <label class="mudo">Valor (R$), se houver<br><input id="i-valor" inputmode="decimal"></label>
+    <label class="mudo">Nota<br><input id="i-nota" style="width:100%"></label>
+    <p><button class="btn cheio" id="i-salva">Salvar</button></p></div></div>`;
+  $('#i-salva').onclick = () => {
+    const valor = $('#i-valor').value.trim() ? Number($('#i-valor').value.replace(/\./g, '').replace(',', '.')) : null;
+    const res = venda ? crm.registerSale(id, { data: $('#i-data').value, valor, nota: $('#i-nota').value }) : crm.addInteraction(id, { tipo: $('#i-tipo').value, data: $('#i-data').value, valor, nota: $('#i-nota').value });
+    msgCRM(res.ok ? (venda ? 'Venda registrada.' : 'Registro salvo; último contato atualizado.') : res.erros.join('; '), res.ok);
+  };
+}
+
+// ================== REGIONAL (mapa SVG sem bibliotecas) ==================
+let regMarca = 'CRUCIANELLI', regSel = null;
+async function renderRegional() {
+  const el = $('#regional');
+  el.innerHTML = '<h2>Inteligência regional</h2><p class="mudo">Carregando…</p>';
+  if (!POT) { try { POT = await getJSON('data/regional/potencial.json'); } catch { POT = null; } }
+  if (!GEO.length) for (const uf of ['51', '11', '12']) { try { GEO.push(...(await getJSON(`data/geo/uf-${uf}.json`)).features); } catch {} }
+  if (!POT?.disponivel) {
+    el.innerHTML = `<h2>Inteligência regional</h2><div class="alerta"><b>Dados municipais ainda não coletados</b>${esc(POT?.motivo || 'A coleta do IBGE (área plantada por município e rebanho) roda no agendador da nuvem, no máximo uma vez por mês.')}</div>
+      <p>Enquanto isso, o plano do dia indica regiões pelo perfil produtivo conhecido. Clientes do CRM por município:</p>${listaCRMMunicipios()}`;
+    return;
+  }
+  const k = regMarca === 'CRUCIANELLI' ? 'potencial_crucianelli' : 'potencial_piccin';
+  const porCod = Object.fromEntries(POT.municipios.map(m => [m.codigo, m]));
+  const regs = crmRegs();
+  const crmPorMun = {}; for (const r of regs) { const m = POT.municipios.find(x => norm(x.nome) === norm(r.municipio) && (!r.uf || x.uf === r.uf)); if (m) (crmPorMun[m.codigo] ||= []).push(r); }
+  el.innerHTML = `<h2>Inteligência regional</h2>
+    <div class="filtros">${['CRUCIANELLI', 'PICCIN'].map(m => `<button class="chip" data-rm="${m}" aria-pressed="${m === regMarca}">Potencial ${NOMEM[m]}</button>`).join('')}</div>
+    <div class="grafico">${GEO.length ? mapaSVG(porCod, k, crmPorMun) : '<p class="mudo">Malha municipal não disponível — veja a lista abaixo.</p>'}
+      <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:13px;margin-top:6px">${[['#EEF2EA', 'sem dado'], ['#C9DDB8', '0–39'], ['#9CC27E', '40–59'], ['#6F9A4E', '60–79'], ['#3F5A2E', '80–100']].map(([c, t]) => `<span><i style="display:inline-block;width:12px;height:12px;background:${c};border:1px solid var(--linha);vertical-align:-2px"></i> ${t}</span>`).join('')}<span><i style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--laranja);vertical-align:-1px"></i> cliente/oportunidade no CRM</span></div></div>
+    <div id="reg-info">${regSel ? infoMunicipio(porCod[regSel], crmPorMun[regSel]) : '<p class="mudo">Toque num município para ver os dados.</p>'}</div>
+    <p class="mudo">${esc(POT.aviso)} ${esc(POT.metodo)} Fontes: ${esc(POT.fontes.join('; '))} (PAM ${POT.ano_pam}, PPM ${POT.ano_ppm ?? '—'}).</p>
+    <h3>Municípios prioritários — ${NOMEM[regMarca]}</h3>
+    <div class="rolagem"><table><tr><th>Município</th><th>Potencial</th><th>Soja</th><th>Milho</th><th>Algodão</th><th>Café</th><th>Bovinos</th><th>CRM</th></tr>
+    ${POT.municipios.filter(m => m[k] != null).sort((a, b) => b[k] - a[k]).slice(0, 25).map(m => `<tr><td>${esc(m.nome)} (${m.uf})</td><td>${m[k]}</td><td>${m.soja_ha != null ? num(m.soja_ha, 0) : '—'}</td><td>${m.milho_ha != null ? num(m.milho_ha, 0) : '—'}</td><td>${m.algodao_ha != null ? num(m.algodao_ha, 0) : '—'}</td><td>${m.cafe_ha != null ? num(m.cafe_ha, 0) : '—'}</td><td>${m.bovinos_cab != null ? num(m.bovinos_cab, 0) : '—'}</td><td>${crmPorMun[m.codigo]?.length || '—'}</td></tr>`).join('')}</table></div>
+    <p class="mudo">Áreas em hectares (área plantada); bovinos em cabeças. Município com forte atividade agrícola ≠ oportunidade comprovada: oportunidade comprovada é a que está no CRM (pontos laranja).</p>`;
+  el.querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { regMarca = b.dataset.rm; renderRegional(); });
+  el.querySelectorAll('[data-mun]').forEach(pth => pth.addEventListener('click', () => { regSel = pth.dataset.mun; $('#reg-info').innerHTML = infoMunicipio(porCod[regSel], crmPorMun[regSel]); }));
+}
+function listaCRMMunicipios() {
+  const g = {}; for (const r of crmRegs()) if (r.municipio) (g[`${r.municipio}${r.uf ? '/' + r.uf : ''}`] ||= []).push(r);
+  const e = Object.entries(g); return e.length ? `<ul>${e.map(([m, rs]) => `<li>${esc(m)}: ${rs.length} oportunidade(s) — ${[...new Set(rs.map(r => NOMEM[r.marca]))].join(', ')}</li>`).join('')}</ul>` : '<p class="mudo">Nenhum cliente com município no CRM.</p>';
+}
+function infoMunicipio(m, rs) {
+  if (!m) return '';
+  return `<div class="ind"><div class="nome">${esc(m.nome)} (${m.uf})</div><div style="font-size:14px">Potencial Crucianelli: <b>${m.potencial_crucianelli ?? '—'}</b> · Piccin: <b>${m.potencial_piccin ?? '—'}</b><br>
+    Soja ${m.soja_ha != null ? num(m.soja_ha, 0) + ' ha' : '—'} · Milho ${m.milho_ha != null ? num(m.milho_ha, 0) + ' ha' : '—'} · Algodão ${m.algodao_ha != null ? num(m.algodao_ha, 0) + ' ha' : '—'} · Café ${m.cafe_ha != null ? num(m.cafe_ha, 0) + ' ha' : '—'} · Bovinos ${m.bovinos_cab != null ? num(m.bovinos_cab, 0) : '—'}</div>
+    ${rs?.length ? `<p style="margin:6px 0 0"><b>No CRM:</b> ${rs.map(r => `${esc(r.cliente)} (${NOMEM[r.marca]}, ${esc(r.etapa)})`).join('; ')}</p>` : '<p class="mudo" style="margin:6px 0 0">Nenhuma oportunidade registrada neste município.</p>'}</div>`;
+}
+function mapaSVG(porCod, k, crmPorMun) {
+  const W = 640, H = 560; let minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+  const anel = f => f.geometry.type === 'Polygon' ? f.geometry.coordinates : f.geometry.coordinates.flat();
+  for (const f of GEO) for (const r of anel(f)) for (const [x, y] of r) { if (x < minX) minX = x; if (x > maxX) maxX = x; if (y < minY) minY = y; if (y > maxY) maxY = y; }
+  const kx = Math.cos((minY + maxY) / 2 * Math.PI / 180), sx = (maxX - minX) * kx, sy = maxY - minY;
+  const esc_ = Math.min((W - 10) / sx, (H - 10) / sy);
+  const P = ([x, y]) => [5 + (x - minX) * kx * esc_, 5 + (maxY - y) * esc_];
+  const cor = v => v == null ? '#EEF2EA' : v >= 80 ? '#3F5A2E' : v >= 60 ? '#6F9A4E' : v >= 40 ? '#9CC27E' : '#C9DDB8';
+  let paths = '', pts = '';
+  for (const f of GEO) {
+    const cod = f.properties.codarea, m = porCod[cod];
+    const d = anel(f).map(r => 'M' + r.map(c => P(c).map(n => n.toFixed(1)).join(',')).join('L') + 'Z').join('');
+    paths += `<path d="${d}" fill="${cor(m?.[k])}" stroke="var(--papel)" stroke-width="0.6" data-mun="${esc(cod)}" style="cursor:pointer"><title>${esc(m?.nome || cod)}: ${m?.[k] ?? 'sem dado'}</title></path>`;
+    if (crmPorMun[cod]) { const r0 = anel(f)[0]; const c = r0.reduce((a, p) => [a[0] + p[0] / r0.length, a[1] + p[1] / r0.length], [0, 0]); const [x, y] = P(c); pts += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5" fill="var(--laranja)" stroke="#fff" stroke-width="1.5"><title>${crmPorMun[cod].length} no CRM</title></circle>`; }
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Mapa de potencial por município">${paths}${pts}</svg>`;
+}
+
 const t0 = store.get('tema', 'auto'); if (t0 !== 'auto') document.documentElement.dataset.theme = t0;
 
 carregar();
-})();
 </script>
 </body>
 </html>

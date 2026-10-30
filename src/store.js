@@ -47,6 +47,9 @@ export function createStore(root) {
       try { return fs.readFileSync(path.join(root, rel), 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l)); }
       catch { return []; }
     },
+    readJSON(rel) {
+      try { return JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8')); } catch { return null; }
+    },
     writeJSON(rel, obj) {
       const p = path.join(root, rel);
       fs.mkdirSync(path.dirname(p), { recursive: true });

@@ -9,6 +9,8 @@
     "test": "node --test test/*.test.js",
     "coletar": "node src/run.js",
     "analisar": "node src/run.js --offline",
-    "servir": "node scripts/serve.js"
+    "servir": "node scripts/serve.js",
+    "e2e": "node test/e2e/painel.e2e.mjs",
+    "catalogo": "python3 scripts/catalogo_build.py"
   }
 }

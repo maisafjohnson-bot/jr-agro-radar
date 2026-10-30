@@ -1,5 +1,5 @@
 {
-  "_doc": "Regras de alerta. tipo 'variacao': dispara quando |variação| do período >= limite_pct (preços, em %) ou >= limite_pp (taxas, em pontos percentuais). tipo 'indice': quando o índice geral muda >= limite_pontos vs análise anterior. tipo 'recomendacao': quando a recomendação do dia muda. tipo 'saude': quando a coleta automática falha. Canal 'issue' abre uma issue no GitHub (o GitHub avisa por e-mail).",
+  "_doc": "Regras de alerta. tipo 'variacao': dispara quando |variação| do período >= limite_pct (preços, em %) ou >= limite_pp (taxas, em pontos percentuais). tipo 'indice': quando o índice geral muda >= limite_pontos vs análise anterior. tipo 'recomendacao': quando a recomendação do dia muda. tipo 'saude': quando a coleta automática falha. Canal 'issue' abre uma issue no GitHub (o GitHub avisa por e-mail). tipo 'marca': índice Piccin ou Crucianelli muda >= limite_pontos. tipo 'catalogo': base técnica alterada. tipo 'regional': novo ano do IBGE. Negociações paradas (CRM) são alertadas no próprio painel, porque o CRM fica no aparelho.",
   "regras": [
     {
       "id": "dolar_forte",
@@ -103,6 +103,34 @@
       "id": "coleta_falhou",
       "tipo": "saude",
       "prioridade": "alta",
+      "canais": [
+        "painel",
+        "issue"
+      ]
+    },
+    {
+      "id": "indice_marca",
+      "tipo": "marca",
+      "limite_pontos": 10,
+      "prioridade": "alta",
+      "canais": [
+        "painel",
+        "issue"
+      ]
+    },
+    {
+      "id": "catalogo_mudou",
+      "tipo": "catalogo",
+      "prioridade": "media",
+      "canais": [
+        "painel",
+        "issue"
+      ]
+    },
+    {
+      "id": "ibge_novo_ano",
+      "tipo": "regional",
+      "prioridade": "media",
       "canais": [
         "painel",
         "issue"

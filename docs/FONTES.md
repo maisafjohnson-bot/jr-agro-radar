@@ -48,12 +48,31 @@ soja_mt;28/10/2026;125,40;Cepea/Esalq;Paranaguá;
 
 O importador rejeita e reporta: indicador desconhecido, data inválida, valor vazio (não vira zero), fonte em branco e linhas duplicadas. Pode-se ir acrescentando linhas ao mesmo arquivo; o que já existe não duplica.
 
+## Regionais automáticas — IBGE (implementadas, ainda não executadas)
+
+| Dado | API | Frequência | Observação |
+|---|---|---|---|
+| Municípios de MT, RO, AC | `servicodados.ibge.gov.br/api/v1/localidades/estados/{uf}/municipios` | anual | |
+| Área plantada: soja, milho, algodão, café | Agregados v3, tabela 5457 (PAM), 2 últimos anos | anual, ~1 ano de defasagem | Códigos resolvidos **pelo nome** nos metadados |
+| Rebanho bovino | Agregados v3, tabela 3939 (PPM) | anual | Idem |
+| Malha municipal | `api/v3/malhas/estados/{uf}` (GeoJSON, qualidade mínima) | rara | Precisão reduzida a 3 casas |
+
+Coleta no máximo uma vez a cada 30 dias. O formato das respostas foi implementado conforme a documentação pública, mas **só será confirmado na primeira execução real**.
+
+## Catálogos técnicos (base local)
+
+| Fabricante | Arquivo | Páginas | Revisão | Produtos |
+|---|---|---|---|---|
+| Piccin | Cata_logo_2026.pdf | 68 | 01/2026 (criado 10/12/2025) | 58 |
+| Crucianelli | Apresentac_a_o_Plantor_1.pdf | 16 | LECTURA 2024 (07/2024) | 2 (só plantadeiras) |
+
+Base em `data/catalogo/produtos.json`, gerada por `scripts/catalogo_build.py`; texto de cada página em `data/catalogo/fontes/` (para auditoria). Sites oficiais (piccin.com.br, crucianelli.com) **não foram consultados** — não estavam acessíveis no ambiente de desenvolvimento. Fonte de terceiros consultada para a Plantor: [Revista Cultivar, 01/12/2025](https://revistacultivar.com.br/artigos/test-drive-exclusivo-com-a-semeadora-plantor-2450-da-crucianelli) — divergências registradas na ficha.
+
 ## Ainda não integradas (próximas fases)
 
 | Fonte | O que traria | Caminho |
 |---|---|---|
 | BCB SICOR (Olinda) | Crédito rural contratado por UF/município e finalidade (investimento) | API aberta; recorte MT/RO/AC é a próxima integração recomendada |
 | Conab | Safra, área, produtividade por UF | Planilhas/boletins; avaliar estabilidade dos arquivos |
-| IBGE SIDRA (PAM/PPM) | Produção agrícola e rebanho por município | API aberta; dado anual, útil para o mapa regional |
 | BNDES / Plano Safra | Linhas e condições de financiamento | Publicações oficiais; condições mudam por portaria — exigem revisão humana |
 | WhatsApp | Envio de alertas | Requer conta WhatsApp Business API (paga) |
