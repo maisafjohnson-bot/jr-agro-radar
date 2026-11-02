@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-30T22:43:02.992Z",
+ "gerado_em": "2026-11-02T10:36:37.664Z",
  "metodologia": {
   "versao": "0.3.1-experimental",
   "status": "HEURÍSTICO EXPERIMENTAL — pesos definidos por raciocínio econômico, NÃO calibrados com vendas da JR Agro. Não tem capacidade preditiva validada."
@@ -107,7 +107,7 @@
      "id": "capital",
      "nome": "Custo do capital e crédito",
      "peso": 0.25,
-     "sinal": -0.10201590576155478,
+     "sinal": -0.1022621514506945,
      "disponivel": true,
      "variaveis": [
       {
@@ -117,38 +117,38 @@
        "porque": "Juros básicos mais altos encarecem financiamentos livres e reduzem o apetite por investimento; linhas equalizadas (Plano Safra/BNDES) amortecem parte do efeito.",
        "disponivel": true,
        "variacao": {
-        "de": "2026-09-30",
-        "para": "2026-10-30",
+        "de": "2026-10-03",
+        "para": "2026-11-02",
         "pct": 0,
         "pp": 0,
         "valor_de": 13.75,
         "valor_para": 13.75,
         "valor": 0,
         "medida": "pp",
-        "iStart": 3257
+        "iStart": 3260
        },
        "medida": "pp",
-       "percentil": 0.5208978328173375,
-       "percentil_nivel": 0.7719805293580773,
+       "percentil": 0.5216383307573416,
+       "percentil_nivel": 0.7717325227963526,
        "componentes_usados": {
         "momento": {
-         "percentil": 0.5208978328173375,
-         "sinal": 0.04179566563467496,
+         "percentil": 0.5216383307573416,
+         "sinal": 0.043276661514683123,
          "qualidade": "percentil",
-         "n": 646
+         "n": 647
         },
         "nivel": {
-         "percentil": 0.7719805293580773,
-         "sinal": 0.5439610587161545,
-         "n": 3287,
+         "percentil": 0.7717325227963526,
+         "sinal": 0.5434650455927053,
+         "n": 3290,
          "desde": "2017-10-30"
         }
        },
-       "sinal_bruto": 0.29287836217541474,
+       "sinal_bruto": 0.2933708535536942,
        "qualidade": "percentil",
-       "n_historico": 646,
-       "data_referencia": "2026-10-30",
-       "sinal": -0.29287836217541474
+       "n_historico": 647,
+       "data_referencia": "2026-11-02",
+       "sinal": -0.2933708535536942
       },
       {
        "id": "focus_selic_prox_ano",
@@ -191,7 +191,7 @@
        "sinal": 0.08884655065230518
       }
      ],
-     "contribuicao_pontos": -1.96
+     "contribuicao_pontos": -1.97
     },
     {
      "id": "custos",
@@ -374,7 +374,7 @@
    "suficiente": true,
    "regionais_usados": [],
    "valor": 51,
-   "valor_bruto": 50.64,
+   "valor_bruto": 50.63,
    "classificacao": "Misto / neutro",
    "confianca": "baixa",
    "motivo_confianca": "cobertura 65% dos pesos; 5 variáveis com dado atual; modelo ainda não calibrado com vendas da JR Agro; nenhum indicador regional (MT/RO/AC) atual — leitura baseada só em dados nacionais",
@@ -447,7 +447,7 @@
      "id": "capital_pec",
      "nome": "Custo do capital",
      "peso": 0.25,
-     "sinal": -0.10201590576155478,
+     "sinal": -0.1022621514506945,
      "disponivel": true,
      "variaveis": [
       {
@@ -457,38 +457,38 @@
        "porque": "Juros altos encarecem o investimento.",
        "disponivel": true,
        "variacao": {
-        "de": "2026-09-30",
-        "para": "2026-10-30",
+        "de": "2026-10-03",
+        "para": "2026-11-02",
         "pct": 0,
         "pp": 0,
         "valor_de": 13.75,
         "valor_para": 13.75,
         "valor": 0,
         "medida": "pp",
-        "iStart": 3257
+        "iStart": 3260
        },
        "medida": "pp",
-       "percentil": 0.5208978328173375,
-       "percentil_nivel": 0.7719805293580773,
+       "percentil": 0.5216383307573416,
+       "percentil_nivel": 0.7717325227963526,
        "componentes_usados": {
         "momento": {
-         "percentil": 0.5208978328173375,
-         "sinal": 0.04179566563467496,
+         "percentil": 0.5216383307573416,
+         "sinal": 0.043276661514683123,
          "qualidade": "percentil",
-         "n": 646
+         "n": 647
         },
         "nivel": {
-         "percentil": 0.7719805293580773,
-         "sinal": 0.5439610587161545,
-         "n": 3287,
+         "percentil": 0.7717325227963526,
+         "sinal": 0.5434650455927053,
+         "n": 3290,
          "desde": "2017-10-30"
         }
        },
-       "sinal_bruto": 0.29287836217541474,
+       "sinal_bruto": 0.2933708535536942,
        "qualidade": "percentil",
-       "n_historico": 646,
-       "data_referencia": "2026-10-30",
-       "sinal": -0.29287836217541474
+       "n_historico": 647,
+       "data_referencia": "2026-11-02",
+       "sinal": -0.2933708535536942
       },
       {
        "id": "focus_selic_prox_ano",
@@ -589,7 +589,7 @@
   }
  },
  "diagnostico": {
-  "data_analise": "2026-10-30T22:43:02.992Z",
+  "data_analise": "2026-11-02T10:36:37.664Z",
   "situacao": "misto",
   "recomendacao": "MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO",
   "confianca": "baixa",
@@ -650,9 +650,9 @@
     "indicador": "Taxa Selic — meta Copom",
     "curto": "a Selic",
     "bloco": "Custo do capital e crédito",
-    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
-    "variacao": "0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)",
-    "periodo": "30/09/2026 a 30/10/2026",
+    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 02/11/2026)",
+    "variacao": "0,00 p.p. (13,75% → 13,75%, 03/10/2026 → 02/11/2026)",
+    "periodo": "03/10/2026 a 02/11/2026",
     "fonte": "Banco Central do Brasil — SGS série 432",
     "fonte_url": "https://www3.bcb.gov.br/sgspub/",
     "porque_importa": "Juros básicos mais altos encarecem financiamentos livres e reduzem o apetite por investimento; linhas equalizadas (Plano Safra/BNDES) amortecem parte do efeito.",
@@ -663,7 +663,7 @@
      "Dado nacional — não reflete necessariamente MT, RO ou AC.",
      "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
     ],
-    "forca": 0.29287836217541474
+    "forca": 0.2933708535536942
    },
    {
     "id": "selic_meta",
@@ -672,9 +672,9 @@
     "indicador": "Taxa Selic — meta Copom",
     "curto": "a Selic",
     "bloco": "Custo do capital",
-    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
-    "variacao": "0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)",
-    "periodo": "30/09/2026 a 30/10/2026",
+    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 02/11/2026)",
+    "variacao": "0,00 p.p. (13,75% → 13,75%, 03/10/2026 → 02/11/2026)",
+    "periodo": "03/10/2026 a 02/11/2026",
     "fonte": "Banco Central do Brasil — SGS série 432",
     "fonte_url": "https://www3.bcb.gov.br/sgspub/",
     "porque_importa": "Juros altos encarecem o investimento.",
@@ -685,7 +685,7 @@
      "Dado nacional — não reflete necessariamente MT, RO ou AC.",
      "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
     ],
-    "forca": 0.29287836217541474
+    "forca": 0.2933708535536942
    }
   ],
   "fatores_neutros": [
@@ -767,7 +767,7 @@
   ],
   "sinais_contraditorios": false,
   "mudancas_vs_anterior": [
-   "Primeira análise registrada — sem base de comparação."
+   "Índice geral estável em 51 (anterior: 30/10/2026)."
   ],
   "fatos": {
    "usd_brl": {
@@ -780,10 +780,10 @@
    },
    "selic_meta": {
     "id": "selic_meta",
-    "nivel": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
-    "variacao": "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 30/09/2026 e 30/10/2026 (Banco Central do Brasil)",
+    "nivel": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 02/11/2026)",
+    "variacao": "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 03/10/2026 e 02/11/2026 (Banco Central do Brasil)",
     "direcao": "estável",
-    "msg": "a Selic ficou de 13,75% para 13,75% entre 30/09 e 30/10 (Banco Central do Brasil)",
+    "msg": "a Selic ficou de 13,75% para 13,75% entre 03/10 e 02/11 (Banco Central do Brasil)",
     "tipo": "oficial"
    },
    "ipca_12m": {
@@ -869,8 +869,8 @@
   },
   "tendencia_indice": {
    "status": "insuficiente",
-   "texto": "Tendência do índice exige 10 dias com nota; há 1.",
-   "dias": 1
+   "texto": "Tendência do índice exige 10 dias com nota; há 2.",
+   "dias": 2
   },
   "sinais_momento_compra": [
    {
@@ -898,7 +898,7 @@
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 3,
    "variacoes": {
     "diaria": {
      "de": "2026-10-29",
@@ -1184,8 +1184,8 @@
     ]
    ],
    "historico_url": "data/observations/usd_brl.json",
-   "fonte_consultada_em": "2026-10-30T22:43:04.000Z",
-   "dado_novo_nesta_execucao": true,
+   "fonte_consultada_em": "2026-11-02T10:36:39.949Z",
+   "dado_novo_nesta_execucao": false,
    "conferencia": {
     "status": "confirmado",
     "fonte": "Banco Central Europeu (taxa de referência, via api.frankfurter.dev)",
@@ -1206,40 +1206,40 @@
    "abrangencia": "Brasil",
    "coleta": "bcb_sgs",
    "valor": 13.75,
-   "data_referencia": "2026-10-30",
-   "coletado_em": "2026-10-30T14:07:41.785Z",
+   "data_referencia": "2026-11-02",
+   "coletado_em": "2026-11-02T10:36:40.340Z",
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
    "idade_dias": 0,
    "variacoes": {
     "diaria": {
-     "de": "2026-10-29",
-     "para": "2026-10-30",
+     "de": "2026-11-01",
+     "para": "2026-11-02",
      "pct": 0,
      "pp": 0,
      "valor_de": 13.75,
      "valor_para": 13.75
     },
     "semanal": {
-     "de": "2026-10-23",
-     "para": "2026-10-30",
+     "de": "2026-10-26",
+     "para": "2026-11-02",
      "pct": 0,
      "pp": 0,
      "valor_de": 13.75,
      "valor_para": 13.75
     },
     "mensal": {
-     "de": "2026-09-30",
-     "para": "2026-10-30",
+     "de": "2026-10-03",
+     "para": "2026-11-02",
      "pct": 0,
      "pp": 0,
      "valor_de": 13.75,
      "valor_para": 13.75
     },
     "anual": {
-     "de": "2025-10-30",
-     "para": "2026-10-30",
+     "de": "2025-11-02",
+     "para": "2026-11-02",
      "pct": -8.333333333333332,
      "pp": -1.25,
      "valor_de": 15,
@@ -1253,18 +1253,6 @@
    "interpretacao": "No mês: juros estáveis: argumento de financiamento depende da linha disponível, não do movimento da Selic.",
    "aviso": [],
    "sparkline": [
-    [
-     "2026-09-01",
-     14
-    ],
-    [
-     "2026-09-02",
-     14
-    ],
-    [
-     "2026-09-03",
-     14
-    ],
     [
      "2026-09-04",
      14
@@ -1492,11 +1480,23 @@
     [
      "2026-10-30",
      13.75
+    ],
+    [
+     "2026-10-31",
+     13.75
+    ],
+    [
+     "2026-11-01",
+     13.75
+    ],
+    [
+     "2026-11-02",
+     13.75
     ]
    ],
    "historico_url": "data/observations/selic_meta.json",
-   "fonte_consultada_em": "2026-10-30T22:43:04.778Z",
-   "dado_novo_nesta_execucao": false
+   "fonte_consultada_em": "2026-11-02T10:36:40.356Z",
+   "dado_novo_nesta_execucao": true
   },
   {
    "id": "ipca_12m",
@@ -1514,7 +1514,7 @@
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
-   "idade_dias": 59,
+   "idade_dias": 62,
    "variacoes": {
     "mensal": {
      "de": "2026-08-01",
@@ -1782,7 +1782,7 @@
     ]
    ],
    "historico_url": "data/observations/ipca_12m.json",
-   "fonte_consultada_em": "2026-10-30T22:43:05.650Z",
+   "fonte_consultada_em": "2026-11-02T10:36:41.669Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -1801,7 +1801,7 @@
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
-   "idade_dias": 59,
+   "idade_dias": 62,
    "variacoes": {
     "mensal": {
      "de": "2026-08-01",
@@ -2071,7 +2071,7 @@
     ]
    ],
    "historico_url": "data/observations/icbr_agro.json",
-   "fonte_consultada_em": "2026-10-30T22:43:05.973Z",
+   "fonte_consultada_em": "2026-11-02T10:36:41.950Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2090,7 +2090,7 @@
    "tipo_dado": "expectativa",
    "praca": null,
    "status": "atual",
-   "idade_dias": 7,
+   "idade_dias": 10,
    "variacoes": {
     "semanal": {
      "de": "2026-10-22",
@@ -2368,7 +2368,7 @@
     ]
    ],
    "historico_url": "data/observations/focus_selic_prox_ano.json",
-   "fonte_consultada_em": "2026-10-30T22:43:06.937Z",
+   "fonte_consultada_em": "2026-11-02T10:36:42.170Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2387,7 +2387,7 @@
    "tipo_dado": "expectativa",
    "praca": null,
    "status": "atual",
-   "idade_dias": 7,
+   "idade_dias": 10,
    "variacoes": {
     "semanal": {
      "de": "2026-10-22",
@@ -2665,7 +2665,7 @@
     ]
    ],
    "historico_url": "data/observations/focus_ipca_prox_ano.json",
-   "fonte_consultada_em": "2026-10-30T22:43:07.722Z",
+   "fonte_consultada_em": "2026-11-02T10:36:42.381Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2789,7 +2789,7 @@
    "tipo_dado": "manual",
    "praca": "MT (total)",
    "status": "atual",
-   "idade_dias": 7,
+   "idade_dias": 10,
    "variacoes": {},
    "tendencia": {
     "rotulo": "indefinida",
@@ -2838,7 +2838,7 @@
    "tipo_dado": "manual",
    "praca": "MT",
    "status": "atual",
-   "idade_dias": 29,
+   "idade_dias": 32,
    "variacoes": {},
    "tendencia": {
     "rotulo": "indefinida",
@@ -2872,7 +2872,7 @@
    "tipo_dado": "oficial",
    "praca": "Paranaguá (PR)",
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 3,
    "variacoes": {
     "diaria": {
      "de": "2026-10-29",
@@ -2964,8 +2964,8 @@
     ]
    ],
    "historico_url": "data/observations/soja_cepea.json",
-   "fonte_consultada_em": "2026-10-30T22:43:10.335Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-02T10:36:44.776Z",
+   "dado_novo_nesta_execucao": false
   },
   {
    "id": "milho_cepea",
@@ -2983,7 +2983,7 @@
    "tipo_dado": "oficial",
    "praca": "Campinas (SP)",
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 3,
    "variacoes": {
     "diaria": {
      "de": "2026-10-29",
@@ -3075,8 +3075,8 @@
     ]
    ],
    "historico_url": "data/observations/milho_cepea.json",
-   "fonte_consultada_em": "2026-10-30T22:43:10.335Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-02T10:36:44.776Z",
+   "dado_novo_nesta_execucao": false
   },
   {
    "id": "boi_cepea",
@@ -3094,7 +3094,7 @@
    "tipo_dado": "oficial",
    "praca": "SP",
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 3,
    "variacoes": {
     "diaria": {
      "de": "2026-10-29",
@@ -3186,8 +3186,8 @@
     ]
    ],
    "historico_url": "data/observations/boi_cepea.json",
-   "fonte_consultada_em": "2026-10-30T22:43:10.336Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-02T10:36:44.776Z",
+   "dado_novo_nesta_execucao": false
   },
   {
    "id": "algodao_cepea",
@@ -3205,7 +3205,7 @@
    "tipo_dado": "oficial",
    "praca": "Brasil",
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 3,
    "variacoes": {
     "diaria": {
      "de": "2026-10-29",
@@ -3233,8 +3233,8 @@
     ]
    ],
    "historico_url": "data/observations/algodao_cepea.json",
-   "fonte_consultada_em": "2026-10-30T22:43:10.336Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-02T10:36:44.777Z",
+   "dado_novo_nesta_execucao": false
   }
  ],
  "categorias": [
@@ -3244,33 +3244,17 @@
    "termo": "plantadeira",
    "produto": "plantadeiras",
    "segmento": "agricola",
-   "pontos": 1.64,
+   "pontos": 3.64,
    "motivos": [
     "MT: Plantio da soja (equipamento em uso — bom para demonstração e levantar gargalos)",
+    "MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra)",
     "RO: Plantio da soja (equipamento em uso — bom para demonstração e levantar gargalos)",
     "Índice agrícola: 51/100"
    ],
    "marcas": [
     "CRUCIANELLI"
    ],
-   "janela_compra": false,
-   "natureza": "Hipótese comercial a validar — a relação entre calendário/indicadores e demanda ainda não foi testada com vendas da JR Agro."
-  },
-  {
-   "id": "distribuicao",
-   "nome": "Distribuição e aplicação (distribuidores de calcário/adubo)",
-   "termo": "distribuição de calcário e adubo",
-   "produto": "distribuidores de calcário e adubo",
-   "segmento": "agricola",
-   "pontos": 1.04,
-   "motivos": [
-    "MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso — bom para demonstração e levantar gargalos)",
-    "Índice agrícola: 51/100"
-   ],
-   "marcas": [
-    "PICCIN"
-   ],
-   "janela_compra": false,
+   "janela_compra": true,
    "natureza": "Hipótese comercial a validar — a relação entre calendário/indicadores e demanda ainda não foi testada com vendas da JR Agro."
   },
   {
@@ -3281,7 +3265,24 @@
    "segmento": "agricola",
    "pontos": 0.04,
    "motivos": [
-    "Sem janela de calendário relevante em outubro",
+    "Sem janela de calendário relevante em novembro",
+    "Índice agrícola: 51/100"
+   ],
+   "marcas": [
+    "PICCIN"
+   ],
+   "janela_compra": false,
+   "natureza": "Hipótese comercial a validar — a relação entre calendário/indicadores e demanda ainda não foi testada com vendas da JR Agro."
+  },
+  {
+   "id": "distribuicao",
+   "nome": "Distribuição e aplicação (distribuidores de calcário/adubo)",
+   "termo": "distribuição de calcário e adubo",
+   "produto": "distribuidores de calcário e adubo",
+   "segmento": "agricola",
+   "pontos": 0.04,
+   "motivos": [
+    "Sem janela de calendário relevante em novembro",
     "Índice agrícola: 51/100"
    ],
    "marcas": [
@@ -3298,7 +3299,7 @@
    "segmento": "agricola",
    "pontos": 0.04,
    "motivos": [
-    "Sem janela de calendário relevante em outubro",
+    "Sem janela de calendário relevante em novembro",
     "Índice agrícola: 51/100"
    ],
    "marcas": [],
@@ -3313,7 +3314,7 @@
    "segmento": "pecuaria",
    "pontos": 0,
    "motivos": [
-    "Sem janela de calendário relevante em outubro",
+    "Sem janela de calendário relevante em novembro",
     "Índice pecuário sem dados suficientes — prioridade só pelo calendário"
    ],
    "marcas": [],
@@ -3338,13 +3339,13 @@
    "base_regiao": "perfil produtivo conhecido das regiões; ainda não há indicador regional automático",
    "evidencias": [
     "Focus — mediana IPCA do próximo ano passou de 4,30% para 4,34% entre 23/09/2026 e 23/10/2026 (Banco Central do Brasil)",
-    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 30/09/2026 e 30/10/2026 (Banco Central do Brasil)"
+    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 03/10/2026 e 02/11/2026 (Banco Central do Brasil)"
    ],
    "argumento_central": "Atender quem já tem necessidade definida; manter presença com informação útil.",
    "objecoes": [
     {
      "objecao": "Os juros estão altos demais para financiar agora.",
-     "base": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
+     "base": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 02/11/2026)",
      "resposta": "Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro."
     },
     {
@@ -3388,7 +3389,7 @@
    "categoria": "Plantadeiras",
    "evidencias": [
     "Focus — mediana IPCA do próximo ano passou de 4,30% para 4,34% entre 23/09/2026 e 23/10/2026 (Banco Central do Brasil)",
-    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 30/09/2026 e 30/10/2026 (Banco Central do Brasil)"
+    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 03/10/2026 e 02/11/2026 (Banco Central do Brasil)"
    ],
    "argumento": "Atualizar a necessidade do cliente e verificar se a proposta precisa de revisão ou de simulação de pagamento.",
    "pergunta": "O que falta para essa decisão andar — prazo, forma de pagamento ou validação técnica?",
@@ -3410,7 +3411,7 @@
    "categoria": "Plantadeiras",
    "evidencias": [
     "Focus — mediana IPCA do próximo ano: 4,34% (Banco Central do Brasil, ref. 23/10/2026)",
-    "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)"
+    "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 02/11/2026)"
    ],
    "argumento": "Escuta: problemas em campo, gargalos, planos de renovação.",
    "pergunta": "Tem algum equipamento limitando a operação agora?",
@@ -3431,7 +3432,7 @@
    "regiao": "MT, RO, AC",
    "categoria": "—",
    "evidencias": [
-    "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 30/10/2026)",
+    "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 02/11/2026)",
     "Focus — mediana Selic fim do próximo ano: 11,75% a.a. (Banco Central do Brasil, ref. 23/10/2026)"
    ],
    "argumento": "Comparar linhas disponíveis (banco, cooperativa de crédito, BNDES/Plano Safra) — confirmar as condições vigentes antes de citar qualquer taxa.",
@@ -3511,12 +3512,26 @@
   ],
   "aviso": "Revise antes de enviar. As mensagens citam apenas dados coletados, com fonte e data; não prometem preço, prazo ou condição de financiamento."
  },
- "anterior": null,
+ "anterior": {
+  "data": "2026-10-30",
+  "analisado_em": "2026-10-30T22:43:02.992Z",
+  "recomendacao": "MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO",
+  "situacao": "misto",
+  "confianca": "baixa",
+  "geral_valor": 51,
+  "agricola_valor": 51,
+  "pecuaria_valor": null,
+  "marcas": {
+   "PICCIN": 47,
+   "CRUCIANELLI": 47
+  },
+  "versao": "0.3.1-experimental"
+ },
  "marcas": {
   "indices": {
    "PICCIN": {
     "marca": "PICCIN",
-    "valor": 47,
+    "valor": 37,
     "cobertura": 0.8,
     "confianca": "baixa",
     "motivo_confianca": "cobertura 75% dos pesos; sem histórico comercial no CRM; pesos heurísticos, não calibrados com vendas",
@@ -3540,6 +3555,13 @@
       "valor": 0,
       "detalhe": "0 de 53 produtos em janela de decisão de compra.",
       "efeito": -50
+     },
+     {
+      "id": "momento",
+      "nome": "Momento agrícola regional",
+      "valor": 15,
+      "detalhe": "Nenhuma janela do calendário de referência para as categorias da marca neste mês.",
+      "efeito": -35
      }
     ],
     "componentes": {
@@ -3552,8 +3574,8 @@
       "detalhe": "Selic e expectativa Focus (nível e movimento)."
      },
      "momento": {
-      "valor": 55,
-      "detalhe": "MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso)."
+      "valor": 15,
+      "detalhe": "Nenhuma janela do calendário de referência para as categorias da marca neste mês."
      },
      "aderencia": {
       "valor": 0,
@@ -3576,21 +3598,7 @@
       "detalhe": "Constante no curto prazo: usado para escolher a região (Prioridade 3), não para pontuar o dia"
      }
     },
-    "janelas": [
-     {
-      "uf": "MT",
-      "atividade": "Adubação a lanço (potássio) antes e durante o plantio da soja",
-      "meses": [
-       8,
-       9,
-       10
-      ],
-      "categorias": [
-       "distribuicao"
-      ],
-      "papel": "em_uso"
-     }
-    ],
+    "janelas": [],
     "regioes": [
      {
       "codigo": "5101902",
@@ -3690,12 +3698,15 @@
      }
     ],
     "regional_disponivel": true,
-    "anterior": null,
-    "variacao": null
+    "anterior": {
+     "data": "2026-10-30",
+     "valor": 47
+    },
+    "variacao": -10
    },
    "CRUCIANELLI": {
     "marca": "CRUCIANELLI",
-    "valor": 47,
+    "valor": 70,
     "cobertura": 0.8,
     "confianca": "baixa",
     "motivo_confianca": "cobertura 75% dos pesos; sem histórico comercial no CRM; pesos heurísticos, não calibrados com vendas",
@@ -3705,6 +3716,20 @@
     ],
     "positivos": [
      {
+      "id": "aderencia",
+      "nome": "Aderência do portfólio",
+      "valor": 100,
+      "detalhe": "1 de 1 produtos em janela de decisão de compra.",
+      "efeito": 50
+     },
+     {
+      "id": "momento",
+      "nome": "Momento agrícola regional",
+      "valor": 90,
+      "detalhe": "MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra).",
+      "efeito": 40
+     },
+     {
       "id": "demanda",
       "nome": "Perfil de demanda",
       "valor": 69,
@@ -3712,15 +3737,7 @@
       "efeito": 19
      }
     ],
-    "negativos": [
-     {
-      "id": "aderencia",
-      "nome": "Aderência do portfólio",
-      "valor": 0,
-      "detalhe": "0 de 1 produtos em janela de decisão de compra.",
-      "efeito": -50
-     }
-    ],
+    "negativos": [],
     "componentes": {
      "economia": {
       "valor": 54,
@@ -3731,12 +3748,12 @@
       "detalhe": "Selic e expectativa Focus (nível e movimento)."
      },
      "momento": {
-      "valor": 55,
-      "detalhe": "MT: Plantio da soja (equipamento em uso)."
+      "valor": 90,
+      "detalhe": "MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra)."
      },
      "aderencia": {
-      "valor": 0,
-      "detalhe": "0 de 1 produtos em janela de decisão de compra."
+      "valor": 100,
+      "detalhe": "1 de 1 produtos em janela de decisão de compra."
      },
      "demanda": {
       "valor": 69,
@@ -3769,6 +3786,18 @@
        "plantadeiras"
       ],
       "papel": "em_uso"
+     },
+     {
+      "uf": "MT",
+      "atividade": "Decisão de compra de plantadeiras para o milho 2ª safra",
+      "meses": [
+       11,
+       12
+      ],
+      "categorias": [
+       "plantadeiras"
+      ],
+      "papel": "decisao_compra"
      },
      {
       "uf": "RO",
@@ -3883,184 +3912,130 @@
      }
     ],
     "regional_disponivel": true,
-    "anterior": null,
-    "variacao": null
+    "anterior": {
+     "data": "2026-10-30",
+     "valor": 47
+    },
+    "variacao": 23
    }
   },
   "plano": {
    "prioridade_marca": {
-    "marca": "PICCIN",
-    "nome": "Piccin",
-    "porque": "Índices próximos (47 × 47); desempate pelo calendário: MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso).",
+    "marca": "CRUCIANELLI",
+    "nome": "Crucianelli",
+    "porque": "Índice Crucianelli 70 × Piccin 37. Maior diferença: 1 de 1 produtos em janela de decisão de compra.",
     "outra": {
-     "marca": "CRUCIANELLI",
-     "valor": 47
+     "marca": "PICCIN",
+     "valor": 37
     }
    },
    "equipamento": {
-    "categoria": "Distribuidores",
-    "forca_calendario": 55,
+    "categoria": "Plantadeiras",
+    "forca_calendario": 90,
     "janelas": [
-     "MT: Adubação a lanço (potássio) antes e durante o plantio da soja"
+     "MT: Plantio da soja",
+     "MT: Decisão de compra de plantadeiras para o milho 2ª safra",
+     "RO: Plantio da soja"
     ],
-    "motivo": "Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja).",
+    "motivo": "Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).",
     "opcoes": [
      {
-      "porte": "pequeno/médio",
-      "id": "piccin-master-dh1",
-      "modelo": "MASTER DH 1",
-      "nome": "Distribuidor Master DH1 (semi-hidráulico)",
-      "potencia_cv": {
-       "min": 50,
-       "max": 100
-      },
-      "paginas": [
-       45
-      ],
-      "status": "confirmada",
-      "variantes": 5,
-      "outros_no_porte": [
-       "MASTER",
-       "MASTER CAFEEIRA",
-       "MASTER D",
-       "MASTER TP RB",
-       "MASTER DH EI",
-       "MASTER 6000 RB",
-       "MASTER 8000 BI RB",
-       "MASTER DH S",
-       "MASTER DH S INOX",
-       "MASTER DH BI S",
-       "MASTER DH BI S INOX"
-      ]
-     },
-     {
-      "porte": "médio/grande",
-      "id": "piccin-master-10000-bi-rb",
-      "modelo": "MASTER 10000 BI RB",
-      "nome": "Distribuidor Master 10000 BI RB",
-      "potencia_cv": {
-       "min": 140,
-       "max": 140
-      },
-      "paginas": [
-       50
-      ],
-      "status": "confirmada",
-      "variantes": 1,
-      "outros_no_porte": [
-       "MASTER 15000 BI RB",
-       "MASTER 17000 PRECISION TECH"
-      ]
-     },
-     {
       "porte": "grande",
-      "id": "piccin-master-25000-hd-rb",
-      "modelo": "MASTER 25000 HEAVY DUTY RB",
-      "nome": "Distribuidor Master 25000 Heavy Duty RB",
+      "id": "crucianelli-plantor",
+      "modelo": "PLANTOR",
+      "nome": "Plantor — plantadeira com caixa central",
       "potencia_cv": {
-       "min": 200,
-       "max": 200
+       "min": 220,
+       "max": 310
       },
       "paginas": [
-       57
+       2,
+       3,
+       4,
+       5,
+       6,
+       7,
+       8,
+       9,
+       10,
+       11,
+       12
       ],
       "status": "confirmada",
-      "variantes": 1,
-      "outros_no_porte": [
-       "MASTER 30000 HEAVY DUTY",
-       "MASTER 30000 HEAVY DUTY INOX"
-      ]
+      "variantes": 3,
+      "outros_no_porte": []
      }
     ],
-    "outras_categorias": [
-     {
-      "categoria": "Grades",
-      "forca_calendario": 0
-     },
-     {
-      "categoria": "Descompactadores",
-      "forca_calendario": 0
-     }
-    ],
+    "outras_categorias": [],
     "recomendado": {
-     "porte": "pequeno/médio",
-     "id": "piccin-master-dh1",
-     "modelo": "MASTER DH 1",
-     "nome": "Distribuidor Master DH1 (semi-hidráulico)",
+     "porte": "grande",
+     "id": "crucianelli-plantor",
+     "modelo": "PLANTOR",
+     "nome": "Plantor — plantadeira com caixa central",
      "potencia_cv": {
-      "min": 50,
-      "max": 100
+      "min": 220,
+      "max": 310
      },
      "paginas": [
-      45
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
      ],
      "status": "confirmada",
-     "variantes": 5,
-     "outros_no_porte": [
-      "MASTER",
-      "MASTER CAFEEIRA",
-      "MASTER D",
-      "MASTER TP RB",
-      "MASTER DH EI",
-      "MASTER 6000 RB",
-      "MASTER 8000 BI RB",
-      "MASTER DH S",
-      "MASTER DH S INOX",
-      "MASTER DH BI S",
-      "MASTER DH BI S INOX"
-     ]
+     "variantes": 3,
+     "outros_no_porte": []
     },
-    "porque": "Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja). Modelo do catálogo: MASTER DH 1 (p. 45); escolha a opção pelo trator do cliente."
+    "porque": "Categoria com a janela de calendário mais forte agora (MT: Plantio da soja). Modelo do catálogo: PLANTOR (p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); escolha a opção pelo trator do cliente."
    },
    "regiao": {
     "municipios": [
      {
-      "nome": "Brasnorte",
+      "nome": "Sorriso",
       "uf": "MT",
-      "potencial": 93,
-      "soja_ha": 292879,
-      "milho_ha": 184877,
-      "bovinos_cab": 464919
+      "potencial": 100,
+      "soja_ha": 550000,
+      "milho_ha": 450000,
+      "bovinos_cab": 100873
      },
      {
-      "nome": "Juara",
+      "nome": "Nova Mutum",
       "uf": "MT",
-      "potencial": 90,
-      "soja_ha": 140000,
-      "milho_ha": 87349,
-      "bovinos_cab": 908664
+      "potencial": 99,
+      "soja_ha": 415000,
+      "milho_ha": 311500,
+      "bovinos_cab": 144461
      },
      {
-      "nome": "Paranatinga",
+      "nome": "Sapezal",
       "uf": "MT",
-      "potencial": 88,
-      "soja_ha": 395000,
-      "milho_ha": 113700,
-      "bovinos_cab": 365369
+      "potencial": 99,
+      "soja_ha": 393550,
+      "milho_ha": 112930,
+      "bovinos_cab": 161742
      },
      {
-      "nome": "Alta Floresta",
+      "nome": "Campo Novo do Parecis",
       "uf": "MT",
-      "potencial": 87,
-      "soja_ha": 105000,
-      "milho_ha": 55000,
-      "bovinos_cab": 667629
+      "potencial": 98,
+      "soja_ha": 408000,
+      "milho_ha": 164552,
+      "bovinos_cab": 172397
      },
      {
-      "nome": "Itiquira",
+      "nome": "Diamantino",
       "uf": "MT",
-      "potencial": 85,
-      "soja_ha": 252000,
-      "milho_ha": 121800,
-      "bovinos_cab": 370067
-     },
-     {
-      "nome": "Porto Velho",
-      "uf": "RO",
-      "potencial": 81,
-      "soja_ha": 55368,
-      "milho_ha": 23015,
-      "bovinos_cab": 1678295
+      "potencial": 98,
+      "soja_ha": 405175,
+      "milho_ha": 245360,
+      "bovinos_cab": 121885
      },
      {
       "nome": "Corumbiara",
@@ -4071,38 +4046,44 @@
       "bovinos_cab": 322000
      },
      {
-      "nome": "Rio Branco",
+      "nome": "Pimenteiras do Oeste",
+      "uf": "RO",
+      "potencial": 71,
+      "soja_ha": 51726,
+      "milho_ha": 47250,
+      "bovinos_cab": 110500
+     },
+     {
+      "nome": "Plácido de Castro",
       "uf": "AC",
-      "potencial": 56,
-      "soja_ha": 1870,
-      "milho_ha": 3000,
-      "bovinos_cab": 692787
+      "potencial": 41,
+      "soja_ha": 6190,
+      "milho_ha": 5600,
+      "bovinos_cab": 327130
      }
     ],
-    "porque": "Maior potencial estrutural para Piccin segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.",
+    "porque": "Maior potencial estrutural para Crucianelli segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.",
     "base": "IBGE"
    },
    "perfil_cliente": {
     "publicos": [
-     "Produtores com o equipamento em uso agora",
+     "Produtores rurais em decisão de compra",
      "Revendas agrícolas que atendem esse público"
     ],
     "portes": [
-     "Pequenos e médios produtores",
-     "Médios e grandes produtores",
      "Grandes propriedades e grupos agrícolas"
     ],
-    "porque": "Distribuidores tem opções de MASTER DH 1 (50–100 cv), MASTER 10000 BI RB (140 cv), MASTER 25000 HEAVY DUTY RB (200 cv): o porte do cliente define o modelo (catálogo)."
+    "porque": "A Plantor exige de 220 a 310 HP (catálogo, p. 5) — perfil de grandes áreas e frotas de alta potência."
    },
    "acoes": [
     {
-     "tipo": "Agendar visita",
-     "texto": "Agendar visita a produtor com distribuidores em operação para levantar gargalos e preparar a próxima compra.",
-     "porque": "MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso)."
+     "tipo": "Prospectar produtores",
+     "texto": "Prospectar produtores para plantadeiras — janela de decisão de compra aberta.",
+     "porque": "MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra)."
     },
     {
      "tipo": "Ligar para uma revenda",
-     "texto": "Ligar para uma revenda de Brasnorte e levantar a procura por distribuidores Piccin.",
+     "texto": "Ligar para uma revenda de Sorriso e levantar a procura por plantadeiras Crucianelli.",
      "porque": "Revenda concentra a demanda de vários produtores; uma ligação valida se a oportunidade é real."
     },
     {
@@ -4113,144 +4094,183 @@
     }
    ],
    "argumentos": {
-    "produto": "piccin-master-dh1",
-    "modelo": "MASTER DH 1",
-    "nome": "Distribuidor Master DH1 (semi-hidráulico)",
-    "fabricante": "PICCIN",
+    "produto": "crucianelli-plantor",
+    "modelo": "PLANTOR",
+    "nome": "Plantor — plantadeira com caixa central",
+    "fabricante": "CRUCIANELLI",
     "revenda": {
      "oportunidade_mercado": [
-      "Com adubação a lanço (potássio) antes e durante o plantio da soja em MT",
+      "Com plantio da soja em MT",
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "5 modelos no catálogo, para tratores de 50 a 100 cv",
-      "Brasnorte (MT) está entre os municípios de maior área de lavoura no IBGE — 292.879 ha de soja em 2025"
+      "3 modelos no catálogo, para tratores de 220 a 310 HP",
+      "Sorriso (MT) está entre os municípios de maior área de lavoura no IBGE — 550.000 ha de soja em 2025"
      ],
      "perfil_cliente": {
-      "texto": "pequenos e médios produtores (tratores até ~100 cv)",
-      "base": "Derivado da potência requerida no catálogo (50 a 100 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+      "texto": "grandes propriedades e grupos agrícolas (tratores acima de 200 HP)",
+      "base": "Derivado da potência requerida no catálogo (220 a 310 HP): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
      },
      "beneficios_revenda": [
-      "Faixa de 5 modelos permite atender clientes de portes diferentes com a mesma linha",
+      "Faixa de 3 modelos permite atender clientes de portes diferentes com a mesma linha",
       "Ficha técnica completa no catálogo oficial (páginas citadas) para apoiar a venda técnica"
      ],
      "argumentos_tecnicos": [
       {
-       "texto": "Capacidade de carga de 3.000 a 12.000 kg",
-       "fonte": "p. 45"
+       "texto": "Modelos de 12 m, 15 m, 18 m de largura",
+       "fonte": "p. 5"
       },
       {
-       "texto": "Faixa de distribuição de 7 a 20 m",
-       "fonte": "p. 45"
+       "texto": "3 caixas centrais de 2.400 litros, cada uma para semente ou adubo",
+       "fonte": "p. 2 e 6"
       },
       {
-       "texto": "Potência no motor de 50 a 100 cv, conforme o modelo",
-       "fonte": "p. 45"
+       "texto": "Largura de transporte de 3,9 m",
+       "fonte": "p. 5"
       },
       {
-       "texto": "Opcionais: Kit direcionador; Bica central; Abafador",
-       "fonte": "p. 45"
+       "texto": "Potência mínima de 220 a 310 HP (linhas a 50 cm), conforme o modelo",
+       "fonte": "p. 5"
+      },
+      {
+       "texto": "Transporte → trabalho em menos de 3 minutos, com um operador",
+       "fonte": "p. 3"
+      },
+      {
+       "texto": "Sistema de transporte patenteado, comandado da cabine: 18 m de trabalho em menos de 4 m de largura de transporte (tabela: 3,9 m)",
+       "fonte": "p. 4"
+      },
+      {
+       "texto": "6 pneus (2 pares balancim + 2 articulados giratórios) distribuem o peso sem sobrecarregar o engate do trator",
+       "fonte": "p. 4"
+      },
+      {
+       "texto": "Opcionais: Kit varredura (limpa a palhada à frente do disco duplo); Kit central hidráulica independente (TDP 540 rpm; não usa a saída 3 do trator); Disco duplo fertilizador",
+       "fonte": "p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
       }
      ],
      "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER DH 1 da Piccin: capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em MT, queria conversar sobre a Plantor da Crucianelli: modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo. Como está a procura dos seus clientes por plantadeiras? Posso passar aí esta semana para mostrar a ficha técnica.",
      "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
     },
     "produtor": {
-     "necessidade": "Aplicar calcário, gesso e fertilizantes a lanço, com faixa e vazão documentadas.",
-     "beneficios_tecnicos": [],
-     "aplicacao": "Aplicação de calcário (faixa em L/ha informada no catálogo) e fertilizantes. (catálogo (linha \"Aplicação de Calcário\"))",
-     "caracteristicas_perfil": "Exige trator de 50 a 100 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
-     "perguntas": [
-      "Quantos hectares recebem calcário ou adubo a lanço por ano?",
-      "Hoje a aplicação é própria ou terceirizada?",
-      "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
+     "necessidade": "Plantar grandes áreas com autonomia de abastecimento e troca rápida entre transporte e trabalho.",
+     "beneficios_tecnicos": [
+      {
+       "texto": "Transporte → trabalho em menos de 3 minutos, com um operador",
+       "fonte": "p. 3"
+      },
+      {
+       "texto": "Sistema de transporte patenteado, comandado da cabine: 18 m de trabalho em menos de 4 m de largura de transporte (tabela: 3,9 m)",
+       "fonte": "p. 4"
+      },
+      {
+       "texto": "6 pneus (2 pares balancim + 2 articulados giratórios) distribuem o peso sem sobrecarregar o engate do trator",
+       "fonte": "p. 4"
+      },
+      {
+       "texto": "Sistema dual de dosagem e abastecimento (patenteado e premiado): as 3 caixas servem para semente ou adubo; conversão sem ferramentas",
+       "fonte": "p. 8"
+      },
+      {
+       "texto": "Abastecimento de sementes sob demanda até os dosadores monogrão; dosador de fertilizante por roda dentada tipo Chevron com motor hidráulico",
+       "fonte": "p. 9"
+      },
+      {
+       "texto": "Nível Precision Planting: vDrive, monitor 20/20 SeedSense, vApply e Delta Force",
+       "fonte": "p. 10"
+      }
      ],
-     "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Brasnorte e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+     "aplicacao": "Plantio de grãos com dosagem monogrão; fertilização na linha ou fora de linha. (catálogo, p. 7, 9 e 12)",
+     "caracteristicas_perfil": "Exige trator de 220 a 310 HP conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "perguntas": [
+      "Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?",
+      "Qual trator puxaria a plantadeira (potência)?",
+      "Qual espaçamento entre linhas o senhor usa em cada cultura?"
+     ],
+     "argumento": "Autonomia de abastecimento e mudança rápida entre transporte e trabalho, com especificações documentadas no catálogo — o rendimento por hectare depende da operação e não é informado pelo fabricante.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Sorriso e trabalho com a Plantor da Crucianelli (modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo). Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?"
     },
     "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
    },
    "por_marca": {
     "PICCIN": {
      "equipamento": {
-      "categoria": "Distribuidores",
-      "forca_calendario": 55,
-      "janelas": [
-       "MT: Adubação a lanço (potássio) antes e durante o plantio da soja"
-      ],
-      "motivo": "Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja).",
+      "categoria": "Grades",
+      "forca_calendario": 0,
+      "janelas": [],
+      "motivo": "Nenhuma categoria em janela de calendário neste mês; escolhida a de maior portfólio.",
       "opcoes": [
        {
         "porte": "pequeno/médio",
-        "id": "piccin-master-dh1",
-        "modelo": "MASTER DH 1",
-        "nome": "Distribuidor Master DH1 (semi-hidráulico)",
+        "id": "piccin-gacr-l",
+        "modelo": "GACR-L",
+        "nome": "Grade Aradora Controle Remoto Leve",
         "potencia_cv": {
-         "min": 50,
-         "max": 100
+         "min": 40,
+         "max": 160
         },
         "paginas": [
-         45
+         18
         ],
         "status": "confirmada",
-        "variantes": 5,
+        "variantes": 17,
         "outros_no_porte": [
-         "MASTER",
-         "MASTER CAFEEIRA",
-         "MASTER D",
-         "MASTER TP RB",
-         "MASTER DH EI",
-         "MASTER 6000 RB",
-         "MASTER 8000 BI RB",
-         "MASTER DH S",
-         "MASTER DH S INOX",
-         "MASTER DH BI S",
-         "MASTER DH BI S INOX"
+         "GACR",
+         "GAICR",
+         "GAPICR",
+         "GNPCR",
+         "GANFP (R)",
+         "GNDL",
+         "GND",
+         "GH"
         ]
        },
        {
         "porte": "médio/grande",
-        "id": "piccin-master-10000-bi-rb",
-        "modelo": "MASTER 10000 BI RB",
-        "nome": "Distribuidor Master 10000 BI RB",
+        "id": "piccin-gndm",
+        "modelo": "GNDM",
+        "nome": "Grade Niveladora Destorroadora Mecânica",
         "potencia_cv": {
-         "min": 140,
-         "max": 140
+         "min": 108,
+         "max": 232
         },
         "paginas": [
-         50
+         30
         ],
         "status": "confirmada",
-        "variantes": 1,
+        "variantes": 13,
         "outros_no_porte": [
-         "MASTER 15000 BI RB",
-         "MASTER 17000 PRECISION TECH"
+         "GCRP",
+         "GSPCR",
+         "GNPCRE",
+         "GNDMH 195",
+         "GNDMH 210",
+         "GNDHF"
         ]
        },
        {
         "porte": "grande",
-        "id": "piccin-master-25000-hd-rb",
-        "modelo": "MASTER 25000 HEAVY DUTY RB",
-        "nome": "Distribuidor Master 25000 Heavy Duty RB",
+        "id": "piccin-ganf-d",
+        "modelo": "GANF (P)(R) D",
+        "nome": "Grade Niveladora Flutuante dupla com pneu",
         "potencia_cv": {
-         "min": 200,
-         "max": 200
+         "min": 202,
+         "max": 368
         },
         "paginas": [
-         57
+         26
         ],
         "status": "confirmada",
-        "variantes": 1,
+        "variantes": 4,
         "outros_no_porte": [
-         "MASTER 30000 HEAVY DUTY",
-         "MASTER 30000 HEAVY DUTY INOX"
+         "GANFP (R) D 160"
         ]
        }
       ],
       "outras_categorias": [
        {
-        "categoria": "Grades",
+        "categoria": "Distribuidores",
         "forca_calendario": 0
        },
        {
@@ -4263,9 +4283,10 @@
     "CRUCIANELLI": {
      "equipamento": {
       "categoria": "Plantadeiras",
-      "forca_calendario": 55,
+      "forca_calendario": 90,
       "janelas": [
        "MT: Plantio da soja",
+       "MT: Decisão de compra de plantadeiras para o milho 2ª safra",
        "RO: Plantio da soja"
       ],
       "motivo": "Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).",
@@ -4304,178 +4325,164 @@
   },
   "argumentos": [
    {
-    "produto": "piccin-master-dh1",
-    "modelo": "MASTER DH 1",
-    "nome": "Distribuidor Master DH1 (semi-hidráulico)",
+    "produto": "piccin-gacr-l",
+    "modelo": "GACR-L",
+    "nome": "Grade Aradora Controle Remoto Leve",
     "fabricante": "PICCIN",
     "revenda": {
      "oportunidade_mercado": [
-      "Com adubação a lanço (potássio) antes e durante o plantio da soja em MT",
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "5 modelos no catálogo, para tratores de 50 a 100 cv",
+      "17 modelos no catálogo, para tratores de 40 a 160 cv",
       "Brasnorte (MT) está entre os municípios de maior área de lavoura no IBGE — 292.879 ha de soja em 2025"
      ],
      "perfil_cliente": {
-      "texto": "pequenos e médios produtores (tratores até ~100 cv)",
-      "base": "Derivado da potência requerida no catálogo (50 a 100 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+      "texto": "pequenos e médios produtores (tratores até ~100 cv); médios e grandes produtores (tratores de 100 a 250 cv)",
+      "base": "Derivado da potência requerida no catálogo (40 a 160 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
      },
      "beneficios_revenda": [
-      "Faixa de 5 modelos permite atender clientes de portes diferentes com a mesma linha",
+      "Faixa de 17 modelos permite atender clientes de portes diferentes com a mesma linha",
       "Ficha técnica completa no catálogo oficial (páginas citadas) para apoiar a venda técnica"
      ],
      "argumentos_tecnicos": [
       {
-       "texto": "Capacidade de carga de 3.000 a 12.000 kg",
-       "fonte": "p. 45"
+       "texto": "De 10 a 36 discos",
+       "fonte": "p. 18"
       },
       {
-       "texto": "Faixa de distribuição de 7 a 20 m",
-       "fonte": "p. 45"
+       "texto": "Largura de trabalho de 1.030 a 3.900 mm",
+       "fonte": "p. 18"
       },
       {
-       "texto": "Potência no motor de 50 a 100 cv, conforme o modelo",
-       "fonte": "p. 45"
-      },
-      {
-       "texto": "Opcionais: Kit direcionador; Bica central; Abafador",
-       "fonte": "p. 45"
+       "texto": "Potência no motor de 40 a 160 cv, conforme o modelo",
+       "fonte": "p. 18"
       }
      ],
      "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER DH 1 da Piccin: capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. queria conversar sobre a linha GACR-L da Piccin: de 10 a 36 discos; largura de trabalho de 1.030 a 3.900 mm. Como está a procura dos seus clientes por grades? Posso passar aí esta semana para mostrar a ficha técnica.",
      "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
     },
     "produtor": {
-     "necessidade": "Aplicar calcário, gesso e fertilizantes a lanço, com faixa e vazão documentadas.",
+     "necessidade": "Preparar e nivelar o solo (abertura de área, reforma de pastagem ou preparo de lavoura).",
      "beneficios_tecnicos": [],
-     "aplicacao": "Aplicação de calcário (faixa em L/ha informada no catálogo) e fertilizantes. (catálogo (linha \"Aplicação de Calcário\"))",
-     "caracteristicas_perfil": "Exige trator de 50 a 100 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "aplicacao": "Preparo primário do solo, incorporação de restos culturais e abertura/reforma de áreas. (derivada da categoria (o catálogo não descreve a aplicação))",
+     "caracteristicas_perfil": "Exige trator de 40 a 160 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
      "perguntas": [
-      "Quantos hectares recebem calcário ou adubo a lanço por ano?",
-      "Hoje a aplicação é própria ou terceirizada?",
-      "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
+      "Quantos hectares o senhor prepara por ano com grade, e com qual trator?",
+      "É abertura de área, reforma de pastagem ou preparo de lavoura?",
+      "A grade atual está dando conta do ritmo na janela de preparo?"
      ],
      "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha GACR-L da Piccin (de 10 a 36 discos; largura de trabalho de 1.030 a 3.900 mm). Quantos hectares o senhor prepara por ano com grade, e com qual trator?"
     },
     "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
    },
    {
-    "produto": "piccin-master-10000-bi-rb",
-    "modelo": "MASTER 10000 BI RB",
-    "nome": "Distribuidor Master 10000 BI RB",
+    "produto": "piccin-gndm",
+    "modelo": "GNDM",
+    "nome": "Grade Niveladora Destorroadora Mecânica",
     "fabricante": "PICCIN",
     "revenda": {
      "oportunidade_mercado": [
-      "Com adubação a lanço (potássio) antes e durante o plantio da soja em MT",
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "1 modelo no catálogo, para tratores de 140 a 140 cv",
+      "13 modelos no catálogo, para tratores de 108 a 232 cv",
       "Brasnorte (MT) está entre os municípios de maior área de lavoura no IBGE — 292.879 ha de soja em 2025"
      ],
      "perfil_cliente": {
       "texto": "médios e grandes produtores (tratores de 100 a 250 cv)",
-      "base": "Derivado da potência requerida no catálogo (140 a 140 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+      "base": "Derivado da potência requerida no catálogo (108 a 232 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
      },
      "beneficios_revenda": [
-      "Faixa de 1 modelo permite atender clientes de portes diferentes com a mesma linha"
+      "Faixa de 13 modelos permite atender clientes de portes diferentes com a mesma linha",
+      "Ficha técnica completa no catálogo oficial (páginas citadas) para apoiar a venda técnica"
      ],
      "argumentos_tecnicos": [
       {
-       "texto": "Capacidade de carga de 10.000 kg",
-       "fonte": "p. 50"
+       "texto": "De 40 a 84 discos",
+       "fonte": "p. 30"
       },
       {
-       "texto": "Faixa de distribuição de 10 a 36 m",
-       "fonte": "p. 50"
+       "texto": "Largura de trabalho de 3.789 a 7.665 mm",
+       "fonte": "p. 30"
       },
       {
-       "texto": "Potência no motor de 140 cv, conforme o modelo",
-       "fonte": "p. 50"
-      },
-      {
-       "texto": "Dual Control: vazão de 1 a 8000 kg/ha",
-       "fonte": "p. 50"
+       "texto": "Potência no motor de 108 a 232 cv, conforme o modelo",
+       "fonte": "p. 30"
       }
      ],
      "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER 10000 BI RB da Piccin: capacidade de carga de 10.000 kg; faixa de distribuição de 10 a 36 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. queria conversar sobre a linha GNDM da Piccin: de 40 a 84 discos; largura de trabalho de 3.789 a 7.665 mm. Como está a procura dos seus clientes por grades? Posso passar aí esta semana para mostrar a ficha técnica.",
      "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
     },
     "produtor": {
-     "necessidade": "Aplicar calcário, gesso e fertilizantes a lanço, com faixa e vazão documentadas.",
-     "beneficios_tecnicos": [
-      {
-       "texto": "Dual Control: vazão de 1 a 8000 kg/ha",
-       "fonte": "p. 50"
-      }
-     ],
-     "aplicacao": "Aplicação de calcário (faixa em L/ha informada no catálogo) e fertilizantes. (catálogo (linha \"Aplicação de Calcário\"))",
-     "caracteristicas_perfil": "Exige trator de 140 a 140 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "necessidade": "Preparar e nivelar o solo (abertura de área, reforma de pastagem ou preparo de lavoura).",
+     "beneficios_tecnicos": [],
+     "aplicacao": "Nivelamento e destorroamento após o preparo primário. (derivada da categoria (o catálogo não descreve a aplicação))",
+     "caracteristicas_perfil": "Exige trator de 108 a 232 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
      "perguntas": [
-      "Quantos hectares recebem calcário ou adubo a lanço por ano?",
-      "Hoje a aplicação é própria ou terceirizada?",
-      "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
+      "Quantos hectares o senhor prepara por ano com grade, e com qual trator?",
+      "É abertura de área, reforma de pastagem ou preparo de lavoura?",
+      "A grade atual está dando conta do ritmo na janela de preparo?"
      ],
      "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER 10000 BI RB da Piccin (capacidade de carga de 10.000 kg; faixa de distribuição de 10 a 36 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha GNDM da Piccin (de 40 a 84 discos; largura de trabalho de 3.789 a 7.665 mm). Quantos hectares o senhor prepara por ano com grade, e com qual trator?"
     },
     "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
    },
    {
-    "produto": "piccin-master-25000-hd-rb",
-    "modelo": "MASTER 25000 HEAVY DUTY RB",
-    "nome": "Distribuidor Master 25000 Heavy Duty RB",
+    "produto": "piccin-ganf-d",
+    "modelo": "GANF (P)(R) D",
+    "nome": "Grade Niveladora Flutuante dupla com pneu",
     "fabricante": "PICCIN",
     "revenda": {
      "oportunidade_mercado": [
-      "Com adubação a lanço (potássio) antes e durante o plantio da soja em MT",
       "Índice de Commodities Brasil (IC-Br) — Agropecuária variou +0,1% entre 01/08/2026 e 01/09/2026 (Banco Central do Brasil)"
      ],
      "potencial_comercializacao": [
-      "1 modelo no catálogo, para tratores de 200 a 200 cv",
+      "4 modelos no catálogo, para tratores de 202 a 368 cv",
       "Brasnorte (MT) está entre os municípios de maior área de lavoura no IBGE — 292.879 ha de soja em 2025"
      ],
      "perfil_cliente": {
       "texto": "grandes propriedades e grupos agrícolas (tratores acima de 200 cv)",
-      "base": "Derivado da potência requerida no catálogo (200 a 200 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
+      "base": "Derivado da potência requerida no catálogo (202 a 368 cv): indica o porte do trator, não a área da propriedade. Confirmar com o cliente."
      },
      "beneficios_revenda": [
-      "Faixa de 1 modelo permite atender clientes de portes diferentes com a mesma linha"
+      "Faixa de 4 modelos permite atender clientes de portes diferentes com a mesma linha",
+      "Ficha técnica completa no catálogo oficial (páginas citadas) para apoiar a venda técnica"
      ],
      "argumentos_tecnicos": [
       {
-       "texto": "Capacidade de carga de 25.000 kg",
-       "fonte": "p. 57"
+       "texto": "De 88 a 120 discos",
+       "fonte": "p. 26"
       },
       {
-       "texto": "Faixa de distribuição de 7 a 36 m",
-       "fonte": "p. 57"
+       "texto": "Largura de trabalho de 7.950 a 10.910 mm",
+       "fonte": "p. 26"
       },
       {
-       "texto": "Potência no motor de 200 cv, conforme o modelo",
-       "fonte": "p. 57"
+       "texto": "Potência no motor de 202 a 368 cv, conforme o modelo",
+       "fonte": "p. 26"
       }
      ],
      "abordagem": "Abrir com o momento de calendário, levantar a procura real dos produtores na loja e só então apresentar a linha; nada de condição comercial sem confirmação da fábrica.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER 25000 HEAVY DUTY RB da Piccin: capacidade de carga de 25.000 kg; faixa de distribuição de 7 a 36 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.",
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. queria conversar sobre a linha GANF (P)(R) D da Piccin: de 88 a 120 discos; largura de trabalho de 7.950 a 10.910 mm. Como está a procura dos seus clientes por grades? Posso passar aí esta semana para mostrar a ficha técnica.",
      "proxima_acao": "Agendar visita à revenda com a ficha técnica e levantar os clientes que já perguntaram por esse tipo de equipamento."
     },
     "produtor": {
-     "necessidade": "Aplicar calcário, gesso e fertilizantes a lanço, com faixa e vazão documentadas.",
+     "necessidade": "Preparar e nivelar o solo (abertura de área, reforma de pastagem ou preparo de lavoura).",
      "beneficios_tecnicos": [],
-     "aplicacao": "Aplicação de calcário (faixa em L/ha informada no catálogo) e fertilizantes. (catálogo (linha \"Aplicação de Calcário\"))",
-     "caracteristicas_perfil": "Exige trator de 200 a 200 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
+     "aplicacao": "Nivelamento e destorroamento após o preparo primário. (derivada da categoria (o catálogo não descreve a aplicação))",
+     "caracteristicas_perfil": "Exige trator de 202 a 368 cv conforme o modelo — confirmar a potência disponível antes de indicar o modelo.",
      "perguntas": [
-      "Quantos hectares recebem calcário ou adubo a lanço por ano?",
-      "Hoje a aplicação é própria ou terceirizada?",
-      "O senhor já trabalha com mapa de fertilidade (para taxa variável)?"
+      "Quantos hectares o senhor prepara por ano com grade, e com qual trator?",
+      "É abertura de área, reforma de pastagem ou preparo de lavoura?",
+      "A grade atual está dando conta do ritmo na janela de preparo?"
      ],
      "argumento": "Escolher o modelo pela potência do trator e pela largura desejada, com dados do catálogo oficial — sem promessa de rendimento.",
-     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha MASTER 25000 HEAVY DUTY RB da Piccin (capacidade de carga de 25.000 kg; faixa de distribuição de 7 a 36 m). Quantos hectares recebem calcário ou adubo a lanço por ano?"
+     "whatsapp": "Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores da região e trabalho com a linha GANF (P)(R) D da Piccin (de 88 a 120 discos; largura de trabalho de 7.950 a 10.910 mm). Quantos hectares o senhor prepara por ano com grade, e com qual trator?"
     },
     "aviso": "Argumentos técnicos extraídos do catálogo (página indicada). Não há promessa de produtividade, economia ou disponibilidade."
    },
@@ -4601,19 +4608,19 @@
    "gerado_em": "2026-10-29"
   }
  },
- "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 30/10/2026 22:43 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 51/100 (Misto / neutro); agrícola 51; pecuário —.\n\n_[Interpretação]_ Índice geral em 51/100 (misto / neutro), confiança baixa. Pesam a favor: o índice de commodities agro do BC. Pesam contra: a inflação esperada para o próximo ano e a Selic. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Índice de Commodities Brasil (IC-Br) — Agropecuária (+3,8% (01/06/2026 → 01/09/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,04 p.p. (4,30% → 4,34%, 19/10/2026 → 23/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 30/09/2026 → 30/10/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 47 · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra.\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Distribuidores** — Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja).\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 47 · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 1 produtos em janela de decisão de compra.\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 54 | 54 |\n| credito | 45 | 45 |\n| momento | 55 | 55 |\n| aderencia | 0 | 0 |\n| demanda | 69 | 69 |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **47** | **47** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- Brasnorte (MT) — potencial 93; soja 292.879 ha; bovinos 464.919 cab.\n- Juara (MT) — potencial 90; soja 140.000 ha; bovinos 908.664 cab.\n- Paranatinga (MT) — potencial 88; soja 395.000 ha; bovinos 365.369 cab.\n- Alta Floresta (MT) — potencial 87; soja 105.000 ha; bovinos 667.629 cab.\n- Itiquira (MT) — potencial 85; soja 252.000 ha; bovinos 370.067 cab.\n- Porto Velho (RO) — potencial 81; soja 55.368 ha; bovinos 1.678.295 cab.\n- Corumbiara (RO) — potencial 72; soja 56.895 ha; bovinos 322.000 cab.\n- Rio Branco (AC) — potencial 56; soja 1.870 ha; bovinos 692.787 cab.\n\nMaior potencial estrutural para Piccin segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Distribuidores:** MASTER DH 1 (pequeno/médio, 50–100 cv, p. 45); MASTER 10000 BI RB (médio/grande, 140–140 cv, p. 50); MASTER 25000 HEAVY DUTY RB (grande, 200–200 cv, p. 57)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores com o equipamento em uso agora; Revendas agrícolas que atendem esse público — Pequenos e médios produtores, Médios e grandes produtores, Grandes propriedades e grupos agrícolas.\n- Distribuidores tem opções de MASTER DH 1 (50–100 cv), MASTER 10000 BI RB (140 cv), MASTER 25000 HEAVY DUTY RB (200 cv): o porte do cliente define o modelo (catálogo).\n\n## 8. Principais oportunidades identificadas\n- Agricultura: manter negociações e relacionamento (índice 51)\n- Pecuária: sem dados suficientes\n- _[Hipótese comercial]_ possível adiamento: A Selic esperada para o próximo ano caiu 0,25 p.p. Parte dos produtores pode adiar compras esperando crédito mais barato.\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Vou esperar os juros caírem mais.\" — Expectativa não é garantia. Perguntar quanto custa adiar (perda de rendimento, paradas, janela de plantio) e se a decisão pode ser preparada agora para fechar quando fizer sentido.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Piccin — Índices próximos (47 × 47); desempate pelo calendário: MT: Adubação a lanço (potássio) antes e durante o plantio da soja (equipamento em uso).\n2. **Equipamento:** MASTER DH 1 — Categoria com a janela de calendário mais forte agora (MT: Adubação a lanço (potássio) antes e durante o plantio da soja). Modelo do catálogo: MASTER DH 1 (p. 45); escolha a opção pelo trator do cliente.\n3. **Região:** Brasnorte, Juara, Paranatinga.\n4. **Perfil:** Pequenos e médios produtores, Médios e grandes produtores, Grandes propriedades e grupos agrícolas.\n5. **Ação:** Agendar visita a produtor com distribuidores em operação para levantar gargalos e preparar a próxima compra. / Ligar para uma revenda de Brasnorte e levantar a procura por distribuidores Piccin. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Piccin MASTER DH 1):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com adubação a lanço (potássio) antes e durante o plantio da soja em MT, queria conversar sobre a linha MASTER DH 1 da Piccin: capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m. Como está a procura dos seus clientes por distribuidores? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Brasnorte e trabalho com a linha MASTER DH 1 da Piccin (capacidade de carga de 3.000 a 12.000 kg; faixa de distribuição de 7 a 20 m). Quantos hectares recebem calcário ou adubo a lanço por ano?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,42 R$/US$ | 30/10/2026 | +4,6% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 30/10/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 454,0 índice | 01/09/2026 | +0,1% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 11,75% a.a. | 23/10/2026 | -0,25 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,34% | 23/10/2026 | +0,04 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 158,88 R$/saca 60 kg | 30/10/2026 | +4,2% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 65,64 R$/saca 60 kg | 30/10/2026 | +2,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 389,90 R$/@ | 30/10/2026 | +2,2% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 413,02 centavos de R$/lp | 30/10/2026 | — | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: IBGE PAM 2025, PPM 2025.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
+ "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 02/11/2026 10:36 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 51/100 (Misto / neutro); agrícola 51; pecuário —.\n\n_[Interpretação]_ Índice geral em 51/100 (misto / neutro), confiança baixa. Pesam a favor: o índice de commodities agro do BC. Pesam contra: a inflação esperada para o próximo ano e a Selic. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Índice de Commodities Brasil (IC-Br) — Agropecuária (+3,8% (01/06/2026 → 01/09/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,04 p.p. (4,30% → 4,34%, 19/10/2026 → 23/10/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 03/10/2026 → 02/11/2026)); Taxa Selic — meta Copom (0,00 p.p. (13,75% → 13,75%, 03/10/2026 → 02/11/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 37 (-10 vs. 30/10/2026) · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra. Momento agrícola regional (15) — Nenhuma janela do calendário de referência para as categorias da marca neste mês.\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Grades** — Nenhuma categoria em janela de calendário neste mês; escolhida a de maior portfólio.\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 70 (+23 vs. 30/10/2026) · confiança baixa.\n- A favor: Aderência do portfólio (100) — 1 de 1 produtos em janela de decisão de compra. Momento agrícola regional (90) — MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra). Perfil de demanda (69) — Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 54 | 54 |\n| credito | 45 | 45 |\n| momento | 15 | 90 |\n| aderencia | 0 | 100 |\n| demanda | 69 | 69 |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **37** | **70** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- Sorriso (MT) — potencial 100; soja 550.000 ha; bovinos 100.873 cab.\n- Nova Mutum (MT) — potencial 99; soja 415.000 ha; bovinos 144.461 cab.\n- Sapezal (MT) — potencial 99; soja 393.550 ha; bovinos 161.742 cab.\n- Campo Novo do Parecis (MT) — potencial 98; soja 408.000 ha; bovinos 172.397 cab.\n- Diamantino (MT) — potencial 98; soja 405.175 ha; bovinos 121.885 cab.\n- Corumbiara (RO) — potencial 72; soja 56.895 ha; bovinos 322.000 cab.\n- Pimenteiras do Oeste (RO) — potencial 71; soja 51.726 ha; bovinos 110.500 cab.\n- Plácido de Castro (AC) — potencial 41; soja 6.190 ha; bovinos 327.130 cab.\n\nMaior potencial estrutural para Crucianelli segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Grades:** GACR-L (pequeno/médio, 40–160 cv, p. 18); GNDM (médio/grande, 108–232 cv, p. 30); GANF (P)(R) D (grande, 202–368 cv, p. 26)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores rurais em decisão de compra; Revendas agrícolas que atendem esse público — Grandes propriedades e grupos agrícolas.\n- A Plantor exige de 220 a 310 HP (catálogo, p. 5) — perfil de grandes áreas e frotas de alta potência.\n\n## 8. Principais oportunidades identificadas\n- Agricultura: manter negociações e relacionamento (índice 51)\n- Pecuária: sem dados suficientes\n- _[Hipótese comercial]_ possível adiamento: A Selic esperada para o próximo ano caiu 0,25 p.p. Parte dos produtores pode adiar compras esperando crédito mais barato.\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Vou esperar os juros caírem mais.\" — Expectativa não é garantia. Perguntar quanto custa adiar (perda de rendimento, paradas, janela de plantio) e se a decisão pode ser preparada agora para fechar quando fizer sentido.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Crucianelli — Índice Crucianelli 70 × Piccin 37. Maior diferença: 1 de 1 produtos em janela de decisão de compra.\n2. **Equipamento:** PLANTOR — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja). Modelo do catálogo: PLANTOR (p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); escolha a opção pelo trator do cliente.\n3. **Região:** Sorriso, Nova Mutum, Sapezal.\n4. **Perfil:** Grandes propriedades e grupos agrícolas.\n5. **Ação:** Prospectar produtores para plantadeiras — janela de decisão de compra aberta. / Ligar para uma revenda de Sorriso e levantar a procura por plantadeiras Crucianelli. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Crucianelli PLANTOR):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em MT, queria conversar sobre a Plantor da Crucianelli: modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo. Como está a procura dos seus clientes por plantadeiras? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Sorriso e trabalho com a Plantor da Crucianelli (modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo). Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,42 R$/US$ | 30/10/2026 | +4,6% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 02/11/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 454,0 índice | 01/09/2026 | +0,1% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 11,75% a.a. | 23/10/2026 | -0,25 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,34% | 23/10/2026 | +0,04 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 158,88 R$/saca 60 kg | 30/10/2026 | +4,2% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 65,64 R$/saca 60 kg | 30/10/2026 | +2,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 389,90 R$/@ | 30/10/2026 | +2,2% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 413,02 centavos de R$/lp | 30/10/2026 | — | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: IBGE PAM 2025, PPM 2025.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
  "catalogo_alterado": false,
  "saude": {
-  "ultima_execucao": "2026-10-30T22:43:10.415Z",
+  "ultima_execucao": "2026-11-02T10:36:44.857Z",
   "ultima_execucao_ok": true,
   "modo": "coleta",
   "coletas": [
    {
     "id": "usd_brl",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json&dataInicial=19/10/2026&dataFinal=30/10/2026",
-    "verificado_em": "2026-10-30T22:43:04.000Z",
-    "recebidas": 10,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json&dataInicial=20/10/2026&dataFinal=02/11/2026",
+    "verificado_em": "2026-11-02T10:36:39.949Z",
+    "recebidas": 9,
     "rejeitadas": 0,
     "suspeitas": [
      {
@@ -4623,7 +4630,7 @@
       "variacao_pct": 9.19
      }
     ],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 1256,
     "ultima_ref": "2026-10-30"
@@ -4631,21 +4638,21 @@
    {
     "id": "selic_meta",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=20/10/2026&dataFinal=30/10/2026",
-    "verificado_em": "2026-10-30T22:43:04.778Z",
-    "recebidas": 11,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=20/10/2026&dataFinal=02/11/2026",
+    "verificado_em": "2026-11-02T10:36:40.356Z",
+    "recebidas": 14,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 0,
+    "novas": 3,
     "alteradas": 0,
-    "total": 3288,
-    "ultima_ref": "2026-10-30"
+    "total": 3291,
+    "ultima_ref": "2026-11-02"
    },
    {
     "id": "ipca_12m",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json&dataInicial=22/08/2026&dataFinal=30/10/2026",
-    "verificado_em": "2026-10-30T22:43:05.650Z",
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json&dataInicial=22/08/2026&dataFinal=02/11/2026",
+    "verificado_em": "2026-11-02T10:36:41.669Z",
     "recebidas": 2,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4657,8 +4664,8 @@
    {
     "id": "icbr_agro",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.27575/dados?formato=json&dataInicial=22/08/2026&dataFinal=30/10/2026",
-    "verificado_em": "2026-10-30T22:43:05.973Z",
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.27575/dados?formato=json&dataInicial=22/08/2026&dataFinal=02/11/2026",
+    "verificado_em": "2026-11-02T10:36:41.950Z",
     "recebidas": 2,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4671,7 +4678,7 @@
     "id": "focus_selic_prox_ano",
     "ok": true,
     "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'Selic'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2026-10-23'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
-    "verificado_em": "2026-10-30T22:43:06.937Z",
+    "verificado_em": "2026-11-02T10:36:42.170Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4684,7 +4691,7 @@
     "id": "focus_ipca_prox_ano",
     "ok": true,
     "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'IPCA'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2026-10-23'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
-    "verificado_em": "2026-10-30T22:43:07.722Z",
+    "verificado_em": "2026-11-02T10:36:42.381Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -4697,11 +4704,11 @@
     "id": "soja_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-10-30T22:43:10.335Z",
+    "verificado_em": "2026-11-02T10:36:44.776Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 16,
     "ultima_ref": "2026-10-30"
@@ -4710,11 +4717,11 @@
     "id": "milho_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-10-30T22:43:10.335Z",
+    "verificado_em": "2026-11-02T10:36:44.776Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 16,
     "ultima_ref": "2026-10-30"
@@ -4723,11 +4730,11 @@
     "id": "boi_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-10-30T22:43:10.336Z",
+    "verificado_em": "2026-11-02T10:36:44.776Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 16,
     "ultima_ref": "2026-10-30"
@@ -4736,11 +4743,11 @@
     "id": "algodao_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-10-30T22:43:10.336Z",
+    "verificado_em": "2026-11-02T10:36:44.777Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 2,
     "ultima_ref": "2026-10-30"
@@ -4784,6 +4791,26 @@
    ],
    "titulo": "Dólar comercial (venda): +7,6% (semanal)",
    "detalhe": "Entre 23/10/2026 e 30/10/2026; limite configurado ±3%. Fonte: Banco Central do Brasil — SGS série 1. Conferido com o BCE: +7,6% no mesmo período (BCB +7,6%) — movimento confirmado por 2 fontes."
+  },
+  {
+   "id": "indice_marca_piccin",
+   "prioridade": "alta",
+   "canais": [
+    "painel",
+    "issue"
+   ],
+   "titulo": "Índice Piccin caiu 10 pontos",
+   "detalhe": "47 (2026-10-30) → 37. Limite: 10 pontos."
+  },
+  {
+   "id": "indice_marca_crucianelli",
+   "prioridade": "alta",
+   "canais": [
+    "painel",
+    "issue"
+   ],
+   "titulo": "Índice Crucianelli subiu 23 pontos",
+   "detalhe": "47 (2026-10-30) → 70. Limite: 10 pontos."
   },
   {
    "id": "focus_selic",
