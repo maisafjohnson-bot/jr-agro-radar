@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-10T10:36:45.669Z",
+ "gerado_em": "2026-11-10T22:47:37.583Z",
  "metodologia": {
   "versao": "0.3.1-experimental",
   "status": "HEURÍSTICO EXPERIMENTAL — pesos definidos por raciocínio econômico, NÃO calibrados com vendas da JR Agro. Não tem capacidade preditiva validada."
@@ -28,7 +28,7 @@
      "id": "receita",
      "nome": "Receita esperada do produtor",
      "peso": 0.3,
-     "sinal": 0.12200336776992443,
+     "sinal": 0.1418999927915626,
      "disponivel": true,
      "variaveis": [
       {
@@ -91,12 +91,12 @@
        "disponivel": true,
        "variacao": {
         "de": "2026-10-09",
-        "para": "2026-11-09",
-        "pct": 2.5008077544426524,
-        "pp": 3.87,
+        "para": "2026-11-10",
+        "pct": 3.308562197092087,
+        "pp": 5.12,
         "valor_de": 154.75,
-        "valor_para": 158.62,
-        "valor": 2.5008077544426524,
+        "valor_para": 159.87,
+        "valor": 3.308562197092087,
         "medida": "pct",
         "iStart": 1
        },
@@ -106,16 +106,16 @@
        "componentes_usados": {
         "momento": {
          "percentil": null,
-         "sinal": 0.1250403877221326,
+         "sinal": 0.16542810985460435,
          "qualidade": "limitada",
          "n": 0
         }
        },
-       "sinal_bruto": 0.1250403877221326,
+       "sinal_bruto": 0.16542810985460435,
        "qualidade": "limitada",
        "n_historico": 0,
-       "data_referencia": "2026-11-09",
-       "sinal": 0.1250403877221326
+       "data_referencia": "2026-11-10",
+       "sinal": 0.16542810985460435
       },
       {
        "id": "milho_cepea",
@@ -125,12 +125,12 @@
        "disponivel": true,
        "variacao": {
         "de": "2026-10-09",
-        "para": "2026-11-09",
-        "pct": -0.6978470675575337,
-        "pp": -0.47,
+        "para": "2026-11-10",
+        "pct": -0.3118040089086767,
+        "pp": -0.21,
         "valor_de": 67.35,
-        "valor_para": 66.88,
-        "valor": -0.6978470675575337,
+        "valor_para": 67.14,
+        "valor": -0.3118040089086767,
         "medida": "pct",
         "iStart": 1
        },
@@ -140,19 +140,19 @@
        "componentes_usados": {
         "momento": {
          "percentil": null,
-         "sinal": -0.03489235337787668,
+         "sinal": -0.015590200445433836,
          "qualidade": "limitada",
          "n": 0
         }
        },
-       "sinal_bruto": -0.03489235337787668,
+       "sinal_bruto": -0.015590200445433836,
        "qualidade": "limitada",
        "n_historico": 0,
-       "data_referencia": "2026-11-09",
-       "sinal": -0.03489235337787668
+       "data_referencia": "2026-11-10",
+       "sinal": -0.015590200445433836
       }
      ],
-     "contribuicao_pontos": 2.82
+     "contribuicao_pontos": 3.27
     },
     {
      "id": "capital",
@@ -415,13 +415,13 @@
    "suficiente": true,
    "regionais_usados": [],
    "valor": 42,
-   "valor_bruto": 41.62,
+   "valor_bruto": 42.08,
    "classificacao": "Misto / neutro",
    "confianca": "baixa",
    "motivo_confianca": "cobertura 65% dos pesos; 7 variáveis com dado atual; 46% do peso com histórico curto (sem percentil); modelo ainda não calibrado com vendas da JR Agro; nenhum indicador regional (MT/RO/AC) atual — leitura baseada só em dados nacionais",
    "contraditorio": false,
    "sensibilidade": {
-    "min": 40,
+    "min": 41,
     "max": 43,
     "muda_classificacao": false
    }
@@ -454,7 +454,7 @@
        "disponivel": true,
        "variacao": {
         "de": "2026-10-09",
-        "para": "2026-11-09",
+        "para": "2026-11-10",
         "pct": 4.102699841185813,
         "pp": 15.5,
         "valor_de": 377.8,
@@ -477,7 +477,7 @@
        "sinal_bruto": 0.20513499205929064,
        "qualidade": "limitada",
        "n_historico": 0,
-       "data_referencia": "2026-11-09",
+       "data_referencia": "2026-11-10",
        "sinal": 0.20513499205929064
       }
      ],
@@ -487,7 +487,7 @@
      "id": "custo_racao",
      "nome": "Custo de alimentação animal",
      "peso": 0.2,
-     "sinal": 0.03489235337787668,
+     "sinal": 0.015590200445433836,
      "disponivel": true,
      "variaveis": [
       {
@@ -507,12 +507,12 @@
        "disponivel": true,
        "variacao": {
         "de": "2026-10-09",
-        "para": "2026-11-09",
-        "pct": -0.6978470675575337,
-        "pp": -0.47,
+        "para": "2026-11-10",
+        "pct": -0.3118040089086767,
+        "pp": -0.21,
         "valor_de": 67.35,
-        "valor_para": 66.88,
-        "valor": -0.6978470675575337,
+        "valor_para": 67.14,
+        "valor": -0.3118040089086767,
         "medida": "pct",
         "iStart": 1
        },
@@ -522,19 +522,19 @@
        "componentes_usados": {
         "momento": {
          "percentil": null,
-         "sinal": -0.03489235337787668,
+         "sinal": -0.015590200445433836,
          "qualidade": "limitada",
          "n": 0
         }
        },
-       "sinal_bruto": -0.03489235337787668,
+       "sinal_bruto": -0.015590200445433836,
        "qualidade": "limitada",
        "n_historico": 0,
-       "data_referencia": "2026-11-09",
-       "sinal": 0.03489235337787668
+       "data_referencia": "2026-11-10",
+       "sinal": 0.015590200445433836
       }
      ],
-     "contribuicao_pontos": 0.39
+     "contribuicao_pontos": 0.17
     },
     {
      "id": "capital_pec",
@@ -669,7 +669,7 @@
    "suficiente": true,
    "regionais_usados": [],
    "valor": 50,
-   "valor_bruto": 50.26,
+   "valor_bruto": 50.05,
    "classificacao": "Misto / neutro",
    "confianca": "baixa",
    "motivo_confianca": "cobertura 90% dos pesos; 4 variáveis com dado atual; 72% do peso com histórico curto (sem percentil); modelo ainda não calibrado com vendas da JR Agro; nenhum indicador regional (MT/RO/AC) atual — leitura baseada só em dados nacionais",
@@ -682,7 +682,7 @@
   }
  },
  "diagnostico": {
-  "data_analise": "2026-11-10T10:36:45.669Z",
+  "data_analise": "2026-11-10T22:47:37.583Z",
   "situacao": "misto",
   "recomendacao": "MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO",
   "confianca": "baixa",
@@ -718,9 +718,9 @@
     "indicador": "Boi gordo — Indicador Cepea (SP)",
     "curto": "a arroba do boi no indicador Cepea",
     "bloco": "Receita do pecuarista",
-    "o_que_aconteceu": "Boi gordo — Indicador Cepea (SP): 393,30 R$/@ (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 09/11/2026)",
-    "variacao": "+4,1% (09/10/2026 → 09/11/2026)",
-    "periodo": "09/10/2026 a 09/11/2026",
+    "o_que_aconteceu": "Boi gordo — Indicador Cepea (SP): 393,30 R$/@ (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 10/11/2026)",
+    "variacao": "+4,1% (09/10/2026 → 10/11/2026)",
+    "periodo": "09/10/2026 a 10/11/2026",
     "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
     "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
     "porque_importa": "Referência nacional diária da arroba (SP). Mesmo bloco do boi MT.",
@@ -732,6 +732,28 @@
      "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
     ],
     "forca": 0.20513499205929064
+   },
+   {
+    "id": "soja_cepea",
+    "chave": "agricola:soja_cepea",
+    "segmento": "agricola",
+    "indicador": "Soja — Indicador Cepea Paranaguá",
+    "curto": "a soja em Paranaguá (Cepea)",
+    "bloco": "Receita esperada do produtor",
+    "o_que_aconteceu": "Soja — Indicador Cepea Paranaguá: 159,87 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 10/11/2026)",
+    "variacao": "+3,3% (09/10/2026 → 10/11/2026)",
+    "periodo": "09/10/2026 a 10/11/2026",
+    "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
+    "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
+    "porque_importa": "Referência nacional diária da soja (Paranaguá). Move junto com o preço em MT, mas não o substitui: frete e base regional diferem. Fica no mesmo bloco da soja MT para não contar duas vezes.",
+    "impacto_comercial": "Produtor com receita esperada melhor tende a abrir espaço para conversar sobre renovação e ampliação.",
+    "limitacoes": [
+     "Histórico curto: intensidade do movimento não comparada com o passado.",
+     "Preço maior não significa caixa disponível: depende de quanto já foi vendido antecipadamente, dos custos e do endividamento de cada produtor.",
+     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
+     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
+    ],
+    "forca": 0.16542810985460435
    }
   ],
   "fatores_desfavoraveis": [
@@ -851,37 +873,15 @@
   ],
   "fatores_neutros": [
    {
-    "id": "soja_cepea",
-    "chave": "agricola:soja_cepea",
-    "segmento": "agricola",
-    "indicador": "Soja — Indicador Cepea Paranaguá",
-    "curto": "a soja em Paranaguá (Cepea)",
-    "bloco": "Receita esperada do produtor",
-    "o_que_aconteceu": "Soja — Indicador Cepea Paranaguá: 158,62 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 09/11/2026)",
-    "variacao": "+2,5% (09/10/2026 → 09/11/2026)",
-    "periodo": "09/10/2026 a 09/11/2026",
-    "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
-    "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
-    "porque_importa": "Referência nacional diária da soja (Paranaguá). Move junto com o preço em MT, mas não o substitui: frete e base regional diferem. Fica no mesmo bloco da soja MT para não contar duas vezes.",
-    "impacto_comercial": "Produtor com receita esperada melhor tende a abrir espaço para conversar sobre renovação e ampliação.",
-    "limitacoes": [
-     "Histórico curto: intensidade do movimento não comparada com o passado.",
-     "Preço maior não significa caixa disponível: depende de quanto já foi vendido antecipadamente, dos custos e do endividamento de cada produtor.",
-     "Dado nacional — não reflete necessariamente MT, RO ou AC.",
-     "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
-    ],
-    "forca": 0.1250403877221326
-   },
-   {
     "id": "milho_cepea",
     "chave": "agricola:milho_cepea",
     "segmento": "agricola",
     "indicador": "Milho — Indicador Cepea (Campinas)",
     "curto": "o milho no indicador Cepea",
     "bloco": "Receita esperada do produtor",
-    "o_que_aconteceu": "Milho — Indicador Cepea (Campinas): 66,88 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 09/11/2026)",
-    "variacao": "-0,7% (09/10/2026 → 09/11/2026)",
-    "periodo": "09/10/2026 a 09/11/2026",
+    "o_que_aconteceu": "Milho — Indicador Cepea (Campinas): 67,14 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 10/11/2026)",
+    "variacao": "-0,3% (09/10/2026 → 10/11/2026)",
+    "periodo": "09/10/2026 a 10/11/2026",
     "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
     "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
     "porque_importa": "Referência nacional diária do milho. Mesmo bloco do milho MT (média, sem dupla contagem).",
@@ -891,7 +891,7 @@
      "Dado nacional — não reflete necessariamente MT, RO ou AC.",
      "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
     ],
-    "forca": 0.03489235337787668
+    "forca": 0.015590200445433836
    },
    {
     "id": "ipca_12m",
@@ -922,9 +922,9 @@
     "indicador": "Milho — Indicador Cepea (Campinas)",
     "curto": "o milho no indicador Cepea",
     "bloco": "Custo de alimentação animal",
-    "o_que_aconteceu": "Milho — Indicador Cepea (Campinas): 66,88 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 09/11/2026)",
-    "variacao": "-0,7% (09/10/2026 → 09/11/2026)",
-    "periodo": "09/10/2026 a 09/11/2026",
+    "o_que_aconteceu": "Milho — Indicador Cepea (Campinas): 67,14 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 10/11/2026)",
+    "variacao": "-0,3% (09/10/2026 → 10/11/2026)",
+    "periodo": "09/10/2026 a 10/11/2026",
     "fonte": "Cepea/Esalq-USP (CC BY-NC 4.0)",
     "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
     "porque_importa": "Milho mais caro encarece ração (referência nacional).",
@@ -934,13 +934,13 @@
      "Dado nacional — não reflete necessariamente MT, RO ou AC.",
      "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
     ],
-    "forca": 0.03489235337787668
+    "forca": 0.015590200445433836
    }
   ],
   "contexto_ambiguo": [
    {
     "id": "usd_brl",
-    "texto": "Dólar comercial (venda): 5,51 R$/US$ (Banco Central do Brasil, ref. 09/11/2026); Dólar comercial (venda) variou +10,5% entre 09/10/2026 e 09/11/2026 (Banco Central do Brasil).",
+    "texto": "Dólar comercial (venda): 5,58 R$/US$ (Banco Central do Brasil, ref. 10/11/2026); Dólar comercial (venda) variou +11,9% entre 09/10/2026 e 10/11/2026 (Banco Central do Brasil).",
     "nota": "Dólar alto eleva a receita em reais de quem exporta soja/milho/algodão, mas encarece máquinas, peças, diesel e fertilizantes. O efeito líquido depende do produtor e do momento da comercialização — por isso NÃO entra na nota, só no contexto."
    }
   ],
@@ -951,10 +951,10 @@
   "fatos": {
    "usd_brl": {
     "id": "usd_brl",
-    "nivel": "Dólar comercial (venda): 5,51 R$/US$ (Banco Central do Brasil, ref. 09/11/2026)",
-    "variacao": "Dólar comercial (venda) variou +10,5% entre 09/10/2026 e 09/11/2026 (Banco Central do Brasil)",
+    "nivel": "Dólar comercial (venda): 5,58 R$/US$ (Banco Central do Brasil, ref. 10/11/2026)",
+    "variacao": "Dólar comercial (venda) variou +11,9% entre 09/10/2026 e 10/11/2026 (Banco Central do Brasil)",
     "direcao": "alta",
-    "msg": "o dólar subiu 10,5% entre 09/10 e 09/11 (Banco Central do Brasil)",
+    "msg": "o dólar subiu 11,9% entre 09/10 e 10/11 (Banco Central do Brasil)",
     "tipo": "oficial"
    },
    "selic_meta": {
@@ -1015,34 +1015,34 @@
    },
    "soja_cepea": {
     "id": "soja_cepea",
-    "nivel": "Soja — Indicador Cepea Paranaguá: 158,62 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 09/11/2026)",
-    "variacao": "Soja — Indicador Cepea Paranaguá variou +2,5% entre 09/10/2026 e 09/11/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "nivel": "Soja — Indicador Cepea Paranaguá: 159,87 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 10/11/2026)",
+    "variacao": "Soja — Indicador Cepea Paranaguá variou +3,3% entre 09/10/2026 e 10/11/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
     "direcao": "alta",
-    "msg": "a soja em Paranaguá (Cepea) subiu 2,5% entre 09/10 e 09/11 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "msg": "a soja em Paranaguá (Cepea) subiu 3,3% entre 09/10 e 10/11 (Cepea/Esalq-USP (CC BY-NC 4.0))",
     "tipo": "oficial"
    },
    "milho_cepea": {
     "id": "milho_cepea",
-    "nivel": "Milho — Indicador Cepea (Campinas): 66,88 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 09/11/2026)",
-    "variacao": "Milho — Indicador Cepea (Campinas) variou -0,7% entre 09/10/2026 e 09/11/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
-    "direcao": "queda",
-    "msg": "o milho no indicador Cepea caiu 0,7% entre 09/10 e 09/11 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "nivel": "Milho — Indicador Cepea (Campinas): 67,14 R$/saca 60 kg (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 10/11/2026)",
+    "variacao": "Milho — Indicador Cepea (Campinas) variou -0,3% entre 09/10/2026 e 10/11/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "direcao": "estável",
+    "msg": "o milho no indicador Cepea ficou estável, variando 0,3% entre 09/10 e 10/11 (Cepea/Esalq-USP (CC BY-NC 4.0))",
     "tipo": "oficial"
    },
    "boi_cepea": {
     "id": "boi_cepea",
-    "nivel": "Boi gordo — Indicador Cepea (SP): 393,30 R$/@ (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 09/11/2026)",
-    "variacao": "Boi gordo — Indicador Cepea (SP) variou +4,1% entre 09/10/2026 e 09/11/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "nivel": "Boi gordo — Indicador Cepea (SP): 393,30 R$/@ (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 10/11/2026)",
+    "variacao": "Boi gordo — Indicador Cepea (SP) variou +4,1% entre 09/10/2026 e 10/11/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
     "direcao": "alta",
-    "msg": "a arroba do boi no indicador Cepea subiu 4,1% entre 09/10 e 09/11 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "msg": "a arroba do boi no indicador Cepea subiu 4,1% entre 09/10 e 10/11 (Cepea/Esalq-USP (CC BY-NC 4.0))",
     "tipo": "oficial"
    },
    "algodao_cepea": {
     "id": "algodao_cepea",
-    "nivel": "Algodão em pluma — Indicador Cepea: 415,03 centavos de R$/lp (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 09/11/2026)",
-    "variacao": "Algodão em pluma — Indicador Cepea variou +0,5% entre 30/10/2026 e 09/11/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
-    "direcao": "estável",
-    "msg": "o algodão no indicador Cepea ficou estável, variando 0,5% entre 30/10 e 09/11 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "nivel": "Algodão em pluma — Indicador Cepea: 416,60 centavos de R$/lp (Cepea/Esalq-USP (CC BY-NC 4.0), ref. 10/11/2026)",
+    "variacao": "Algodão em pluma — Indicador Cepea variou +1,4% entre 03/11/2026 e 10/11/2026 (Cepea/Esalq-USP (CC BY-NC 4.0))",
+    "direcao": "alta",
+    "msg": "o algodão no indicador Cepea subiu 1,4% entre 03/11 e 10/11 (Cepea/Esalq-USP (CC BY-NC 4.0))",
     "tipo": "oficial"
    }
   },
@@ -1064,60 +1064,56 @@
    "fonte_url": "https://www3.bcb.gov.br/sgspub/",
    "abrangencia": "Brasil",
    "coleta": "bcb_sgs",
-   "valor": 5.5146,
-   "data_referencia": "2026-11-09",
-   "coletado_em": "2026-11-09T22:50:22.219Z",
+   "valor": 5.584,
+   "data_referencia": "2026-11-10",
+   "coletado_em": "2026-11-10T22:47:39.194Z",
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
-   "idade_dias": 1,
+   "idade_dias": 0,
    "variacoes": {
     "diaria": {
-     "de": "2026-11-06",
-     "para": "2026-11-09",
-     "pct": 0.2417610383000398,
-     "pp": 0.0133,
-     "valor_de": 5.5013,
-     "valor_para": 5.5146
+     "de": "2026-11-09",
+     "para": "2026-11-10",
+     "pct": 1.2584774961012568,
+     "pp": 0.0694,
+     "valor_de": 5.5146,
+     "valor_para": 5.584
     },
     "semanal": {
-     "de": "2026-10-30",
-     "para": "2026-11-09",
-     "pct": 1.7228657861728016,
-     "pp": 0.0934,
-     "valor_de": 5.4212,
-     "valor_para": 5.5146
+     "de": "2026-11-03",
+     "para": "2026-11-10",
+     "pct": 1.6474014744698204,
+     "pp": 0.0905,
+     "valor_de": 5.4935,
+     "valor_para": 5.584
     },
     "mensal": {
      "de": "2026-10-09",
-     "para": "2026-11-09",
-     "pct": 10.530746412250448,
-     "pp": 0.5254,
+     "para": "2026-11-10",
+     "pct": 11.921750982121369,
+     "pp": 0.5948,
      "valor_de": 4.9892,
-     "valor_para": 5.5146
+     "valor_para": 5.584
     },
     "anual": {
-     "de": "2025-11-07",
-     "para": "2026-11-09",
-     "pct": 2.947710344055103,
-     "pp": 0.1579,
-     "valor_de": 5.3567,
-     "valor_para": 5.5146
+     "de": "2025-11-10",
+     "para": "2026-11-10",
+     "pct": 4.9999059814595315,
+     "pp": 0.2659,
+     "valor_de": 5.3181,
+     "valor_para": 5.584
     }
    },
    "tendencia": {
     "rotulo": "alta",
-    "pct_periodo": 11.833617778037137
+    "pct_periodo": 12.125124172819545
    },
    "interpretacao": "No mês: dólar em alta: melhora a receita em reais de quem vende grão, mas tende a encarecer máquinas, peças e insumos. Pode haver argumento para antecipar compra apenas se houver reajuste de tabela confirmado pelo fabricante.",
    "aviso": [
-    "Conferido com o BCE: +1,5% no mesmo período (BCB +1,7%) — movimento confirmado por 2 fontes."
+    "Conferido com o BCE: +1,1% no mesmo período (BCB +1,6%) — movimento confirmado por 2 fontes."
    ],
    "sparkline": [
-    [
-     "2026-08-13",
-     5.1859
-    ],
     [
      "2026-08-14",
      5.2236
@@ -1353,18 +1349,22 @@
     [
      "2026-11-09",
      5.5146
+    ],
+    [
+     "2026-11-10",
+     5.584
     ]
    ],
    "historico_url": "data/observations/usd_brl.json",
-   "fonte_consultada_em": "2026-11-10T10:36:46.850Z",
-   "dado_novo_nesta_execucao": false,
+   "fonte_consultada_em": "2026-11-10T22:47:39.212Z",
+   "dado_novo_nesta_execucao": true,
    "conferencia": {
     "status": "confirmado",
     "fonte": "Banco Central Europeu (taxa de referência, via api.frankfurter.dev)",
-    "ref_pct": 1.55,
-    "dif_pp": 0.17,
-    "dif_nivel_pct": -0.04,
-    "texto": "Conferido com o BCE: +1,5% no mesmo período (BCB +1,7%) — movimento confirmado por 2 fontes."
+    "ref_pct": 1.06,
+    "dif_pp": 0.59,
+    "dif_nivel_pct": 0.58,
+    "texto": "Conferido com o BCE: +1,1% no mesmo período (BCB +1,6%) — movimento confirmado por 2 fontes."
    }
   },
   {
@@ -1667,8 +1667,8 @@
     ]
    ],
    "historico_url": "data/observations/selic_meta.json",
-   "fonte_consultada_em": "2026-11-10T10:36:47.740Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-10T22:47:39.768Z",
+   "dado_novo_nesta_execucao": false
   },
   {
    "id": "ipca_12m",
@@ -1954,7 +1954,7 @@
     ]
    ],
    "historico_url": "data/observations/ipca_12m.json",
-   "fonte_consultada_em": "2026-11-10T10:36:48.055Z",
+   "fonte_consultada_em": "2026-11-10T22:47:40.006Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2243,7 +2243,7 @@
     ]
    ],
    "historico_url": "data/observations/icbr_agro.json",
-   "fonte_consultada_em": "2026-11-10T10:36:48.906Z",
+   "fonte_consultada_em": "2026-11-10T22:47:40.238Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2540,7 +2540,7 @@
     ]
    ],
    "historico_url": "data/observations/focus_selic_prox_ano.json",
-   "fonte_consultada_em": "2026-11-10T10:36:49.881Z",
+   "fonte_consultada_em": "2026-11-10T22:47:40.778Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2837,7 +2837,7 @@
     ]
    ],
    "historico_url": "data/observations/focus_ipca_prox_ano.json",
-   "fonte_consultada_em": "2026-11-10T10:36:50.656Z",
+   "fonte_consultada_em": "2026-11-10T22:47:41.293Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -3038,42 +3038,42 @@
    "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
    "abrangencia": "Brasil (porto de Paranaguá — referência nacional)",
    "coleta": "cepea_widget",
-   "valor": 158.62,
-   "data_referencia": "2026-11-09",
-   "coletado_em": "2026-11-09T22:50:28.523Z",
+   "valor": 159.87,
+   "data_referencia": "2026-11-10",
+   "coletado_em": "2026-11-10T22:47:43.776Z",
    "tipo_dado": "oficial",
    "praca": "Paranaguá (PR)",
    "status": "atual",
-   "idade_dias": 1,
+   "idade_dias": 0,
    "variacoes": {
     "diaria": {
-     "de": "2026-11-06",
-     "para": "2026-11-09",
-     "pct": 0.0630835225838975,
-     "pp": 0.1,
-     "valor_de": 158.52,
-     "valor_para": 158.62
+     "de": "2026-11-09",
+     "para": "2026-11-10",
+     "pct": 0.7880469045517589,
+     "pp": 1.25,
+     "valor_de": 158.62,
+     "valor_para": 159.87
     },
     "semanal": {
-     "de": "2026-10-30",
-     "para": "2026-11-09",
-     "pct": -0.1636455186304072,
-     "pp": -0.26,
-     "valor_de": 158.88,
-     "valor_para": 158.62
+     "de": "2026-11-03",
+     "para": "2026-11-10",
+     "pct": 0.37041687594173994,
+     "pp": 0.59,
+     "valor_de": 159.28,
+     "valor_para": 159.87
     },
     "mensal": {
      "de": "2026-10-09",
-     "para": "2026-11-09",
-     "pct": 2.5008077544426524,
-     "pp": 3.87,
+     "para": "2026-11-10",
+     "pct": 3.308562197092087,
+     "pp": 5.12,
      "valor_de": 154.75,
-     "valor_para": 158.62
+     "valor_para": 159.87
     }
    },
    "tendencia": {
     "rotulo": "alta",
-    "pct_periodo": 3.9400902440879846
+    "pct_periodo": 4.416411290654656
    },
    "interpretacao": "No mês: soja em alta na referência nacional: costuma puxar o preço em MT (com defasagem e diferença de frete).",
    "aviso": [],
@@ -3161,11 +3161,15 @@
     [
      "2026-11-09",
      158.62
+    ],
+    [
+     "2026-11-10",
+     159.87
     ]
    ],
    "historico_url": "data/observations/soja_cepea.json",
-   "fonte_consultada_em": "2026-11-10T10:36:53.396Z",
-   "dado_novo_nesta_execucao": false
+   "fonte_consultada_em": "2026-11-10T22:47:43.776Z",
+   "dado_novo_nesta_execucao": true
   },
   {
    "id": "milho_cepea",
@@ -3177,44 +3181,44 @@
    "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
    "abrangencia": "Brasil (região de Campinas/SP — referência nacional)",
    "coleta": "cepea_widget",
-   "valor": 66.88,
-   "data_referencia": "2026-11-09",
-   "coletado_em": "2026-11-09T22:50:28.523Z",
+   "valor": 67.14,
+   "data_referencia": "2026-11-10",
+   "coletado_em": "2026-11-10T22:47:43.776Z",
    "tipo_dado": "oficial",
    "praca": "Campinas (SP)",
    "status": "atual",
-   "idade_dias": 1,
+   "idade_dias": 0,
    "variacoes": {
     "diaria": {
-     "de": "2026-11-06",
-     "para": "2026-11-09",
-     "pct": 0.16474464579901069,
-     "pp": 0.11,
-     "valor_de": 66.77,
-     "valor_para": 66.88
+     "de": "2026-11-09",
+     "para": "2026-11-10",
+     "pct": 0.3887559808612517,
+     "pp": 0.26,
+     "valor_de": 66.88,
+     "valor_para": 67.14
     },
     "semanal": {
-     "de": "2026-10-30",
-     "para": "2026-11-09",
-     "pct": 1.8890920170627588,
-     "pp": 1.24,
-     "valor_de": 65.64,
-     "valor_para": 66.88
+     "de": "2026-11-03",
+     "para": "2026-11-10",
+     "pct": 1.4352621241879482,
+     "pp": 0.95,
+     "valor_de": 66.19,
+     "valor_para": 67.14
     },
     "mensal": {
      "de": "2026-10-09",
-     "para": "2026-11-09",
-     "pct": -0.6978470675575337,
-     "pp": -0.47,
+     "para": "2026-11-10",
+     "pct": -0.3118040089086767,
+     "pp": -0.21,
      "valor_de": 67.35,
-     "valor_para": 66.88
+     "valor_para": 67.14
     }
    },
    "tendencia": {
     "rotulo": "alta",
-    "pct_periodo": 1.8756348781580023
+    "pct_periodo": 3.497333902858143
    },
-   "interpretacao": "No mês: milho em queda na referência nacional.",
+   "interpretacao": "No mês: milho estável na referência nacional.",
    "aviso": [],
    "sparkline": [
     [
@@ -3300,11 +3304,15 @@
     [
      "2026-11-09",
      66.88
+    ],
+    [
+     "2026-11-10",
+     67.14
     ]
    ],
    "historico_url": "data/observations/milho_cepea.json",
-   "fonte_consultada_em": "2026-11-10T10:36:53.396Z",
-   "dado_novo_nesta_execucao": false
+   "fonte_consultada_em": "2026-11-10T22:47:43.776Z",
+   "dado_novo_nesta_execucao": true
   },
   {
    "id": "boi_cepea",
@@ -3317,32 +3325,32 @@
    "abrangencia": "Brasil (estado de São Paulo — referência nacional)",
    "coleta": "cepea_widget",
    "valor": 393.3,
-   "data_referencia": "2026-11-09",
-   "coletado_em": "2026-11-09T22:50:28.523Z",
+   "data_referencia": "2026-11-10",
+   "coletado_em": "2026-11-10T22:47:43.776Z",
    "tipo_dado": "oficial",
    "praca": "SP",
    "status": "atual",
-   "idade_dias": 1,
+   "idade_dias": 0,
    "variacoes": {
     "diaria": {
-     "de": "2026-11-06",
-     "para": "2026-11-09",
-     "pct": 0.15278838808251152,
-     "pp": 0.6,
-     "valor_de": 392.7,
+     "de": "2026-11-09",
+     "para": "2026-11-10",
+     "pct": 0,
+     "pp": 0,
+     "valor_de": 393.3,
      "valor_para": 393.3
     },
     "semanal": {
-     "de": "2026-10-30",
-     "para": "2026-11-09",
-     "pct": 0.8720184662734122,
-     "pp": 3.4,
-     "valor_de": 389.9,
+     "de": "2026-11-03",
+     "para": "2026-11-10",
+     "pct": 0.846153846153849,
+     "pp": 3.3,
+     "valor_de": 390,
      "valor_para": 393.3
     },
     "mensal": {
      "de": "2026-10-09",
-     "para": "2026-11-09",
+     "para": "2026-11-10",
      "pct": 4.102699841185813,
      "pp": 15.5,
      "valor_de": 377.8,
@@ -3351,7 +3359,7 @@
    },
    "tendencia": {
     "rotulo": "alta",
-    "pct_periodo": 4.341056771307697
+    "pct_periodo": 4.4034871363435535
    },
    "interpretacao": "No mês: arroba em alta na referência nacional: pecuarista mais capitalizado para investir em estrutura.",
    "aviso": [],
@@ -3439,11 +3447,15 @@
     [
      "2026-11-09",
      393.3
+    ],
+    [
+     "2026-11-10",
+     393.3
     ]
    ],
    "historico_url": "data/observations/boi_cepea.json",
-   "fonte_consultada_em": "2026-11-10T10:36:53.396Z",
-   "dado_novo_nesta_execucao": false
+   "fonte_consultada_em": "2026-11-10T22:47:43.777Z",
+   "dado_novo_nesta_execucao": true
   },
   {
    "id": "algodao_cepea",
@@ -3455,36 +3467,36 @@
    "fonte_url": "https://www.cepea.org.br/br/widget.aspx",
    "abrangencia": "Brasil (referência nacional)",
    "coleta": "cepea_widget",
-   "valor": 415.03,
-   "data_referencia": "2026-11-09",
-   "coletado_em": "2026-11-09T22:50:28.523Z",
+   "valor": 416.6,
+   "data_referencia": "2026-11-10",
+   "coletado_em": "2026-11-10T22:47:43.776Z",
    "tipo_dado": "oficial",
    "praca": "Brasil",
    "status": "atual",
-   "idade_dias": 1,
+   "idade_dias": 0,
    "variacoes": {
     "diaria": {
-     "de": "2026-11-06",
-     "para": "2026-11-09",
-     "pct": 1.2169544434689181,
-     "pp": 4.99,
-     "valor_de": 410.04,
-     "valor_para": 415.03
+     "de": "2026-11-09",
+     "para": "2026-11-10",
+     "pct": 0.37828590704287646,
+     "pp": 1.57,
+     "valor_de": 415.03,
+     "valor_para": 416.6
     },
     "semanal": {
-     "de": "2026-10-30",
-     "para": "2026-11-09",
-     "pct": 0.4866592416832093,
-     "pp": 2.01,
-     "valor_de": 413.02,
-     "valor_para": 415.03
+     "de": "2026-11-03",
+     "para": "2026-11-10",
+     "pct": 1.3847314497091816,
+     "pp": 5.69,
+     "valor_de": 410.91,
+     "valor_para": 416.6
     }
    },
    "tendencia": {
     "rotulo": "estável",
-    "pct_periodo": 0.04791300664532652
+    "pct_periodo": 0.764777371325504
    },
-   "interpretacao": "Na semana: algodão estável na referência nacional.",
+   "interpretacao": "Na semana: algodão em alta na referência nacional.",
    "aviso": [],
    "sparkline": [
     [
@@ -3514,11 +3526,15 @@
     [
      "2026-11-09",
      415.03
+    ],
+    [
+     "2026-11-10",
+     416.6
     ]
    ],
    "historico_url": "data/observations/algodao_cepea.json",
-   "fonte_consultada_em": "2026-11-10T10:36:53.396Z",
-   "dado_novo_nesta_execucao": false
+   "fonte_consultada_em": "2026-11-10T22:47:43.777Z",
+   "dado_novo_nesta_execucao": true
   }
  ],
  "categorias": [
@@ -3693,8 +3709,8 @@
    "indicadores_monitorar": [
     "Índice de Commodities Brasil (IC-Br) — Agropecuária",
     "Boi gordo — Indicador Cepea (SP)",
-    "Focus — mediana IPCA do próximo ano",
-    "Focus — mediana Selic fim do próximo ano"
+    "Soja — Indicador Cepea Paranaguá",
+    "Focus — mediana IPCA do próximo ano"
    ],
    "titulo": "Retomar negociações qualificadas",
    "execucao": "imediata",
@@ -3716,8 +3732,8 @@
    "indicadores_monitorar": [
     "Índice de Commodities Brasil (IC-Br) — Agropecuária",
     "Boi gordo — Indicador Cepea (SP)",
-    "Focus — mediana IPCA do próximo ano",
-    "Focus — mediana Selic fim do próximo ano"
+    "Soja — Indicador Cepea Paranaguá",
+    "Focus — mediana IPCA do próximo ano"
    ],
    "titulo": "Mapear necessidades urgentes e objeções",
    "execucao": "imediata",
@@ -3739,8 +3755,8 @@
    "indicadores_monitorar": [
     "Índice de Commodities Brasil (IC-Br) — Agropecuária",
     "Boi gordo — Indicador Cepea (SP)",
-    "Focus — mediana IPCA do próximo ano",
-    "Focus — mediana Selic fim do próximo ano"
+    "Soja — Indicador Cepea Paranaguá",
+    "Focus — mediana IPCA do próximo ano"
    ],
    "titulo": "Levantar alternativas de pagamento",
    "execucao": "depende de validação comercial",
@@ -3762,8 +3778,8 @@
    "indicadores_monitorar": [
     "Índice de Commodities Brasil (IC-Br) — Agropecuária",
     "Boi gordo — Indicador Cepea (SP)",
-    "Focus — mediana IPCA do próximo ano",
-    "Focus — mediana Selic fim do próximo ano"
+    "Soja — Indicador Cepea Paranaguá",
+    "Focus — mediana IPCA do próximo ano"
    ],
    "titulo": "Manter relacionamento com revendas",
    "execucao": "imediata",
@@ -3848,7 +3864,8 @@
     "pergunta_diagnostico": "Hoje, qual operação mais limita seu ritmo ou rendimento — e já existe plano para resolver isso nesta safra ou na próxima?",
     "proximo_passo": "Registrar a resposta (necessidade, prazo, forma de pagamento). Proposta só para quem confirmou necessidade; os demais ficam em acompanhamento.",
     "fatos_usados": [
-     "icbr_agro"
+     "icbr_agro",
+     "soja_cepea"
     ]
    }
   ],
@@ -4097,7 +4114,7 @@
     ],
     "componentes": {
      "economia": {
-      "valor": 48,
+      "valor": 49,
       "detalhe": "Economia agrícola (receita, custos, inflação, demanda); índice agrícola 42/100."
      },
      "credito": {
@@ -4965,10 +4982,10 @@
    "gerado_em": "2026-10-29"
   }
  },
- "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 10/11/2026 10:36 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 44/100 (Misto / neutro); agrícola 42; pecuário 50.\n\n_[Interpretação]_ Índice geral em 44/100 (misto / neutro), confiança baixa. Pesam a favor: o índice de commodities agro do BC e a arroba do boi no indicador Cepea. Pesam contra: a inflação esperada para o próximo ano e a Selic esperada pelo mercado para o próximo ano. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Índice de Commodities Brasil (IC-Br) — Agropecuária (+3,8% (01/06/2026 → 01/09/2026)); Boi gordo — Indicador Cepea (SP) (+4,1% (09/10/2026 → 09/11/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,14 p.p. (4,76% → 4,90%, 30/10/2026 → 06/11/2026)); Focus — mediana Selic fim do próximo ano (0,00 p.p. (12,50% → 12,50%, 30/10/2026 → 06/11/2026)); Focus — mediana Selic fim do próximo ano (0,00 p.p. (12,50% → 12,50%, 30/10/2026 → 06/11/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 33 (+0 vs. 09/11/2026) · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra. Momento agrícola regional (15) — Nenhuma janela do calendário de referência para as categorias da marca neste mês. Condições de crédito (31) — Selic e expectativa Focus (nível e movimento).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Grades** — Nenhuma categoria em janela de calendário neste mês; escolhida a de maior portfólio.\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 66 (+0 vs. 09/11/2026) · confiança baixa.\n- A favor: Aderência do portfólio (100) — 1 de 1 produtos em janela de decisão de compra. Momento agrícola regional (90) — MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra). Perfil de demanda (69) — Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Condições de crédito (31) — Selic e expectativa Focus (nível e movimento).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 51 | 48 |\n| credito | 31 | 31 |\n| momento | 15 | 90 |\n| aderencia | 0 | 100 |\n| demanda | 69 | 69 |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **33** | **66** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- Sorriso (MT) — potencial 100; soja 550.000 ha; bovinos 100.873 cab.\n- Nova Mutum (MT) — potencial 99; soja 415.000 ha; bovinos 144.461 cab.\n- Sapezal (MT) — potencial 99; soja 393.550 ha; bovinos 161.742 cab.\n- Campo Novo do Parecis (MT) — potencial 98; soja 408.000 ha; bovinos 172.397 cab.\n- Diamantino (MT) — potencial 98; soja 405.175 ha; bovinos 121.885 cab.\n- Corumbiara (RO) — potencial 72; soja 56.895 ha; bovinos 322.000 cab.\n- Pimenteiras do Oeste (RO) — potencial 71; soja 51.726 ha; bovinos 110.500 cab.\n- Plácido de Castro (AC) — potencial 41; soja 6.190 ha; bovinos 327.130 cab.\n\nMaior potencial estrutural para Crucianelli segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Grades:** GACR-L (pequeno/médio, 40–160 cv, p. 18); GNDM (médio/grande, 108–232 cv, p. 30); GANF (P)(R) D (grande, 202–368 cv, p. 26)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores rurais em decisão de compra; Revendas agrícolas que atendem esse público — Grandes propriedades e grupos agrícolas.\n- A Plantor exige de 220 a 310 HP (catálogo, p. 5) — perfil de grandes áreas e frotas de alta potência.\n\n## 8. Principais oportunidades identificadas\n- Pecuária: manter negociações e relacionamento (índice 50)\n- Agricultura: cenário adverso, só necessidade confirmada (índice 42)\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- \"Na seca eu resolvo com o que tenho.\" — Perguntar quanto tempo e mão de obra o trato consome hoje e qual o plano de suplementação para a próxima seca.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Crucianelli — Índice Crucianelli 66 × Piccin 33. Maior diferença: 1 de 1 produtos em janela de decisão de compra.\n2. **Equipamento:** PLANTOR — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja). Modelo do catálogo: PLANTOR (p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); escolha a opção pelo trator do cliente.\n3. **Região:** Sorriso, Nova Mutum, Sapezal.\n4. **Perfil:** Grandes propriedades e grupos agrícolas.\n5. **Ação:** Prospectar produtores para plantadeiras — janela de decisão de compra aberta. / Ligar para uma revenda de Sorriso e levantar a procura por plantadeiras Crucianelli. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Crucianelli PLANTOR):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em MT, queria conversar sobre a Plantor da Crucianelli: modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo. Como está a procura dos seus clientes por plantadeiras? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Sorriso e trabalho com a Plantor da Crucianelli (modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo). Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,51 R$/US$ | 09/11/2026 | +10,5% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 10/11/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 454,0 índice | 01/09/2026 | +0,1% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 12,50% a.a. | 06/11/2026 | +0,50 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,90% | 06/11/2026 | +0,59 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 158,62 R$/saca 60 kg | 09/11/2026 | +2,5% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 66,88 R$/saca 60 kg | 09/11/2026 | -0,7% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 393,30 R$/@ | 09/11/2026 | +4,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 415,03 centavos de R$/lp | 09/11/2026 | +0,5% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: IBGE PAM 2025, PPM 2025.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
+ "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 10/11/2026 22:47 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 44/100 (Misto / neutro); agrícola 42; pecuário 50.\n\n_[Interpretação]_ Índice geral em 44/100 (misto / neutro), confiança baixa. Pesam a favor: o índice de commodities agro do BC e a arroba do boi no indicador Cepea. Pesam contra: a inflação esperada para o próximo ano e a Selic esperada pelo mercado para o próximo ano. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Índice de Commodities Brasil (IC-Br) — Agropecuária (+3,8% (01/06/2026 → 01/09/2026)); Boi gordo — Indicador Cepea (SP) (+4,1% (09/10/2026 → 10/11/2026)); Soja — Indicador Cepea Paranaguá (+3,3% (09/10/2026 → 10/11/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,14 p.p. (4,76% → 4,90%, 30/10/2026 → 06/11/2026)); Focus — mediana Selic fim do próximo ano (0,00 p.p. (12,50% → 12,50%, 30/10/2026 → 06/11/2026)); Focus — mediana Selic fim do próximo ano (0,00 p.p. (12,50% → 12,50%, 30/10/2026 → 06/11/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 33 (+0 vs. 09/11/2026) · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra. Momento agrícola regional (15) — Nenhuma janela do calendário de referência para as categorias da marca neste mês. Condições de crédito (31) — Selic e expectativa Focus (nível e movimento).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Grades** — Nenhuma categoria em janela de calendário neste mês; escolhida a de maior portfólio.\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 66 (+0 vs. 09/11/2026) · confiança baixa.\n- A favor: Aderência do portfólio (100) — 1 de 1 produtos em janela de decisão de compra. Momento agrícola regional (90) — MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra). Perfil de demanda (69) — Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Condições de crédito (31) — Selic e expectativa Focus (nível e movimento).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 51 | 49 |\n| credito | 31 | 31 |\n| momento | 15 | 90 |\n| aderencia | 0 | 100 |\n| demanda | 69 | 69 |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **33** | **66** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- Sorriso (MT) — potencial 100; soja 550.000 ha; bovinos 100.873 cab.\n- Nova Mutum (MT) — potencial 99; soja 415.000 ha; bovinos 144.461 cab.\n- Sapezal (MT) — potencial 99; soja 393.550 ha; bovinos 161.742 cab.\n- Campo Novo do Parecis (MT) — potencial 98; soja 408.000 ha; bovinos 172.397 cab.\n- Diamantino (MT) — potencial 98; soja 405.175 ha; bovinos 121.885 cab.\n- Corumbiara (RO) — potencial 72; soja 56.895 ha; bovinos 322.000 cab.\n- Pimenteiras do Oeste (RO) — potencial 71; soja 51.726 ha; bovinos 110.500 cab.\n- Plácido de Castro (AC) — potencial 41; soja 6.190 ha; bovinos 327.130 cab.\n\nMaior potencial estrutural para Crucianelli segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Grades:** GACR-L (pequeno/médio, 40–160 cv, p. 18); GNDM (médio/grande, 108–232 cv, p. 30); GANF (P)(R) D (grande, 202–368 cv, p. 26)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores rurais em decisão de compra; Revendas agrícolas que atendem esse público — Grandes propriedades e grupos agrícolas.\n- A Plantor exige de 220 a 310 HP (catálogo, p. 5) — perfil de grandes áreas e frotas de alta potência.\n\n## 8. Principais oportunidades identificadas\n- Pecuária: manter negociações e relacionamento (índice 50)\n- Agricultura: cenário adverso, só necessidade confirmada (índice 42)\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- \"Na seca eu resolvo com o que tenho.\" — Perguntar quanto tempo e mão de obra o trato consome hoje e qual o plano de suplementação para a próxima seca.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Crucianelli — Índice Crucianelli 66 × Piccin 33. Maior diferença: 1 de 1 produtos em janela de decisão de compra.\n2. **Equipamento:** PLANTOR — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja). Modelo do catálogo: PLANTOR (p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); escolha a opção pelo trator do cliente.\n3. **Região:** Sorriso, Nova Mutum, Sapezal.\n4. **Perfil:** Grandes propriedades e grupos agrícolas.\n5. **Ação:** Prospectar produtores para plantadeiras — janela de decisão de compra aberta. / Ligar para uma revenda de Sorriso e levantar a procura por plantadeiras Crucianelli. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Crucianelli PLANTOR):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em MT, queria conversar sobre a Plantor da Crucianelli: modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo. Como está a procura dos seus clientes por plantadeiras? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Sorriso e trabalho com a Plantor da Crucianelli (modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo). Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,58 R$/US$ | 10/11/2026 | +11,9% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 10/11/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 454,0 índice | 01/09/2026 | +0,1% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 12,50% a.a. | 06/11/2026 | +0,50 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,90% | 06/11/2026 | +0,59 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 159,87 R$/saca 60 kg | 10/11/2026 | +3,3% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 67,14 R$/saca 60 kg | 10/11/2026 | -0,3% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 393,30 R$/@ | 10/11/2026 | +4,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 416,60 centavos de R$/lp | 10/11/2026 | +1,4% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: IBGE PAM 2025, PPM 2025.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
  "catalogo_alterado": false,
  "saude": {
-  "ultima_execucao": "2026-11-10T10:36:53.457Z",
+  "ultima_execucao": "2026-11-10T22:47:43.837Z",
   "ultima_execucao_ok": true,
   "modo": "coleta",
   "coletas": [
@@ -4976,24 +4993,24 @@
     "id": "usd_brl",
     "ok": true,
     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json&dataInicial=30/10/2026&dataFinal=10/11/2026",
-    "verificado_em": "2026-11-10T10:36:46.850Z",
-    "recebidas": 6,
+    "verificado_em": "2026-11-10T22:47:39.212Z",
+    "recebidas": 7,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 0,
+    "novas": 1,
     "alteradas": 0,
-    "total": 1261,
-    "ultima_ref": "2026-11-09"
+    "total": 1262,
+    "ultima_ref": "2026-11-10"
    },
    {
     "id": "selic_meta",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=30/10/2026&dataFinal=10/11/2026",
-    "verificado_em": "2026-11-10T10:36:47.740Z",
-    "recebidas": 12,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=31/10/2026&dataFinal=10/11/2026",
+    "verificado_em": "2026-11-10T22:47:39.768Z",
+    "recebidas": 11,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 3299,
     "ultima_ref": "2026-11-10"
@@ -5002,7 +5019,7 @@
     "id": "ipca_12m",
     "ok": true,
     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json&dataInicial=22/08/2026&dataFinal=10/11/2026",
-    "verificado_em": "2026-11-10T10:36:48.055Z",
+    "verificado_em": "2026-11-10T22:47:40.006Z",
     "recebidas": 2,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -5015,7 +5032,7 @@
     "id": "icbr_agro",
     "ok": true,
     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.27575/dados?formato=json&dataInicial=22/08/2026&dataFinal=10/11/2026",
-    "verificado_em": "2026-11-10T10:36:48.906Z",
+    "verificado_em": "2026-11-10T22:47:40.238Z",
     "recebidas": 2,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -5028,7 +5045,7 @@
     "id": "focus_selic_prox_ano",
     "ok": true,
     "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'Selic'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2026-11-06'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
-    "verificado_em": "2026-11-10T10:36:49.881Z",
+    "verificado_em": "2026-11-10T22:47:40.778Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -5041,7 +5058,7 @@
     "id": "focus_ipca_prox_ano",
     "ok": true,
     "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'IPCA'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2026-11-06'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
-    "verificado_em": "2026-11-10T10:36:50.656Z",
+    "verificado_em": "2026-11-10T22:47:41.293Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -5054,53 +5071,53 @@
     "id": "soja_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-11-10T10:36:53.396Z",
+    "verificado_em": "2026-11-10T22:47:43.776Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 0,
+    "novas": 1,
     "alteradas": 0,
-    "total": 21,
-    "ultima_ref": "2026-11-09"
+    "total": 22,
+    "ultima_ref": "2026-11-10"
    },
    {
     "id": "milho_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-11-10T10:36:53.396Z",
+    "verificado_em": "2026-11-10T22:47:43.776Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 0,
+    "novas": 1,
     "alteradas": 0,
-    "total": 21,
-    "ultima_ref": "2026-11-09"
+    "total": 22,
+    "ultima_ref": "2026-11-10"
    },
    {
     "id": "boi_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-11-10T10:36:53.396Z",
+    "verificado_em": "2026-11-10T22:47:43.777Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 0,
+    "novas": 1,
     "alteradas": 0,
-    "total": 21,
-    "ultima_ref": "2026-11-09"
+    "total": 22,
+    "ultima_ref": "2026-11-10"
    },
    {
     "id": "algodao_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-11-10T10:36:53.396Z",
+    "verificado_em": "2026-11-10T22:47:43.777Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 0,
+    "novas": 1,
     "alteradas": 0,
-    "total": 7,
-    "ultima_ref": "2026-11-09"
+    "total": 8,
+    "ultima_ref": "2026-11-10"
    },
    {
     "id": "imea_plantio_soja",
