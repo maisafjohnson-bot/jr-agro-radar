@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-11T22:56:03.831Z",
+ "gerado_em": "2026-11-12T10:41:36.937Z",
  "metodologia": {
   "versao": "0.3.1-experimental",
   "status": "HEURÍSTICO EXPERIMENTAL — pesos definidos por raciocínio econômico, NÃO calibrados com vendas da JR Agro. Não tem capacidade preditiva validada."
@@ -158,7 +158,7 @@
      "id": "capital",
      "nome": "Custo do capital e crédito",
      "peso": 0.25,
-     "sinal": -0.3785490669927697,
+     "sinal": -0.37849017401433505,
      "disponivel": true,
      "variaveis": [
       {
@@ -168,38 +168,38 @@
        "porque": "Juros básicos mais altos encarecem financiamentos livres e reduzem o apetite por investimento; linhas equalizadas (Plano Safra/BNDES) amortecem parte do efeito.",
        "disponivel": true,
        "variacao": {
-        "de": "2026-10-12",
-        "para": "2026-11-11",
+        "de": "2026-10-13",
+        "para": "2026-11-12",
         "pct": 0,
         "pp": 0,
         "valor_de": 13.75,
         "valor_para": 13.75,
         "valor": 0,
         "medida": "pp",
-        "iStart": 3269
+        "iStart": 3270
        },
        "medida": "pp",
-       "percentil": 0.5231481481481481,
-       "percentil_nivel": 0.7709912094574113,
+       "percentil": 0.5231124807395994,
+       "percentil_nivel": 0.7709090909090909,
        "componentes_usados": {
         "momento": {
-         "percentil": 0.5231481481481481,
-         "sinal": 0.04629629629629628,
+         "percentil": 0.5231124807395994,
+         "sinal": 0.046224961479198745,
          "qualidade": "percentil",
-         "n": 648
+         "n": 649
         },
         "nivel": {
-         "percentil": 0.7709912094574113,
-         "sinal": 0.5419824189148226,
-         "n": 3299,
+         "percentil": 0.7709090909090909,
+         "sinal": 0.5418181818181818,
+         "n": 3300,
          "desde": "2017-10-30"
         }
        },
-       "sinal_bruto": 0.2941393576055594,
+       "sinal_bruto": 0.29402157164869025,
        "qualidade": "percentil",
-       "n_historico": 648,
-       "data_referencia": "2026-11-11",
-       "sinal": -0.2941393576055594
+       "n_historico": 649,
+       "data_referencia": "2026-11-12",
+       "sinal": -0.29402157164869025
       },
       {
        "id": "focus_selic_prox_ano",
@@ -540,7 +540,7 @@
      "id": "capital_pec",
      "nome": "Custo do capital",
      "peso": 0.25,
-     "sinal": -0.3785490669927697,
+     "sinal": -0.37849017401433505,
      "disponivel": true,
      "variaveis": [
       {
@@ -550,38 +550,38 @@
        "porque": "Juros altos encarecem o investimento.",
        "disponivel": true,
        "variacao": {
-        "de": "2026-10-12",
-        "para": "2026-11-11",
+        "de": "2026-10-13",
+        "para": "2026-11-12",
         "pct": 0,
         "pp": 0,
         "valor_de": 13.75,
         "valor_para": 13.75,
         "valor": 0,
         "medida": "pp",
-        "iStart": 3269
+        "iStart": 3270
        },
        "medida": "pp",
-       "percentil": 0.5231481481481481,
-       "percentil_nivel": 0.7709912094574113,
+       "percentil": 0.5231124807395994,
+       "percentil_nivel": 0.7709090909090909,
        "componentes_usados": {
         "momento": {
-         "percentil": 0.5231481481481481,
-         "sinal": 0.04629629629629628,
+         "percentil": 0.5231124807395994,
+         "sinal": 0.046224961479198745,
          "qualidade": "percentil",
-         "n": 648
+         "n": 649
         },
         "nivel": {
-         "percentil": 0.7709912094574113,
-         "sinal": 0.5419824189148226,
-         "n": 3299,
+         "percentil": 0.7709090909090909,
+         "sinal": 0.5418181818181818,
+         "n": 3300,
          "desde": "2017-10-30"
         }
        },
-       "sinal_bruto": 0.2941393576055594,
+       "sinal_bruto": 0.29402157164869025,
        "qualidade": "percentil",
-       "n_historico": 648,
-       "data_referencia": "2026-11-11",
-       "sinal": -0.2941393576055594
+       "n_historico": 649,
+       "data_referencia": "2026-11-12",
+       "sinal": -0.29402157164869025
       },
       {
        "id": "focus_selic_prox_ano",
@@ -682,7 +682,7 @@
   }
  },
  "diagnostico": {
-  "data_analise": "2026-11-11T22:56:03.831Z",
+  "data_analise": "2026-11-12T10:41:36.937Z",
   "situacao": "misto",
   "recomendacao": "MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO",
   "confianca": "baixa",
@@ -811,9 +811,9 @@
     "indicador": "Taxa Selic — meta Copom",
     "curto": "a Selic",
     "bloco": "Custo do capital e crédito",
-    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 11/11/2026)",
-    "variacao": "0,00 p.p. (13,75% → 13,75%, 12/10/2026 → 11/11/2026)",
-    "periodo": "12/10/2026 a 11/11/2026",
+    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 12/11/2026)",
+    "variacao": "0,00 p.p. (13,75% → 13,75%, 13/10/2026 → 12/11/2026)",
+    "periodo": "13/10/2026 a 12/11/2026",
     "fonte": "Banco Central do Brasil — SGS série 432",
     "fonte_url": "https://www3.bcb.gov.br/sgspub/",
     "porque_importa": "Juros básicos mais altos encarecem financiamentos livres e reduzem o apetite por investimento; linhas equalizadas (Plano Safra/BNDES) amortecem parte do efeito.",
@@ -824,7 +824,7 @@
      "Dado nacional — não reflete necessariamente MT, RO ou AC.",
      "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
     ],
-    "forca": 0.2941393576055594
+    "forca": 0.29402157164869025
    },
    {
     "id": "selic_meta",
@@ -833,9 +833,9 @@
     "indicador": "Taxa Selic — meta Copom",
     "curto": "a Selic",
     "bloco": "Custo do capital",
-    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 11/11/2026)",
-    "variacao": "0,00 p.p. (13,75% → 13,75%, 12/10/2026 → 11/11/2026)",
-    "periodo": "12/10/2026 a 11/11/2026",
+    "o_que_aconteceu": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 12/11/2026)",
+    "variacao": "0,00 p.p. (13,75% → 13,75%, 13/10/2026 → 12/11/2026)",
+    "periodo": "13/10/2026 a 12/11/2026",
     "fonte": "Banco Central do Brasil — SGS série 432",
     "fonte_url": "https://www3.bcb.gov.br/sgspub/",
     "porque_importa": "Juros altos encarecem o investimento.",
@@ -846,7 +846,7 @@
      "Dado nacional — não reflete necessariamente MT, RO ou AC.",
      "Associação econômica esperada, não causalidade comprovada nas vendas da JR Agro."
     ],
-    "forca": 0.2941393576055594
+    "forca": 0.29402157164869025
    }
   ],
   "fatores_neutros": [
@@ -946,7 +946,7 @@
   ],
   "sinais_contraditorios": false,
   "mudancas_vs_anterior": [
-   "Índice geral caiu 1 ponto(s) desde 10/11/2026 (44 → 43)."
+   "Índice geral estável em 43 (anterior: 11/11/2026)."
   ],
   "fatos": {
    "usd_brl": {
@@ -959,10 +959,10 @@
    },
    "selic_meta": {
     "id": "selic_meta",
-    "nivel": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 11/11/2026)",
-    "variacao": "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 12/10/2026 e 11/11/2026 (Banco Central do Brasil)",
+    "nivel": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 12/11/2026)",
+    "variacao": "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 13/10/2026 e 12/11/2026 (Banco Central do Brasil)",
     "direcao": "estável",
-    "msg": "a Selic ficou de 13,75% para 13,75% entre 12/10 e 11/11 (Banco Central do Brasil)",
+    "msg": "a Selic ficou de 13,75% para 13,75% entre 13/10 e 12/11 (Banco Central do Brasil)",
     "tipo": "oficial"
    },
    "ipca_12m": {
@@ -1047,9 +1047,11 @@
    }
   },
   "tendencia_indice": {
-   "status": "insuficiente",
-   "texto": "Tendência do índice exige 10 dias com nota; há 9.",
-   "dias": 9
+   "status": "ok",
+   "rotulo": "estável",
+   "diferenca": -1.6,
+   "texto": "Média dos últimos 5 dias: 43; 5 dias anteriores: 44 (estável).",
+   "dias": 10
   },
   "sinais_momento_compra": []
  },
@@ -1070,7 +1072,7 @@
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 1,
    "variacoes": {
     "diaria": {
      "de": "2026-11-10",
@@ -1356,8 +1358,8 @@
     ]
    ],
    "historico_url": "data/observations/usd_brl.json",
-   "fonte_consultada_em": "2026-11-11T22:56:04.625Z",
-   "dado_novo_nesta_execucao": true,
+   "fonte_consultada_em": "2026-11-12T10:41:38.009Z",
+   "dado_novo_nesta_execucao": false,
    "conferencia": {
     "status": "confirmado",
     "fonte": "Banco Central Europeu (taxa de referência, via api.frankfurter.dev)",
@@ -1378,40 +1380,40 @@
    "abrangencia": "Brasil",
    "coleta": "bcb_sgs",
    "valor": 13.75,
-   "data_referencia": "2026-11-11",
-   "coletado_em": "2026-11-11T10:40:57.587Z",
+   "data_referencia": "2026-11-12",
+   "coletado_em": "2026-11-12T10:41:38.877Z",
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
    "idade_dias": 0,
    "variacoes": {
     "diaria": {
-     "de": "2026-11-10",
-     "para": "2026-11-11",
+     "de": "2026-11-11",
+     "para": "2026-11-12",
      "pct": 0,
      "pp": 0,
      "valor_de": 13.75,
      "valor_para": 13.75
     },
     "semanal": {
-     "de": "2026-11-04",
-     "para": "2026-11-11",
+     "de": "2026-11-05",
+     "para": "2026-11-12",
      "pct": 0,
      "pp": 0,
      "valor_de": 13.75,
      "valor_para": 13.75
     },
     "mensal": {
-     "de": "2026-10-12",
-     "para": "2026-11-11",
+     "de": "2026-10-13",
+     "para": "2026-11-12",
      "pct": 0,
      "pp": 0,
      "valor_de": 13.75,
      "valor_para": 13.75
     },
     "anual": {
-     "de": "2025-11-11",
-     "para": "2026-11-11",
+     "de": "2025-11-12",
+     "para": "2026-11-12",
      "pct": -8.333333333333332,
      "pp": -1.25,
      "valor_de": 15,
@@ -1425,10 +1427,6 @@
    "interpretacao": "No mês: juros estáveis: argumento de financiamento depende da linha disponível, não do movimento da Selic.",
    "aviso": [],
    "sparkline": [
-    [
-     "2026-09-13",
-     14
-    ],
     [
      "2026-09-14",
      14
@@ -1664,11 +1662,15 @@
     [
      "2026-11-11",
      13.75
+    ],
+    [
+     "2026-11-12",
+     13.75
     ]
    ],
    "historico_url": "data/observations/selic_meta.json",
-   "fonte_consultada_em": "2026-11-11T22:56:04.793Z",
-   "dado_novo_nesta_execucao": false
+   "fonte_consultada_em": "2026-11-12T10:41:38.892Z",
+   "dado_novo_nesta_execucao": true
   },
   {
    "id": "ipca_12m",
@@ -1686,7 +1688,7 @@
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
-   "idade_dias": 71,
+   "idade_dias": 72,
    "variacoes": {
     "mensal": {
      "de": "2026-08-01",
@@ -1954,7 +1956,7 @@
     ]
    ],
    "historico_url": "data/observations/ipca_12m.json",
-   "fonte_consultada_em": "2026-11-11T22:56:05.018Z",
+   "fonte_consultada_em": "2026-11-12T10:41:39.276Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -1973,7 +1975,7 @@
    "tipo_dado": "oficial",
    "praca": null,
    "status": "atual",
-   "idade_dias": 41,
+   "idade_dias": 42,
    "variacoes": {
     "mensal": {
      "de": "2026-09-01",
@@ -2243,8 +2245,8 @@
     ]
    ],
    "historico_url": "data/observations/icbr_agro.json",
-   "fonte_consultada_em": "2026-11-11T22:56:05.592Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-12T10:41:39.878Z",
+   "dado_novo_nesta_execucao": false
   },
   {
    "id": "focus_selic_prox_ano",
@@ -2262,7 +2264,7 @@
    "tipo_dado": "expectativa",
    "praca": null,
    "status": "atual",
-   "idade_dias": 5,
+   "idade_dias": 6,
    "variacoes": {
     "semanal": {
      "de": "2026-11-05",
@@ -2540,7 +2542,7 @@
     ]
    ],
    "historico_url": "data/observations/focus_selic_prox_ano.json",
-   "fonte_consultada_em": "2026-11-11T22:56:06.225Z",
+   "fonte_consultada_em": "2026-11-12T10:41:40.823Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2559,7 +2561,7 @@
    "tipo_dado": "expectativa",
    "praca": null,
    "status": "atual",
-   "idade_dias": 5,
+   "idade_dias": 6,
    "variacoes": {
     "semanal": {
      "de": "2026-11-05",
@@ -2837,7 +2839,7 @@
     ]
    ],
    "historico_url": "data/observations/focus_ipca_prox_ano.json",
-   "fonte_consultada_em": "2026-11-11T22:56:06.397Z",
+   "fonte_consultada_em": "2026-11-12T10:41:41.584Z",
    "dado_novo_nesta_execucao": false
   },
   {
@@ -2961,7 +2963,7 @@
    "tipo_dado": "manual",
    "praca": "MT (total)",
    "status": "atual",
-   "idade_dias": 19,
+   "idade_dias": 20,
    "variacoes": {},
    "tendencia": {
     "rotulo": "indefinida",
@@ -3010,7 +3012,7 @@
    "tipo_dado": "manual",
    "praca": "MT",
    "status": "atual",
-   "idade_dias": 41,
+   "idade_dias": 42,
    "variacoes": {},
    "tendencia": {
     "rotulo": "indefinida",
@@ -3044,7 +3046,7 @@
    "tipo_dado": "oficial",
    "praca": "Paranaguá (PR)",
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 1,
    "variacoes": {
     "diaria": {
      "de": "2026-11-10",
@@ -3172,8 +3174,8 @@
     ]
    ],
    "historico_url": "data/observations/soja_cepea.json",
-   "fonte_consultada_em": "2026-11-11T22:56:08.807Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-12T10:41:44.142Z",
+   "dado_novo_nesta_execucao": false
   },
   {
    "id": "milho_cepea",
@@ -3191,7 +3193,7 @@
    "tipo_dado": "oficial",
    "praca": "Campinas (SP)",
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 1,
    "variacoes": {
     "diaria": {
      "de": "2026-11-10",
@@ -3319,8 +3321,8 @@
     ]
    ],
    "historico_url": "data/observations/milho_cepea.json",
-   "fonte_consultada_em": "2026-11-11T22:56:08.808Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-12T10:41:44.142Z",
+   "dado_novo_nesta_execucao": false
   },
   {
    "id": "boi_cepea",
@@ -3338,7 +3340,7 @@
    "tipo_dado": "oficial",
    "praca": "SP",
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 1,
    "variacoes": {
     "diaria": {
      "de": "2026-11-10",
@@ -3466,8 +3468,8 @@
     ]
    ],
    "historico_url": "data/observations/boi_cepea.json",
-   "fonte_consultada_em": "2026-11-11T22:56:08.808Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-12T10:41:44.142Z",
+   "dado_novo_nesta_execucao": false
   },
   {
    "id": "algodao_cepea",
@@ -3485,7 +3487,7 @@
    "tipo_dado": "oficial",
    "praca": "Brasil",
    "status": "atual",
-   "idade_dias": 0,
+   "idade_dias": 1,
    "variacoes": {
     "diaria": {
      "de": "2026-11-10",
@@ -3549,8 +3551,8 @@
     ]
    ],
    "historico_url": "data/observations/algodao_cepea.json",
-   "fonte_consultada_em": "2026-11-11T22:56:08.808Z",
-   "dado_novo_nesta_execucao": true
+   "fonte_consultada_em": "2026-11-12T10:41:44.143Z",
+   "dado_novo_nesta_execucao": false
   }
  ],
  "categorias": [
@@ -3653,13 +3655,13 @@
    "base_regiao": "regiões de pecuária bovina relevante; ainda não há indicador regional automático",
    "evidencias": [
     "Focus — mediana Selic fim do próximo ano passou de 12,00% para 12,50% entre 07/10/2026 e 06/11/2026 (Banco Central do Brasil)",
-    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 12/10/2026 e 11/11/2026 (Banco Central do Brasil)"
+    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 13/10/2026 e 12/11/2026 (Banco Central do Brasil)"
    ],
    "argumento_central": "Atender quem já tem necessidade definida; manter presença com informação útil.",
    "objecoes": [
     {
      "objecao": "Os juros estão altos demais para financiar agora.",
-     "base": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 11/11/2026)",
+     "base": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 12/11/2026)",
      "resposta": "Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro."
     },
     {
@@ -3696,13 +3698,13 @@
    "evidencias": [
     "Focus — mediana IPCA do próximo ano passou de 4,31% para 4,90% entre 07/10/2026 e 06/11/2026 (Banco Central do Brasil)",
     "Focus — mediana Selic fim do próximo ano passou de 12,00% para 12,50% entre 07/10/2026 e 06/11/2026 (Banco Central do Brasil)",
-    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 12/10/2026 e 11/11/2026 (Banco Central do Brasil)"
+    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 13/10/2026 e 12/11/2026 (Banco Central do Brasil)"
    ],
    "argumento_central": "Escuta e relacionamento; proposta só para necessidade urgente.",
    "objecoes": [
     {
      "objecao": "Os juros estão altos demais para financiar agora.",
-     "base": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 11/11/2026)",
+     "base": "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 12/11/2026)",
      "resposta": "Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro."
     },
     {
@@ -3736,7 +3738,7 @@
    "categoria": "Pecuária — alimentação animal (vagões forrageiros/misturadores)",
    "evidencias": [
     "Focus — mediana Selic fim do próximo ano passou de 12,00% para 12,50% entre 07/10/2026 e 06/11/2026 (Banco Central do Brasil)",
-    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 12/10/2026 e 11/11/2026 (Banco Central do Brasil)"
+    "Taxa Selic — meta Copom passou de 13,75% para 13,75% entre 13/10/2026 e 12/11/2026 (Banco Central do Brasil)"
    ],
    "argumento": "Atualizar a necessidade do cliente e verificar se a proposta precisa de revisão ou de simulação de pagamento.",
    "pergunta": "O que falta para essa decisão andar — prazo, forma de pagamento ou validação técnica?",
@@ -3781,7 +3783,7 @@
    "regiao": "MT, RO, AC",
    "categoria": "—",
    "evidencias": [
-    "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 11/11/2026)",
+    "Taxa Selic — meta Copom: 13,75% a.a. (Banco Central do Brasil, ref. 12/11/2026)",
     "Focus — mediana Selic fim do próximo ano: 12,50% a.a. (Banco Central do Brasil, ref. 06/11/2026)"
    ],
    "argumento": "Comparar linhas disponíveis (banco, cooperativa de crédito, BNDES/Plano Safra) — confirmar as condições vigentes antes de citar qualquer taxa.",
@@ -3887,17 +3889,17 @@
   "aviso": "Revise antes de enviar. As mensagens citam apenas dados coletados, com fonte e data; não prometem preço, prazo ou condição de financiamento."
  },
  "anterior": {
-  "data": "2026-11-10",
-  "analisado_em": "2026-11-10T22:47:37.583Z",
+  "data": "2026-11-11",
+  "analisado_em": "2026-11-11T22:56:03.831Z",
   "recomendacao": "MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO",
   "situacao": "misto",
   "confianca": "baixa",
-  "geral_valor": 44,
-  "agricola_valor": 42,
+  "geral_valor": 43,
+  "agricola_valor": 40,
   "pecuaria_valor": 50,
   "marcas": {
    "PICCIN": 33,
-   "CRUCIANELLI": 66
+   "CRUCIANELLI": 65
   },
   "versao": "0.3.1-experimental"
  },
@@ -4080,7 +4082,7 @@
     ],
     "regional_disponivel": true,
     "anterior": {
-     "data": "2026-11-10",
+     "data": "2026-11-11",
      "valor": 33
     },
     "variacao": 0
@@ -4302,10 +4304,10 @@
     ],
     "regional_disponivel": true,
     "anterior": {
-     "data": "2026-11-10",
-     "valor": 66
+     "data": "2026-11-11",
+     "valor": 65
     },
-    "variacao": -1
+    "variacao": 0
    }
   },
   "plano": {
@@ -4997,22 +4999,22 @@
    "gerado_em": "2026-10-29"
   }
  },
- "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 11/11/2026 22:56 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 43/100 (Misto / neutro); agrícola 40; pecuário 50.\n\n_[Interpretação]_ Índice geral em 43/100 (misto / neutro), confiança baixa. Pesam a favor: a arroba do boi no indicador Cepea e a soja em Paranaguá (Cepea). Pesam contra: a inflação esperada para o próximo ano e a Selic esperada pelo mercado para o próximo ano. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Boi gordo — Indicador Cepea (SP) (+4,3% (09/10/2026 → 11/11/2026)); Soja — Indicador Cepea Paranaguá (+3,7% (09/10/2026 → 11/11/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,14 p.p. (4,76% → 4,90%, 30/10/2026 → 06/11/2026)); Focus — mediana Selic fim do próximo ano (0,00 p.p. (12,50% → 12,50%, 30/10/2026 → 06/11/2026)); Focus — mediana Selic fim do próximo ano (0,00 p.p. (12,50% → 12,50%, 30/10/2026 → 06/11/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 33 (+0 vs. 10/11/2026) · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra. Momento agrícola regional (15) — Nenhuma janela do calendário de referência para as categorias da marca neste mês. Condições de crédito (31) — Selic e expectativa Focus (nível e movimento).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Grades** — Nenhuma categoria em janela de calendário neste mês; escolhida a de maior portfólio.\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 65 (-1 vs. 10/11/2026) · confiança baixa.\n- A favor: Aderência do portfólio (100) — 1 de 1 produtos em janela de decisão de compra. Momento agrícola regional (90) — MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra). Perfil de demanda (69) — Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Condições de crédito (31) — Selic e expectativa Focus (nível e movimento).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 50 | 46 |\n| credito | 31 | 31 |\n| momento | 15 | 90 |\n| aderencia | 0 | 100 |\n| demanda | 69 | 69 |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **33** | **65** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- Sorriso (MT) — potencial 100; soja 550.000 ha; bovinos 100.873 cab.\n- Nova Mutum (MT) — potencial 99; soja 415.000 ha; bovinos 144.461 cab.\n- Sapezal (MT) — potencial 99; soja 393.550 ha; bovinos 161.742 cab.\n- Campo Novo do Parecis (MT) — potencial 98; soja 408.000 ha; bovinos 172.397 cab.\n- Diamantino (MT) — potencial 98; soja 405.175 ha; bovinos 121.885 cab.\n- Corumbiara (RO) — potencial 72; soja 56.895 ha; bovinos 322.000 cab.\n- Pimenteiras do Oeste (RO) — potencial 71; soja 51.726 ha; bovinos 110.500 cab.\n- Plácido de Castro (AC) — potencial 41; soja 6.190 ha; bovinos 327.130 cab.\n\nMaior potencial estrutural para Crucianelli segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Grades:** GACR-L (pequeno/médio, 40–160 cv, p. 18); GNDM (médio/grande, 108–232 cv, p. 30); GANF (P)(R) D (grande, 202–368 cv, p. 26)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores rurais em decisão de compra; Revendas agrícolas que atendem esse público — Grandes propriedades e grupos agrícolas.\n- A Plantor exige de 220 a 310 HP (catálogo, p. 5) — perfil de grandes áreas e frotas de alta potência.\n\n## 8. Principais oportunidades identificadas\n- Pecuária: manter negociações e relacionamento (índice 50)\n- Agricultura: cenário adverso, só necessidade confirmada (índice 40)\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- \"Na seca eu resolvo com o que tenho.\" — Perguntar quanto tempo e mão de obra o trato consome hoje e qual o plano de suplementação para a próxima seca.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Crucianelli — Índice Crucianelli 65 × Piccin 33. Maior diferença: 1 de 1 produtos em janela de decisão de compra.\n2. **Equipamento:** PLANTOR — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja). Modelo do catálogo: PLANTOR (p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); escolha a opção pelo trator do cliente.\n3. **Região:** Sorriso, Nova Mutum, Sapezal.\n4. **Perfil:** Grandes propriedades e grupos agrícolas.\n5. **Ação:** Prospectar produtores para plantadeiras — janela de decisão de compra aberta. / Ligar para uma revenda de Sorriso e levantar a procura por plantadeiras Crucianelli. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Crucianelli PLANTOR):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em MT, queria conversar sobre a Plantor da Crucianelli: modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo. Como está a procura dos seus clientes por plantadeiras? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Sorriso e trabalho com a Plantor da Crucianelli (modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo). Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,56 R$/US$ | 11/11/2026 | +11,5% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 11/11/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 452,4 índice | 01/10/2026 | -0,4% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 12,50% a.a. | 06/11/2026 | +0,50 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,90% | 06/11/2026 | +0,59 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 160,41 R$/saca 60 kg | 11/11/2026 | +3,7% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 67,30 R$/saca 60 kg | 11/11/2026 | -0,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 394,15 R$/@ | 11/11/2026 | +4,3% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 414,26 centavos de R$/lp | 11/11/2026 | +1,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: IBGE PAM 2025, PPM 2025.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
+ "boletim_md": "# JR AGRO RADAR — RELATÓRIO DIÁRIO\n**Análise:** 12/11/2026 10:41 UTC · Metodologia 0.3.1-experimental (experimental)\n\n## 1. Cenário econômico e agrícola\n**MONITORAR O MERCADO ANTES DE AUMENTAR O ESFORÇO** · situação misto · confiança baixa\n_[Cálculo]_ Índice geral 43/100 (Misto / neutro); agrícola 40; pecuário 50.\n\n_[Interpretação]_ Índice geral em 43/100 (misto / neutro), confiança baixa. Pesam a favor: a arroba do boi no indicador Cepea e a soja em Paranaguá (Cepea). Pesam contra: a inflação esperada para o próximo ano e a Selic esperada pelo mercado para o próximo ano. Preço de commodity em alta melhora a perspectiva de receita, mas não equivale a dinheiro disponível para investir. Leitura do dia: misto. Isso descreve o ambiente, não é previsão de venda — a decisão de cada cliente depende da situação financeira e operacional dele.\n\n**A favor:** Boi gordo — Indicador Cepea (SP) (+4,3% (09/10/2026 → 11/11/2026)); Soja — Indicador Cepea Paranaguá (+3,7% (09/10/2026 → 11/11/2026)).\n**Contra:** Focus — mediana IPCA do próximo ano (+0,14 p.p. (4,76% → 4,90%, 30/10/2026 → 06/11/2026)); Focus — mediana Selic fim do próximo ano (0,00 p.p. (12,50% → 12,50%, 30/10/2026 → 06/11/2026)); Focus — mediana Selic fim do próximo ano (0,00 p.p. (12,50% → 12,50%, 30/10/2026 → 06/11/2026)).\n\n## 2. Situação comercial da Piccin\n_[Cálculo]_ Índice Piccin: 33 (+0 vs. 11/11/2026) · confiança baixa.\n- A favor: Perfil de demanda (69) — Área de soja, milho, algodão, café em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Aderência do portfólio (0) — 0 de 53 produtos em janela de decisão de compra. Momento agrícola regional (15) — Nenhuma janela do calendário de referência para as categorias da marca neste mês. Condições de crédito (31) — Selic e expectativa Focus (nível e movimento).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Grades** — Nenhuma categoria em janela de calendário neste mês; escolhida a de maior portfólio.\n\n## 3. Situação comercial da Crucianelli\n_[Cálculo]_ Índice Crucianelli: 65 (+0 vs. 11/11/2026) · confiança baixa.\n- A favor: Aderência do portfólio (100) — 1 de 1 produtos em janela de decisão de compra. Momento agrícola regional (90) — MT: Decisão de compra de plantadeiras para o milho 2ª safra (janela de decisão de compra). Perfil de demanda (69) — Área de soja, milho, algodão em MT+RO+AC: 2024 → 2025: +3,8% (IBGE PAM).\n- Contra: Condições de crédito (31) — Selic e expectativa Focus (nível e movimento).\n- Sem dado: Sazonalidade de vendas, Evidência de intenção de compra.\n- _[Hipótese comercial]_ Categoria com mais aderência agora: **Plantadeiras** — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja).\n\n## 4. Índice de oportunidade por fabricante _[Cálculo]_\n| Componente | Piccin | Crucianelli |\n|---|---|---|\n| economia | 50 | 46 |\n| credito | 31 | 31 |\n| momento | 15 | 90 |\n| aderencia | 0 | 100 |\n| demanda | 69 | 69 |\n| sazonalidade | — | — |\n| crm | — | — |\n| regional (peso 0: usado na região) | — | — |\n| **Índice** | **33** | **65** |\n\nO índice descreve o ambiente para cada marca; não é intenção de compra confirmada nem probabilidade de venda.\n\n## 5. Regiões prioritárias\n- Sorriso (MT) — potencial 100; soja 550.000 ha; bovinos 100.873 cab.\n- Nova Mutum (MT) — potencial 99; soja 415.000 ha; bovinos 144.461 cab.\n- Sapezal (MT) — potencial 99; soja 393.550 ha; bovinos 161.742 cab.\n- Campo Novo do Parecis (MT) — potencial 98; soja 408.000 ha; bovinos 172.397 cab.\n- Diamantino (MT) — potencial 98; soja 405.175 ha; bovinos 121.885 cab.\n- Corumbiara (RO) — potencial 72; soja 56.895 ha; bovinos 322.000 cab.\n- Pimenteiras do Oeste (RO) — potencial 71; soja 51.726 ha; bovinos 110.500 cab.\n- Plácido de Castro (AC) — potencial 41; soja 6.190 ha; bovinos 327.130 cab.\n\nMaior potencial estrutural para Crucianelli segundo o IBGE (PAM 2025). Potencial estrutural não é oportunidade comprovada — cruze com os clientes do CRM.\n\n## 6. Equipamentos recomendados _[Hipótese comercial]_\n- **Piccin — Grades:** GACR-L (pequeno/médio, 40–160 cv, p. 18); GNDM (médio/grande, 108–232 cv, p. 30); GANF (P)(R) D (grande, 202–368 cv, p. 26)\n- **Crucianelli — Plantadeiras:** PLANTOR (grande, 220–310 HP, p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n## 7. Perfil de clientes a prospectar\n- Produtores rurais em decisão de compra; Revendas agrícolas que atendem esse público — Grandes propriedades e grupos agrícolas.\n- A Plantor exige de 220 a 310 HP (catálogo, p. 5) — perfil de grandes áreas e frotas de alta potência.\n\n## 8. Principais oportunidades identificadas\n- Pecuária: manter negociações e relacionamento (índice 50)\n- Agricultura: cenário adverso, só necessidade confirmada (índice 40)\n\n## 9. Riscos e pontos de atenção\n- \"Os juros estão altos demais para financiar agora.\" — Não discutir a Selic: levantar as linhas equalizadas disponíveis para o cliente (Plano Safra/BNDES via banco ou cooperativa) e comparar com o custo de seguir com o equipamento atual. Só citar taxa depois de confirmada pelo agente financeiro.\n- \"Ainda não vendi a safra / meu caixa está comprometido.\" — Perguntar forma de pagamento pretendida, prazo e se há venda futura ou barter; não presumir capacidade de investimento.\n- \"Meu equipamento ainda aguenta mais uma safra.\" — Perguntar quantas paradas teve na última safra e quanto custaram; se não há perda relevante, registrar a data prevista de renovação e retomar no momento certo.\n- \"Na seca eu resolvo com o que tenho.\" — Perguntar quanto tempo e mão de obra o trato consome hoje e qual o plano de suplementação para a próxima seca.\n- Sem dados: Soja — preço em Mato Grosso, Milho — preço em Mato Grosso, Boi gordo — indicador, Diesel S10 — preço médio de revenda MT, Fertilizante — preço de referência, Vendas internas de máquinas agrícolas, Algodão — preço em Mato Grosso, Comercialização da soja em MT (% da safra vendida).\n\n## 10. Plano de ação comercial _[Recomendação]_\n1. **Marca:** Crucianelli — Índice Crucianelli 65 × Piccin 33. Maior diferença: 1 de 1 produtos em janela de decisão de compra.\n2. **Equipamento:** PLANTOR — Categoria com a janela de calendário mais forte agora (MT: Plantio da soja). Modelo do catálogo: PLANTOR (p. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12); escolha a opção pelo trator do cliente.\n3. **Região:** Sorriso, Nova Mutum, Sapezal.\n4. **Perfil:** Grandes propriedades e grupos agrícolas.\n5. **Ação:** Prospectar produtores para plantadeiras — janela de decisão de compra aberta. / Ligar para uma revenda de Sorriso e levantar a procura por plantadeiras Crucianelli. / Retomar a negociação mais antiga sem contato (ver CRM).\n\n## 11. Mensagens comerciais sugeridas\n**Revenda (Crucianelli PLANTOR):**\n> Bom dia! Aqui é o Johnson, da JR Agro. Com plantio da soja em MT, queria conversar sobre a Plantor da Crucianelli: modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo. Como está a procura dos seus clientes por plantadeiras? Posso passar aí esta semana para mostrar a ficha técnica.\n\n**Produtor:**\n> Bom dia! Aqui é o Johnson, da JR Agro. Estou visitando produtores de Sorriso e trabalho com a Plantor da Crucianelli (modelos de 12 m, 15 m, 18 m de largura; 3 caixas centrais de 2.400 litros, cada uma para semente ou adubo). Quantos hectares o senhor planta na soja e na safrinha, e em quantos dias?\n\n## Anexo — indicadores, fontes e limitações _[Fato observado]_\n| Indicador | Valor | Ref. | Variação | Fonte | Status |\n|---|---|---|---|---|---|\n| Dólar comercial (venda) | 5,56 R$/US$ | 11/11/2026 | +11,5% | Banco Central do Brasil | atual |\n| Taxa Selic — meta Copom | 13,75% a.a. | 12/11/2026 | 0,00 p.p. | Banco Central do Brasil | atual |\n| IPCA acumulado em 12 meses | 4,58% | 01/09/2026 | +0,36 p.p. | IBGE, via Banco Central do Brasil | atual |\n| Índice de Commodities Brasil (IC-Br) — Agropecuária | 452,4 índice | 01/10/2026 | -0,4% | Banco Central do Brasil | atual |\n| Focus — mediana Selic fim do próximo ano | 12,50% a.a. | 06/11/2026 | +0,50 p.p. | Banco Central do Brasil | atual |\n| Focus — mediana IPCA do próximo ano | 4,90% | 06/11/2026 | +0,59 p.p. | Banco Central do Brasil | atual |\n| Soja — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Milho — preço em Mato Grosso | — | — | — | Importação manual | ausente |\n| Boi gordo — indicador | — | — | — | Importação manual | ausente |\n| Diesel S10 — preço médio de revenda MT | — | — | — | ANP | ausente |\n| Fertilizante — preço de referência | — | — | — | Importação manual (IMEA | ausente |\n| Vendas internas de máquinas agrícolas | — | — | — | Importação manual (Abimaq / Anfavea | ausente |\n| Algodão — preço em Mato Grosso | — | — | — | Importação manual (IMEA) | ausente |\n| Plantio da soja em MT (% da área) | 75,81% da área | 23/10/2026 | — | IMEA (via Revista Cultivar, 23/10/2026) | atual |\n| Comercialização da soja em MT (% da safra vendida) | — | — | — | Importação manual (IMEA | ausente |\n| Custo total de produção da soja em MT | 8.210,31 R$/ha | 01/10/2026 | — | IMEA/Senar-MT (via Revista Cultivar, 23/10/2026) | atual |\n| Soja — Indicador Cepea Paranaguá | 160,41 R$/saca 60 kg | 11/11/2026 | +3,7% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Milho — Indicador Cepea (Campinas) | 67,30 R$/saca 60 kg | 11/11/2026 | -0,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Boi gordo — Indicador Cepea (SP) | 394,15 R$/@ | 11/11/2026 | +4,3% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n| Algodão em pluma — Indicador Cepea | 414,26 centavos de R$/lp | 11/11/2026 | +1,1% | Cepea/Esalq-USP (CC BY-NC 4.0) | atual |\n\nCatálogo técnico: 60 produtos (Piccin 58, Crucianelli 2). Dados regionais: IBGE PAM 2025, PPM 2025.\nO índice é heurístico (v. 0.3.1-experimental) e não representa probabilidade de venda nem recomendação financeira.",
  "catalogo_alterado": false,
  "saude": {
-  "ultima_execucao": "2026-11-11T22:56:08.884Z",
+  "ultima_execucao": "2026-11-12T10:41:44.223Z",
   "ultima_execucao_ok": true,
   "modo": "coleta",
   "coletas": [
    {
     "id": "usd_brl",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json&dataInicial=31/10/2026&dataFinal=11/11/2026",
-    "verificado_em": "2026-11-11T22:56:04.625Z",
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json&dataInicial=01/11/2026&dataFinal=12/11/2026",
+    "verificado_em": "2026-11-12T10:41:38.009Z",
     "recebidas": 7,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 1263,
     "ultima_ref": "2026-11-11"
@@ -5020,21 +5022,21 @@
    {
     "id": "selic_meta",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=01/11/2026&dataFinal=11/11/2026",
-    "verificado_em": "2026-11-11T22:56:04.793Z",
-    "recebidas": 11,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=01/11/2026&dataFinal=12/11/2026",
+    "verificado_em": "2026-11-12T10:41:38.892Z",
+    "recebidas": 12,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 0,
+    "novas": 1,
     "alteradas": 0,
-    "total": 3300,
-    "ultima_ref": "2026-11-11"
+    "total": 3301,
+    "ultima_ref": "2026-11-12"
    },
    {
     "id": "ipca_12m",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json&dataInicial=22/08/2026&dataFinal=11/11/2026",
-    "verificado_em": "2026-11-11T22:56:05.018Z",
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json&dataInicial=22/08/2026&dataFinal=12/11/2026",
+    "verificado_em": "2026-11-12T10:41:39.276Z",
     "recebidas": 2,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -5046,12 +5048,12 @@
    {
     "id": "icbr_agro",
     "ok": true,
-    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.27575/dados?formato=json&dataInicial=22/08/2026&dataFinal=11/11/2026",
-    "verificado_em": "2026-11-11T22:56:05.592Z",
-    "recebidas": 3,
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.27575/dados?formato=json&dataInicial=21/09/2026&dataFinal=12/11/2026",
+    "verificado_em": "2026-11-12T10:41:39.878Z",
+    "recebidas": 2,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 181,
     "ultima_ref": "2026-10-01"
@@ -5060,7 +5062,7 @@
     "id": "focus_selic_prox_ano",
     "ok": true,
     "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'Selic'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2026-11-06'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
-    "verificado_em": "2026-11-11T22:56:06.225Z",
+    "verificado_em": "2026-11-12T10:41:40.823Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -5073,7 +5075,7 @@
     "id": "focus_ipca_prox_ano",
     "ok": true,
     "url": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais?$filter=Indicador%20eq%20'IPCA'%20and%20DataReferencia%20eq%20'2027'%20and%20Data%20ge%20'2026-11-06'&$orderby=Data%20desc&$top=2000&$format=json&$select=Indicador%2CData%2CDataReferencia%2CMediana%2CbaseCalculo",
-    "verificado_em": "2026-11-11T22:56:06.397Z",
+    "verificado_em": "2026-11-12T10:41:41.584Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
@@ -5086,11 +5088,11 @@
     "id": "soja_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-11-11T22:56:08.807Z",
+    "verificado_em": "2026-11-12T10:41:44.142Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 23,
     "ultima_ref": "2026-11-11"
@@ -5099,11 +5101,11 @@
     "id": "milho_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-11-11T22:56:08.808Z",
+    "verificado_em": "2026-11-12T10:41:44.142Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 23,
     "ultima_ref": "2026-11-11"
@@ -5112,11 +5114,11 @@
     "id": "boi_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-11-11T22:56:08.808Z",
+    "verificado_em": "2026-11-12T10:41:44.142Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 23,
     "ultima_ref": "2026-11-11"
@@ -5125,11 +5127,11 @@
     "id": "algodao_cepea",
     "ok": true,
     "url": "https://www.cepea.org.br/br/widgetproduto.js.php?output=html&id_indicador%5B%5D=92&id_indicador%5B%5D=77&id_indicador%5B%5D=2&id_indicador%5B%5D=54",
-    "verificado_em": "2026-11-11T22:56:08.808Z",
+    "verificado_em": "2026-11-12T10:41:44.143Z",
     "recebidas": 1,
     "rejeitadas": 0,
     "suspeitas": [],
-    "novas": 1,
+    "novas": 0,
     "alteradas": 0,
     "total": 9,
     "ultima_ref": "2026-11-11"
